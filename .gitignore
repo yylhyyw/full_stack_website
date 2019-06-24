@@ -4,6 +4,7 @@
 /dist
 /tmp
 /out-tsc
+/public
 # Only exists if Bazel was run
 /bazel-out
 
@@ -44,7 +45,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-server
-server/configs
-package-lock.json
-package.json
