@@ -1,0 +1,30 @@
+form(method="post" action="/api/register").form-signin
+    .text-center.mb-4
+        img.mb-4(src='images/bootstrap-solid.svg', alt='', width='72', height='72')
+        //h1.h3.mb-3.font-weight-normal Floating labels
+        //p
+        //    | Build form controls with floating labels via the
+        //    code :placeholder-shown
+        //    |  pseudo-element.
+        //    a(href='https://caniuse.com/#feat=css-placeholder-shown') Works in latest Chrome, Safari, and Firefox.
+    .form-label-group
+        input#inputFirstName.form-control(type='text', name='first_name', placeholder='First Name', required='', autofocus='')
+        label(for='inputFirstName') First Name
+    .form-label-group
+        input#inputLastName.form-control(type='text', name='last_name', placeholder='Last Name', required='', autofocus='')
+        label(for='inputLastName') Last Name
+    .form-label-group
+        input#inputEmail.form-control(type='email', name='email', placeholder='Email address', required='', autofocus='')
+        label(for='inputEmail') Email address
+    .form-label-group
+        input#inputPassword.form-control(type='password', name='password', placeholder='Password', required='')
+        label(for='inputPassword') Password
+    .form-label-group
+        input#confirmedPassword.form-control(type='password', name='confirmedPassword', placeholder='Confirmed Password', required='')
+        label(for='confirmedPassword') Confirmed Password
+    //.checkbox.mb-3
+    //    label
+    //        input(type='checkbox', value='remember-me')
+    //        |  Remember me
+    button.btn.btn-lg.btn-primary.btn-block(type='submit') Register
+    button.btn.btn-lg.btn-primary.btn-block(type='button' value='back-to-sign-in' onclick="window.location.href='/'") Back

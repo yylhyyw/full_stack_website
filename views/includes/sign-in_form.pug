@@ -1,0 +1,17 @@
+form(method="post" action="/api/signin").form-signin
+    .text-center.mb-4
+        img.mb-4(src='images/bootstrap-solid.svg', alt='', width='72', height='72')
+        //h1.h3.mb-3.font-weight-normal EasyBiz
+    .form-label-group
+        input#inputEmail.form-control(type='email', name='email', placeholder='Email address', required='', autofocus='')
+        label(for='inputEmail') Email address
+    .form-label-group
+        input#inputPassword.form-control(type='password', name='password', placeholder='Password', required='')
+        label(for='inputPassword') Password
+    .checkbox.mb-3
+        label
+            input(type='checkbox', value='remember-me')
+            |  Remember me
+    button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
+    button.btn.btn-lg.btn-primary.btn-block(type='button' value='Register' onclick="window.location.href='/register'") Register
+    //p.mt-5.mb-3.text-muted.text-center © 2017-2019
