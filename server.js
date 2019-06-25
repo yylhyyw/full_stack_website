@@ -3,17 +3,21 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 
+
+var cors = require('cors')
+
 // Get our API routes
 
 const app = express();
+app.use(cors());
 
 var indexRouter = require('./server/routes/api');
 
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'pug');
 
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'public')));

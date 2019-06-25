@@ -3,43 +3,29 @@ var router = express.Router();
 
 const userController = require('../controllers').user;
 const groupController = require('../controllers').group;
-const usersGroupsMappingController = require('../controllers').users_groups_mapping;
+const usersGroupsMappingController = require('../controllers')
+  .users_groups_mapping;
 
 // const user = new User();
 // var sequelize = require("../models");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+  res.send('index');
 });
 
 router.get('/register', function(req, res, next) {
-  res.render('register');
+  res.send('register');
 });
 
 router.post('/signin', (req, res, next) => {
-  var group_name = 'Group';
-  var group_desc = "you don't have any group";
   userController.sign_in(req.body.email, req.body.password, function(result) {
     if (result) {
-      // console.log(result.first_name);
-      // userController.has_group(result.email, function(group_id) {
-      //   groupController.group_details(group_id, function(group) {
-      //     group_name = group.group_name;
-      //     group_desc = group.group_desc;
-      //     console.log(group_name);
-      //     res.render('main-page', {
-      //       user_welcome_name: 'Hello ' + result.first_name + ', ',
-      //       group_name: group_name,
-      //       group_desc: group_desc
-      //     });
-      //   });
-      // });
-      usersGroupsMappingController.has_group(req.body.email, function(emails){
-
+      usersGroupsMappingController.has_group(result.email, function(emails) {
+        res.send(emails);
       });
-    } else {
-      res.send('Email/Password incorrect!');
+    }else {
+      res.send(result);
     }
   });
 });
