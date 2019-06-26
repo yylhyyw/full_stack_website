@@ -67,11 +67,13 @@
   </div>
   <div class="form-label-group">
     <input
-      type="confirmedPassword"
+      type="password"
       class="form-control"
-      id="confirmedPassword"
+      id="inputPasswordConfirm"
+      data-match="#inputPassword"
+      data-match-error="Whoops, these don't match"
+      placeholder="Confirm"
       required
-      name="confirmedPassword"
     />
     <label for="confirmedPassword">Confirmed Password</label>
   </div>
