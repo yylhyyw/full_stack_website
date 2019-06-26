@@ -2,60 +2,55 @@ const User = require('../models').users;
 const bcrypt = require('bcrypt');
 
 module.exports = {
-
-    find: function(email = null, callback)
-    {
-        if(email){
-            User.findOne({
-                where: {
-                    email: email
-                }
-            }).then(function(user) {
-                callback(user);
-            });
+  find: function(email = null, callback) {
+    if (email) {
+      User.findOne({
+        where: {
+          email: email
         }
-    },
-
-    create: function(body, callback)
-    {
-        let pwd = body.password;
-        body.password = bcrypt.hashSync(pwd, 10);
-
-        User.create({
-            first_name: body.FirstName,
-            last_name: body.LastName,
-            email: body.email,
-            password: body.password,
-        })
-            .then(user_table => {
-                callback(body.first_name);
-            })
-
-    },
-
-    sign_in: function(email, password, callback){
-        this.find(email, function(result) {
-            if(result){
-                // console.log(password);
-                // console.log(result.password);
-                if(bcrypt.compareSync(password, result.password)){
-                    callback(result);
-                    return;
-                }
-            }
-            callback(null);
-        });
-    },
-
-    has_group: function(email, callback){
-        this.find(email, function(result) {
-            if(result.group_id){
-                callback(result.group_id);
-                return;
-            }
-            callback(null);
-        });
+      }).then(function(user) {
+        callback(user);
+      });
     }
+  },
+
+  create: function(body, callback) {
+    let pwd = body.password;
+    body.password = bcrypt.hashSync(pwd, 10);
+
+    User.create({
+      first_name: body.first_name,
+      last_name: body.last_name,
+      email: body.email,
+      password: body.password
+    }).then(function(user) {
+      callback(user);
+    });
+  },
+
+  sign_in: function(email, password, callback) {
+    this.find(email, function(result) {
+      if (result) {
+        // console.log(password);
+        // console.log(result.password);
+        if (bcrypt.compareSync(password, result.password)) {
+          callback(result);
+          return;
+        }
+      }
+      callback(null);
+    });
+  },
+
+  has_group: function(email, callback) {
+    this.find(email, function(result) {
+      if (result.group_id) {
+        callback(result.group_id);
+        return;
+      }
+      callback(null);
+    });
+  }
 };
 
 // module.exports = User;

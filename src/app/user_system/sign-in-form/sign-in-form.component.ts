@@ -20,30 +20,23 @@ export class SignInFormComponent implements OnInit {
     private router: Router
   ) {}
 
-  get diagnostic() {
-    return JSON.stringify(this.user);
-  }
-
   user = new User('', '');
   submitted = false;
   loading = false;
   returnUrl: string;
 
-
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/home';
   }
-
-
 
   onSubmit() {
     this.submitted = true;
     this.loading = true;
 
-    this.authenticationService.login(this.user)
-    .pipe(first())
-    .subscribe(
-      data => {
+    this.authenticationService
+      .login(this.user)
+      .pipe(first())
+      .subscribe(data => {
         this.router.navigate([this.returnUrl]);
         // console.log(this.returnUrl);
       });

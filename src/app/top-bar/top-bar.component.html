@@ -1,27 +1,10 @@
-<!-- <nav class="navbar navbar-dark bg-dark"><a class="navbar-brand" href="/">EasyBiz</a>
-  <div class="collapse navbar-collapse" id="navbarsExample01">
-  <li class="nav-item active">
-      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-    </li>
-  </div>
-<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-</nav> -->
-
-
-<nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">EasyBiz</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarsExample02">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/register">Register<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" routerLink="/signin">SignIn<span class="sr-only">(current)</span></a>
-          </li>
-      </ul>
-    </div>
+<div
+  class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm"
+>
+  <h5 class="my-0 mr-md-auto font-weight-normal">EasyBiz</h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="p-2 text-dark" routerLink="/register" *ngIf="!currentUser">Register</a>
+    <a class="p-2 text-dark" routerLink="/signin" *ngIf="!currentUser">Sign in</a>
   </nav>
+  <a class="btn btn-outline-primary" *ngIf="currentUser" (click)="logout()">Log out</a>
+</div>

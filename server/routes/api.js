@@ -27,20 +27,18 @@ router.post('/signin', (req, res, next) => {
 });
 
 router.post('/register', (req, res, next) => {
+  console.log(req.body);
   let userInput = {
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
+    first_name: req.body.FirstName,
+    last_name: req.body.LastName,
     email: req.body.email,
     password: req.body.password
   };
-  var is_createed = new Boolean(false);
-  userController.create(userInput, function(first_name) {
-    if (first_name) {
-      is_created = true;
-      res.send(is_created);
+  userController.create(userInput, function(user) {
+    if (user) {
+      res.send(user);
     } else {
-      is_created = false;
-      res.send(is_created);
+      res.send(user);
     }
   });
 });

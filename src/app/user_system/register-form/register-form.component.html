@@ -1,31 +1,78 @@
-//TODO: remove at last
-{{ diagnostic }}
 <div ng-controller="registerFromController"></div>
+<div class="text-center mb-4">
+  <img
+    class="mb-4"
+    src="./assets/bootstrap-solid.svg"
+    alt=""
+    width="72"
+    height="72"
+  />
+</div>
 <form class="form-signin" (ngSubmit)="user_register()" #registerFrom="ngForm">
-  <div class="text-center mb-4"><img class="mb-4" src="./assets/bootstrap-solid.svg" alt="" width="72" height="72" />
-  </div>
+    <div class="alert alert-primary alert-width" role="alert" *ngIf="isRegistered">
+        You have successfully registered!
+        <br>
+        <a href="#" class="alert-link">Click here back to sign in</a>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
   <div class="form-label-group">
-    <input type="text" class="form-control" id="FirstName" required [(ngModel)]="register.FirstName" name="FirstName">
+    <input
+      type="text"
+      class="form-control"
+      id="FirstName"
+      required
+      [(ngModel)]="register.FirstName"
+      name="FirstName"
+    />
     <label for="inputFirstName">First Name</label>
   </div>
   <div class="form-label-group">
-    <input type="text" class="form-control" id="LastName" required [(ngModel)]="register.LastName" name="LastName">
+    <input
+      type="text"
+      class="form-control"
+      id="LastName"
+      required
+      [(ngModel)]="register.LastName"
+      name="LastName"
+    />
     <label for="inputLastName">Last Name</label>
   </div>
   <div class="form-label-group">
-    <input type="email" class="form-control" id="email" required [(ngModel)]="register.email" name="email">
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      required
+      [(ngModel)]="register.email"
+      name="email"
+    />
     <label for="inputEmail">Email</label>
   </div>
   <div class="form-label-group">
-    <input type="password" class="form-control" id="password" required [(ngModel)]="register.password" name="password">
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      required
+      [(ngModel)]="register.password"
+      name="password"
+    />
     <label for="inputPassword">Password</label>
   </div>
   <div class="form-label-group">
-    <input type="confirmedPassword" class="form-control" id="confirmedPassword" required name="confirmedPassword">
+    <input
+      type="confirmedPassword"
+      class="form-control"
+      id="confirmedPassword"
+      required
+      name="confirmedPassword"
+    />
     <label for="confirmedPassword">Confirmed Password</label>
   </div>
 
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-  <!-- <button class="btn btn-lg btn-primary btn-block" type="button" value="back-to-sign-in"
-    onclick="window.location.href='/'">Back</button> -->
+  <button class="btn btn-lg btn-primary btn-block" type="submit">
+    Register
+  </button>
 </form>
