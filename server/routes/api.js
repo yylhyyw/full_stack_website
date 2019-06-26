@@ -14,10 +14,6 @@ router.get('/', function(req, res, next) {
   res.send('index');
 });
 
-router.get('/register', function(req, res, next) {
-  res.send('register');
-});
-
 router.post('/signin', (req, res, next) => {
   userController.sign_in(req.body.email, req.body.password, function(result) {
     if (result) {
@@ -37,12 +33,14 @@ router.post('/register', (req, res, next) => {
     email: req.body.email,
     password: req.body.password
   };
-
+  var is_createed = new Boolean(false);
   userController.create(userInput, function(first_name) {
     if (first_name) {
-      res.send('Welcome ' + first_name);
+      is_created = true;
+      res.send(is_created);
     } else {
-      res.send('Unable to create account');
+      is_created = false;
+      res.send(is_created);
     }
   });
 });
