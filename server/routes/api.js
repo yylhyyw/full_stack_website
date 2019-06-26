@@ -21,7 +21,7 @@ router.post('/signin', (req, res, next) => {
         res.send(emails);
       });
     }else {
-      res.send(result);
+      res.status(404).json('Email and Password is not found!')
     }
   });
 });
@@ -36,9 +36,9 @@ router.post('/register', (req, res, next) => {
   };
   userController.create(userInput, function(user) {
     if (user) {
-      res.send(user);
+      res.status(201).json(user.email);
     } else {
-      res.send(user);
+      res.status(409).end();
     }
   });
 });

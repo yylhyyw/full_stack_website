@@ -1,4 +1,4 @@
-<div ng-controller="signInFormController">
+<div ng-controller="signInFormController" *ngIf="!currentUser">
   <form class="form-signin" (ngSubmit)="onSubmit()" #userForm="ngForm">
     <div class="text-center mb-4">
       <img
@@ -8,6 +8,9 @@
         width="72"
         height="72"
       />
+    </div>
+    <div class="alert alert-warning" role="alert" *ngIf="error">
+        {{ error }}
     </div>
     <div class="form-label-group">
       <input
@@ -40,5 +43,4 @@
       Sign in
     </button>
   </form>
-  <div></div>
 </div>
