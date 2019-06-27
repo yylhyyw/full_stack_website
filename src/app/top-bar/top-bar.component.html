@@ -3,8 +3,8 @@
 >
   <h5 class="my-0 mr-md-auto font-weight-normal">EasyBiz</h5>
   <nav class="my-2 my-md-0 mr-md-3">
-    <a class="p-2 text-dark" routerLink="/register" *ngIf="!currentUser">Register</a>
     <a class="p-2 text-dark" routerLink="/signin" *ngIf="!currentUser">Sign in</a>
   </nav>
+  <a class="btn btn-outline-primary" routerLink="/register" *ngIf="!currentUser">Register</a>
   <a class="btn btn-outline-primary" *ngIf="currentUser" (click)="logout()">Log out</a>
 </div>

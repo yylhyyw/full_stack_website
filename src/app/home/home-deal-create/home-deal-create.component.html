@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="py-5 text-center">
+    <h2>Create A New Deal</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quis ab!
+      Eligendi sed commodi voluptatem vero suscipit consequatur numquam aperiam
+      doloribus obcaecati ducimus, corrupti similique asperiores explicabo
+      perspiciatis officia ab?
+    </p>
+  </div>
+</div>
+
+<div class="container">
+  <h4 class="mb-3">New Deal Information</h4>
+  <form class="needs-validation" novalidate>
+    <div class="mb-3">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" required />
+      <div class="invalid-feedback">
+        Please enter your Deal Title
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6 mb-3">
+        <label for="link">Deal Link</label>
+        <input type="text" class="form-control" id="link" required />
+        <div class="invalid-feedback">
+          Please enter Deal Link
+        </div>
+      </div>
+      <div class="col-6 mb-3">
+        <label for="linkLabel">Deal Link Label</label>
+        <input type="text" class="form-control" id="linkLabel" required />
+        <div class="invalid-feedback">
+          Please enter Deal Link Label
+        </div>
+      </div>
+    </div>
+
+    <div class="text-right">
+      <button type="button" class="btn btn-primary d-inline">Add</button>
+    </div>
+
+    <div class="row">
+      <div class="col-5 mb-3">
+        <label for="warehouse">Warehouse</label>
+        <select class="custom-select d-block w-100" id="warehouse" required>
+          <option value="">Choose...</option>
+          <option value="">NH</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a valid Warehouse Location.
+        </div>
+      </div>
+
+      <div class="col-4 mb-3">
+        <label for="price">Price</label>
+        <input type="text" class="form-control" id="price" required />
+        <div class="invalid-feedback">
+          Price required
+        </div>
+      </div>
+
+      <div class="col-3 mb-3">
+        <label for="price">Quantity</label>
+        <input type="text" class="form-control" id="quantity" required />
+        <div class="invalid-feedback">
+          Quantity required
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="description">Description</label>
+      <textarea id="description" rows="4" class="form-control"></textarea>
+    </div>
+
+    <hr class="mb-4" />
+  </form>
+
+  <div>
+    <button class="btn btn-primary float-right" type="submit">Next</button>
+    <button class="btn btn-primary float-left" routerLink="/home" type="submit">Back</button>
+  </div>
+</div>

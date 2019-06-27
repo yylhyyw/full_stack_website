@@ -12,30 +12,51 @@ import { AuthenticationService } from '../../services/authentication.service';
   styleUrls: ['./register-form.component.scss']
 })
 export class RegisterFormComponent implements OnInit {
+  // register = new Register();
+  register = new Register();
+  confirmedPassword: string;
+
   private isRegistered = false;
 
   constructor(
     private registerService: RegisterService,
     private router: Router,
-    private authenticationService: AuthenticationService,
+    private authenticationService: AuthenticationService
   ) {}
 
-  register = new Register();
+  formValid() {
+    if (
+      this.register.FirstName &&
+      this.register.LastName &&
+      this.register.email &&
+      this.register.password &&
+      this.pwdValid()
+    ) {
+      return true;
+    }
+    return false;
+  }
 
   user_register() {
-    this.registerService
-      .userRegister(this.register)
-      .pipe(first())
-      .subscribe(data => {
-        console.log(data);
-        this.isRegistered = true;
-        // console.log(this.returnUrl);
-      });
-  }
+      this.registerService
+        .userRegister(this.register)
+        .pipe(first())
+        .subscribe(data => {
+          this.isRegistered = true;
+          // console.log(this.returnUrl);
+        });
+    }
 
   ngOnInit() {
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/home']);
     }
+  }
+
+  pwdValid() {
+    if (this.confirmedPassword === this.register.password) {
+      return true;
+    }
+    return false;
   }
 }

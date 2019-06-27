@@ -25,7 +25,7 @@ export class ErrorInterceptor implements HttpInterceptor {
           this.authenticationService.logout();
           location.reload(true);
         }
-        const error = err.error || err.statusText;
+        const error = err.error || err.statusText || 'Connection Refused';
         return throwError(error);
       })
     );

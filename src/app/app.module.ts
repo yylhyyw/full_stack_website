@@ -10,15 +10,25 @@ import { SignInFormComponent } from './user_components/sign-in-form/sign-in-form
 import { RegisterFormComponent } from './user_components/register-form/register-form.component';
 import { HomeComponent } from './home/home.component';
 import { ErrorInterceptor } from './interceptor/error.interceptor';
+import { HomeDealHomeTagComponent } from './home/home-deal-home-tag/home-deal-home-tag.component';
+import { HomeDealFeatureComponent } from './home/home-deal-feature/home-deal-feature.component';
+import { HomeDealCreateComponent } from './home/home-deal-create/home-deal-create.component';
+import { HomeModule } from './home/home.module';
+import { HomeRoutingModule } from './home/home-routing.module';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
     SignInFormComponent,
     RegisterFormComponent,
-    HomeComponent
+    HomeComponent,
+    HomeDealHomeTagComponent,
+    HomeDealFeatureComponent,
+    HomeDealCreateComponent
   ],
-  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, HomeModule, HomeRoutingModule],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],

@@ -9,11 +9,7 @@
   />
 </div>
 <form class="form-signin" (ngSubmit)="user_register()" #registerFrom="ngForm">
-  <div
-    class="alert alert-primary alert-width"
-    role="alert"
-    *ngIf="isRegistered"
-  >
+  <div class="alert alert-primary" role="alert" *ngIf="isRegistered">
     You have successfully registered!
     <br />
     <a class="alert-link" routerLink="/signin">Click here back to sign in</a>
@@ -21,16 +17,25 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+  <div
+    class="alert alert-danger"
+    role="alert"
+    *ngIf="!pwdValid() && !password.pristine && !ConfirmedPassword.pristine"
+  >
+    Password and Confirmed Password are not match!
+  </div>
   <div class="form-label-group">
     <input
       type="text"
       class="form-control"
       id="FirstName"
       required
+      autofocus
       [(ngModel)]="register.FirstName"
       name="FirstName"
+      #FirstName="ngModel"
     />
-    <label for="inputFirstName">First Name</label>
+    <label for="FirstName">First Name</label>
   </div>
   <div class="form-label-group">
     <input
@@ -38,6 +43,7 @@
       class="form-control"
       id="LastName"
       required
+      autofocus
       [(ngModel)]="register.LastName"
       name="LastName"
     />
@@ -48,11 +54,15 @@
       type="email"
       class="form-control"
       id="email"
-      required
-      [(ngModel)]="register.email"
       name="email"
+      required
+      autofocus
+      [(ngModel)]="register.email"
+      ngModel email
+      #email="ngModel"
     />
     <label for="inputEmail">Email</label>
+    <small class="form-text text-muted">* Required</small>
   </div>
   <div class="form-label-group">
     <input
@@ -60,25 +70,33 @@
       class="form-control"
       id="password"
       required
+      autofocus
       [(ngModel)]="register.password"
       name="password"
+      #password="ngModel"
     />
-    <label for="inputPassword">Password</label>
+    <label for="password">Password</label>
+    <small class="form-text text-muted">* Required</small>
   </div>
   <div class="form-label-group">
     <input
       type="password"
       class="form-control"
-      id="inputPasswordConfirm"
-      data-match="#inputPassword"
-      data-match-error="Whoops, these don't match"
-      placeholder="Confirm"
+      id="ConfirmedPassword"
       required
+      autofocus
+      [(ngModel)]="confirmedPassword"
+      name="ConfirmedPassword"
+      #ConfirmedPassword="ngModel"
     />
-    <label for="confirmedPassword">Confirmed Password</label>
+    <label for="ConfirmedPassword">Confirmed Password</label>
+    <small class="form-text text-muted">* Required</small>
   </div>
-
-  <button class="btn btn-lg btn-primary btn-block" type="submit">
+  <button
+    class="btn btn-lg btn-primary btn-block"
+    [disabled]="!pwdValid()"
+    type="submit"
+  >
     Register
   </button>
 </form>
