@@ -79,8 +79,9 @@
               type="text"
               class="form-control"
               id="link"
-              name="extralink"
+              name="extraLink{{i}}"
               [(ngModel)]="links[i].link"
+              value={{link.link}}
               required
             />
             <div class="invalid-feedback">
@@ -93,8 +94,9 @@
               type="text"
               class="form-control"
               id="linkLabel"
-              name="extralinkName"
+              name="extraLinkName{{i}}"
               [(ngModel)]="links[i].linkName"
+              value={{link.linkName}}
               required
             />
             <div class="invalid-feedback">

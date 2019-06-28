@@ -18,4 +18,5 @@ export class RegisterService {
   userRegister(register: Register): Observable<Register> {
     return this.http.post<Register>(this.registerUrl, register, httpOptions);
   }
+
 }

@@ -4,13 +4,13 @@ import { DealLink } from '../../models/dealLink';
 
 import { Deal } from '../../models/deal';
 
-import {CreateDealService} from '../../services/createdeal.service';
+import { DealService } from '../../services/deal.service';
 import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home-deal-create',
   templateUrl: './home-deal-create.component.html',
-  providers: [CreateDealService],
+  providers: [DealService],
   styleUrls: ['./home-deal-create.component.scss']
 })
 export class HomeDealCreateComponent implements OnInit {
@@ -27,11 +27,11 @@ export class HomeDealCreateComponent implements OnInit {
   get extraLinks() {
     return JSON.stringify(this.links);
   }
-  public deal = new Deal();
+  public deal = new Deal('', [], '', 0, 0, '');
   public link = new DealLink();
   public links: DealLink[] = [];
 
-  constructor(private createDealService: CreateDealService) {}
+  constructor(private dealService: DealService) {}
 
   ngOnInit() {
     // this.links.push(new DealLink())
@@ -48,12 +48,12 @@ export class HomeDealCreateComponent implements OnInit {
     while (this.links.length !== 0) {
       this.deal.deallinks.push(this.links.pop());
     }
-    this.createDealService
-    .createDeal(this.deal)
-    .pipe(first())
-    .subscribe(data => {
-      console.log(data);
-      this.isCreated = true;
-    });
+    this.dealService
+      .createDeal(this.deal)
+      .pipe(first())
+      .subscribe(data => {
+        console.log(data);
+        this.isCreated = true;
+      });
   }
 }

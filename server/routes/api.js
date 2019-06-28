@@ -53,4 +53,16 @@ router.post('/createdeal', (req, res, next) => {
   });
 });
 
+router.post('/deal/active/firstTen',
+  (req, res, next) => {
+    // console.log(req.body.user_email);
+    dealController.findTen(req.body.user_email, function(deals) {
+      if (deals) {
+        res.status(201).send(deals);
+      } else {
+        res.status(409).end();
+      }
+    });
+  });
+
 module.exports = router;

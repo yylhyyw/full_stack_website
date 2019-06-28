@@ -7,12 +7,19 @@ export class Deal {
   public price: number;
   public quantity: number;
   public description: string;
-  constructor() {
-    this.title = '';
-    this.deallinks = [];
-    this.warehouse = '';
-    this.price = 0;
-    this.quantity = 0;
-    this.description = '';
+  constructor(
+    title: string,
+    deallinks: any[],
+    warehouse: string,
+    price: number,
+    quantity: number,
+    description: string
+  ) {
+    this.title = title;
+    this.deallinks = deallinks;
+    this.warehouse = warehouse;
+    this.price = price;
+    this.quantity = quantity;
+    this.description = description;
   }
 }

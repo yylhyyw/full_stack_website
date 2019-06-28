@@ -11,11 +11,16 @@ const httpOptions = {
   })
 };
 @Injectable()
-export class CreateDealService {
+export class DealService {
   createDealUrl = 'http://localhost:3000/api/createdeal';  // URL to web api
+  tenDealsUrl = 'http://localhost:3000/api/deal/active/firstTen';
   constructor(private http: HttpClient) { }
 
   createDeal(deal: Deal): Observable<Deal> {
     return this.http.post<Deal>(this.createDealUrl, deal, httpOptions);
+  }
+
+  tenDeals(creator: string): Observable<string> {
+    return this.http.post<string>(this.tenDealsUrl, creator, httpOptions);
   }
 }

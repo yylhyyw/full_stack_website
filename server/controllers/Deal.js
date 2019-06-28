@@ -12,9 +12,24 @@ module.exports = {
       deal_price: body.price,
       deal_quantity: body.quantity,
       deal_description: body.description,
-      deal_creator: "test"
+      deal_creator: 'test'
     }).then(function(deal) {
       callback(deal);
     });
+  },
+
+  findTen: function(creator = null, callback) {
+    if (creator) {
+      Deal.findAll(
+        { limit: 10 },
+        {
+          where: {
+            deal_creator: creator
+          }
+        }
+      ).then(function(deals) {
+        callback(deals);
+      });
+    }
   }
 };
