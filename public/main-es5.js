@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n    <!-- <div style=\"text-align:center\">\n      <h1>\n        Welcome to {{ title }}!\n      </h1>\n      <img width=\"300\" alt=\"Angular Logo\" src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==\">\n    </div>\n    <h2>Here are some links to help you start: </h2>\n    <ul>\n      <li>\n        <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://angular.io/tutorial\">Tour of Heroes</a></h2>\n      </li>\n      <li>\n        <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://angular.io/cli\">CLI Documentation</a></h2>\n      </li>\n      <li>\n        <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://blog.angular.io/\">Angular blog</a></h2>\n      </li>\n    </ul> -->\n<app-top-bar></app-top-bar>\n<router-outlet></router-outlet>\n<router-outlet></router-outlet>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n    <!-- <div style=\"text-align:center\">\n      <h1>\n        Welcome to {{ title }}!\n      </h1>\n      <img width=\"300\" alt=\"Angular Logo\" src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==\">\n    </div>\n    <h2>Here are some links to help you start: </h2>\n    <ul>\n      <li>\n        <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://angular.io/tutorial\">Tour of Heroes</a></h2>\n      </li>\n      <li>\n        <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://angular.io/cli\">CLI Documentation</a></h2>\n      </li>\n      <li>\n        <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://blog.angular.io/\">Angular blog</a></h2>\n      </li>\n    </ul> -->\n<app-top-bar></app-top-bar>\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = "<!--The content below is only a placeholder and can be replace
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"my-3 p-3 bg-white rounded shadow-sm container\">\n    <h6 class=\"border-bottom border-gray pb-2 mb-0\">Active Deals</h6>\n    <div class=\"media text-muted pt-3\">\n      <svg class=\"bd-placeholder-img mr-2 rounded\" width=\"32\" height=\"32\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid slice\" focusable=\"false\" role=\"img\" aria-label=\"Placeholder: 32x32\"><title>Placeholder</title><rect fill=\"#007bff\" width=\"100%\" height=\"100%\"/><text fill=\"#007bff\" dy=\".3em\" x=\"50%\" y=\"50%\">32x32</text></svg>\n      <p class=\"media-body pb-3 mb-0 small lh-125 border-bottom border-gray\">\n        <strong class=\"d-block text-gray-dark\">@username</strong>\n        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.\n      </p>\n    </div>\n    <div class=\"media text-muted pt-3\">\n      <svg class=\"bd-placeholder-img mr-2 rounded\" width=\"32\" height=\"32\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid slice\" focusable=\"false\" role=\"img\" aria-label=\"Placeholder: 32x32\"><title>Placeholder</title><rect fill=\"#e83e8c\" width=\"100%\" height=\"100%\"/><text fill=\"#e83e8c\" dy=\".3em\" x=\"50%\" y=\"50%\">32x32</text></svg>\n      <p class=\"media-body pb-3 mb-0 small lh-125 border-bottom border-gray\">\n        <strong class=\"d-block text-gray-dark\">@username</strong>\n        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.\n      </p>\n    </div>\n    <div class=\"media text-muted pt-3\">\n      <svg class=\"bd-placeholder-img mr-2 rounded\" width=\"32\" height=\"32\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid slice\" focusable=\"false\" role=\"img\" aria-label=\"Placeholder: 32x32\"><title>Placeholder</title><rect fill=\"#6f42c1\" width=\"100%\" height=\"100%\"/><text fill=\"#6f42c1\" dy=\".3em\" x=\"50%\" y=\"50%\">32x32</text></svg>\n      <p class=\"media-body pb-3 mb-0 small lh-125 border-bottom border-gray\">\n        <strong class=\"d-block text-gray-dark\">@username</strong>\n        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.\n      </p>\n    </div>\n    <small class=\"d-block text-right mt-3\">\n      <a href=\"#\">All deals</a>\n    </small>\n  </div>\n"
+module.exports = "<div class=\"my-3 p-3 bg-white rounded shadow-sm container\">\n  <h5 class=\"border-bottom border-gray pb-2 mb-0\">Active Deals</h5>\n  <div\n    *ngFor=\"let activeDeal of activeDealList; index as i\"\n    class=\"media text-muted pt-3\"\n  >\n    <h6 class=\"media-body pb-3 mb-0 small lh-125 border-bottom border-gray\">\n      <strong class=\"d-block text-gray-dark\">{{ activeDeal.title }}</strong>\n      {{ activeDeal.description }}\n    </h6>\n  </div>\n  <small class=\"d-block text-right mt-3\">\n    <a>All deals</a>\n  </small>\n</div>\n<!-- https://www.bootdey.com/snippets/view/list-with-description#html -->\n"
 
 /***/ }),
 
@@ -52,7 +52,7 @@ module.exports = "<div class=\"my-3 p-3 bg-white rounded shadow-sm container\">\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"py-5 text-center\">\n    <h2>Create A New Deal</h2>\n    <p>\n      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quis ab!\n      Eligendi sed commodi voluptatem vero suscipit consequatur numquam aperiam\n      doloribus obcaecati ducimus, corrupti similique asperiores explicabo\n      perspiciatis officia ab?\n    </p>\n  </div>\n</div>\n\n<div class=\"container\">\n  <h4 class=\"mb-3\">New Deal Information</h4>\n  <form class=\"needs-validation\" novalidate>\n    <div class=\"mb-3\">\n      <label for=\"title\">Title</label>\n      <input type=\"text\" class=\"form-control\" id=\"title\" required />\n      <div class=\"invalid-feedback\">\n        Please enter your Deal Title\n      </div>\n    </div>\n\n    <div class=\"row\">\n      <div class=\"col-6 mb-3\">\n        <label for=\"link\">Deal Link</label>\n        <input type=\"text\" class=\"form-control\" id=\"link\" required />\n        <div class=\"invalid-feedback\">\n          Please enter Deal Link\n        </div>\n      </div>\n      <div class=\"col-6 mb-3\">\n        <label for=\"linkLabel\">Deal Link Label</label>\n        <input type=\"text\" class=\"form-control\" id=\"linkLabel\" required />\n        <div class=\"invalid-feedback\">\n          Please enter Deal Link Label\n        </div>\n      </div>\n    </div>\n\n    <div class=\"text-right\">\n      <button type=\"button\" class=\"btn btn-primary d-inline\">Add</button>\n    </div>\n\n    <div class=\"row\">\n      <div class=\"col-5 mb-3\">\n        <label for=\"warehouse\">Warehouse</label>\n        <select class=\"custom-select d-block w-100\" id=\"warehouse\" required>\n          <option value=\"\">Choose...</option>\n          <option value=\"\">NH</option>\n        </select>\n        <div class=\"invalid-feedback\">\n          Please select a valid Warehouse Location.\n        </div>\n      </div>\n\n      <div class=\"col-4 mb-3\">\n        <label for=\"price\">Price</label>\n        <input type=\"text\" class=\"form-control\" id=\"price\" required />\n        <div class=\"invalid-feedback\">\n          Price required\n        </div>\n      </div>\n\n      <div class=\"col-3 mb-3\">\n        <label for=\"price\">Quantity</label>\n        <input type=\"text\" class=\"form-control\" id=\"quantity\" required />\n        <div class=\"invalid-feedback\">\n          Quantity required\n        </div>\n      </div>\n    </div>\n\n    <div class=\"mb-3\">\n      <label for=\"description\">Description</label>\n      <textarea id=\"description\" rows=\"4\" class=\"form-control\"></textarea>\n    </div>\n\n    <hr class=\"mb-4\" />\n  </form>\n\n  <div>\n    <button class=\"btn btn-primary float-right\" type=\"submit\">Next</button>\n    <button class=\"btn btn-primary float-left\" routerLink=\"/home\" type=\"submit\">Back</button>\n  </div>\n</div>\n"
+module.exports = "{{ diagnostic }}\n{{ extraLinks }}\n<div ng-controller=\"registerFromController\">\n  {{ title }}\n  <div class=\"container\">\n      <div class=\"alert alert-primary\" role=\"alert\" *ngIf=\"isCreated\">\n          You have successfully created!\n          <br />\n          <a class=\"alert-link\" routerLink=\"/home\">Click here back to Home</a>\n          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n    <div class=\"py-5 text-center\">\n      <h2>Create A New Deal</h2>\n      <p>\n        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quis ab!\n        Eligendi sed commodi voluptatem vero suscipit consequatur numquam\n        aperiam doloribus obcaecati ducimus, corrupti similique asperiores\n        explicabo perspiciatis officia ab?\n      </p>\n    </div>\n  </div>\n\n  <div class=\"container\">\n    <h4 class=\"mb-3\">New Deal Information</h4>\n    <form class=\"needs-validation\" novalidate #linkCreateFrom=\"ngForm\">\n      <div class=\"mb-3\">\n        <label for=\"title\">Title</label>\n        <input\n          type=\"text\"\n          class=\"form-control\"\n          name=\"title\"\n          [(ngModel)]=\"deal.title\"\n          id=\"title\"\n          required\n        />\n        <div class=\"invalid-feedback\">\n          Please enter your Deal Title\n        </div>\n      </div>\n\n      <div class=\"row\">\n        <div class=\"col-6 mb-3\">\n          <label for=\"link\">Deal Link</label>\n          <input\n            type=\"text\"\n            class=\"form-control\"\n            name=\"link\"\n            id=\"link\"\n            [(ngModel)]=\"link.link\"\n            required\n          />\n          <div class=\"invalid-feedback\">\n            Please enter Deal Link\n          </div>\n        </div>\n        <div class=\"col-6 mb-3\">\n          <label for=\"linkLabel\">Deal Link Label</label>\n          <input\n            type=\"text\"\n            class=\"form-control\"\n            id=\"linkLabel\"\n            name=\"linkLabel\"\n            [(ngModel)]=\"link.linkName\"\n            required\n          />\n          <div class=\"invalid-feedback\">\n            Please enter Deal Link Label\n          </div>\n        </div>\n      </div>\n\n      <div *ngFor=\"let link of links; index as i\">\n        <div class=\"row\">\n          <div class=\"col-6 mb-3\">\n            <label for=\"link\">Extra Deal Link</label>\n            <input\n              type=\"text\"\n              class=\"form-control\"\n              id=\"link\"\n              name=\"extraLink{{i}}\"\n              [(ngModel)]=\"links[i].link\"\n              value={{link.link}}\n              required\n            />\n            <div class=\"invalid-feedback\">\n              Please enter Deal Link\n            </div>\n          </div>\n          <div class=\"col-6 mb-3\">\n            <label for=\"linkLabel\">Extra Deal Link Label</label>\n            <input\n              type=\"text\"\n              class=\"form-control\"\n              id=\"linkLabel\"\n              name=\"extraLinkName{{i}}\"\n              [(ngModel)]=\"links[i].linkName\"\n              value={{link.linkName}}\n              required\n            />\n            <div class=\"invalid-feedback\">\n              Please enter Deal Link Label\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"text-right\">\n        <button\n          type=\"button\"\n          class=\"btn btn-primary d-inline\"\n          (click)=\"linkAdd()\"\n        >\n          Add\n        </button>\n      </div>\n\n      <div class=\"row\">\n        <div class=\"col-5 mb-3\">\n          <label for=\"warehouse\">Warehouse</label>\n          <select\n            class=\"custom-select d-block w-100\"\n            id=\"warehouse\"\n            name=\"warehouse\"\n            [(ngModel)]=\"deal.warehouse\"\n            required\n          >\n            <option\n              *ngFor=\"let warehouse of warehouses\"\n              [ngValue]=\"warehouse.value\"\n            >\n              {{ warehouse.name }}\n            </option>\n          </select>\n          <div class=\"invalid-feedback\">\n            Please select a valid Warehouse Location.\n          </div>\n        </div>\n\n        <div class=\"col-4 mb-3\">\n          <label for=\"price\">Price</label>\n          <input\n            type=\"text\"\n            class=\"form-control\"\n            id=\"price\"\n            name=\"price\"\n            [(ngModel)]=\"deal.price\"\n            required\n          />\n          <div class=\"invalid-feedback\">\n            Price required\n          </div>\n        </div>\n\n        <div class=\"col-3 mb-3\">\n          <label for=\"price\">Quantity</label>\n          <input\n            type=\"text\"\n            class=\"form-control\"\n            id=\"quantity\"\n            name=\"quantity\"\n            [(ngModel)]=\"deal.quantity\"\n            required\n          />\n          <div class=\"invalid-feedback\">\n            Quantity required\n          </div>\n        </div>\n      </div>\n\n      <div class=\"mb-3\">\n        <label for=\"description\">Description</label>\n        <textarea\n          id=\"description\"\n          rows=\"4\"\n          class=\"form-control\"\n          name=\"description\"\n          [(ngModel)]=\"deal.description\"\n        ></textarea>\n      </div>\n\n      <hr class=\"mb-4\" />\n    </form>\n\n    <div>\n      <button class=\"btn btn-primary float-right\" (click)=\"dealCreate()\">\n        Next\n      </button>\n      <button\n        class=\"btn btn-primary float-left\"\n        routerLink=\"/home\"\n        type=\"submit\"\n      >\n        Back\n      </button>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -64,17 +64,6 @@ module.exports = "<div class=\"container\">\n  <div class=\"py-5 text-center\">\
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"container py-5\">\n      <form class=\"form-inline float-left\">\n        <input\n          class=\"form-control mr-sm-2\"\n          type=\"search\"\n          placeholder=\"Search\"\n          aria-label=\"Search\"\n        />\n      </form>\n    <div class=\"float-right\">\n        <button class=\"btn btn-outline-success btn-block\" routerLink=\"/home/create\" type=\"submit\">\n            Create\n          </button>\n    </div>\n</div>\n"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/home/home-deal-home-tag/home-deal-home-tag.component.html":
-/*!*****************************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/home/home-deal-home-tag/home-deal-home-tag.component.html ***!
-  \*****************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container\">\n  <ul class=\"nav nav-tabs\">\n    <li class=\"nav-item\">\n      <a class=\"nav-link active\" href='/home/active'>Active</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" routerLink='/home/expired'>Expired</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href='/home/favorite'>Favorite</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href='/home/drafts'>Drafts</a>\n    </li>\n  </ul>\n</div>\n"
 
 /***/ }),
 
@@ -118,7 +107,7 @@ module.exports = "<div class=\"my-3 p-3 bg-white rounded shadow-sm container\">\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div class=\"pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center\">\n  <h1 class=\"display-4\">Pricing</h1>\n  <p class=\"lead\">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>\n</div>\n\n<div class=\"container\">\n  <div class=\"card-deck mb-3 text-center\">\n    <div class=\"card mb-4 shadow-sm\">\n      <div class=\"card-header\">\n        <h4 class=\"my-0 font-weight-normal\">Free</h4>\n      </div>\n      <div class=\"card-body\">\n        <h1 class=\"card-title pricing-card-title\">$0 <small class=\"text-muted\">/ mo</small></h1>\n        <ul class=\"list-unstyled mt-3 mb-4\">\n          <li>10 users included</li>\n          <li>2 GB of storage</li>\n          <li>Email support</li>\n          <li>Help center access</li>\n        </ul>\n        <button type=\"button\" class=\"btn btn-lg btn-block btn-outline-primary\">Sign up for free</button>\n      </div>\n    </div>\n    <div class=\"card mb-4 shadow-sm\">\n      <div class=\"card-header\">\n        <h4 class=\"my-0 font-weight-normal\">Pro</h4>\n      </div>\n      <div class=\"card-body\">\n        <h1 class=\"card-title pricing-card-title\">$15 <small class=\"text-muted\">/ mo</small></h1>\n        <ul class=\"list-unstyled mt-3 mb-4\">\n          <li>20 users included</li>\n          <li>10 GB of storage</li>\n          <li>Priority email support</li>\n          <li>Help center access</li>\n        </ul>\n        <button type=\"button\" class=\"btn btn-lg btn-block btn-primary\">Get started</button>\n      </div>\n    </div>\n    <div class=\"card mb-4 shadow-sm\">\n      <div class=\"card-header\">\n        <h4 class=\"my-0 font-weight-normal\">Enterprise</h4>\n      </div>\n      <div class=\"card-body\">\n        <h1 class=\"card-title pricing-card-title\">$29 <small class=\"text-muted\">/ mo</small></h1>\n        <ul class=\"list-unstyled mt-3 mb-4\">\n          <li>30 users included</li>\n          <li>15 GB of storage</li>\n          <li>Phone and email support</li>\n          <li>Help center access</li>\n        </ul>\n        <button type=\"button\" class=\"btn btn-lg btn-block btn-primary\">Contact us</button>\n      </div>\n    </div>\n</div> -->\n\n<app-home-deal-home-tag></app-home-deal-home-tag>\n<app-home-deal-feature></app-home-deal-feature>\n<router-outlet></router-outlet>\n\n<!-- <app-home-deal-list></app-home-deal-list> -->\n\n<!-- <app-home-deal-create></app-home-deal-create> -->\n"
+module.exports = "<div class=\"container\">\n  <ul class=\"nav nav-tabs\" id=\"dealTabs\" role=\"tablist\">\n    <li class=\"nav-item\">\n      <a class=\"nav-link active\" id=\"active-tab\" data-toggle=\"tab\" routerLink='active' role=\"tab\" aria-controls=\"active\"\n        aria-selected=\"true\">Active Deals</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" id=\"expired-tab\" data-toggle=\"tab\" routerLink='expired' role=\"tab\" aria-controls=\"expired\"\n        aria-selected=\"false\">Expired Deals</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" id=\"favorite-tab\" data-toggle=\"tab\" routerLink='favorite' role=\"tab\" aria-controls=\"favorite\"\n        aria-selected=\"false\">Favorite Deals</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" id=\"drafts-tab\" data-toggle=\"tab\" routerLink='drafts' role=\"tab\" aria-controls=\"drafts\"\n        aria-selected=\"false\">Drafts Deals</a>\n    </li>\n  </ul>\n  <app-home-deal-feature></app-home-deal-feature>\n  <div class=\"tab-content\" id=\"dealLists\">\n    <router-outlet></router-outlet>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -129,7 +118,7 @@ module.exports = "<!-- <div class=\"pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div\n  class=\"d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm\"\n>\n  <h5 class=\"my-0 mr-md-auto font-weight-normal\">EasyBiz</h5>\n  <nav class=\"my-2 my-md-0 mr-md-3\">\n    <a class=\"p-2 text-dark\" routerLink=\"/signin\" *ngIf=\"!currentUser\">Sign in</a>\n  </nav>\n  <a class=\"btn btn-outline-primary\" routerLink=\"/register\" *ngIf=\"!currentUser\">Register</a>\n  <a class=\"btn btn-outline-primary\" *ngIf=\"currentUser\" (click)=\"logout()\">Log out</a>\n</div>\n"
+module.exports = "<div\n  class=\"d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm\"\n>\n  <h5 class=\"my-0 mr-md-auto font-weight-normal\"><a routerLink=\"/\">EasyBiz</a></h5>\n  <nav class=\"my-2 my-md-0 mr-md-3\">\n    <a class=\"p-2 text-dark\" routerLink=\"/signin\" *ngIf=\"!currentUser\">Sign in</a>\n    <a class=\"p-2 text-dark\" routerLink=\"/home\" (click)=\"location.reload();\" *ngIf=\"currentUser\">Deal</a>\n  </nav>\n  <a class=\"btn btn-outline-primary\" routerLink=\"/register\" *ngIf=\"!currentUser\">Register</a>\n  <a class=\"btn btn-outline-primary\" *ngIf=\"currentUser\" (click)=\"logout()\">Log out</a>\n</div>\n"
 
 /***/ }),
 
@@ -140,7 +129,7 @@ module.exports = "<div\n  class=\"d-flex flex-column flex-md-row align-items-cen
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div ng-controller=\"registerFromController\"></div>\n<div class=\"text-center mb-4\">\n  <img\n    class=\"mb-4\"\n    src=\"./assets/bootstrap-solid.svg\"\n    alt=\"\"\n    width=\"72\"\n    height=\"72\"\n  />\n</div>\n<form class=\"form-signin\" (ngSubmit)=\"user_register()\" #registerFrom=\"ngForm\">\n  <div class=\"alert alert-primary\" role=\"alert\" *ngIf=\"isRegistered\">\n    You have successfully registered!\n    <br />\n    <a class=\"alert-link\" routerLink=\"/signin\">Click here back to sign in</a>\n    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div\n    class=\"alert alert-danger\"\n    role=\"alert\"\n    *ngIf=\"!pwdValid() && !password.pristine && !ConfirmedPassword.pristine\"\n  >\n    Password and Confirmed Password are not match!\n  </div>\n  <div class=\"form-label-group\">\n    <input\n      type=\"text\"\n      class=\"form-control\"\n      id=\"FirstName\"\n      required\n      autofocus\n      [(ngModel)]=\"register.FirstName\"\n      name=\"FirstName\"\n      #FirstName=\"ngModel\"\n    />\n    <label for=\"FirstName\">First Name</label>\n  </div>\n  <div class=\"form-label-group\">\n    <input\n      type=\"text\"\n      class=\"form-control\"\n      id=\"LastName\"\n      required\n      autofocus\n      [(ngModel)]=\"register.LastName\"\n      name=\"LastName\"\n    />\n    <label for=\"inputLastName\">Last Name</label>\n  </div>\n  <div class=\"form-label-group\">\n    <input\n      type=\"email\"\n      class=\"form-control\"\n      id=\"email\"\n      name=\"email\"\n      required\n      autofocus\n      [(ngModel)]=\"register.email\"\n      ngModel email\n      #email=\"ngModel\"\n    />\n    <label for=\"inputEmail\">Email</label>\n    <small class=\"form-text text-muted\">* Required</small>\n  </div>\n  <div class=\"form-label-group\">\n    <input\n      type=\"password\"\n      class=\"form-control\"\n      id=\"password\"\n      required\n      autofocus\n      [(ngModel)]=\"register.password\"\n      name=\"password\"\n      #password=\"ngModel\"\n    />\n    <label for=\"password\">Password</label>\n    <small class=\"form-text text-muted\">* Required</small>\n  </div>\n  <div class=\"form-label-group\">\n    <input\n      type=\"password\"\n      class=\"form-control\"\n      id=\"ConfirmedPassword\"\n      required\n      autofocus\n      [(ngModel)]=\"confirmedPassword\"\n      name=\"ConfirmedPassword\"\n      #ConfirmedPassword=\"ngModel\"\n    />\n    <label for=\"ConfirmedPassword\">Confirmed Password</label>\n    <small class=\"form-text text-muted\">* Required</small>\n  </div>\n  <button\n    class=\"btn btn-lg btn-primary btn-block\"\n    [disabled]=\"!pwdValid()\"\n    type=\"submit\"\n  >\n    Register\n  </button>\n</form>\n"
+module.exports = "<div ng-controller=\"registerFromController\">\n  <div class=\"text-center mb-4\">\n    <img class=\"mb-4\" src=\"./assets/bootstrap-solid.svg\" alt=\"\" width=\"72\" height=\"72\" />\n  </div>\n  <form class=\"form-signin\" (ngSubmit)=\"user_register()\" #registerFrom=\"ngForm\">\n    <div class=\"alert alert-primary\" role=\"alert\" *ngIf=\"isRegistered\">\n      You have successfully registered!\n      <br />\n      <a class=\"alert-link\" routerLink=\"/signin\">Click here back to sign in</a>\n      <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n        <span aria-hidden=\"true\">&times;</span>\n      </button>\n    </div>\n    <div class=\"alert alert-danger\" role=\"alert\"\n      *ngIf=\"!pwdValid() && !password.pristine && !ConfirmedPassword.pristine\">\n      Password and Confirmed Password are not match!\n    </div>\n    <div class=\"form-label-group\">\n      <input type=\"text\" class=\"form-control\" id=\"FirstName\" required autofocus [(ngModel)]=\"register.FirstName\"\n        name=\"FirstName\" #FirstName=\"ngModel\" />\n      <label for=\"FirstName\">First Name</label>\n    </div>\n    <div class=\"form-label-group\">\n      <input type=\"text\" class=\"form-control\" id=\"LastName\" required autofocus [(ngModel)]=\"register.LastName\"\n        name=\"LastName\" />\n      <label for=\"inputLastName\">Last Name</label>\n    </div>\n    <div class=\"form-label-group\">\n      <input type=\"email\" class=\"form-control\" id=\"email\" name=\"email\" required autofocus [(ngModel)]=\"register.email\"\n        ngModel email #email=\"ngModel\" />\n      <label for=\"inputEmail\">Email</label>\n      <small class=\"form-text text-muted\">* Required</small>\n    </div>\n    <div class=\"form-label-group\">\n      <input type=\"password\" class=\"form-control\" id=\"password\" required autofocus [(ngModel)]=\"register.password\"\n        name=\"password\" #password=\"ngModel\" />\n      <label for=\"password\">Password</label>\n      <small class=\"form-text text-muted\">* Required</small>\n    </div>\n    <div class=\"form-label-group\">\n      <input type=\"password\" class=\"form-control\" id=\"ConfirmedPassword\" required autofocus\n        [(ngModel)]=\"confirmedPassword\" name=\"ConfirmedPassword\" #ConfirmedPassword=\"ngModel\" />\n      <label for=\"ConfirmedPassword\">Confirmed Password</label>\n      <small class=\"form-text text-muted\">* Required</small>\n    </div>\n    <button class=\"btn btn-lg btn-primary btn-block\" [disabled]=\"!pwdValid()\" type=\"submit\">\n      Register\n    </button>\n  </form>"
 
 /***/ }),
 
@@ -298,11 +287,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_components_register_form_register_form_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./user_components/register-form/register-form.component */ "./src/app/user_components/register-form/register-form.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _interceptor_error_interceptor__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./interceptor/error.interceptor */ "./src/app/interceptor/error.interceptor.ts");
-/* harmony import */ var _home_home_deal_home_tag_home_deal_home_tag_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./home/home-deal-home-tag/home-deal-home-tag.component */ "./src/app/home/home-deal-home-tag/home-deal-home-tag.component.ts");
-/* harmony import */ var _home_home_deal_feature_home_deal_feature_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./home/home-deal-feature/home-deal-feature.component */ "./src/app/home/home-deal-feature/home-deal-feature.component.ts");
-/* harmony import */ var _home_home_deal_create_home_deal_create_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./home/home-deal-create/home-deal-create.component */ "./src/app/home/home-deal-create/home-deal-create.component.ts");
-/* harmony import */ var _home_home_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./home/home.module */ "./src/app/home/home.module.ts");
-/* harmony import */ var _home_home_routing_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./home/home-routing.module */ "./src/app/home/home-routing.module.ts");
+/* harmony import */ var _home_home_active_deal_list_home_active_deal_list_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./home/home-active-deal-list/home-active-deal-list.component */ "./src/app/home/home-active-deal-list/home-active-deal-list.component.ts");
+/* harmony import */ var _home_home_expired_deal_list_home_expired_deal_list_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./home/home-expired-deal-list/home-expired-deal-list.component */ "./src/app/home/home-expired-deal-list/home-expired-deal-list.component.ts");
+/* harmony import */ var _home_home_favorite_deal_list_home_favorite_deal_list_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./home/home-favorite-deal-list/home-favorite-deal-list.component */ "./src/app/home/home-favorite-deal-list/home-favorite-deal-list.component.ts");
+/* harmony import */ var _home_home_drafts_deal_list_home_drafts_deal_list_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./home/home-drafts-deal-list/home-drafts-deal-list.component */ "./src/app/home/home-drafts-deal-list/home-drafts-deal-list.component.ts");
+/* harmony import */ var _home_home_deal_create_home_deal_create_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./home/home-deal-create/home-deal-create.component */ "./src/app/home/home-deal-create/home-deal-create.component.ts");
+/* harmony import */ var _home_home_deal_feature_home_deal_feature_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./home/home-deal-feature/home-deal-feature.component */ "./src/app/home/home-deal-feature/home-deal-feature.component.ts");
+
 
 
 
@@ -331,11 +322,14 @@ var AppModule = /** @class */ (function () {
                 _user_components_sign_in_form_sign_in_form_component__WEBPACK_IMPORTED_MODULE_8__["SignInFormComponent"],
                 _user_components_register_form_register_form_component__WEBPACK_IMPORTED_MODULE_9__["RegisterFormComponent"],
                 _home_home_component__WEBPACK_IMPORTED_MODULE_10__["HomeComponent"],
-                _home_home_deal_home_tag_home_deal_home_tag_component__WEBPACK_IMPORTED_MODULE_12__["HomeDealHomeTagComponent"],
-                _home_home_deal_feature_home_deal_feature_component__WEBPACK_IMPORTED_MODULE_13__["HomeDealFeatureComponent"],
-                _home_home_deal_create_home_deal_create_component__WEBPACK_IMPORTED_MODULE_14__["HomeDealCreateComponent"]
+                _home_home_deal_create_home_deal_create_component__WEBPACK_IMPORTED_MODULE_16__["HomeDealCreateComponent"],
+                _home_home_drafts_deal_list_home_drafts_deal_list_component__WEBPACK_IMPORTED_MODULE_15__["HomeDraftsDealListComponent"],
+                _home_home_favorite_deal_list_home_favorite_deal_list_component__WEBPACK_IMPORTED_MODULE_14__["HomeFavoriteDealListComponent"],
+                _home_home_expired_deal_list_home_expired_deal_list_component__WEBPACK_IMPORTED_MODULE_13__["HomeExpiredDealListComponent"],
+                _home_home_active_deal_list_home_active_deal_list_component__WEBPACK_IMPORTED_MODULE_12__["HomeActiveDealListComponent"],
+                _home_home_deal_feature_home_deal_feature_component__WEBPACK_IMPORTED_MODULE_17__["HomeDealFeatureComponent"]
             ],
-            imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], _home_home_module__WEBPACK_IMPORTED_MODULE_15__["HomeModule"], _home_home_routing_module__WEBPACK_IMPORTED_MODULE_16__["HomeRoutingModule"]],
+            imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"]],
             providers: [
                 { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"], useClass: _interceptor_error_interceptor__WEBPACK_IMPORTED_MODULE_11__["ErrorInterceptor"], multi: true }
             ],
@@ -422,20 +416,55 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeActiveDealListComponent", function() { return HomeActiveDealListComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _models_deal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models/deal */ "./src/app/models/deal.ts");
+/* harmony import */ var _services_deal_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/deal.service */ "./src/app/services/deal.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/authentication.service */ "./src/app/services/authentication.service.ts");
+
+
+
+
 
 
 var HomeActiveDealListComponent = /** @class */ (function () {
-    function HomeActiveDealListComponent() {
+    function HomeActiveDealListComponent(dealService, authenticationService) {
+        this.dealService = dealService;
+        this.authenticationService = authenticationService;
+        // private activeDeal: Deal;
+        this.activeDealList = [];
     }
     HomeActiveDealListComponent.prototype.ngOnInit = function () {
+        this.getActiveList();
     };
+    HomeActiveDealListComponent.prototype.getActiveList = function () {
+        var _this = this;
+        this.dealService
+            .tenDeals(this.authenticationService.currentUserValue[0])
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])())
+            .subscribe(function (data) {
+            _this.dealsParse(data, 0);
+        });
+    };
+    HomeActiveDealListComponent.prototype.dealsParse = function (deals, dealIndex) {
+        while (!(deals[dealIndex] === undefined)) {
+            this.activeDealList.push(new _models_deal__WEBPACK_IMPORTED_MODULE_2__["Deal"](JSON.parse(JSON.stringify(deals[dealIndex])).deal_title, JSON.parse(JSON.stringify(deals[dealIndex])).deal_link, JSON.parse(JSON.stringify(deals[dealIndex])).deal_warehouse, JSON.parse(JSON.stringify(deals[dealIndex])).deal_price, JSON.parse(JSON.stringify(deals[dealIndex])).deal_quantity, JSON.parse(JSON.stringify(deals[dealIndex])).deal_description));
+            dealIndex = dealIndex + 1;
+        }
+        console.log(this.activeDealList);
+    };
+    HomeActiveDealListComponent.ctorParameters = function () { return [
+        { type: _services_deal_service__WEBPACK_IMPORTED_MODULE_3__["DealService"] },
+        { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"] }
+    ]; };
     HomeActiveDealListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-home-active-deal-list',
             template: __webpack_require__(/*! raw-loader!./home-active-deal-list.component.html */ "./node_modules/raw-loader/index.js!./src/app/home/home-active-deal-list/home-active-deal-list.component.html"),
+            providers: [_services_deal_service__WEBPACK_IMPORTED_MODULE_3__["DealService"], _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"]],
             styles: [__webpack_require__(/*! ./home-active-deal-list.component.scss */ "./src/app/home/home-active-deal-list/home-active-deal-list.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_deal_service__WEBPACK_IMPORTED_MODULE_3__["DealService"],
+            _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"]])
     ], HomeActiveDealListComponent);
     return HomeActiveDealListComponent;
 }());
@@ -467,20 +496,77 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeDealCreateComponent", function() { return HomeDealCreateComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _models_dealLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models/dealLink */ "./src/app/models/dealLink.ts");
+/* harmony import */ var _models_deal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../models/deal */ "./src/app/models/deal.ts");
+/* harmony import */ var _services_deal_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/deal.service */ "./src/app/services/deal.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+
+
+
+
 
 
 var HomeDealCreateComponent = /** @class */ (function () {
-    function HomeDealCreateComponent() {
+    function HomeDealCreateComponent(dealService) {
+        this.dealService = dealService;
+        this.warehouses = [
+            { name: 'Choose One Below......', value: '' },
+            { name: 'NH', value: 'warehouse in NH' },
+            { name: 'MA', value: 'warehouse in MA' },
+            { name: 'NY', value: 'warehouse in NY' }
+        ];
+        this.isCreated = false;
+        this.deal = new _models_deal__WEBPACK_IMPORTED_MODULE_3__["Deal"]('', [], '', 0, 0, '');
+        this.link = new _models_dealLink__WEBPACK_IMPORTED_MODULE_2__["DealLink"]();
+        this.links = [];
     }
+    Object.defineProperty(HomeDealCreateComponent.prototype, "diagnostic", {
+        get: function () {
+            return JSON.stringify(this.deal);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(HomeDealCreateComponent.prototype, "extraLinks", {
+        get: function () {
+            return JSON.stringify(this.links);
+        },
+        enumerable: true,
+        configurable: true
+    });
     HomeDealCreateComponent.prototype.ngOnInit = function () {
+        // this.links.push(new DealLink())
+        this.deal.deallinks.push(this.link);
     };
+    HomeDealCreateComponent.prototype.linkAdd = function () {
+        // this.links.push(new DealLink('', ''));
+        console.log(this.link.link);
+        this.links.push(new _models_dealLink__WEBPACK_IMPORTED_MODULE_2__["DealLink"]());
+    };
+    HomeDealCreateComponent.prototype.dealCreate = function () {
+        var _this = this;
+        while (this.links.length !== 0) {
+            this.deal.deallinks.push(this.links.pop());
+        }
+        this.dealService
+            .createDeal(this.deal)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])())
+            .subscribe(function (data) {
+            console.log(data);
+            _this.isCreated = true;
+        });
+    };
+    HomeDealCreateComponent.ctorParameters = function () { return [
+        { type: _services_deal_service__WEBPACK_IMPORTED_MODULE_4__["DealService"] }
+    ]; };
     HomeDealCreateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-home-deal-create',
             template: __webpack_require__(/*! raw-loader!./home-deal-create.component.html */ "./node_modules/raw-loader/index.js!./src/app/home/home-deal-create/home-deal-create.component.html"),
+            providers: [_services_deal_service__WEBPACK_IMPORTED_MODULE_4__["DealService"]],
             styles: [__webpack_require__(/*! ./home-deal-create.component.scss */ "./src/app/home/home-deal-create/home-deal-create.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_deal_service__WEBPACK_IMPORTED_MODULE_4__["DealService"]])
     ], HomeDealCreateComponent);
     return HomeDealCreateComponent;
 }());
@@ -528,51 +614,6 @@ var HomeDealFeatureComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], HomeDealFeatureComponent);
     return HomeDealFeatureComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/home/home-deal-home-tag/home-deal-home-tag.component.scss":
-/*!***************************************************************************!*\
-  !*** ./src/app/home/home-deal-home-tag/home-deal-home-tag.component.scss ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ".container {\n  max-width: 800px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2JpbGxfeWFvL0RvY3VtZW50cy9tZWFuLWFwcC9zcmMvYXBwL2hvbWUvaG9tZS1kZWFsLWhvbWUtdGFnL2hvbWUtZGVhbC1ob21lLXRhZy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvaG9tZS9ob21lLWRlYWwtaG9tZS10YWcvaG9tZS1kZWFsLWhvbWUtdGFnLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZ0JBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS1kZWFsLWhvbWUtdGFnL2hvbWUtZGVhbC1ob21lLXRhZy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb250YWluZXJ7XG4gIG1heC13aWR0aDogODAwcHg7XG59XG4iLCIuY29udGFpbmVyIHtcbiAgbWF4LXdpZHRoOiA4MDBweDtcbn0iXX0= */"
-
-/***/ }),
-
-/***/ "./src/app/home/home-deal-home-tag/home-deal-home-tag.component.ts":
-/*!*************************************************************************!*\
-  !*** ./src/app/home/home-deal-home-tag/home-deal-home-tag.component.ts ***!
-  \*************************************************************************/
-/*! exports provided: HomeDealHomeTagComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeDealHomeTagComponent", function() { return HomeDealHomeTagComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var HomeDealHomeTagComponent = /** @class */ (function () {
-    function HomeDealHomeTagComponent() {
-    }
-    HomeDealHomeTagComponent.prototype.ngOnInit = function () {
-    };
-    HomeDealHomeTagComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-home-deal-home-tag',
-            template: __webpack_require__(/*! raw-loader!./home-deal-home-tag.component.html */ "./node_modules/raw-loader/index.js!./src/app/home/home-deal-home-tag/home-deal-home-tag.component.html"),
-            styles: [__webpack_require__(/*! ./home-deal-home-tag.component.scss */ "./src/app/home/home-deal-home-tag/home-deal-home-tag.component.scss")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], HomeDealHomeTagComponent);
-    return HomeDealHomeTagComponent;
 }());
 
 
@@ -714,61 +755,6 @@ var HomeFavoriteDealListComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/home/home-routing.module.ts":
-/*!*********************************************!*\
-  !*** ./src/app/home/home-routing.module.ts ***!
-  \*********************************************/
-/*! exports provided: HomeRoutingModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeRoutingModule", function() { return HomeRoutingModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _home_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _home_active_deal_list_home_active_deal_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./home-active-deal-list/home-active-deal-list.component */ "./src/app/home/home-active-deal-list/home-active-deal-list.component.ts");
-/* harmony import */ var _home_expired_deal_list_home_expired_deal_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./home-expired-deal-list/home-expired-deal-list.component */ "./src/app/home/home-expired-deal-list/home-expired-deal-list.component.ts");
-/* harmony import */ var _home_favorite_deal_list_home_favorite_deal_list_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./home-favorite-deal-list/home-favorite-deal-list.component */ "./src/app/home/home-favorite-deal-list/home-favorite-deal-list.component.ts");
-/* harmony import */ var _home_drafts_deal_list_home_drafts_deal_list_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home-drafts-deal-list/home-drafts-deal-list.component */ "./src/app/home/home-drafts-deal-list/home-drafts-deal-list.component.ts");
-
-
-
-
-
-
-
-
-var routes = [
-    {
-        path: 'home',
-        component: _home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"],
-        children: [
-            { path: '', component: _home_active_deal_list_home_active_deal_list_component__WEBPACK_IMPORTED_MODULE_4__["HomeActiveDealListComponent"] },
-            { path: 'active', component: _home_active_deal_list_home_active_deal_list_component__WEBPACK_IMPORTED_MODULE_4__["HomeActiveDealListComponent"] },
-            { path: 'expired', component: _home_expired_deal_list_home_expired_deal_list_component__WEBPACK_IMPORTED_MODULE_5__["HomeExpiredDealListComponent"] },
-            { path: 'favorite', component: _home_favorite_deal_list_home_favorite_deal_list_component__WEBPACK_IMPORTED_MODULE_6__["HomeFavoriteDealListComponent"] },
-            { path: 'drafts', component: _home_drafts_deal_list_home_drafts_deal_list_component__WEBPACK_IMPORTED_MODULE_7__["HomeDraftsDealListComponent"] }
-        ]
-    }
-];
-var HomeRoutingModule = /** @class */ (function () {
-    function HomeRoutingModule() {
-    }
-    HomeRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
-            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
-        })
-    ], HomeRoutingModule);
-    return HomeRoutingModule;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/home/home.component.scss":
 /*!******************************************!*\
   !*** ./src/app/home/home.component.scss ***!
@@ -797,15 +783,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(routeInfor) {
-        this.routeInfor = routeInfor;
+    function HomeComponent(router) {
+        this.router = router;
     }
-    HomeComponent.prototype.ngOnInit = function () {
-        // tslint:disable-next-line:no-string-literal
-        this.currentPage = this.routeInfor.snapshot.params['id'];
-    };
+    HomeComponent.prototype.ngOnInit = function () { };
     HomeComponent.ctorParameters = function () { return [
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
     ]; };
     HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -813,54 +796,9 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! raw-loader!./home.component.html */ "./node_modules/raw-loader/index.js!./src/app/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.scss */ "./src/app/home/home.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], HomeComponent);
     return HomeComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/home/home.module.ts":
-/*!*************************************!*\
-  !*** ./src/app/home/home.module.ts ***!
-  \*************************************/
-/*! exports provided: HomeModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeModule", function() { return HomeModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _home_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home-routing.module */ "./src/app/home/home-routing.module.ts");
-/* harmony import */ var _home_active_deal_list_home_active_deal_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./home-active-deal-list/home-active-deal-list.component */ "./src/app/home/home-active-deal-list/home-active-deal-list.component.ts");
-/* harmony import */ var _home_expired_deal_list_home_expired_deal_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./home-expired-deal-list/home-expired-deal-list.component */ "./src/app/home/home-expired-deal-list/home-expired-deal-list.component.ts");
-/* harmony import */ var _home_favorite_deal_list_home_favorite_deal_list_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./home-favorite-deal-list/home-favorite-deal-list.component */ "./src/app/home/home-favorite-deal-list/home-favorite-deal-list.component.ts");
-/* harmony import */ var _home_drafts_deal_list_home_drafts_deal_list_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home-drafts-deal-list/home-drafts-deal-list.component */ "./src/app/home/home-drafts-deal-list/home-drafts-deal-list.component.ts");
-
-
-
-
-
-
-
-
-var HomeModule = /** @class */ (function () {
-    function HomeModule() {
-    }
-    HomeModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [_home_active_deal_list_home_active_deal_list_component__WEBPACK_IMPORTED_MODULE_4__["HomeActiveDealListComponent"], _home_expired_deal_list_home_expired_deal_list_component__WEBPACK_IMPORTED_MODULE_5__["HomeExpiredDealListComponent"], _home_favorite_deal_list_home_favorite_deal_list_component__WEBPACK_IMPORTED_MODULE_6__["HomeFavoriteDealListComponent"], _home_drafts_deal_list_home_drafts_deal_list_component__WEBPACK_IMPORTED_MODULE_7__["HomeDraftsDealListComponent"]],
-            imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-                _home_routing_module__WEBPACK_IMPORTED_MODULE_3__["HomeRoutingModule"]
-            ]
-        })
-    ], HomeModule);
-    return HomeModule;
 }());
 
 
@@ -911,6 +849,62 @@ var ErrorInterceptor = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"]])
     ], ErrorInterceptor);
     return ErrorInterceptor;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/models/deal.ts":
+/*!********************************!*\
+  !*** ./src/app/models/deal.ts ***!
+  \********************************/
+/*! exports provided: Deal */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Deal", function() { return Deal; });
+var Deal = /** @class */ (function () {
+    function Deal(title, deallinks, warehouse, price, quantity, description) {
+        this.title = title;
+        this.deallinks = deallinks;
+        this.warehouse = warehouse;
+        this.price = price;
+        this.quantity = quantity;
+        this.description = description;
+    }
+    Deal.ctorParameters = function () { return [
+        { type: String },
+        { type: Array },
+        { type: String },
+        { type: Number },
+        { type: Number },
+        { type: String }
+    ]; };
+    return Deal;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/models/dealLink.ts":
+/*!************************************!*\
+  !*** ./src/app/models/dealLink.ts ***!
+  \************************************/
+/*! exports provided: DealLink */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DealLink", function() { return DealLink; });
+var DealLink = /** @class */ (function () {
+    function DealLink() {
+        this.link = '';
+        this.linkName = '';
+    }
+    return DealLink;
 }());
 
 
@@ -1051,6 +1045,54 @@ var AuthenticationService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/deal.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/services/deal.service.ts ***!
+  \******************************************/
+/*! exports provided: DealService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DealService", function() { return DealService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
+
+
+
+var httpOptions = {
+    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+        'content-Type': 'application/json'
+    })
+};
+var DealService = /** @class */ (function () {
+    function DealService(http) {
+        this.http = http;
+        this.createDealUrl = 'http://localhost:3000/api/createdeal'; // URL to web api
+        this.tenDealsUrl = 'http://localhost:3000/api/deal/active/firstTen';
+    }
+    DealService.prototype.createDeal = function (deal) {
+        return this.http.post(this.createDealUrl, deal, httpOptions);
+    };
+    DealService.prototype.tenDeals = function (creator) {
+        return this.http.post(this.tenDealsUrl, creator, httpOptions);
+    };
+    DealService.ctorParameters = function () { return [
+        { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+    ]; };
+    DealService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], DealService);
+    return DealService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/register.service.ts":
 /*!**********************************************!*\
   !*** ./src/app/services/register.service.ts ***!
@@ -1129,7 +1171,7 @@ var TopBarComponent = /** @class */ (function () {
         var _this = this;
         this.router = router;
         this.authenticationService = authenticationService;
-        this.authenticationService.currentUser.subscribe(function (x) { return _this.currentUser = x; });
+        this.authenticationService.currentUser.subscribe(function (x) { return (_this.currentUser = x); });
     }
     TopBarComponent.prototype.logout = function () {
         this.authenticationService.logout();
