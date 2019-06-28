@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+const dealController = require('../controllers').deal;
 const userController = require('../controllers').user;
 const groupController = require('../controllers').group;
 const usersGroupsMappingController = require('../controllers')
@@ -20,14 +21,13 @@ router.post('/signin', (req, res, next) => {
       usersGroupsMappingController.has_group(result.email, function(emails) {
         res.send(emails);
       });
-    }else {
-      res.status(404).json('Email and Password is not found!')
+    } else {
+      res.status(404).json('Email and Password is not found!');
     }
   });
 });
 
 router.post('/register', (req, res, next) => {
-  console.log(req.body);
   let userInput = {
     first_name: req.body.FirstName,
     last_name: req.body.LastName,
@@ -37,6 +37,16 @@ router.post('/register', (req, res, next) => {
   userController.create(userInput, function(user) {
     if (user) {
       res.status(201).json(user.email);
+    } else {
+      res.status(409).end();
+    }
+  });
+});
+
+router.post('/createdeal', (req, res, next) => {
+  dealController.create(req.body, function(deal) {
+    if (deal) {
+      res.status(201).json(deal);
     } else {
       res.status(409).end();
     }
