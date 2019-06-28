@@ -6,12 +6,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  private currentPage: string;
 
-  constructor(private routeInfor: ActivatedRoute) {}
+  constructor(private routeInfo: ActivatedRoute) { }
 
   ngOnInit() {
-    // tslint:disable-next-line:no-string-literal
-    this.currentPage = this.routeInfor.snapshot.params['id'];
   }
 }

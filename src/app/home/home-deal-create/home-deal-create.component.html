@@ -1,3 +1,6 @@
+{{title}}
+<div ng-controller="registerFromController">
+  {{title}}
 <div class="container">
   <div class="py-5 text-center">
     <h2>Create A New Deal</h2>
@@ -12,7 +15,7 @@
 
 <div class="container">
   <h4 class="mb-3">New Deal Information</h4>
-  <form class="needs-validation" novalidate>
+  <form class="needs-validation" novalidate #linkCreateFrom="ngForm">
     <div class="mb-3">
       <label for="title">Title</label>
       <input type="text" class="form-control" id="title" required />
@@ -24,7 +27,7 @@
     <div class="row">
       <div class="col-6 mb-3">
         <label for="link">Deal Link</label>
-        <input type="text" class="form-control" id="link" required />
+        <input type="text" class="form-control" name="link" id="link" [(ngModel)]="link.link" required />
         <div class="invalid-feedback">
           Please enter Deal Link
         </div>
@@ -38,8 +41,27 @@
       </div>
     </div>
 
+        <div *ngFor="let link of links">
+          <div class="row">
+            <div class="col-6 mb-3">
+              <label for="link">link.link</label>
+              <input type="text" class="form-control" id="link" required />
+              <div class="invalid-feedback">
+                Please enter Deal Link
+              </div>
+            </div>
+            <div class="col-6 mb-3">
+              <label for="linkLabel">Deal Link Label</label>
+              <input type="text" class="form-control" id="linkLabel" required />
+              <div class="invalid-feedback">
+                Please enter Deal Link Label
+              </div>
+            </div>
+          </div>
+        </div>
+
     <div class="text-right">
-      <button type="button" class="btn btn-primary d-inline">Add</button>
+      <button type="button" class="btn btn-primary d-inline" (click)="linkAdd()">Add</button>
     </div>
 
     <div class="row">
@@ -83,4 +105,5 @@
     <button class="btn btn-primary float-right" type="submit">Next</button>
     <button class="btn btn-primary float-left" routerLink="/home" type="submit">Back</button>
   </div>
+</div>
 </div>
