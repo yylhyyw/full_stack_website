@@ -16,7 +16,6 @@ import { HomeFavoriteDealListComponent } from './home/home-favorite-deal-list/ho
 import { HomeDraftsDealListComponent } from './home/home-drafts-deal-list/home-drafts-deal-list.component';
 import { HomeDealCreateComponent } from './home/home-deal-create/home-deal-create.component';
 import { HomeDealFeatureComponent } from './home/home-deal-feature/home-deal-feature.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +28,7 @@ import { HomeDealFeatureComponent } from './home/home-deal-feature/home-deal-fea
     HomeFavoriteDealListComponent,
     HomeExpiredDealListComponent,
     HomeActiveDealListComponent,
-    HomeDealFeatureComponent
+    HomeDealFeatureComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [

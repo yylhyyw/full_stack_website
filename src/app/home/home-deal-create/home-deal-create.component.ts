@@ -27,7 +27,7 @@ export class HomeDealCreateComponent implements OnInit {
   get extraLinks() {
     return JSON.stringify(this.links);
   }
-  public deal = new Deal('', [], '', 0, 0, '');
+  public deal = new Deal('', [], '', 0, 0, '', '', 1);
   public link = new DealLink();
   public links: DealLink[] = [];
 

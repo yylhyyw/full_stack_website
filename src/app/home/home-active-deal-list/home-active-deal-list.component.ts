@@ -36,14 +36,17 @@ export class HomeActiveDealListComponent implements OnInit {
 
   dealsParse(deals: string, dealIndex: number) {
     while (!(deals[dealIndex] === undefined)) {
+      const link = JSON.parse(JSON.parse(JSON.stringify(deals[dealIndex])).deal_link);
       this.activeDealList.push(
         new Deal(
           JSON.parse(JSON.stringify(deals[dealIndex])).deal_title,
-          JSON.parse(JSON.stringify(deals[dealIndex])).deal_link,
+          link,
           JSON.parse(JSON.stringify(deals[dealIndex])).deal_warehouse,
           JSON.parse(JSON.stringify(deals[dealIndex])).deal_price,
           JSON.parse(JSON.stringify(deals[dealIndex])).deal_quantity,
-          JSON.parse(JSON.stringify(deals[dealIndex])).deal_description
+          JSON.parse(JSON.stringify(deals[dealIndex])).deal_description,
+          JSON.parse(JSON.stringify(deals[dealIndex])).updateAt,
+          JSON.parse(JSON.stringify(deals[dealIndex])).deal_id
         )
       );
       dealIndex = dealIndex + 1;

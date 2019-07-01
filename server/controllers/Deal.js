@@ -1,5 +1,4 @@
 const Deal = require('../models').deal;
-
 //TODO
 module.exports = {
   create: function(body, callback) {
@@ -12,7 +11,7 @@ module.exports = {
       deal_price: body.price,
       deal_quantity: body.quantity,
       deal_description: body.description,
-      deal_creator: 'test'
+      deal_creator: '123@123.com'
     }).then(function(deal) {
       callback(deal);
     });
@@ -21,12 +20,11 @@ module.exports = {
   findTen: function(creator = null, callback) {
     if (creator) {
       Deal.findAll(
-        { limit: 10 },
-        {
+        { limit: 10,
           where: {
             deal_creator: creator
-          }
-        }
+          },
+          order:[['updatedAt', 'DESC']]}
       ).then(function(deals) {
         callback(deals);
       });

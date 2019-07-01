@@ -1,16 +1,104 @@
-<div class="my-3 p-3 bg-white rounded shadow-sm container">
+<!-- <div class="my-3 p-3 bg-white rounded shadow-sm container">
   <h5 class="border-bottom border-gray pb-2 mb-0">Active Deals</h5>
   <div
     *ngFor="let activeDeal of activeDealList; index as i"
     class="media text-muted pt-3"
   >
-    <h6 class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-      <strong class="d-block text-gray-dark">{{ activeDeal.title }}</strong>
-      {{ activeDeal.description }}
-    </h6>
+    <div class="row">
+      <div class="col-9">
+        <h6 class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <strong class="d-block text-gray-dark">{{ activeDeal.title }}</strong>
+          {{ activeDeal.description }}
+        </h6>
+      </div>
+      <div class="col-3">
+        <div class="row align-items-start">
+          <div class="col"></div>
+          <div class="col">Price:</div>
+          <div class="col">
+            {{activeDeal.price}}
+          </div>
+        </div>
+        <div class="row align-items-start">
+          <div class="col"></div>
+          <div class="col">Quantity:</div>
+          <div class="col">
+            {{activeDeal.quantity}}
+          </div>
+        </div>
+        <br/>
+        <div class="row align-items-start">
+          <div class="col"></div>
+          <div class="col">
+            <button class="btn btn-primary btn-sm">Ticket: {{activeDeal.quantity}}</button>
+          </div>
+          <div class="col"></div>
+        </div>
+      </div>
+    </div>
   </div>
   <small class="d-block text-right mt-3">
     <a>All deals</a>
   </small>
-</div>
+</div> -->
 <!-- https://www.bootdey.com/snippets/view/list-with-description#html -->
+<h6>Active Deals</h6>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Deals</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let activeDeal of activeDealList">
+      <tr>
+        <th scopr="row">{{("000" + activeDeal.dealId).slice(-4)}}</th>
+        <td>
+          <div>
+            {{ activeDeal.title }}
+            <br />
+            {{ activeDeal.description }}
+            <br />
+            <div *ngFor="let link of activeDeal.deallinks">
+              Link: {{ link.link }}
+              <br />
+              <div *ngIf="link.linkName">Link Label: {{ link.linkName }}</div>
+            </div>
+            <!-- </ng-container> -->
+
+            {{ activeDeal.link }}
+          </div>
+        </td>
+        <td>{{ activeDeal.price }}</td>
+        <td>{{ activeDeal.quantity }}</td>
+        <td><button class="btn btn-primary btn-sm">Take</button></td>
+      </tr>
+    </ng-container>
+
+    <!-- <tr>
+      <th scope="row">1</th>
+      <td>Test Deals</td>
+      <td>100</td>
+      <td>5</td>
+      <td><button class="btn btn-primary btn-sm">Take</button></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+      <td><button class="btn btn-primary btn-sm">Take</button></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+      <td><button class="btn btn-primary btn-sm">Take</button></td>
+    </tr> -->
+  </tbody>
+</table>
