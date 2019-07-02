@@ -18,9 +18,7 @@ router.get('/', function(req, res, next) {
 router.post('/signin', (req, res, next) => {
   userController.sign_in(req.body.email, req.body.password, function(result) {
     if (result) {
-      usersGroupsMappingController.has_group(result.email, function(emails) {
-        res.send(emails);
-      });
+      res.send(result);
     } else {
       res.status(404).json('Email and Password is not found!');
     }
@@ -55,8 +53,7 @@ router.post('/createdeal', (req, res, next) => {
 
 router.post('/deal/active/firstTen',
   (req, res, next) => {
-    // console.log(req.body.user_email);
-    dealController.findTen(req.body.user_email, function(deals) {
+    dealController.findTen(req.body.creator, function(deals) {
       if (deals) {
         res.status(201).send(deals);
       } else {

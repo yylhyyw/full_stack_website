@@ -28,12 +28,17 @@ import { HomeDealFeatureComponent } from './home/home-deal-feature/home-deal-fea
     HomeFavoriteDealListComponent,
     HomeExpiredDealListComponent,
     HomeActiveDealListComponent,
-    HomeDealFeatureComponent,
+    HomeDealFeatureComponent
   ],
-  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+  ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -4,12 +4,12 @@ const http = require('http');
 const bodyParser = require('body-parser');
 
 
-var cors = require('cors')
+// var cors = require('cors')
 
 // Get our API routes
 
 const app = express();
-app.use(cors());
+// app.use(cors());
 
 var indexRouter = require('./server/routes/api');
 
@@ -23,7 +23,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Set our api routes
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.use('/api', indexRouter);
+
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
@@ -33,7 +41,7 @@ app.get('*', (req, res) => {
 /**
  * Get port from environment and store in Express.
  */
-const port = process.env.PORT || '3000';
+const port = process.env.PORT || '8081';
 app.set('port', port);
 
 /**

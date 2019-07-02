@@ -23,11 +23,12 @@ export class HomeActiveDealListComponent implements OnInit {
 
   ngOnInit() {
     this.getActiveList();
+    console.log(this.authenticationService.currentUserValue.email);
   }
 
   getActiveList() {
     this.dealService
-      .tenDeals(this.authenticationService.currentUserValue[0])
+      .tenDeals(this.authenticationService.currentUserValue.email)
       .pipe(first())
       .subscribe(data => {
         this.dealsParse(data, 0);
@@ -36,7 +37,9 @@ export class HomeActiveDealListComponent implements OnInit {
 
   dealsParse(deals: string, dealIndex: number) {
     while (!(deals[dealIndex] === undefined)) {
-      const link = JSON.parse(JSON.parse(JSON.stringify(deals[dealIndex])).deal_link);
+      const link = JSON.parse(
+        JSON.parse(JSON.stringify(deals[dealIndex])).deal_link
+      );
       this.activeDealList.push(
         new Deal(
           JSON.parse(JSON.stringify(deals[dealIndex])).deal_title,
@@ -46,11 +49,16 @@ export class HomeActiveDealListComponent implements OnInit {
           JSON.parse(JSON.stringify(deals[dealIndex])).deal_quantity,
           JSON.parse(JSON.stringify(deals[dealIndex])).deal_description,
           JSON.parse(JSON.stringify(deals[dealIndex])).updateAt,
-          JSON.parse(JSON.stringify(deals[dealIndex])).deal_id
+          JSON.parse(JSON.stringify(deals[dealIndex])).deal_id,
+          JSON.parse(JSON.stringify(deals[dealIndex])).deal_creator
         )
       );
       dealIndex = dealIndex + 1;
     }
     console.log(this.activeDealList);
+  }
+
+  goToLink(url: string) {
+    window.open(url, '_blank');
   }
 }

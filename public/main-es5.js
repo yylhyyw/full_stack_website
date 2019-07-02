@@ -41,7 +41,7 @@ module.exports = "<!--The content below is only a placeholder and can be replace
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"my-3 p-3 bg-white rounded shadow-sm container\">\n  <h5 class=\"border-bottom border-gray pb-2 mb-0\">Active Deals</h5>\n  <div\n    *ngFor=\"let activeDeal of activeDealList; index as i\"\n    class=\"media text-muted pt-3\"\n  >\n    <h6 class=\"media-body pb-3 mb-0 small lh-125 border-bottom border-gray\">\n      <strong class=\"d-block text-gray-dark\">{{ activeDeal.title }}</strong>\n      {{ activeDeal.description }}\n    </h6>\n  </div>\n  <small class=\"d-block text-right mt-3\">\n    <a>All deals</a>\n  </small>\n</div>\n<!-- https://www.bootdey.com/snippets/view/list-with-description#html -->\n"
+module.exports = "<!-- <div class=\"my-3 p-3 bg-white rounded shadow-sm container\">\n  <h5 class=\"border-bottom border-gray pb-2 mb-0\">Active Deals</h5>\n  <div\n    *ngFor=\"let activeDeal of activeDealList; index as i\"\n    class=\"media text-muted pt-3\"\n  >\n    <div class=\"row\">\n      <div class=\"col-9\">\n        <h6 class=\"media-body pb-3 mb-0 small lh-125 border-bottom border-gray\">\n          <strong class=\"d-block text-gray-dark\">{{ activeDeal.title }}</strong>\n          {{ activeDeal.description }}\n        </h6>\n      </div>\n      <div class=\"col-3\">\n        <div class=\"row align-items-start\">\n          <div class=\"col\"></div>\n          <div class=\"col\">Price:</div>\n          <div class=\"col\">\n            {{activeDeal.price}}\n          </div>\n        </div>\n        <div class=\"row align-items-start\">\n          <div class=\"col\"></div>\n          <div class=\"col\">Quantity:</div>\n          <div class=\"col\">\n            {{activeDeal.quantity}}\n          </div>\n        </div>\n        <br/>\n        <div class=\"row align-items-start\">\n          <div class=\"col\"></div>\n          <div class=\"col\">\n            <button class=\"btn btn-primary btn-sm\">Ticket: {{activeDeal.quantity}}</button>\n          </div>\n          <div class=\"col\"></div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <small class=\"d-block text-right mt-3\">\n    <a>All deals</a>\n  </small>\n</div> -->\n<!-- https://www.bootdey.com/snippets/view/list-with-description#html -->\n<h6>Active Deals</h6>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width: 9%\">#</th>\n      <th scope=\"col\" style=\"width: 60%\">Deals</th>\n      <th scope=\"col\" style=\"width: 10%\">Price</th>\n      <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n      <th scope=\"col\" style=\"width: 9%\"></th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let activeDeal of activeDealList\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + activeDeal.dealId).slice(-4) }}</th>\n        <td>\n          <div>\n            {{ activeDeal.title }}\n            <br />\n            <br />\n            {{ activeDeal.description }}\n            <br />\n            <br />\n            <div *ngFor=\"let link of activeDeal.deallinks\">\n              <div *ngIf=\"link.linkName\">Link Label: {{ link.linkName }}</div>\n              <a href=\"\" (click)=\"goToLink(link.link)\">{{ link.link }}</a>\n              <br />\n            </div>\n            <!-- </ng-container> -->\n          </div>\n        </td>\n        <td>{{ activeDeal.price }}</td>\n        <td>{{ activeDeal.quantity }}</td>\n        <td><button class=\"btn btn-primary btn-sm\">Take</button></td>\n      </tr>\n    </ng-container>\n  </tbody>\n</table>\n"
 
 /***/ }),
 
@@ -329,11 +329,16 @@ var AppModule = /** @class */ (function () {
                 _home_home_active_deal_list_home_active_deal_list_component__WEBPACK_IMPORTED_MODULE_12__["HomeActiveDealListComponent"],
                 _home_home_deal_feature_home_deal_feature_component__WEBPACK_IMPORTED_MODULE_17__["HomeDealFeatureComponent"]
             ],
-            imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"]],
+            imports: [
+                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
+            ],
             providers: [
                 { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"], useClass: _interceptor_error_interceptor__WEBPACK_IMPORTED_MODULE_11__["ErrorInterceptor"], multi: true }
             ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]],
         })
     ], AppModule);
     return AppModule;
@@ -400,7 +405,7 @@ var AuthGuard = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\n  max-width: 800px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2JpbGxfeWFvL0RvY3VtZW50cy9tZWFuLWFwcC9zcmMvYXBwL2hvbWUvaG9tZS1hY3RpdmUtZGVhbC1saXN0L2hvbWUtYWN0aXZlLWRlYWwtbGlzdC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvaG9tZS9ob21lLWFjdGl2ZS1kZWFsLWxpc3QvaG9tZS1hY3RpdmUtZGVhbC1saXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZ0JBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS1hY3RpdmUtZGVhbC1saXN0L2hvbWUtYWN0aXZlLWRlYWwtbGlzdC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb250YWluZXJ7XG4gIG1heC13aWR0aDogODAwcHg7XG59XG4iLCIuY29udGFpbmVyIHtcbiAgbWF4LXdpZHRoOiA4MDBweDtcbn0iXX0= */"
+module.exports = ".container {\n  max-width: 1100px;\n}\n\ntable {\n  table-layout: fixed;\n  word-wrap: break-word;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2JpbGxfeWFvL0RvY3VtZW50cy9tZWFuLWFwcC9zcmMvYXBwL2hvbWUvaG9tZS1hY3RpdmUtZGVhbC1saXN0L2hvbWUtYWN0aXZlLWRlYWwtbGlzdC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvaG9tZS9ob21lLWFjdGl2ZS1kZWFsLWxpc3QvaG9tZS1hY3RpdmUtZGVhbC1saXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsaUJBQUE7QUNDRjs7QURDQTtFQUNFLG1CQUFBO0VBQ0EscUJBQUE7QUNFRiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS1hY3RpdmUtZGVhbC1saXN0L2hvbWUtYWN0aXZlLWRlYWwtbGlzdC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb250YWluZXJ7XG4gIG1heC13aWR0aDogMTEwMHB4O1xufVxudGFibGUge1xuICB0YWJsZS1sYXlvdXQ6IGZpeGVkO1xuICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XG59XG4iLCIuY29udGFpbmVyIHtcbiAgbWF4LXdpZHRoOiAxMTAwcHg7XG59XG5cbnRhYmxlIHtcbiAgdGFibGUtbGF5b3V0OiBmaXhlZDtcbiAgd29yZC13cmFwOiBicmVhay13b3JkO1xufSJdfQ== */"
 
 /***/ }),
 
@@ -435,11 +440,12 @@ var HomeActiveDealListComponent = /** @class */ (function () {
     }
     HomeActiveDealListComponent.prototype.ngOnInit = function () {
         this.getActiveList();
+        console.log(this.authenticationService.currentUserValue.email);
     };
     HomeActiveDealListComponent.prototype.getActiveList = function () {
         var _this = this;
         this.dealService
-            .tenDeals(this.authenticationService.currentUserValue[0])
+            .tenDeals(this.authenticationService.currentUserValue.email)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])())
             .subscribe(function (data) {
             _this.dealsParse(data, 0);
@@ -447,10 +453,14 @@ var HomeActiveDealListComponent = /** @class */ (function () {
     };
     HomeActiveDealListComponent.prototype.dealsParse = function (deals, dealIndex) {
         while (!(deals[dealIndex] === undefined)) {
-            this.activeDealList.push(new _models_deal__WEBPACK_IMPORTED_MODULE_2__["Deal"](JSON.parse(JSON.stringify(deals[dealIndex])).deal_title, JSON.parse(JSON.stringify(deals[dealIndex])).deal_link, JSON.parse(JSON.stringify(deals[dealIndex])).deal_warehouse, JSON.parse(JSON.stringify(deals[dealIndex])).deal_price, JSON.parse(JSON.stringify(deals[dealIndex])).deal_quantity, JSON.parse(JSON.stringify(deals[dealIndex])).deal_description));
+            var link = JSON.parse(JSON.parse(JSON.stringify(deals[dealIndex])).deal_link);
+            this.activeDealList.push(new _models_deal__WEBPACK_IMPORTED_MODULE_2__["Deal"](JSON.parse(JSON.stringify(deals[dealIndex])).deal_title, link, JSON.parse(JSON.stringify(deals[dealIndex])).deal_warehouse, JSON.parse(JSON.stringify(deals[dealIndex])).deal_price, JSON.parse(JSON.stringify(deals[dealIndex])).deal_quantity, JSON.parse(JSON.stringify(deals[dealIndex])).deal_description, JSON.parse(JSON.stringify(deals[dealIndex])).updateAt, JSON.parse(JSON.stringify(deals[dealIndex])).deal_id, JSON.parse(JSON.stringify(deals[dealIndex])).deal_creator));
             dealIndex = dealIndex + 1;
         }
         console.log(this.activeDealList);
+    };
+    HomeActiveDealListComponent.prototype.goToLink = function (url) {
+        window.open(url, '_blank');
     };
     HomeActiveDealListComponent.ctorParameters = function () { return [
         { type: _services_deal_service__WEBPACK_IMPORTED_MODULE_3__["DealService"] },
@@ -500,6 +510,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _models_deal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../models/deal */ "./src/app/models/deal.ts");
 /* harmony import */ var _services_deal_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/deal.service */ "./src/app/services/deal.service.ts");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/authentication.service */ "./src/app/services/authentication.service.ts");
+
 
 
 
@@ -507,8 +519,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var HomeDealCreateComponent = /** @class */ (function () {
-    function HomeDealCreateComponent(dealService) {
+    function HomeDealCreateComponent(dealService, authenticationService) {
         this.dealService = dealService;
+        this.authenticationService = authenticationService;
+        this.deal = new _models_deal__WEBPACK_IMPORTED_MODULE_3__["Deal"]('', [], '', 0, 0, '', '', 1, JSON.stringify(this.authenticationService.currentUserValue.email).replace(/"/g, ''));
+        this.link = new _models_dealLink__WEBPACK_IMPORTED_MODULE_2__["DealLink"]();
+        this.links = [];
         this.warehouses = [
             { name: 'Choose One Below......', value: '' },
             { name: 'NH', value: 'warehouse in NH' },
@@ -516,9 +532,6 @@ var HomeDealCreateComponent = /** @class */ (function () {
             { name: 'NY', value: 'warehouse in NY' }
         ];
         this.isCreated = false;
-        this.deal = new _models_deal__WEBPACK_IMPORTED_MODULE_3__["Deal"]('', [], '', 0, 0, '');
-        this.link = new _models_dealLink__WEBPACK_IMPORTED_MODULE_2__["DealLink"]();
-        this.links = [];
     }
     Object.defineProperty(HomeDealCreateComponent.prototype, "diagnostic", {
         get: function () {
@@ -548,6 +561,7 @@ var HomeDealCreateComponent = /** @class */ (function () {
         while (this.links.length !== 0) {
             this.deal.deallinks.push(this.links.pop());
         }
+        // this.addCreator();
         this.dealService
             .createDeal(this.deal)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])())
@@ -556,17 +570,24 @@ var HomeDealCreateComponent = /** @class */ (function () {
             _this.isCreated = true;
         });
     };
+    HomeDealCreateComponent.prototype.addCreator = function () {
+        console.log(this.deal);
+        // this.deal.creator = this.authenticationService.currentUserValue[0].user_email;
+        // console.log(this.authenticationService.currentUserValue[0].user_email);
+    };
     HomeDealCreateComponent.ctorParameters = function () { return [
-        { type: _services_deal_service__WEBPACK_IMPORTED_MODULE_4__["DealService"] }
+        { type: _services_deal_service__WEBPACK_IMPORTED_MODULE_4__["DealService"] },
+        { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_6__["AuthenticationService"] }
     ]; };
     HomeDealCreateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-home-deal-create',
             template: __webpack_require__(/*! raw-loader!./home-deal-create.component.html */ "./node_modules/raw-loader/index.js!./src/app/home/home-deal-create/home-deal-create.component.html"),
-            providers: [_services_deal_service__WEBPACK_IMPORTED_MODULE_4__["DealService"]],
+            providers: [_services_deal_service__WEBPACK_IMPORTED_MODULE_4__["DealService"], _services_authentication_service__WEBPACK_IMPORTED_MODULE_6__["AuthenticationService"]],
             styles: [__webpack_require__(/*! ./home-deal-create.component.scss */ "./src/app/home/home-deal-create/home-deal-create.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_deal_service__WEBPACK_IMPORTED_MODULE_4__["DealService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_deal_service__WEBPACK_IMPORTED_MODULE_4__["DealService"],
+            _services_authentication_service__WEBPACK_IMPORTED_MODULE_6__["AuthenticationService"]])
     ], HomeDealCreateComponent);
     return HomeDealCreateComponent;
 }());
@@ -582,7 +603,7 @@ var HomeDealCreateComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\n  max-width: 800px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2JpbGxfeWFvL0RvY3VtZW50cy9tZWFuLWFwcC9zcmMvYXBwL2hvbWUvaG9tZS1kZWFsLWZlYXR1cmUvaG9tZS1kZWFsLWZlYXR1cmUuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2hvbWUvaG9tZS1kZWFsLWZlYXR1cmUvaG9tZS1kZWFsLWZlYXR1cmUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9ob21lLWRlYWwtZmVhdHVyZS9ob21lLWRlYWwtZmVhdHVyZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb250YWluZXJ7XG4gIG1heC13aWR0aDogODAwcHg7XG59XG4iLCIuY29udGFpbmVyIHtcbiAgbWF4LXdpZHRoOiA4MDBweDtcbn0iXX0= */"
+module.exports = ".container {\n  max-width: 1100px;\n  padding: 0px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2JpbGxfeWFvL0RvY3VtZW50cy9tZWFuLWFwcC9zcmMvYXBwL2hvbWUvaG9tZS1kZWFsLWZlYXR1cmUvaG9tZS1kZWFsLWZlYXR1cmUuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2hvbWUvaG9tZS1kZWFsLWZlYXR1cmUvaG9tZS1kZWFsLWZlYXR1cmUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxpQkFBQTtFQUNBLFlBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS1kZWFsLWZlYXR1cmUvaG9tZS1kZWFsLWZlYXR1cmUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFpbmVye1xuICBtYXgtd2lkdGg6IDExMDBweDtcbiAgcGFkZGluZzogMHB4O1xufVxuIiwiLmNvbnRhaW5lciB7XG4gIG1heC13aWR0aDogMTEwMHB4O1xuICBwYWRkaW5nOiAwcHg7XG59Il19 */"
 
 /***/ }),
 
@@ -762,7 +783,7 @@ var HomeFavoriteDealListComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "html {\n  font-size: 14px;\n}\n\n@media (min-width: 768px) {\n  html {\n    font-size: 16px;\n  }\n}\n\n.container {\n  max-width: 800px;\n}\n\n.pricing-header {\n  max-width: 700px;\n}\n\n.card-deck .card {\n  min-width: 220px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2JpbGxfeWFvL0RvY3VtZW50cy9tZWFuLWFwcC9zcmMvYXBwL2hvbWUvaG9tZS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvaG9tZS9ob21lLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBQTtBQ0NGOztBRENBO0VBQ0U7SUFDRSxlQUFBO0VDRUY7QUFDRjs7QURDQTtFQUNFLGdCQUFBO0FDQ0Y7O0FERUE7RUFDRSxnQkFBQTtBQ0NGOztBREVBO0VBQ0UsZ0JBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImh0bWwge1xuICBmb250LXNpemU6IDE0cHg7XG59XG5AbWVkaWEgKG1pbi13aWR0aDogNzY4cHgpIHtcbiAgaHRtbCB7XG4gICAgZm9udC1zaXplOiAxNnB4O1xuICB9XG59XG5cbi5jb250YWluZXIge1xuICBtYXgtd2lkdGg6IDgwMHB4O1xufVxuXG4ucHJpY2luZy1oZWFkZXIge1xuICBtYXgtd2lkdGg6IDcwMHB4O1xufVxuXG4uY2FyZC1kZWNrIC5jYXJkIHtcbiAgbWluLXdpZHRoOiAyMjBweDtcbn1cbiIsImh0bWwge1xuICBmb250LXNpemU6IDE0cHg7XG59XG5cbkBtZWRpYSAobWluLXdpZHRoOiA3NjhweCkge1xuICBodG1sIHtcbiAgICBmb250LXNpemU6IDE2cHg7XG4gIH1cbn1cbi5jb250YWluZXIge1xuICBtYXgtd2lkdGg6IDgwMHB4O1xufVxuXG4ucHJpY2luZy1oZWFkZXIge1xuICBtYXgtd2lkdGg6IDcwMHB4O1xufVxuXG4uY2FyZC1kZWNrIC5jYXJkIHtcbiAgbWluLXdpZHRoOiAyMjBweDtcbn0iXX0= */"
+module.exports = "html {\n  font-size: 14px;\n}\n\n@media (min-width: 768px) {\n  html {\n    font-size: 16px;\n  }\n}\n\n.container {\n  max-width: 1100px;\n}\n\n.pricing-header {\n  max-width: 700px;\n}\n\n.card-deck .card {\n  min-width: 220px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2JpbGxfeWFvL0RvY3VtZW50cy9tZWFuLWFwcC9zcmMvYXBwL2hvbWUvaG9tZS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvaG9tZS9ob21lLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBQTtBQ0NGOztBRENBO0VBQ0U7SUFDRSxlQUFBO0VDRUY7QUFDRjs7QURDQTtFQUNFLGlCQUFBO0FDQ0Y7O0FERUE7RUFDRSxnQkFBQTtBQ0NGOztBREVBO0VBQ0UsZ0JBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImh0bWwge1xuICBmb250LXNpemU6IDE0cHg7XG59XG5AbWVkaWEgKG1pbi13aWR0aDogNzY4cHgpIHtcbiAgaHRtbCB7XG4gICAgZm9udC1zaXplOiAxNnB4O1xuICB9XG59XG5cbi5jb250YWluZXIge1xuICBtYXgtd2lkdGg6IDExMDBweDtcbn1cblxuLnByaWNpbmctaGVhZGVyIHtcbiAgbWF4LXdpZHRoOiA3MDBweDtcbn1cblxuLmNhcmQtZGVjayAuY2FyZCB7XG4gIG1pbi13aWR0aDogMjIwcHg7XG59XG4iLCJodG1sIHtcbiAgZm9udC1zaXplOiAxNHB4O1xufVxuXG5AbWVkaWEgKG1pbi13aWR0aDogNzY4cHgpIHtcbiAgaHRtbCB7XG4gICAgZm9udC1zaXplOiAxNnB4O1xuICB9XG59XG4uY29udGFpbmVyIHtcbiAgbWF4LXdpZHRoOiAxMTAwcHg7XG59XG5cbi5wcmljaW5nLWhlYWRlciB7XG4gIG1heC13aWR0aDogNzAwcHg7XG59XG5cbi5jYXJkLWRlY2sgLmNhcmQge1xuICBtaW4td2lkdGg6IDIyMHB4O1xufSJdfQ== */"
 
 /***/ }),
 
@@ -838,6 +859,7 @@ var ErrorInterceptor = /** @class */ (function () {
                 location.reload(true);
             }
             var error = err.error || err.statusText || 'Connection Refused';
+            console.log(err);
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])(error);
         }));
     };
@@ -866,19 +888,27 @@ var ErrorInterceptor = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Deal", function() { return Deal; });
 var Deal = /** @class */ (function () {
-    function Deal(title, deallinks, warehouse, price, quantity, description) {
+    function Deal(title, deallinks, warehouse, price, quantity, description, updatedAt, dealId, creator) {
+        if (updatedAt === void 0) { updatedAt = ''; }
+        if (dealId === void 0) { dealId = 0.1; }
+        this.dealId = dealId;
         this.title = title;
         this.deallinks = deallinks;
         this.warehouse = warehouse;
         this.price = price;
         this.quantity = quantity;
         this.description = description;
+        this.updatedAt = new Date().toLocaleString();
+        this.creator = creator;
     }
     Deal.ctorParameters = function () { return [
         { type: String },
         { type: Array },
         { type: String },
         { type: Number },
+        { type: Number },
+        { type: String },
+        { type: String },
         { type: Number },
         { type: String }
     ]; };
@@ -1013,7 +1043,7 @@ var AuthenticationService = /** @class */ (function () {
     AuthenticationService.prototype.login = function (user) {
         var _this = this;
         return this.http
-            .post('http://localhost:3000/api/signin', user, httpOptions)
+            .post('http://192.168.1.119:8081/api/signin', user, httpOptions)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (logInUser) {
             // login successful if there's a jwt token in the response
             if (logInUser) {
@@ -1070,14 +1100,16 @@ var httpOptions = {
 var DealService = /** @class */ (function () {
     function DealService(http) {
         this.http = http;
-        this.createDealUrl = 'http://localhost:3000/api/createdeal'; // URL to web api
-        this.tenDealsUrl = 'http://localhost:3000/api/deal/active/firstTen';
+        this.createDealUrl = 'http://192.168.1.119:8081/api/createdeal'; // URL to web api
+        this.tenDealsUrl = 'http://192.168.1.119:8081/api/deal/active/firstTen';
     }
     DealService.prototype.createDeal = function (deal) {
         return this.http.post(this.createDealUrl, deal, httpOptions);
     };
     DealService.prototype.tenDeals = function (creator) {
-        return this.http.post(this.tenDealsUrl, creator, httpOptions);
+        var creatorJSON = '{ "creator" : ' + '"' + creator + '"' + ' }';
+        // console.log(JSON.parse(creator));
+        return this.http.post(this.tenDealsUrl, JSON.parse(creatorJSON), httpOptions);
     };
     DealService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
@@ -1118,7 +1150,7 @@ var httpOptions = {
 var RegisterService = /** @class */ (function () {
     function RegisterService(http) {
         this.http = http;
-        this.registerUrl = 'http://localhost:3000/api/register'; // URL to web api
+        this.registerUrl = 'http://192.168.1.119:8081/api/register'; // URL to web api
     }
     RegisterService.prototype.userRegister = function (register) {
         return this.http.post(this.registerUrl, register, httpOptions);

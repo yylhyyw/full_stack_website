@@ -10,6 +10,7 @@ export class Deal {
   public description: string;
   public updatedAt: string;
   public dealId: number;
+  public creator: string;
   constructor(
     title: string,
     deallinks: any[],
@@ -18,7 +19,8 @@ export class Deal {
     quantity: number,
     description: string,
     updatedAt: string = '',
-    dealId: number = 0.1
+    dealId: number = 0.1,
+    creator: string
   ) {
     this.dealId = dealId;
     this.title = title;
@@ -28,5 +30,6 @@ export class Deal {
     this.quantity = quantity;
     this.description = description;
     this.updatedAt = new Date().toLocaleString();
+    this.creator = creator;
   }
 }

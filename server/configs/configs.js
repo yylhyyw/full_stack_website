@@ -10,7 +10,7 @@ module.exports = {
       'username': 'dummy',
       'password': 'Apple123',
       'database': 'nodejs',
-      'host': '127.0.0.1',
+      'host': '127.0.0.7',
       'dialect': 'mysql'
   },
   'production': {
