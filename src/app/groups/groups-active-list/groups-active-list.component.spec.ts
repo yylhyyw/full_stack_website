@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeDealFeatureComponent } from './home-deal-feature.component';
+import { GroupsActiveListComponent } from './groups-active-list.component';
 
-describe('HomeDealFeatureComponent', () => {
-  let component: HomeDealFeatureComponent;
-  let fixture: ComponentFixture<HomeDealFeatureComponent>;
+describe('GroupsActiveListComponent', () => {
+  let component: GroupsActiveListComponent;
+  let fixture: ComponentFixture<GroupsActiveListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeDealFeatureComponent ]
+      declarations: [ GroupsActiveListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeDealFeatureComponent);
+    fixture = TestBed.createComponent(GroupsActiveListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

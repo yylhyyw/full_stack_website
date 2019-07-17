@@ -1,3 +1,4 @@
+const Product = require('../models').products;
 module.exports = (sequelize, DataTypes) => {
   let User = sequelize.define(
     'users',
@@ -26,10 +27,6 @@ module.exports = (sequelize, DataTypes) => {
       password: {
         type: DataTypes.STRING,
         allowNull: false
-      },
-      group_id: {
-        type: DataTypes.INTEGER,
-        allowNull: true
       }
     },
     {}

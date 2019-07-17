@@ -5,60 +5,51 @@ import { DealService } from '../../services/deal.service';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../../services/authentication.service';
 
+import { ProductService } from '../../services/product.service';
+
+import { GroupService } from '../../services/group.service';
+
 @Component({
   selector: 'app-home-active-deal-list',
   templateUrl: './home-active-deal-list.component.html',
   styleUrls: ['./home-active-deal-list.component.scss'],
-  providers: [DealService, AuthenticationService]
+  providers: [DealService, AuthenticationService, ProductService, GroupService]
 })
 export class HomeActiveDealListComponent implements OnInit {
   // private activeDeal: Deal;
-  private activeDealList: Deal[] = [];
+  private dealList: any;
   private creator: string;
+
+  public privilege: any;
+
+  public followingList: any;
 
   constructor(
     private dealService: DealService,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private productService: ProductService,
+    private groupService: GroupService
   ) {}
 
   ngOnInit() {
-    this.getActiveList();
-    console.log(this.authenticationService.currentUserValue.email);
+    if (this.authenticationService.currentUserValue) {
+      this.creator = this.authenticationService.currentUserValue[0];
+      if (this.authenticationService.currentUserValue[2] === 'company') {
+        this.privilege = true;
+        this.getActiveList(this.creator);
+      } else {
+        this.privilege = false;
+      }
+    }
   }
 
-  getActiveList() {
+  getActiveList(creator) {
     this.dealService
-      .tenDeals(this.authenticationService.currentUserValue.email)
+      .tenDeals(creator)
       .pipe(first())
       .subscribe(data => {
-        this.dealsParse(data, 0);
+        this.dealList = data;
       });
   }
 
-  dealsParse(deals: string, dealIndex: number) {
-    while (!(deals[dealIndex] === undefined)) {
-      const link = JSON.parse(
-        JSON.parse(JSON.stringify(deals[dealIndex])).deal_link
-      );
-      this.activeDealList.push(
-        new Deal(
-          JSON.parse(JSON.stringify(deals[dealIndex])).deal_title,
-          link,
-          JSON.parse(JSON.stringify(deals[dealIndex])).deal_warehouse,
-          JSON.parse(JSON.stringify(deals[dealIndex])).deal_price,
-          JSON.parse(JSON.stringify(deals[dealIndex])).deal_quantity,
-          JSON.parse(JSON.stringify(deals[dealIndex])).deal_description,
-          JSON.parse(JSON.stringify(deals[dealIndex])).updateAt,
-          JSON.parse(JSON.stringify(deals[dealIndex])).deal_id,
-          JSON.parse(JSON.stringify(deals[dealIndex])).deal_creator
-        )
-      );
-      dealIndex = dealIndex + 1;
-    }
-    console.log(this.activeDealList);
-  }
-
-  goToLink(url: string) {
-    window.open(url, '_blank');
-  }
 }

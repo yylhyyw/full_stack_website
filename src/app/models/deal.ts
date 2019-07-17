@@ -1,35 +1,48 @@
-import { DealLink } from './dealLink';
-import { Timestamp } from 'rxjs/internal/operators/timestamp';
-
 export class Deal {
-  public title: string;
-  public deallinks: any[];
-  public warehouse: string;
-  public price: number;
+  public products: number;
+  public productName: string;
+  public price: string;
   public quantity: number;
-  public description: string;
-  public updatedAt: string;
-  public dealId: number;
+  public expiresAt: string;
+  public note: string;
+  public serviceTag: boolean;
+  public dealPublic: boolean;
+  public notify: boolean;
   public creator: string;
   constructor(
-    title: string,
-    deallinks: any[],
-    warehouse: string,
-    price: number,
+    products: number,
+    productName: string,
+    price: string,
     quantity: number,
-    description: string,
-    updatedAt: string = '',
-    dealId: number = 0.1,
+    expiresAt: string,
+    note: string,
+    serviceTag: boolean,
+    dealPublic: boolean,
+    notify: boolean,
     creator: string
   ) {
-    this.dealId = dealId;
-    this.title = title;
-    this.deallinks = deallinks;
-    this.warehouse = warehouse;
+    this.products = products;
+    this.productName = productName;
     this.price = price;
     this.quantity = quantity;
-    this.description = description;
-    this.updatedAt = new Date().toLocaleString();
+    this.expiresAt = expiresAt;
+    this.note = note;
+    this.serviceTag = serviceTag;
+    this.dealPublic = dealPublic;
+    this.notify = notify;
     this.creator = creator;
+  }
+
+  public clear() {
+    this.products = null;
+    this.productName = '';
+    this.price = '';
+    this.quantity = null;
+    this.expiresAt = '';
+    this.note = '';
+    this.serviceTag = null;
+    this.dealPublic = null;
+    this.notify = null;
+    this.creator = '';
   }
 }

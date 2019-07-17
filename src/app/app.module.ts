@@ -14,8 +14,15 @@ import { HomeActiveDealListComponent } from './home/home-active-deal-list/home-a
 import { HomeExpiredDealListComponent } from './home/home-expired-deal-list/home-expired-deal-list.component';
 import { HomeFavoriteDealListComponent } from './home/home-favorite-deal-list/home-favorite-deal-list.component';
 import { HomeDraftsDealListComponent } from './home/home-drafts-deal-list/home-drafts-deal-list.component';
-import { HomeDealCreateComponent } from './home/home-deal-create/home-deal-create.component';
-import { HomeDealFeatureComponent } from './home/home-deal-feature/home-deal-feature.component';
+
+import { ProductsComponent } from './products/products.component';
+import { ProductsActiveListComponent } from './products/products-active-list/products-active-list.component';
+import { GroupsComponent } from './groups/groups.component';
+import { GroupsActiveListComponent } from './groups/groups-active-list/groups-active-list.component';
+import { GroupsBlockedListComponent } from './groups/groups-blocked-list/groups-blocked-list.component';
+import { GroupsWaitingListComponent } from './groups/groups-waiting-list/groups-waiting-list.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,18 +30,22 @@ import { HomeDealFeatureComponent } from './home/home-deal-feature/home-deal-fea
     SignInFormComponent,
     RegisterFormComponent,
     HomeComponent,
-    HomeDealCreateComponent,
     HomeDraftsDealListComponent,
     HomeFavoriteDealListComponent,
     HomeExpiredDealListComponent,
     HomeActiveDealListComponent,
-    HomeDealFeatureComponent
+    ProductsComponent,
+    ProductsActiveListComponent,
+    GroupsComponent,
+    GroupsActiveListComponent,
+    GroupsBlockedListComponent,
+    GroupsWaitingListComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }

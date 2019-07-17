@@ -34,6 +34,28 @@ module.exports = "<!--The content below is only a placeholder and can be replace
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/groups/groups-active-list/groups-active-list.component.html":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/groups/groups-active-list/groups-active-list.component.html ***!
+  \*******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "//TODO: add css to the following tables\n<table class=\"table\">\n    <thead>\n      <tr>\n        <th scope=\"col\" style=\"width:9%\">#</th>\n        <th scope=\"col\" style=\"width:80%\">Followers</th>\n        <th scope=\"col\" style=\"width:11%\">Actions</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <th scope=\"row\">1</th>\n        <td>Mark</td>\n        <td><button class=\"btn btn-primary btn-sm\">Edit</button></td>\n      </tr>\n      <tr>\n        <th scope=\"row\">2</th>\n        <td>Jacob</td>\n        <td><button class=\"btn btn-primary btn-sm\">Edit</button></td>\n      </tr>\n      <tr>\n        <th scope=\"row\">3</th>\n        <td>Larry</td>\n        <td><button class=\"btn btn-primary btn-sm\">Edit</button></td>\n      </tr>\n    </tbody>\n  </table>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/groups/groups.component.html":
+/*!************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/groups/groups.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n    //TODO: redirect the nav item to correct area\n  <ul class=\"nav nav-tabs\" id=\"dealTabs\" role=\"tablist\">\n    <li class=\"nav-item\">\n\n      <a\n        class=\"nav-link active\"\n        id=\"active-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"active\"\n        role=\"tab\"\n        aria-controls=\"active\"\n        aria-selected=\"true\"\n        >Active Followers</a\n      >\n    </li>\n    <li class=\"nav-item\">\n        <a\n          class=\"nav-link active\"\n          id=\"active-tab\"\n          data-toggle=\"tab\"\n          routerLink=\"active\"\n          role=\"tab\"\n          aria-controls=\"active\"\n          aria-selected=\"true\"\n          >Active Groups</a\n        >\n      </li>\n      <li class=\"nav-item\">\n          <a\n            class=\"nav-link active\"\n            id=\"active-tab\"\n            data-toggle=\"tab\"\n            routerLink=\"active\"\n            role=\"tab\"\n            aria-controls=\"active\"\n            aria-selected=\"true\"\n            >Blocked Followers</a\n          >\n        </li>\n  </ul>\n  <div>\n    <form class=\"form-inline float-left\">\n      <input\n        class=\"form-control mr-sm-2\"\n        type=\"search\"\n        placeholder=\"Search\"\n        aria-label=\"Search\"\n      />\n    </form>\n    <div class=\"float-right\">\n      //TODO: set sumbit button to create products add SCSS to search and create\n      button\n      <button\n        type=\"button\"\n        class=\"btn btn-outline-success btn-block\"\n        data-toggle=\"modal\"\n        data-target=\"#createForm\"\n        data-whatever=\"@mdo\"\n      >\n        Invite\n      </button>\n    </div>\n  </div>\n  <div class=\"tab-content\" id=\"dealLists\">\n    <router-outlet></router-outlet>\n  </div>\n  <div\n    class=\"modal fade\"\n    id=\"createForm\"\n    tabindex=\"-1\"\n    role=\"dialog\"\n    aria-labelledby=\"createFrom\"\n    aria-hidden=\"true\"\n  >\n    <div class=\"modal-dialog\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"createFrom\">Product Create Form</h5>\n          <button\n            type=\"button\"\n            class=\"close\"\n            data-dismiss=\"modal\"\n            aria-label=\"Close\"\n          >\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form>\n            <div class=\"form-group\">\n              <label for=\"recipient-name\" class=\"col-form-label\"\n                >Recipient:</label\n              >\n              <input type=\"text\" class=\"form-control\" id=\"recipient-name\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"message-text\" class=\"col-form-label\">Message:</label>\n              <textarea class=\"form-control\" id=\"message-text\"></textarea>\n            </div>\n          </form>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">\n            Close\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\">Send message</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/home/home-active-deal-list/home-active-deal-list.component.html":
 /*!***********************************************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/home/home-active-deal-list/home-active-deal-list.component.html ***!
@@ -41,29 +63,7 @@ module.exports = "<!--The content below is only a placeholder and can be replace
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div class=\"my-3 p-3 bg-white rounded shadow-sm container\">\n  <h5 class=\"border-bottom border-gray pb-2 mb-0\">Active Deals</h5>\n  <div\n    *ngFor=\"let activeDeal of activeDealList; index as i\"\n    class=\"media text-muted pt-3\"\n  >\n    <div class=\"row\">\n      <div class=\"col-9\">\n        <h6 class=\"media-body pb-3 mb-0 small lh-125 border-bottom border-gray\">\n          <strong class=\"d-block text-gray-dark\">{{ activeDeal.title }}</strong>\n          {{ activeDeal.description }}\n        </h6>\n      </div>\n      <div class=\"col-3\">\n        <div class=\"row align-items-start\">\n          <div class=\"col\"></div>\n          <div class=\"col\">Price:</div>\n          <div class=\"col\">\n            {{activeDeal.price}}\n          </div>\n        </div>\n        <div class=\"row align-items-start\">\n          <div class=\"col\"></div>\n          <div class=\"col\">Quantity:</div>\n          <div class=\"col\">\n            {{activeDeal.quantity}}\n          </div>\n        </div>\n        <br/>\n        <div class=\"row align-items-start\">\n          <div class=\"col\"></div>\n          <div class=\"col\">\n            <button class=\"btn btn-primary btn-sm\">Ticket: {{activeDeal.quantity}}</button>\n          </div>\n          <div class=\"col\"></div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <small class=\"d-block text-right mt-3\">\n    <a>All deals</a>\n  </small>\n</div> -->\n<!-- https://www.bootdey.com/snippets/view/list-with-description#html -->\n<h6>Active Deals</h6>\n\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width: 9%\">#</th>\n      <th scope=\"col\" style=\"width: 60%\">Deals</th>\n      <th scope=\"col\" style=\"width: 10%\">Price</th>\n      <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n      <th scope=\"col\" style=\"width: 9%\"></th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let activeDeal of activeDealList\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + activeDeal.dealId).slice(-4) }}</th>\n        <td>\n          <div>\n            {{ activeDeal.title }}\n            <br />\n            <br />\n            {{ activeDeal.description }}\n            <br />\n            <br />\n            <div *ngFor=\"let link of activeDeal.deallinks\">\n              <div *ngIf=\"link.linkName\">Link Label: {{ link.linkName }}</div>\n              <a href=\"\" (click)=\"goToLink(link.link)\">{{ link.link }}</a>\n              <br />\n            </div>\n            <!-- </ng-container> -->\n          </div>\n        </td>\n        <td>{{ activeDeal.price }}</td>\n        <td>{{ activeDeal.quantity }}</td>\n        <td><button class=\"btn btn-primary btn-sm\">Take</button></td>\n      </tr>\n    </ng-container>\n  </tbody>\n</table>\n"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/home/home-deal-create/home-deal-create.component.html":
-/*!*************************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/home/home-deal-create/home-deal-create.component.html ***!
-  \*************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "{{ diagnostic }}\n{{ extraLinks }}\n<div ng-controller=\"registerFromController\">\n  {{ title }}\n  <div class=\"container\">\n      <div class=\"alert alert-primary\" role=\"alert\" *ngIf=\"isCreated\">\n          You have successfully created!\n          <br />\n          <a class=\"alert-link\" routerLink=\"/home\">Click here back to Home</a>\n          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n    <div class=\"py-5 text-center\">\n      <h2>Create A New Deal</h2>\n      <p>\n        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quis ab!\n        Eligendi sed commodi voluptatem vero suscipit consequatur numquam\n        aperiam doloribus obcaecati ducimus, corrupti similique asperiores\n        explicabo perspiciatis officia ab?\n      </p>\n    </div>\n  </div>\n\n  <div class=\"container\">\n    <h4 class=\"mb-3\">New Deal Information</h4>\n    <form class=\"needs-validation\" novalidate #linkCreateFrom=\"ngForm\">\n      <div class=\"mb-3\">\n        <label for=\"title\">Title</label>\n        <input\n          type=\"text\"\n          class=\"form-control\"\n          name=\"title\"\n          [(ngModel)]=\"deal.title\"\n          id=\"title\"\n          required\n        />\n        <div class=\"invalid-feedback\">\n          Please enter your Deal Title\n        </div>\n      </div>\n\n      <div class=\"row\">\n        <div class=\"col-6 mb-3\">\n          <label for=\"link\">Deal Link</label>\n          <input\n            type=\"text\"\n            class=\"form-control\"\n            name=\"link\"\n            id=\"link\"\n            [(ngModel)]=\"link.link\"\n            required\n          />\n          <div class=\"invalid-feedback\">\n            Please enter Deal Link\n          </div>\n        </div>\n        <div class=\"col-6 mb-3\">\n          <label for=\"linkLabel\">Deal Link Label</label>\n          <input\n            type=\"text\"\n            class=\"form-control\"\n            id=\"linkLabel\"\n            name=\"linkLabel\"\n            [(ngModel)]=\"link.linkName\"\n            required\n          />\n          <div class=\"invalid-feedback\">\n            Please enter Deal Link Label\n          </div>\n        </div>\n      </div>\n\n      <div *ngFor=\"let link of links; index as i\">\n        <div class=\"row\">\n          <div class=\"col-6 mb-3\">\n            <label for=\"link\">Extra Deal Link</label>\n            <input\n              type=\"text\"\n              class=\"form-control\"\n              id=\"link\"\n              name=\"extraLink{{i}}\"\n              [(ngModel)]=\"links[i].link\"\n              value={{link.link}}\n              required\n            />\n            <div class=\"invalid-feedback\">\n              Please enter Deal Link\n            </div>\n          </div>\n          <div class=\"col-6 mb-3\">\n            <label for=\"linkLabel\">Extra Deal Link Label</label>\n            <input\n              type=\"text\"\n              class=\"form-control\"\n              id=\"linkLabel\"\n              name=\"extraLinkName{{i}}\"\n              [(ngModel)]=\"links[i].linkName\"\n              value={{link.linkName}}\n              required\n            />\n            <div class=\"invalid-feedback\">\n              Please enter Deal Link Label\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"text-right\">\n        <button\n          type=\"button\"\n          class=\"btn btn-primary d-inline\"\n          (click)=\"linkAdd()\"\n        >\n          Add\n        </button>\n      </div>\n\n      <div class=\"row\">\n        <div class=\"col-5 mb-3\">\n          <label for=\"warehouse\">Warehouse</label>\n          <select\n            class=\"custom-select d-block w-100\"\n            id=\"warehouse\"\n            name=\"warehouse\"\n            [(ngModel)]=\"deal.warehouse\"\n            required\n          >\n            <option\n              *ngFor=\"let warehouse of warehouses\"\n              [ngValue]=\"warehouse.value\"\n            >\n              {{ warehouse.name }}\n            </option>\n          </select>\n          <div class=\"invalid-feedback\">\n            Please select a valid Warehouse Location.\n          </div>\n        </div>\n\n        <div class=\"col-4 mb-3\">\n          <label for=\"price\">Price</label>\n          <input\n            type=\"text\"\n            class=\"form-control\"\n            id=\"price\"\n            name=\"price\"\n            [(ngModel)]=\"deal.price\"\n            required\n          />\n          <div class=\"invalid-feedback\">\n            Price required\n          </div>\n        </div>\n\n        <div class=\"col-3 mb-3\">\n          <label for=\"price\">Quantity</label>\n          <input\n            type=\"text\"\n            class=\"form-control\"\n            id=\"quantity\"\n            name=\"quantity\"\n            [(ngModel)]=\"deal.quantity\"\n            required\n          />\n          <div class=\"invalid-feedback\">\n            Quantity required\n          </div>\n        </div>\n      </div>\n\n      <div class=\"mb-3\">\n        <label for=\"description\">Description</label>\n        <textarea\n          id=\"description\"\n          rows=\"4\"\n          class=\"form-control\"\n          name=\"description\"\n          [(ngModel)]=\"deal.description\"\n        ></textarea>\n      </div>\n\n      <hr class=\"mb-4\" />\n    </form>\n\n    <div>\n      <button class=\"btn btn-primary float-right\" (click)=\"dealCreate()\">\n        Next\n      </button>\n      <button\n        class=\"btn btn-primary float-left\"\n        routerLink=\"/home\"\n        type=\"submit\"\n      >\n        Back\n      </button>\n    </div>\n  </div>\n</div>\n"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/home/home-deal-feature/home-deal-feature.component.html":
-/*!***************************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/home/home-deal-feature/home-deal-feature.component.html ***!
-  \***************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container py-5\">\n      <form class=\"form-inline float-left\">\n        <input\n          class=\"form-control mr-sm-2\"\n          type=\"search\"\n          placeholder=\"Search\"\n          aria-label=\"Search\"\n        />\n      </form>\n    <div class=\"float-right\">\n        <button class=\"btn btn-outline-success btn-block\" routerLink=\"/home/create\" type=\"submit\">\n            Create\n          </button>\n    </div>\n</div>\n"
+module.exports = "<table class=\"table\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width: 9%\">#</th>\n      <th scope=\"col\" style=\"width: 60%\">Deals</th>\n      <th scope=\"col\" style=\"width: 10%\">Price</th>\n      <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n      <th scope=\"col\" style=\"width: 9%\"></th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let activeDeal of activeDealList\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + activeDeal.dealId).slice(-4) }}</th>\n        <td>\n          <div>\n            {{ activeDeal.title }}\n            <br />\n            <br />\n            {{ activeDeal.description }}\n            <br />\n            <br />\n            <div *ngFor=\"let link of activeDeal.deallinks\">\n              <div *ngIf=\"link.linkName\">Link Label: {{ link.linkName }}</div>\n              <a href=\"\" (click)=\"goToLink(link.link)\">{{ link.link }}</a>\n              <br />\n            </div>\n            <!-- </ng-container> -->\n          </div>\n        </td>\n        <td>{{ activeDeal.price }}</td>\n        <td>{{ activeDeal.quantity }}</td>\n        <td><button class=\"btn btn-primary btn-sm\">Take</button></td>\n      </tr>\n    </ng-container>\n  </tbody>\n</table>\n"
 
 /***/ }),
 
@@ -74,7 +74,7 @@ module.exports = "<div class=\"container py-5\">\n      <form class=\"form-inlin
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"my-3 p-3 bg-white rounded shadow-sm container\">\n    <h6 class=\"border-bottom border-gray pb-2 mb-0\">Drafts</h6>\n    <div class=\"media text-muted pt-3\">\n      <svg class=\"bd-placeholder-img mr-2 rounded\" width=\"32\" height=\"32\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid slice\" focusable=\"false\" role=\"img\" aria-label=\"Placeholder: 32x32\"><title>Placeholder</title><rect fill=\"#007bff\" width=\"100%\" height=\"100%\"/><text fill=\"#007bff\" dy=\".3em\" x=\"50%\" y=\"50%\">32x32</text></svg>\n      <p class=\"media-body pb-3 mb-0 small lh-125 border-bottom border-gray\">\n        <strong class=\"d-block text-gray-dark\">@username</strong>\n        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.\n      </p>\n    </div>\n    <div class=\"media text-muted pt-3\">\n      <svg class=\"bd-placeholder-img mr-2 rounded\" width=\"32\" height=\"32\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid slice\" focusable=\"false\" role=\"img\" aria-label=\"Placeholder: 32x32\"><title>Placeholder</title><rect fill=\"#e83e8c\" width=\"100%\" height=\"100%\"/><text fill=\"#e83e8c\" dy=\".3em\" x=\"50%\" y=\"50%\">32x32</text></svg>\n      <p class=\"media-body pb-3 mb-0 small lh-125 border-bottom border-gray\">\n        <strong class=\"d-block text-gray-dark\">@username</strong>\n        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.\n      </p>\n    </div>\n    <div class=\"media text-muted pt-3\">\n      <svg class=\"bd-placeholder-img mr-2 rounded\" width=\"32\" height=\"32\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid slice\" focusable=\"false\" role=\"img\" aria-label=\"Placeholder: 32x32\"><title>Placeholder</title><rect fill=\"#6f42c1\" width=\"100%\" height=\"100%\"/><text fill=\"#6f42c1\" dy=\".3em\" x=\"50%\" y=\"50%\">32x32</text></svg>\n      <p class=\"media-body pb-3 mb-0 small lh-125 border-bottom border-gray\">\n        <strong class=\"d-block text-gray-dark\">@username</strong>\n        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.\n      </p>\n    </div>\n    <small class=\"d-block text-right mt-3\">\n      <a href=\"#\">All deals</a>\n    </small>\n  </div>\n"
+module.exports = "<h6>Drafts Deals</h6>\n//TODO add drafts deals logic\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width: 9%\">#</th>\n      <th scope=\"col\" style=\"width: 60%\">Deals</th>\n      <th scope=\"col\" style=\"width: 10%\">Price</th>\n      <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n      <th scope=\"col\" style=\"width: 9%\"></th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let activeDeal of activeDealList\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + activeDeal.dealId).slice(-4) }}</th>\n        <td>\n          <div>\n            {{ activeDeal.title }}\n            <br />\n            <br />\n            {{ activeDeal.description }}\n            <br />\n            <br />\n            <div *ngFor=\"let link of activeDeal.deallinks\">\n              <div *ngIf=\"link.linkName\">Link Label: {{ link.linkName }}</div>\n              <a href=\"\" (click)=\"goToLink(link.link)\">{{ link.link }}</a>\n              <br />\n            </div>\n            <!-- </ng-container> -->\n          </div>\n        </td>\n        <td>{{ activeDeal.price }}</td>\n        <td>{{ activeDeal.quantity }}</td>\n        <td><button class=\"btn btn-primary btn-sm\">Take</button></td>\n      </tr>\n    </ng-container>\n  </tbody>\n</table>\n"
 
 /***/ }),
 
@@ -85,7 +85,7 @@ module.exports = "<div class=\"my-3 p-3 bg-white rounded shadow-sm container\">\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"my-3 p-3 bg-white rounded shadow-sm container\">\n    <h6 class=\"border-bottom border-gray pb-2 mb-0\">Expired Deals</h6>\n    <div class=\"media text-muted pt-3\">\n      <svg class=\"bd-placeholder-img mr-2 rounded\" width=\"32\" height=\"32\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid slice\" focusable=\"false\" role=\"img\" aria-label=\"Placeholder: 32x32\"><title>Placeholder</title><rect fill=\"#007bff\" width=\"100%\" height=\"100%\"/><text fill=\"#007bff\" dy=\".3em\" x=\"50%\" y=\"50%\">32x32</text></svg>\n      <p class=\"media-body pb-3 mb-0 small lh-125 border-bottom border-gray\">\n        <strong class=\"d-block text-gray-dark\">@username</strong>\n        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.\n      </p>\n    </div>\n    <div class=\"media text-muted pt-3\">\n      <svg class=\"bd-placeholder-img mr-2 rounded\" width=\"32\" height=\"32\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid slice\" focusable=\"false\" role=\"img\" aria-label=\"Placeholder: 32x32\"><title>Placeholder</title><rect fill=\"#e83e8c\" width=\"100%\" height=\"100%\"/><text fill=\"#e83e8c\" dy=\".3em\" x=\"50%\" y=\"50%\">32x32</text></svg>\n      <p class=\"media-body pb-3 mb-0 small lh-125 border-bottom border-gray\">\n        <strong class=\"d-block text-gray-dark\">@username</strong>\n        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.\n      </p>\n    </div>\n    <div class=\"media text-muted pt-3\">\n      <svg class=\"bd-placeholder-img mr-2 rounded\" width=\"32\" height=\"32\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid slice\" focusable=\"false\" role=\"img\" aria-label=\"Placeholder: 32x32\"><title>Placeholder</title><rect fill=\"#6f42c1\" width=\"100%\" height=\"100%\"/><text fill=\"#6f42c1\" dy=\".3em\" x=\"50%\" y=\"50%\">32x32</text></svg>\n      <p class=\"media-body pb-3 mb-0 small lh-125 border-bottom border-gray\">\n        <strong class=\"d-block text-gray-dark\">@username</strong>\n        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.\n      </p>\n    </div>\n    <small class=\"d-block text-right mt-3\">\n      <a href=\"#\">All deals</a>\n    </small>\n  </div>\n"
+module.exports = "<h6>Expired Deals</h6>\n//TODO add drafts deals logic\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width: 9%\">#</th>\n      <th scope=\"col\" style=\"width: 60%\">Deals</th>\n      <th scope=\"col\" style=\"width: 10%\">Price</th>\n      <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n      <th scope=\"col\" style=\"width: 9%\"></th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let activeDeal of activeDealList\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + activeDeal.dealId).slice(-4) }}</th>\n        <td>\n          <div>\n            {{ activeDeal.title }}\n            <br />\n            <br />\n            {{ activeDeal.description }}\n            <br />\n            <br />\n            <div *ngFor=\"let link of activeDeal.deallinks\">\n              <div *ngIf=\"link.linkName\">Link Label: {{ link.linkName }}</div>\n              <a href=\"\" (click)=\"goToLink(link.link)\">{{ link.link }}</a>\n              <br />\n            </div>\n            <!-- </ng-container> -->\n          </div>\n        </td>\n        <td>{{ activeDeal.price }}</td>\n        <td>{{ activeDeal.quantity }}</td>\n        <td><button class=\"btn btn-primary btn-sm\">Take</button></td>\n      </tr>\n    </ng-container>\n  </tbody>\n</table>\n"
 
 /***/ }),
 
@@ -96,7 +96,7 @@ module.exports = "<div class=\"my-3 p-3 bg-white rounded shadow-sm container\">\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"my-3 p-3 bg-white rounded shadow-sm container\">\n    <h6 class=\"border-bottom border-gray pb-2 mb-0\">Favorite Deals</h6>\n    <div class=\"media text-muted pt-3\">\n      <svg class=\"bd-placeholder-img mr-2 rounded\" width=\"32\" height=\"32\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid slice\" focusable=\"false\" role=\"img\" aria-label=\"Placeholder: 32x32\"><title>Placeholder</title><rect fill=\"#007bff\" width=\"100%\" height=\"100%\"/><text fill=\"#007bff\" dy=\".3em\" x=\"50%\" y=\"50%\">32x32</text></svg>\n      <p class=\"media-body pb-3 mb-0 small lh-125 border-bottom border-gray\">\n        <strong class=\"d-block text-gray-dark\">@username</strong>\n        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.\n      </p>\n    </div>\n    <div class=\"media text-muted pt-3\">\n      <svg class=\"bd-placeholder-img mr-2 rounded\" width=\"32\" height=\"32\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid slice\" focusable=\"false\" role=\"img\" aria-label=\"Placeholder: 32x32\"><title>Placeholder</title><rect fill=\"#e83e8c\" width=\"100%\" height=\"100%\"/><text fill=\"#e83e8c\" dy=\".3em\" x=\"50%\" y=\"50%\">32x32</text></svg>\n      <p class=\"media-body pb-3 mb-0 small lh-125 border-bottom border-gray\">\n        <strong class=\"d-block text-gray-dark\">@username</strong>\n        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.\n      </p>\n    </div>\n    <div class=\"media text-muted pt-3\">\n      <svg class=\"bd-placeholder-img mr-2 rounded\" width=\"32\" height=\"32\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMidYMid slice\" focusable=\"false\" role=\"img\" aria-label=\"Placeholder: 32x32\"><title>Placeholder</title><rect fill=\"#6f42c1\" width=\"100%\" height=\"100%\"/><text fill=\"#6f42c1\" dy=\".3em\" x=\"50%\" y=\"50%\">32x32</text></svg>\n      <p class=\"media-body pb-3 mb-0 small lh-125 border-bottom border-gray\">\n        <strong class=\"d-block text-gray-dark\">@username</strong>\n        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.\n      </p>\n    </div>\n    <small class=\"d-block text-right mt-3\">\n      <a href=\"#\">All deals</a>\n    </small>\n  </div>\n"
+module.exports = "<h6>Favorite Deals</h6>\n//TODO add drafts deals logic\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width: 9%\">#</th>\n      <th scope=\"col\" style=\"width: 60%\">Deals</th>\n      <th scope=\"col\" style=\"width: 10%\">Price</th>\n      <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n      <th scope=\"col\" style=\"width: 9%\"></th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let activeDeal of activeDealList\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + activeDeal.dealId).slice(-4) }}</th>\n        <td>\n          <div>\n            {{ activeDeal.title }}\n            <br />\n            <br />\n            {{ activeDeal.description }}\n            <br />\n            <br />\n            <div *ngFor=\"let link of activeDeal.deallinks\">\n              <div *ngIf=\"link.linkName\">Link Label: {{ link.linkName }}</div>\n              <a href=\"\" (click)=\"goToLink(link.link)\">{{ link.link }}</a>\n              <br />\n            </div>\n            <!-- </ng-container> -->\n          </div>\n        </td>\n        <td>{{ activeDeal.price }}</td>\n        <td>{{ activeDeal.quantity }}</td>\n        <td><button class=\"btn btn-primary btn-sm\">Take</button></td>\n      </tr>\n    </ng-container>\n  </tbody>\n</table>\n"
 
 /***/ }),
 
@@ -107,7 +107,29 @@ module.exports = "<div class=\"my-3 p-3 bg-white rounded shadow-sm container\">\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <ul class=\"nav nav-tabs\" id=\"dealTabs\" role=\"tablist\">\n    <li class=\"nav-item\">\n      <a class=\"nav-link active\" id=\"active-tab\" data-toggle=\"tab\" routerLink='active' role=\"tab\" aria-controls=\"active\"\n        aria-selected=\"true\">Active Deals</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" id=\"expired-tab\" data-toggle=\"tab\" routerLink='expired' role=\"tab\" aria-controls=\"expired\"\n        aria-selected=\"false\">Expired Deals</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" id=\"favorite-tab\" data-toggle=\"tab\" routerLink='favorite' role=\"tab\" aria-controls=\"favorite\"\n        aria-selected=\"false\">Favorite Deals</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" id=\"drafts-tab\" data-toggle=\"tab\" routerLink='drafts' role=\"tab\" aria-controls=\"drafts\"\n        aria-selected=\"false\">Drafts Deals</a>\n    </li>\n  </ul>\n  <app-home-deal-feature></app-home-deal-feature>\n  <div class=\"tab-content\" id=\"dealLists\">\n    <router-outlet></router-outlet>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <ul class=\"nav nav-tabs\" id=\"dealTabs\" role=\"tablist\">\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link active\"\n        id=\"active-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"active\"\n        role=\"tab\"\n        aria-controls=\"active\"\n        aria-selected=\"true\"\n        >Active Deals</a\n      >\n    </li>\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link\"\n        id=\"expired-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"expired\"\n        role=\"tab\"\n        aria-controls=\"expired\"\n        aria-selected=\"false\"\n        >Expired Deals</a\n      >\n    </li>\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link\"\n        id=\"favorite-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"favorite\"\n        role=\"tab\"\n        aria-controls=\"favorite\"\n        aria-selected=\"false\"\n        >Favorite Deals</a\n      >\n    </li>\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link\"\n        id=\"drafts-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"drafts\"\n        role=\"tab\"\n        aria-controls=\"drafts\"\n        aria-selected=\"false\"\n        >Drafts Deals</a\n      >\n    </li>\n  </ul>\n  <div>\n    <form class=\"form-inline float-left\">\n      <input\n        class=\"form-control mr-sm-2\"\n        type=\"search\"\n        placeholder=\"Search\"\n        aria-label=\"Search\"\n      />\n    </form>\n    <div class=\"float-right\">\n      //TODO: add SCSS to search and create button\n      <button\n        type=\"button\"\n        class=\"btn btn-outline-success btn-block\"\n        data-toggle=\"modal\"\n        data-target=\"#createForm\"\n        data-whatever=\"@mdo\"\n      >\n        Create\n      </button>\n    </div>\n  </div>\n  <div class=\"tab-content\" id=\"dealLists\">\n    <router-outlet></router-outlet>\n  </div>\n  <div\n    class=\"modal fade\"\n    id=\"createForm\"\n    tabindex=\"-1\"\n    role=\"dialog\"\n    aria-labelledby=\"createFrom\"\n    aria-hidden=\"true\"\n  >\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"createFrom\">Deal Create Form</h5>\n          <button\n            type=\"button\"\n            class=\"close\"\n            data-dismiss=\"modal\"\n            aria-label=\"Close\"\n          >\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form>\n            <div class=\"form-group\">\n              <label for=\"deal-product\" class=\"col-form-label\">Product:</label>\n              <select class=\"selectpicker  form-control\" data-live-search=\"true\">\n                <!-- <option data-tokens=\"china\">China</option>\n                <option data-tokens=\"malayasia\">Malayasia</option>\n                <option data-tokens=\"singapore\">Singapore</option> -->\n                <option *ngFor=\"let nameid of productList\" data-tokens={{nameid.id}}>{{nameid.name}}</option>\n              </select>\n              {{refreshSelect()}}\n            </div>\n            <div class=\"form-group\">\n              <label for=\"deal-price\" class=\"col-form-label\">Price:</label>\n              <input type=\"text\" class=\"form-control\" id=\"deal-price\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"deal-quantity\" class=\"col-form-label\"\n                >Quantity:</label\n              >\n              <input type=\"text\" class=\"form-control\" id=\"deal-quantity\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"deal-expires\" class=\"col-form-label\"\n                >Expires At:</label\n              >\n              <div class=\"row\">\n                <div class=\"col-md-3\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"month\"\n                    required\n                  >\n                    <option value=\"\">January</option>\n                    <option>January</option>\n                    <option>February</option>\n                    <option>March</option>\n                    <option>April</option>\n                    <option>May</option>\n                    <option>June</option>\n                    <option>July</option>\n                    <option>August</option>\n                    <option>September</option>\n                    <option>October</option>\n                    <option>November</option>\n                    <option>December</option>\n                  </select>\n                </div>\n                <div class=\"col-md-2\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"days\"\n                    required\n                  >\n                    <option value=\"\">1</option>\n                    <option>1</option>\n                    <option>2</option>\n                    <option>3</option>\n                    <option>4</option>\n                    <option>5</option>\n                    <option>6</option>\n                    <option>7</option>\n                    <option>8</option>\n                    <option>9</option>\n                    <option>10</option>\n                    <option>11</option>\n                    <option>12</option>\n                    <option>13</option>\n                    <option>14</option>\n                    <option>15</option>\n                    <option>16</option>\n                    <option>17</option>\n                    <option>18</option>\n                    <option>19</option>\n                    <option>20</option>\n                    <option>21</option>\n                    <option>22</option>\n                    <option>23</option>\n                    <option>24</option>\n                    <option>25</option>\n                    <option>26</option>\n                    <option>27</option>\n                    <option>28</option>\n                    <option>29</option>\n                    <option>30</option>\n                    <option>31</option>\n                  </select>\n                </div>\n                <div class=\"col-md-2\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"years\"\n                    required\n                  >\n                    <option value=\"\">2014</option>\n                    <option>2014</option>\n                    <option>2015</option>\n                    <option>2016</option>\n                    <option>2017</option>\n                    <option>2018</option>\n                    <option>2019</option>\n                    <option>2020</option>\n                    <option>2021</option>\n                    <option>2022</option>\n                    <option>2023</option>\n                    <option>2024</option>\n                  </select>\n                </div>\n                <div class=\"col-md-2\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"hours\"\n                    required\n                  >\n                    <option value=\"\">00</option>\n                    <option>00</option>\n                    <option>01</option>\n                    <option>02</option>\n                    <option>03</option>\n                    <option>04</option>\n                    <option>05</option>\n                    <option>06</option>\n                    <option>07</option>\n                    <option>08</option>\n                    <option>09</option>\n                    <option>10</option>\n                    <option>11</option>\n                    <option>12</option>\n                    <option>13</option>\n                    <option>14</option>\n                    <option>15</option>\n                    <option>16</option>\n                    <option>17</option>\n                    <option>19</option>\n                    <option>20</option>\n                    <option>21</option>\n                    <option>22</option>\n                    <option>23</option>\n                  </select>\n                </div>\n                <div class=\"col-md-2\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"minutes\"\n                    required\n                  >\n                    <option value=\"\">00</option>\n                    <option>00</option>\n                    <option>01</option>\n                    <option>02</option>\n                    <option>03</option>\n                    <option>04</option>\n                    <option>05</option>\n                    <option>06</option>\n                    <option>07</option>\n                    <option>08</option>\n                    <option>09</option>\n                    <option>10</option>\n                    <option>11</option>\n                    <option>12</option>\n                    <option>13</option>\n                    <option>14</option>\n                    <option>15</option>\n                    <option>16</option>\n                    <option>17</option>\n                    <option>19</option>\n                    <option>20</option>\n                    <option>21</option>\n                    <option>22</option>\n                    <option>23</option>\n                    <option>24</option>\n                    <option>25</option>\n                    <option>26</option>\n                    <option>27</option>\n                    <option>28</option>\n                    <option>29</option>\n                    <option>30</option>\n                    <option>31</option>\n                    <option>32</option>\n                    <option>33</option>\n                    <option>34</option>\n                    <option>35</option>\n                    <option>36</option>\n                    <option>37</option>\n                    <option>38</option>\n                    <option>39</option>\n                    <option>40</option>\n                    <option>41</option>\n                    <option>42</option>\n                    <option>43</option>\n                    <option>44</option>\n                    <option>45</option>\n                    <option>46</option>\n                    <option>47</option>\n                    <option>48</option>\n                    <option>49</option>\n                    <option>50</option>\n                    <option>51</option>\n                    <option>52</option>\n                    <option>53</option>\n                    <option>54</option>\n                    <option>55</option>\n                    <option>56</option>\n                    <option>57</option>\n                    <option>58</option>\n                    <option>59</option>\n                  </select>\n                </div>\n              </div>\n              By default, expires in 3 days.\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-Note\" class=\"col-form-label\">Note:</label>\n              <textarea\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-note\"\n                cols=\"30\"\n                rows=\"5\"\n              ></textarea>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"deal-bonus\" class=\"col-form-label\">Bonus:</label>\n              <input type=\"text\" class=\"form-control\" id=\"deal-bonus\" />\n              Give bonus for inbound items to self storages.\n            </div>\n            <div class=\"form-check\">\n              <input\n                class=\"form-check-input\"\n                type=\"checkbox\"\n                value=\"\"\n                id=\"deal-service-tag\"\n              />\n              <label class=\"form-check-label\" for=\"deal-service-tag\">\n                Service Tag\n              </label>\n            </div>\n            Require service tags when members comfirm inbound items.\n            <hr />\n            <div class=\"form-check form-check-inline\">\n              <input\n                class=\"form-check-input\"\n                type=\"radio\"\n                name=\"public\"\n                id=\"publicRadio\"\n                value=\"public\"\n              />\n              <label class=\"form-check-label\" for=\"publicRadio\">Public</label>\n            </div>\n            <div class=\"form-check form-check-inline\">\n              <input\n                class=\"form-check-input\"\n                type=\"radio\"\n                name=\"public\"\n                id=\"privateRadio\"\n                value=\"private\"\n              />\n              <label class=\"form-check-label\" for=\"PrivateRadio\">Private</label>\n            </div>\n            <hr />\n            Every member can see public offers. Only selected users can see\n            private offers.\n            <br />\n            <br />\n            <div class=\"form-check\">\n              <input\n                class=\"form-check-input\"\n                type=\"checkbox\"\n                value=\"\"\n                id=\"notify\"\n              />\n              <label class=\"form-check-label\" for=\"notify\">\n                Notify everyone who can see the offer\n              </label>\n            </div>\n          </form>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">\n            Close\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\">Add</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/products/products-active-list/products-active-list.component.html":
+/*!*************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/products/products-active-list/products-active-list.component.html ***!
+  \*************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "//TODO: write two button with appropriate space <br /><br /><br />\n{{ debug }}\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width: 9%\">#</th>\n      <th scope=\"col\" style=\"width: 80%\">Products</th>\n      <th scope=\"col\" style=\"width: 11%\">Actions</th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let activeProducts of activeProductsList\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + activeProducts.id).slice(-4) }}</th>\n        <td>\n          {{ activeProducts.name }}\n        </td>\n        <td>\n          <button class=\"btn btn-primary btn-sm\">Details</button>\n          <br />\n          <button class=\"btn btn-primary btn-sm\">Edit</button>\n        </td>\n      </tr>\n    </ng-container>\n  </tbody>\n</table>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/products/products.component.html":
+/*!****************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/products/products.component.html ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "//redirect the nav item to correct area\n<!-- {{ product | json }} -->\n//TODO: form validations\n//TODO: add view all option for product\n//TODO: add notification when add product successfully\n<div class=\"container\">\n  <ul class=\"nav nav-tabs\" id=\"dealTabs\" role=\"tablist\">\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link active\"\n        id=\"active-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"active\"\n        role=\"tab\"\n        aria-controls=\"active\"\n        aria-selected=\"true\"\n        >Active Products</a\n      >\n    </li>\n  </ul>\n  <div>\n    <form class=\"form-inline float-left\">\n      <input\n        class=\"form-control mr-sm-2\"\n        type=\"search\"\n        placeholder=\"Search\"\n        aria-label=\"Search\"\n      />\n    </form>\n    <div class=\"float-right\">\n      //TODO: set sumbit button to create products add SCSS to search and create\n      button\n      <button\n        type=\"button\"\n        class=\"btn btn-outline-success btn-block\"\n        data-toggle=\"modal\"\n        data-target=\"#createForm\"\n        data-whatever=\"@mdo\"\n      >\n        Create\n      </button>\n    </div>\n  </div>\n  <div class=\"tab-content\" id=\"productsLists\">\n    <router-outlet></router-outlet>\n  </div>\n  <div\n    class=\"modal fade\"\n    id=\"createForm\"\n    tabindex=\"-1\"\n    role=\"dialog\"\n    aria-labelledby=\"createFrom\"\n    aria-hidden=\"true\"\n  >\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"createFrom\">Product Create Form</h5>\n          <button\n            type=\"button\"\n            class=\"close\"\n            data-dismiss=\"modal\"\n            aria-label=\"Close\"\n          >\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form>\n            <div class=\"form-group\">\n              <label for=\"product-name\" class=\"col-form-label\">Name:</label>\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-name\"\n                name=\"name\"\n                [(ngModel)]=\"product.name\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-condition\" class=\"col-form-label\"\n                >Condition:</label\n              >\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-condition\"\n                name=\"condition\"\n                [(ngModel)]=\"product.condition\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-price\" class=\"col-form-label\">Price:</label>\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-price\"\n                name=\"msrp\"\n                [(ngModel)]=\"product.msrp\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-asin\" class=\"col-form-label\">ASIN:</label>\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-asin\"\n                name=\"asin\"\n                [(ngModel)]=\"product.asin\"\n              />\n              Each ASIN consists of 10 alphanumerics. Search listings with the\n              same ASINs.\n            </div>\n            <div class=\"row\">\n              <div class=\"form-group col-md-6\">\n                <label for=\"product-upc\" class=\"col-form-label\">UPC:</label>\n                <input\n                  type=\"text\"\n                  class=\"form-control\"\n                  id=\"product-upc\"\n                  name=\"upc\"\n                  [(ngModel)]=\"product.upc\"\n                />\n              </div>\n              <div class=\"form-group col-md-6\">\n                <label for=\"product-weight\" class=\"col-form-label\"\n                  >Weight:</label\n                >\n                <input type=\"text\" class=\"form-control\" id=\"product-weight\" name=\"weight\" [(ngModel)]=\"product.weight\"/>\n              </div>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-Note\" class=\"col-form-label\">Note:</label>\n              <textarea\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-note\"\n                cols=\"30\"\n                rows=\"10\"\n                name=\"note\"\n                [(ngModel)]=\"product.note\"\n              ></textarea>\n            </div>\n          </form>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">\n            Close\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\" (click)=\"create()\" data-dismiss=\"modal\">Add</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -118,7 +140,7 @@ module.exports = "<div class=\"container\">\n  <ul class=\"nav nav-tabs\" id=\"d
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div\n  class=\"d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm\"\n>\n  <h5 class=\"my-0 mr-md-auto font-weight-normal\"><a routerLink=\"/\">EasyBiz</a></h5>\n  <nav class=\"my-2 my-md-0 mr-md-3\">\n    <a class=\"p-2 text-dark\" routerLink=\"/signin\" *ngIf=\"!currentUser\">Sign in</a>\n    <a class=\"p-2 text-dark\" routerLink=\"/home\" (click)=\"location.reload();\" *ngIf=\"currentUser\">Deal</a>\n  </nav>\n  <a class=\"btn btn-outline-primary\" routerLink=\"/register\" *ngIf=\"!currentUser\">Register</a>\n  <a class=\"btn btn-outline-primary\" *ngIf=\"currentUser\" (click)=\"logout()\">Log out</a>\n</div>\n"
+module.exports = "<div\n  class=\"d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm\"\n>\n  <h5 class=\"my-0 mr-md-auto font-weight-normal\"><a routerLink=\"/\">Demo</a></h5>\n  <h5 class=\"my-0 font-weight-normal text-danger\" *ngIf=\"company\">\n    You Signed In As A Member of Company\n  </h5>\n  <h5 class=\"my-0 font-weight-normal text-danger\" *ngIf=\"individual\">\n    You Signed In As An Individual\n  </h5>\n  <nav class=\"my-2 my-md-0 mr-md-3\">\n    <a class=\"p-2 text-dark\" routerLink=\"/signin\" *ngIf=\"!currentUser\"\n      >Sign in</a\n    >\n    <a\n      class=\"p-2 text-dark\"\n      routerLink=\"/home\"\n      *ngIf=\"currentUser\"\n      >Deal</a\n    >\n    <a\n      class=\"p-2 text-dark\"\n      routerLink=\"/products\"\n      *ngIf=\"company\"\n      >Product</a\n    >\n    <a\n      class=\"p-2 text-dark\"\n      routerLink=\"/groups\"\n      *ngIf=\"company\"\n      >Groups</a\n    >\n  </nav>\n  <a class=\"btn btn-outline-primary\" routerLink=\"/register\" *ngIf=\"!currentUser\"\n    >Register</a\n  >\n  <a class=\"btn btn-outline-primary\" *ngIf=\"currentUser\" (click)=\"logout()\"\n    >Log out</a\n  >\n</div>\n"
 
 /***/ }),
 
@@ -161,11 +183,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_components_sign_in_form_sign_in_form_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user_components/sign-in-form/sign-in-form.component */ "./src/app/user_components/sign-in-form/sign-in-form.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./guards/auth.guard */ "./src/app/guards/auth.guard.ts");
-/* harmony import */ var _home_home_deal_create_home_deal_create_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home/home-deal-create/home-deal-create.component */ "./src/app/home/home-deal-create/home-deal-create.component.ts");
-/* harmony import */ var _home_home_active_deal_list_home_active_deal_list_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./home/home-active-deal-list/home-active-deal-list.component */ "./src/app/home/home-active-deal-list/home-active-deal-list.component.ts");
-/* harmony import */ var _home_home_expired_deal_list_home_expired_deal_list_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./home/home-expired-deal-list/home-expired-deal-list.component */ "./src/app/home/home-expired-deal-list/home-expired-deal-list.component.ts");
-/* harmony import */ var _home_home_favorite_deal_list_home_favorite_deal_list_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./home/home-favorite-deal-list/home-favorite-deal-list.component */ "./src/app/home/home-favorite-deal-list/home-favorite-deal-list.component.ts");
-/* harmony import */ var _home_home_drafts_deal_list_home_drafts_deal_list_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./home/home-drafts-deal-list/home-drafts-deal-list.component */ "./src/app/home/home-drafts-deal-list/home-drafts-deal-list.component.ts");
+/* harmony import */ var _home_home_active_deal_list_home_active_deal_list_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home/home-active-deal-list/home-active-deal-list.component */ "./src/app/home/home-active-deal-list/home-active-deal-list.component.ts");
+/* harmony import */ var _home_home_expired_deal_list_home_expired_deal_list_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./home/home-expired-deal-list/home-expired-deal-list.component */ "./src/app/home/home-expired-deal-list/home-expired-deal-list.component.ts");
+/* harmony import */ var _home_home_favorite_deal_list_home_favorite_deal_list_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./home/home-favorite-deal-list/home-favorite-deal-list.component */ "./src/app/home/home-favorite-deal-list/home-favorite-deal-list.component.ts");
+/* harmony import */ var _home_home_drafts_deal_list_home_drafts_deal_list_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./home/home-drafts-deal-list/home-drafts-deal-list.component */ "./src/app/home/home-drafts-deal-list/home-drafts-deal-list.component.ts");
+/* harmony import */ var _products_products_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./products/products.component */ "./src/app/products/products.component.ts");
+/* harmony import */ var _products_products_active_list_products_active_list_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./products/products-active-list/products-active-list.component */ "./src/app/products/products-active-list/products-active-list.component.ts");
+/* harmony import */ var _groups_groups_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./groups/groups.component */ "./src/app/groups/groups.component.ts");
+/* harmony import */ var _groups_groups_active_list_groups_active_list_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./groups/groups-active-list/groups-active-list.component */ "./src/app/groups/groups-active-list/groups-active-list.component.ts");
+
+
+
 
 
 
@@ -192,17 +220,24 @@ const routes = [
         component: _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"],
         canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]],
         children: [
-            { path: '', component: _home_home_active_deal_list_home_active_deal_list_component__WEBPACK_IMPORTED_MODULE_8__["HomeActiveDealListComponent"] },
-            { path: 'active', component: _home_home_active_deal_list_home_active_deal_list_component__WEBPACK_IMPORTED_MODULE_8__["HomeActiveDealListComponent"] },
-            { path: 'expired', component: _home_home_expired_deal_list_home_expired_deal_list_component__WEBPACK_IMPORTED_MODULE_9__["HomeExpiredDealListComponent"] },
-            { path: 'favorite', component: _home_home_favorite_deal_list_home_favorite_deal_list_component__WEBPACK_IMPORTED_MODULE_10__["HomeFavoriteDealListComponent"] },
-            { path: 'drafts', component: _home_home_drafts_deal_list_home_drafts_deal_list_component__WEBPACK_IMPORTED_MODULE_11__["HomeDraftsDealListComponent"] }
+            { path: '', component: _home_home_active_deal_list_home_active_deal_list_component__WEBPACK_IMPORTED_MODULE_7__["HomeActiveDealListComponent"] },
+            { path: 'active', component: _home_home_active_deal_list_home_active_deal_list_component__WEBPACK_IMPORTED_MODULE_7__["HomeActiveDealListComponent"] },
+            { path: 'expired', component: _home_home_expired_deal_list_home_expired_deal_list_component__WEBPACK_IMPORTED_MODULE_8__["HomeExpiredDealListComponent"] },
+            { path: 'favorite', component: _home_home_favorite_deal_list_home_favorite_deal_list_component__WEBPACK_IMPORTED_MODULE_9__["HomeFavoriteDealListComponent"] },
+            { path: 'drafts', component: _home_home_drafts_deal_list_home_drafts_deal_list_component__WEBPACK_IMPORTED_MODULE_10__["HomeDraftsDealListComponent"] }
         ]
     },
     {
-        path: 'home/create',
-        component: _home_home_deal_create_home_deal_create_component__WEBPACK_IMPORTED_MODULE_7__["HomeDealCreateComponent"],
-        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]]
+        path: 'products',
+        component: _products_products_component__WEBPACK_IMPORTED_MODULE_11__["ProductsComponent"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]],
+        children: [{ path: '', component: _products_products_active_list_products_active_list_component__WEBPACK_IMPORTED_MODULE_12__["ProductsActiveListComponent"] }]
+    },
+    {
+        path: 'groups',
+        component: _groups_groups_component__WEBPACK_IMPORTED_MODULE_13__["GroupsComponent"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]],
+        children: [{ path: '', component: _groups_groups_active_list_groups_active_list_component__WEBPACK_IMPORTED_MODULE_14__["GroupsActiveListComponent"] }]
     },
     { path: '**', redirectTo: 'signin' }
 ];
@@ -287,8 +322,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home_home_expired_deal_list_home_expired_deal_list_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./home/home-expired-deal-list/home-expired-deal-list.component */ "./src/app/home/home-expired-deal-list/home-expired-deal-list.component.ts");
 /* harmony import */ var _home_home_favorite_deal_list_home_favorite_deal_list_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./home/home-favorite-deal-list/home-favorite-deal-list.component */ "./src/app/home/home-favorite-deal-list/home-favorite-deal-list.component.ts");
 /* harmony import */ var _home_home_drafts_deal_list_home_drafts_deal_list_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./home/home-drafts-deal-list/home-drafts-deal-list.component */ "./src/app/home/home-drafts-deal-list/home-drafts-deal-list.component.ts");
-/* harmony import */ var _home_home_deal_create_home_deal_create_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./home/home-deal-create/home-deal-create.component */ "./src/app/home/home-deal-create/home-deal-create.component.ts");
-/* harmony import */ var _home_home_deal_feature_home_deal_feature_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./home/home-deal-feature/home-deal-feature.component */ "./src/app/home/home-deal-feature/home-deal-feature.component.ts");
+/* harmony import */ var _products_products_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./products/products.component */ "./src/app/products/products.component.ts");
+/* harmony import */ var _products_products_active_list_products_active_list_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./products/products-active-list/products-active-list.component */ "./src/app/products/products-active-list/products-active-list.component.ts");
+/* harmony import */ var _groups_groups_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./groups/groups.component */ "./src/app/groups/groups.component.ts");
+/* harmony import */ var _groups_groups_active_list_groups_active_list_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./groups/groups-active-list/groups-active-list.component */ "./src/app/groups/groups-active-list/groups-active-list.component.ts");
+
+
 
 
 
@@ -317,18 +356,20 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _user_components_sign_in_form_sign_in_form_component__WEBPACK_IMPORTED_MODULE_8__["SignInFormComponent"],
             _user_components_register_form_register_form_component__WEBPACK_IMPORTED_MODULE_9__["RegisterFormComponent"],
             _home_home_component__WEBPACK_IMPORTED_MODULE_10__["HomeComponent"],
-            _home_home_deal_create_home_deal_create_component__WEBPACK_IMPORTED_MODULE_16__["HomeDealCreateComponent"],
             _home_home_drafts_deal_list_home_drafts_deal_list_component__WEBPACK_IMPORTED_MODULE_15__["HomeDraftsDealListComponent"],
             _home_home_favorite_deal_list_home_favorite_deal_list_component__WEBPACK_IMPORTED_MODULE_14__["HomeFavoriteDealListComponent"],
             _home_home_expired_deal_list_home_expired_deal_list_component__WEBPACK_IMPORTED_MODULE_13__["HomeExpiredDealListComponent"],
             _home_home_active_deal_list_home_active_deal_list_component__WEBPACK_IMPORTED_MODULE_12__["HomeActiveDealListComponent"],
-            _home_home_deal_feature_home_deal_feature_component__WEBPACK_IMPORTED_MODULE_17__["HomeDealFeatureComponent"]
+            _products_products_component__WEBPACK_IMPORTED_MODULE_16__["ProductsComponent"],
+            _products_products_active_list_products_active_list_component__WEBPACK_IMPORTED_MODULE_17__["ProductsActiveListComponent"],
+            _groups_groups_component__WEBPACK_IMPORTED_MODULE_18__["GroupsComponent"],
+            _groups_groups_active_list_groups_active_list_component__WEBPACK_IMPORTED_MODULE_19__["GroupsActiveListComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"]
         ],
         providers: [
             { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"], useClass: _interceptor_error_interceptor__WEBPACK_IMPORTED_MODULE_11__["ErrorInterceptor"], multi: true }
@@ -336,6 +377,92 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]],
     })
 ], AppModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/groups/groups-active-list/groups-active-list.component.scss":
+/*!*****************************************************************************!*\
+  !*** ./src/app/groups/groups-active-list/groups-active-list.component.scss ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2dyb3Vwcy9ncm91cHMtYWN0aXZlLWxpc3QvZ3JvdXBzLWFjdGl2ZS1saXN0LmNvbXBvbmVudC5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/groups/groups-active-list/groups-active-list.component.ts":
+/*!***************************************************************************!*\
+  !*** ./src/app/groups/groups-active-list/groups-active-list.component.ts ***!
+  \***************************************************************************/
+/*! exports provided: GroupsActiveListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GroupsActiveListComponent", function() { return GroupsActiveListComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let GroupsActiveListComponent = class GroupsActiveListComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+GroupsActiveListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-groups-active-list',
+        template: __webpack_require__(/*! raw-loader!./groups-active-list.component.html */ "./node_modules/raw-loader/index.js!./src/app/groups/groups-active-list/groups-active-list.component.html"),
+        styles: [__webpack_require__(/*! ./groups-active-list.component.scss */ "./src/app/groups/groups-active-list/groups-active-list.component.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+], GroupsActiveListComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/groups/groups.component.scss":
+/*!**********************************************!*\
+  !*** ./src/app/groups/groups.component.scss ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2dyb3Vwcy9ncm91cHMuY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/groups/groups.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/groups/groups.component.ts ***!
+  \********************************************/
+/*! exports provided: GroupsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GroupsComponent", function() { return GroupsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let GroupsComponent = class GroupsComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+GroupsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-groups',
+        template: __webpack_require__(/*! raw-loader!./groups.component.html */ "./node_modules/raw-loader/index.js!./src/app/groups/groups.component.html"),
+        styles: [__webpack_require__(/*! ./groups.component.scss */ "./src/app/groups/groups.component.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+], GroupsComponent);
 
 
 
@@ -365,7 +492,7 @@ let AuthGuard = class AuthGuard {
         this.authenticationService = authenticationService;
     }
     canActivate(route, state) {
-        const currentUser = this.authenticationService.currentUserValue;
+        const currentUser = this.authenticationService.currentUserValue[0];
         if (currentUser) {
             // logged in so return true
             // console.log('login');
@@ -468,152 +595,6 @@ HomeActiveDealListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_deal_service__WEBPACK_IMPORTED_MODULE_3__["DealService"],
         _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"]])
 ], HomeActiveDealListComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/home/home-deal-create/home-deal-create.component.scss":
-/*!***********************************************************************!*\
-  !*** ./src/app/home/home-deal-create/home-deal-create.component.scss ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ".container {\n  max-width: 800px;\n}\n\n.lh-condensed {\n  line-height: 1.25;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2JpbGxfeWFvL0RvY3VtZW50cy9tZWFuLWFwcC9zcmMvYXBwL2hvbWUvaG9tZS1kZWFsLWNyZWF0ZS9ob21lLWRlYWwtY3JlYXRlLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9ob21lL2hvbWUtZGVhbC1jcmVhdGUvaG9tZS1kZWFsLWNyZWF0ZS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGdCQUFBO0FDQ0Y7O0FERUE7RUFBZ0IsaUJBQUE7QUNFaEIiLCJmaWxlIjoic3JjL2FwcC9ob21lL2hvbWUtZGVhbC1jcmVhdGUvaG9tZS1kZWFsLWNyZWF0ZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb250YWluZXIge1xuICBtYXgtd2lkdGg6IDgwMHB4O1xufVxuXG4ubGgtY29uZGVuc2VkIHsgbGluZS1oZWlnaHQ6IDEuMjU7IH1cbiIsIi5jb250YWluZXIge1xuICBtYXgtd2lkdGg6IDgwMHB4O1xufVxuXG4ubGgtY29uZGVuc2VkIHtcbiAgbGluZS1oZWlnaHQ6IDEuMjU7XG59Il19 */"
-
-/***/ }),
-
-/***/ "./src/app/home/home-deal-create/home-deal-create.component.ts":
-/*!*********************************************************************!*\
-  !*** ./src/app/home/home-deal-create/home-deal-create.component.ts ***!
-  \*********************************************************************/
-/*! exports provided: HomeDealCreateComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeDealCreateComponent", function() { return HomeDealCreateComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _models_dealLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models/dealLink */ "./src/app/models/dealLink.ts");
-/* harmony import */ var _models_deal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../models/deal */ "./src/app/models/deal.ts");
-/* harmony import */ var _services_deal_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/deal.service */ "./src/app/services/deal.service.ts");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/authentication.service */ "./src/app/services/authentication.service.ts");
-
-
-
-
-
-
-
-let HomeDealCreateComponent = class HomeDealCreateComponent {
-    constructor(dealService, authenticationService) {
-        this.dealService = dealService;
-        this.authenticationService = authenticationService;
-        this.deal = new _models_deal__WEBPACK_IMPORTED_MODULE_3__["Deal"]('', [], '', 0, 0, '', '', 1, JSON.stringify(this.authenticationService.currentUserValue.email).replace(/"/g, ''));
-        this.link = new _models_dealLink__WEBPACK_IMPORTED_MODULE_2__["DealLink"]();
-        this.links = [];
-        this.warehouses = [
-            { name: 'Choose One Below......', value: '' },
-            { name: 'NH', value: 'warehouse in NH' },
-            { name: 'MA', value: 'warehouse in MA' },
-            { name: 'NY', value: 'warehouse in NY' }
-        ];
-        this.isCreated = false;
-    }
-    get diagnostic() {
-        return JSON.stringify(this.deal);
-    }
-    get extraLinks() {
-        return JSON.stringify(this.links);
-    }
-    ngOnInit() {
-        // this.links.push(new DealLink())
-        this.deal.deallinks.push(this.link);
-    }
-    linkAdd() {
-        // this.links.push(new DealLink('', ''));
-        console.log(this.link.link);
-        this.links.push(new _models_dealLink__WEBPACK_IMPORTED_MODULE_2__["DealLink"]());
-    }
-    dealCreate() {
-        while (this.links.length !== 0) {
-            this.deal.deallinks.push(this.links.pop());
-        }
-        // this.addCreator();
-        this.dealService
-            .createDeal(this.deal)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])())
-            .subscribe(data => {
-            console.log(data);
-            this.isCreated = true;
-        });
-    }
-    addCreator() {
-        console.log(this.deal);
-        // this.deal.creator = this.authenticationService.currentUserValue[0].user_email;
-        // console.log(this.authenticationService.currentUserValue[0].user_email);
-    }
-};
-HomeDealCreateComponent.ctorParameters = () => [
-    { type: _services_deal_service__WEBPACK_IMPORTED_MODULE_4__["DealService"] },
-    { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_6__["AuthenticationService"] }
-];
-HomeDealCreateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-home-deal-create',
-        template: __webpack_require__(/*! raw-loader!./home-deal-create.component.html */ "./node_modules/raw-loader/index.js!./src/app/home/home-deal-create/home-deal-create.component.html"),
-        providers: [_services_deal_service__WEBPACK_IMPORTED_MODULE_4__["DealService"], _services_authentication_service__WEBPACK_IMPORTED_MODULE_6__["AuthenticationService"]],
-        styles: [__webpack_require__(/*! ./home-deal-create.component.scss */ "./src/app/home/home-deal-create/home-deal-create.component.scss")]
-    }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_deal_service__WEBPACK_IMPORTED_MODULE_4__["DealService"],
-        _services_authentication_service__WEBPACK_IMPORTED_MODULE_6__["AuthenticationService"]])
-], HomeDealCreateComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/home/home-deal-feature/home-deal-feature.component.scss":
-/*!*************************************************************************!*\
-  !*** ./src/app/home/home-deal-feature/home-deal-feature.component.scss ***!
-  \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ".container {\n  max-width: 1100px;\n  padding: 0px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2JpbGxfeWFvL0RvY3VtZW50cy9tZWFuLWFwcC9zcmMvYXBwL2hvbWUvaG9tZS1kZWFsLWZlYXR1cmUvaG9tZS1kZWFsLWZlYXR1cmUuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2hvbWUvaG9tZS1kZWFsLWZlYXR1cmUvaG9tZS1kZWFsLWZlYXR1cmUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxpQkFBQTtFQUNBLFlBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS1kZWFsLWZlYXR1cmUvaG9tZS1kZWFsLWZlYXR1cmUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFpbmVye1xuICBtYXgtd2lkdGg6IDExMDBweDtcbiAgcGFkZGluZzogMHB4O1xufVxuIiwiLmNvbnRhaW5lciB7XG4gIG1heC13aWR0aDogMTEwMHB4O1xuICBwYWRkaW5nOiAwcHg7XG59Il19 */"
-
-/***/ }),
-
-/***/ "./src/app/home/home-deal-feature/home-deal-feature.component.ts":
-/*!***********************************************************************!*\
-  !*** ./src/app/home/home-deal-feature/home-deal-feature.component.ts ***!
-  \***********************************************************************/
-/*! exports provided: HomeDealFeatureComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeDealFeatureComponent", function() { return HomeDealFeatureComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-
-
-let HomeDealFeatureComponent = class HomeDealFeatureComponent {
-    constructor() { }
-    ngOnInit() {
-    }
-};
-HomeDealFeatureComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-home-deal-feature',
-        template: __webpack_require__(/*! raw-loader!./home-deal-feature.component.html */ "./node_modules/raw-loader/index.js!./src/app/home/home-deal-feature/home-deal-feature.component.html"),
-        styles: [__webpack_require__(/*! ./home-deal-feature.component.scss */ "./src/app/home/home-deal-feature/home-deal-feature.component.scss")]
-    }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-], HomeDealFeatureComponent);
 
 
 
@@ -772,25 +753,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _services_product_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/product.service */ "./src/app/services/product.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
 
 
 
 let HomeComponent = class HomeComponent {
-    constructor(router) {
+    constructor(router, productService, authenticationService) {
         this.router = router;
+        this.productService = productService;
+        this.authenticationService = authenticationService;
     }
-    ngOnInit() { }
+    ngOnInit() {
+        if (this.authenticationService.currentUserValue) {
+            this.currUser = this.authenticationService.currentUserValue[0];
+        }
+        this.productService
+            .productNameId(this.currUser)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])())
+            .subscribe(data => {
+            this.productList = data;
+        });
+    }
 };
 HomeComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _services_product_service__WEBPACK_IMPORTED_MODULE_4__["ProductService"] },
+    { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"] }
 ];
 HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-home',
         template: __webpack_require__(/*! raw-loader!./home.component.html */ "./node_modules/raw-loader/index.js!./src/app/home/home.component.html"),
+        providers: [_services_product_service__WEBPACK_IMPORTED_MODULE_4__["ProductService"], _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"]],
         styles: [__webpack_require__(/*! ./home.component.scss */ "./src/app/home/home.component.scss")]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _services_product_service__WEBPACK_IMPORTED_MODULE_4__["ProductService"],
+        _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"]])
 ], HomeComponent);
 
 
@@ -884,22 +888,51 @@ Deal.ctorParameters = () => [
 
 /***/ }),
 
-/***/ "./src/app/models/dealLink.ts":
-/*!************************************!*\
-  !*** ./src/app/models/dealLink.ts ***!
-  \************************************/
-/*! exports provided: DealLink */
+/***/ "./src/app/models/product.ts":
+/*!***********************************!*\
+  !*** ./src/app/models/product.ts ***!
+  \***********************************/
+/*! exports provided: Product */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DealLink", function() { return DealLink; });
-class DealLink {
-    constructor() {
-        this.link = '';
-        this.linkName = '';
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Product", function() { return Product; });
+class Product {
+    constructor(name, condition, msrp, asin, upc, weight, note, creator) {
+        this.name = name;
+        this.condition = condition;
+        this.msrp = msrp;
+        this.asin = asin;
+        this.upc = upc;
+        this.weight = weight;
+        this.note = note;
+        this.creator = creator;
+    }
+    /**
+     * name
+     */
+    clear() {
+        this.name = '';
+        this.condition = '';
+        this.msrp = '';
+        this.asin = '';
+        this.upc = '';
+        this.weight = '';
+        this.note = '';
+        this.creator = '';
     }
 }
+Product.ctorParameters = () => [
+    { type: String },
+    { type: String },
+    { type: String },
+    { type: String },
+    { type: String },
+    { type: String },
+    { type: String },
+    { type: String }
+];
 
 
 /***/ }),
@@ -943,15 +976,170 @@ Register.ctorParameters = () => [
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
 class User {
-    constructor(email, password) {
+    constructor(email, password, permission = null) {
         this.email = email;
         this.password = password;
+        this.permission = permission;
     }
 }
 User.ctorParameters = () => [
     { type: String },
+    { type: String },
     { type: String }
 ];
+
+
+/***/ }),
+
+/***/ "./src/app/products/products-active-list/products-active-list.component.scss":
+/*!***********************************************************************************!*\
+  !*** ./src/app/products/products-active-list/products-active-list.component.scss ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3Byb2R1Y3RzL3Byb2R1Y3RzLWFjdGl2ZS1saXN0L3Byb2R1Y3RzLWFjdGl2ZS1saXN0LmNvbXBvbmVudC5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/products/products-active-list/products-active-list.component.ts":
+/*!*********************************************************************************!*\
+  !*** ./src/app/products/products-active-list/products-active-list.component.ts ***!
+  \*********************************************************************************/
+/*! exports provided: ProductsActiveListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductsActiveListComponent", function() { return ProductsActiveListComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_product_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/product.service */ "./src/app/services/product.service.ts");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+
+let ProductsActiveListComponent = class ProductsActiveListComponent {
+    constructor(productService, authenticationService) {
+        this.productService = productService;
+        this.authenticationService = authenticationService;
+    }
+    ngOnInit() {
+        this.getActiveList();
+    }
+    getActiveList() {
+        if (this.authenticationService.currentUserValue) {
+            this.userEmail = this.authenticationService.currentUserValue[0];
+            // this.userEmail = 'admin';
+        }
+        else {
+            // TODO: add no userEmail error
+        }
+        this.productService
+            .tenProduct(this.userEmail)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])())
+            .subscribe(data => {
+            this.activeProductsList = data;
+        });
+    }
+};
+ProductsActiveListComponent.ctorParameters = () => [
+    { type: _services_product_service__WEBPACK_IMPORTED_MODULE_2__["ProductService"] },
+    { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"] }
+];
+ProductsActiveListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-products-active-list',
+        template: __webpack_require__(/*! raw-loader!./products-active-list.component.html */ "./node_modules/raw-loader/index.js!./src/app/products/products-active-list/products-active-list.component.html"),
+        providers: [_services_product_service__WEBPACK_IMPORTED_MODULE_2__["ProductService"], _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"]],
+        styles: [__webpack_require__(/*! ./products-active-list.component.scss */ "./src/app/products/products-active-list/products-active-list.component.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_product_service__WEBPACK_IMPORTED_MODULE_2__["ProductService"],
+        _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"]])
+], ProductsActiveListComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/products/products.component.scss":
+/*!**************************************************!*\
+  !*** ./src/app/products/products.component.scss ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3Byb2R1Y3RzL3Byb2R1Y3RzLmNvbXBvbmVudC5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/products/products.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/products/products.component.ts ***!
+  \************************************************/
+/*! exports provided: ProductsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductsComponent", function() { return ProductsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_product_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/product.service */ "./src/app/services/product.service.ts");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _models_product__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../models/product */ "./src/app/models/product.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+
+
+let ProductsComponent = class ProductsComponent {
+    constructor(productService, authenticationSerive) {
+        this.productService = productService;
+        this.authenticationSerive = authenticationSerive;
+        this.product = new _models_product__WEBPACK_IMPORTED_MODULE_4__["Product"]('', '', '', '', '', '', '', '');
+        // public debug: any;
+        this.isCreated = false;
+    }
+    ngOnInit() {
+        if (this.authenticationSerive.currentUserValue) {
+            this.product.creator = this.authenticationSerive.currentUserValue[0];
+        }
+        else {
+            // TODO: handle no user error
+        }
+    }
+    create() {
+        this.productService
+            .createProduct(this.product)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])())
+            .subscribe(data => {
+            console.log(data);
+            this.isCreated = true;
+            this.product.clear();
+        });
+    }
+};
+ProductsComponent.ctorParameters = () => [
+    { type: _services_product_service__WEBPACK_IMPORTED_MODULE_2__["ProductService"] },
+    { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"] }
+];
+ProductsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-products',
+        template: __webpack_require__(/*! raw-loader!./products.component.html */ "./node_modules/raw-loader/index.js!./src/app/products/products.component.html"),
+        providers: [_services_product_service__WEBPACK_IMPORTED_MODULE_2__["ProductService"], _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"]],
+        styles: [__webpack_require__(/*! ./products.component.scss */ "./src/app/products/products.component.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_product_service__WEBPACK_IMPORTED_MODULE_2__["ProductService"],
+        _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"]])
+], ProductsComponent);
+
 
 
 /***/ }),
@@ -1073,6 +1261,67 @@ DealService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/services/product.service.ts":
+/*!*********************************************!*\
+  !*** ./src/app/services/product.service.ts ***!
+  \*********************************************/
+/*! exports provided: ProductService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductService", function() { return ProductService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+
+const httpOptions = {
+    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+        'content-Type': 'application/json'
+    })
+};
+let ProductService = class ProductService {
+    constructor(http) {
+        this.http = http;
+        this.createUrl = 'http://192.168.1.119:8081/api/product/add'; // URL to web api
+        this.tenUrl = 'http://192.168.1.119:8081/api/product/findten';
+        this.allUrl = 'http://192.168.1.119:8081/api/product/find';
+        this.NameIdUrl = 'http://192.168.1.119:8081/api/product/NameId';
+    }
+    createProduct(product) {
+        return this.http.post(this.createUrl, product, httpOptions);
+    }
+    tenProduct(creator) {
+        const creatorJSON = '{ "creator" : ' + '"' + creator + '"' + ' }';
+        // console.log(JSON.parse(creator));
+        return this.http.post(this.tenUrl, JSON.parse(creatorJSON), httpOptions);
+    }
+    allProduct(creator) {
+        const creatorJSON = '{ "creator" : ' + '"' + creator + '"' + ' }';
+        // console.log(JSON.parse(creator));
+        return this.http.post(this.allUrl, JSON.parse(creatorJSON), httpOptions);
+    }
+    productNameId(creator) {
+        const creatorJSON = '{ "creator" : ' + '"' + creator + '"' + ' }';
+        // console.log(JSON.parse(creator));
+        return this.http.post(this.NameIdUrl, JSON.parse(creatorJSON), httpOptions);
+    }
+};
+ProductService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+ProductService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+], ProductService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/register.service.ts":
 /*!**********************************************!*\
   !*** ./src/app/services/register.service.ts ***!
@@ -1149,11 +1398,27 @@ let TopBarComponent = class TopBarComponent {
     constructor(router, authenticationService) {
         this.router = router;
         this.authenticationService = authenticationService;
-        this.authenticationService.currentUser.subscribe(x => (this.currentUser = x));
+        this.company = false;
+        this.individual = false;
+        this.authenticationService.currentUser.subscribe(x => this.checkPermission(x));
     }
     logout() {
         this.authenticationService.logout();
         this.router.navigate(['/singin']);
+        this.company = false;
+        this.individual = false;
+    }
+    checkPermission(x) {
+        this.currentUser = x;
+        if (x) {
+            const parsedValue = this.authenticationService.currentUserValue;
+            if (parsedValue[2] === 'company') {
+                this.company = true;
+            }
+            else if (parsedValue[2] === 'individual') {
+                this.individual = true;
+            }
+        }
     }
     ngOnInit() { }
 };

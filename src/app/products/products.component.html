@@ -1,0 +1,155 @@
+//redirect the nav item to correct area
+<!-- {{ product | json }} -->
+//TODO: form validations
+//TODO: add view all option for product
+//TODO: add notification when add product successfully
+<div class="container">
+  <ul class="nav nav-tabs" id="dealTabs" role="tablist">
+    <li class="nav-item">
+      <a
+        class="nav-link active"
+        id="active-tab"
+        data-toggle="tab"
+        routerLink="product_active"
+        role="tab"
+        aria-controls="active"
+        aria-selected="true"
+        >Active Products</a
+      >
+    </li>
+  </ul>
+  <div>
+    <form class="form-inline float-left">
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+    </form>
+    <div class="float-right">
+      //TODO: set sumbit button to create products add SCSS to search and create
+      button
+      <button
+        type="button"
+        class="btn btn-outline-success btn-block"
+        data-toggle="modal"
+        data-target="#createForm"
+        data-whatever="@mdo"
+      >
+        Create
+      </button>
+    </div>
+  </div>
+  <div class="tab-content" id="productsLists">
+    <router-outlet></router-outlet>
+  </div>
+  <div
+    class="modal fade"
+    id="createForm"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="createFrom"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="createFrom">Product Create Form</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="product-name" class="col-form-label">Name:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="product-name"
+                name="name"
+                [(ngModel)]="product.name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="product-condition" class="col-form-label"
+                >Condition:</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="product-condition"
+                name="condition"
+                [(ngModel)]="product.condition"
+              />
+            </div>
+            <div class="form-group">
+              <label for="product-price" class="col-form-label">Price:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="product-price"
+                name="msrp"
+                [(ngModel)]="product.msrp"
+              />
+            </div>
+            <div class="form-group">
+              <label for="product-asin" class="col-form-label">ASIN:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="product-asin"
+                name="asin"
+                [(ngModel)]="product.asin"
+              />
+              Each ASIN consists of 10 alphanumerics. Search listings with the
+              same ASINs.
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="product-upc" class="col-form-label">UPC:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="product-upc"
+                  name="upc"
+                  [(ngModel)]="product.upc"
+                />
+              </div>
+              <div class="form-group col-md-6">
+                <label for="product-weight" class="col-form-label"
+                  >Weight:</label
+                >
+                <input type="text" class="form-control" id="product-weight" name="weight" [(ngModel)]="product.weight"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="product-Note" class="col-form-label">Note:</label>
+              <textarea
+                type="text"
+                class="form-control"
+                id="product-note"
+                cols="30"
+                rows="10"
+                name="note"
+                [(ngModel)]="product.note"
+              ></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="btn btn-primary" (click)="create()" data-dismiss="modal">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

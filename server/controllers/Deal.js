@@ -1,4 +1,5 @@
-const Deal = require('../models').deal;
+const Deal = require('../models').deals;
+const Product = require('../models').products;
 //TODO
 module.exports = {
   create: function(body, callback) {
@@ -6,13 +7,16 @@ module.exports = {
     body.deallinks = deal_link;
     console.log(body);
     Deal.create({
-      deal_title: body.title,
-      deal_link: body.deallinks,
-      deal_warehouse: body.warehouse,
-      deal_price: body.price,
-      deal_quantity: body.quantity,
-      deal_description: body.description,
-      deal_creator: body.creator
+      products: body.products,
+      product_name: body.productName,
+      price: body.price,
+      quantity: body.quantity,
+      expires_at: body.expiresAt,
+      note: body.note,
+      service: body.serviceTag,
+      public:body.dealPublic,
+      notify:body.notify,
+      creator:body.creator
     }).then(function(deal) {
       callback(deal);
     });
@@ -20,13 +24,15 @@ module.exports = {
 
   findTen: function(creator = null, callback) {
     if (creator) {
-      Deal.findAll(
-        { limit: 10,
-          where: {
-            deal_creator: creator
-          },
-          order:[['deal_id', 'DESC']]}
-      ).then(function(deals) {
+      Deal.findAll({
+        // include: [{ model: Product }],
+        limit: 10,
+        where: {
+          creator: creator
+        },
+        order: [['id', 'DESC']]
+      })
+      .then(function(deals) {
         callback(deals);
       });
     }

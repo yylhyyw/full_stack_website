@@ -3,9 +3,9 @@ var router = express.Router();
 
 const dealController = require('../controllers').deal;
 const userController = require('../controllers').user;
-const groupController = require('../controllers').group;
-const usersGroupsMappingController = require('../controllers')
-  .users_groups_mapping;
+const PrivilegeController = require('../controllers').privilege;
+const ProductController = require('../controllers').product;
+const subscriptionController = require('../controllers').subscription;
 
 // const user = new User();
 // var sequelize = require("../models");
@@ -15,12 +15,31 @@ router.get('/', function(req, res, next) {
   res.send('index');
 });
 
+/*check if user is existed.
+  check the user's privilege.
+  return user's email and its privilege.*/
+
 router.post('/signin', (req, res, next) => {
+  const body = req.body;
+  const returnValue = [];
   userController.sign_in(req.body.email, req.body.password, function(result) {
     if (result) {
-      res.send(result);
+      returnValue[0] = result.email;
+      returnValue[1] = 'secret';
+      //user is existed check privilege
+      PrivilegeController.find(result.id, function(result) {
+        if (result) {
+          //privilege existed add company to the return value.
+          returnValue[2] = 'company';
+          res.status(201).send(returnValue);
+        } else {
+          //otherwise add individual to the return value.
+          returnValue[2] = 'individual';
+          res.status(201).send(returnValue);
+        }
+      });
     } else {
-      res.status(404).json('Email and Password is not found!');
+      res.status(401).json('Email and Password is not found!');
     }
   });
 });
@@ -51,15 +70,147 @@ router.post('/createdeal', (req, res, next) => {
   });
 });
 
-router.post('/deal/active/firstTen',
-  (req, res, next) => {
-    dealController.findTen(req.body.creator, function(deals) {
-      if (deals) {
-        res.status(201).send(deals);
-      } else {
-        res.status(409).end();
-      }
-    });
+router.post('/deal/active/firstTen', (req, res, next) => {
+  dealController.findTen(req.body.creator, function(deals) {
+    if (deals) {
+      res.status(201).send(deals);
+    } else {
+      res.status(409).end();
+    }
   });
+});
+
+/**
+ * product api
+ */
+// product add api:
+router.post('/product/add', (req, res, next) => {
+  ProductController.create(req.body, function(product) {
+    if (product) {
+      res.status(201).json(product.name);
+    } else {
+      res.status(409).end();
+    }
+  });
+});
+
+// product browsing api first ten:
+router.post('/product/findten', (req, res, next) => {
+  ProductController.findTen(req.body.creator, function(products) {
+    if (products) {
+      res.status(201).send(products);
+    } else {
+      res.status(409).end();
+    }
+  });
+});
+
+// product browsing:
+router.post('/product/find', (req, res, next) => {
+  ProductController.findAll(req.body.creator, function(products) {
+    if (products) {
+      res.status(201).send(products);
+    } else {
+      res.status(409).end();
+    }
+  });
+});
+
+// product nameId:
+
+router.post('/product/nameid', (req, res, next) => {
+  ProductController.findNameId(req.body.creator, function(nameids) {
+    if (nameids) {
+      res.status(201).send(nameids);
+    } else {
+      res.status(409).end();
+    }
+  });
+});
+
+/**
+ *
+ * subscription api middleware
+ */
+
+router.post('/subscription/find', (req, res, next) => {
+  subscriptionController.findSubscriptions(req.body.company, function(subscribers) {
+    if (subscribers) {
+      res.status(201).send(subscribers);
+    } else {
+      res.status(409).end();
+    }
+  });
+});
+
+router.post('/subscription/setactive', (req, res, next) => {
+  subscriptionController.setActive(req.body, function(result) {
+    if(result) {
+      res.status(201).send(result);
+    } else {
+      res.status(409);
+    }
+  });
+});
+
+router.post('/subscription/setblock', (req, res, next) => {
+  subscriptionController.setBlock(req.body, function(result) {
+    if(result) {
+      res.status(201).send(result);
+    } else {
+      res.status(409);
+    }
+  });
+});
+
+router.post('/subscription/approve', (req, res, next) => {
+  subscriptionController.approve(req.body, function(result) {
+    if(result) {
+      res.status(201).send(result);
+    } else {
+      res.status(409);
+    }
+  });
+});
+
+router.post('/subscription/findTen', (req, res, next) => {
+  subscriptionController.findSubscriptionsTen(req.body.company, function(subscribers) {
+    if (subscribers) {
+      res.status(201).send(subscribers);
+    } else {
+      res.status(409).end();
+    }
+  });
+});
+
+router.post('/subscription/findTenBlocked', (req, res, next) => {
+  subscriptionController.findSubscriptionsTenBlocked(req.body.company, function(subscribers) {
+    if (subscribers) {
+      res.status(201).send(subscribers);
+    } else {
+      res.status(409).end();
+    }
+  });
+});
+
+router.post('/subscription/findTenWaiting', (req, res, next) => {
+  subscriptionController.findSubscriptionsTenWaiting(req.body.company, function(subscribers) {
+    if (subscribers) {
+      res.status(201).send(subscribers);
+    } else {
+      res.status(409).end();
+    }
+  });
+});
+
+router.post('/subscription/findfollowing', (req, res, next) => {
+  subscriptionController.findfollowing(req.body.individual, function(companies) {
+    if (companies) {
+      res.status(201).send(companies);
+    } else {
+      res.status(409).end();
+    }
+  });
+});
 
 module.exports = router;

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeDealCreateComponent } from './home-deal-create.component';
+import { GroupsBlockedListComponent } from './groups-blocked-list.component';
 
-describe('HomeDealCreateComponent', () => {
-  let component: HomeDealCreateComponent;
-  let fixture: ComponentFixture<HomeDealCreateComponent>;
+describe('GroupsBlockedListComponent', () => {
+  let component: GroupsBlockedListComponent;
+  let fixture: ComponentFixture<GroupsBlockedListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeDealCreateComponent ]
+      declarations: [ GroupsBlockedListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeDealCreateComponent);
+    fixture = TestBed.createComponent(GroupsBlockedListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

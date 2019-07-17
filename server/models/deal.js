@@ -1,39 +1,45 @@
 module.exports = (sequelize, DataTypes) => {
   let Deal = sequelize.define(
-    'deal',
+    'deals',
     {
-      deal_id: {
+      id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      deal_title: {
-        type: DataTypes.TEXT,
+      products: {
+        type: DataTypes.INTEGER
+      },
+      product_name: {
+        type: DataTypes.STRING
+      },
+      price: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      quantity: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      expires_at: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      note: {
+        type: DataTypes.STRING,
         allowNull: true
       },
-      deal_link: {
-        type: DataTypes.TEXT,
-        allowNull: true
+      service_tag: {
+        type: DataTypes.BOOLEAN
       },
-      deal_warehouse: {
-        type: DataTypes.TEXT,
-        allowNull: true
+      public: {
+        type: DataTypes.BOOLEAN
       },
-      deal_price: {
-        type: DataTypes.DECIMAL(10,0),
-        allowNull: true
+      notify: {
+        type: DataTypes.BOOLEAN
       },
-      deal_quantity: {
-        type: DataTypes.DECIMAL(10,0),
-        allowNull: true
-      },
-      deal_description: {
-        type: DataTypes.TEXT,
-        allowNull: true
-      },
-      deal_creator: {
-        type: DataTypes.TEXT,
-        allowNull: true
+      creator: {
+        type: DataTypes.STRING
       }
     },
     {}

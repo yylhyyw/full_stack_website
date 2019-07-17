@@ -4,11 +4,16 @@ import { RegisterFormComponent } from './user_components/register-form/register-
 import { SignInFormComponent } from './user_components/sign-in-form/sign-in-form.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './guards/auth.guard';
-import { HomeDealCreateComponent } from './home/home-deal-create/home-deal-create.component';
 import { HomeActiveDealListComponent } from './home/home-active-deal-list/home-active-deal-list.component';
 import { HomeExpiredDealListComponent } from './home/home-expired-deal-list/home-expired-deal-list.component';
 import { HomeFavoriteDealListComponent } from './home/home-favorite-deal-list/home-favorite-deal-list.component';
 import { HomeDraftsDealListComponent } from './home/home-drafts-deal-list/home-drafts-deal-list.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductsActiveListComponent } from './products/products-active-list/products-active-list.component';
+import { GroupsComponent } from './groups/groups.component';
+import { GroupsActiveListComponent } from './groups/groups-active-list/groups-active-list.component';
+import { GroupsBlockedListComponent } from './groups/groups-blocked-list/groups-blocked-list.component';
+import { GroupsWaitingListComponent } from './groups/groups-waiting-list/groups-waiting-list.component';
 
 const routes: Routes = [
   {
@@ -32,9 +37,24 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'home/create',
-    component: HomeDealCreateComponent,
-    canActivate: [AuthGuard]
+    path: 'products',
+    component: ProductsComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: 'product_active', component: ProductsActiveListComponent },
+      { path: '', component: ProductsActiveListComponent }
+    ]
+  },
+  {
+    path: 'groups',
+    component: GroupsComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: 'group_blocked', component: GroupsBlockedListComponent },
+      { path: 'group_active', component: GroupsActiveListComponent },
+      { path: 'group_waiting', component: GroupsWaitingListComponent },
+      { path: '', component: GroupsActiveListComponent }
+    ]
   },
   { path: '**', redirectTo: 'signin' }
 ];

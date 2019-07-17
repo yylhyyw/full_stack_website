@@ -2,10 +2,39 @@
   class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm"
 >
   <h5 class="my-0 mr-md-auto font-weight-normal"><a routerLink="/">Demo</a></h5>
+  <h5 class="my-0 font-weight-normal text-danger" *ngIf="company">
+    You Signed In As A Member of Company
+  </h5>
+  <h5 class="my-0 font-weight-normal text-danger" *ngIf="individual">
+    You Signed In As An Individual
+  </h5>
   <nav class="my-2 my-md-0 mr-md-3">
-    <a class="p-2 text-dark" routerLink="/signin" *ngIf="!currentUser">Sign in</a>
-    <a class="p-2 text-dark" routerLink="/home" (click)="location.reload();" *ngIf="currentUser">Deal</a>
+    <a class="p-2 text-dark" routerLink="/signin" *ngIf="!currentUser"
+      >Sign in</a
+    >
+    <a
+      class="p-2 text-dark"
+      routerLink="/home"
+      *ngIf="currentUser"
+      >Deal</a
+    >
+    <a
+      class="p-2 text-dark"
+      routerLink="/products"
+      *ngIf="company"
+      >Product</a
+    >
+    <a
+      class="p-2 text-dark"
+      routerLink="/groups"
+      *ngIf="company"
+      >Groups</a
+    >
   </nav>
-  <a class="btn btn-outline-primary" routerLink="/register" *ngIf="!currentUser">Register</a>
-  <a class="btn btn-outline-primary" *ngIf="currentUser" (click)="logout()">Log out</a>
+  <a class="btn btn-outline-primary" routerLink="/register" *ngIf="!currentUser"
+    >Register</a
+  >
+  <a class="btn btn-outline-primary" *ngIf="currentUser" (click)="logout()"
+    >Log out</a
+  >
 </div>
