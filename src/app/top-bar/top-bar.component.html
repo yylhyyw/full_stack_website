@@ -13,11 +13,23 @@
       >Sign in</a
     >
     <a
+    class="p-2 text-dark"
+    routerLink="/dashboard"
+    *ngIf="currentUser"
+    >DashBoard</a
+  >
+    <a
       class="p-2 text-dark"
       routerLink="/home"
       *ngIf="currentUser"
       >Deal</a
     >
+    <a
+    class="p-2 text-dark"
+    routerLink="/inbound"
+    *ngIf="currentUser"
+    >Inbound</a
+  >
     <a
       class="p-2 text-dark"
       routerLink="/products"

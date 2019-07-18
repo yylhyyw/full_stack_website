@@ -14,8 +14,18 @@ import { GroupsComponent } from './groups/groups.component';
 import { GroupsActiveListComponent } from './groups/groups-active-list/groups-active-list.component';
 import { GroupsBlockedListComponent } from './groups/groups-blocked-list/groups-blocked-list.component';
 import { GroupsWaitingListComponent } from './groups/groups-waiting-list/groups-waiting-list.component';
+import { InboundComponent } from './inbound/inbound.component';
+import { ToConfirmListComponent } from './inbound/to-confirm-list/to-confirm-list.component';
+import { ReportedListComponent } from './inbound/reported-list/reported-list.component';
+import { HistoryListComponent } from './inbound/history-list/history-list.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
 
 const routes: Routes = [
+  {
+    path: 'dashboard',
+    canActivate: [AuthGuard],
+    component: DashboardComponent
+  },
   {
     path: 'register',
     component: RegisterFormComponent
@@ -54,6 +64,33 @@ const routes: Routes = [
       { path: 'group_active', component: GroupsActiveListComponent },
       { path: 'group_waiting', component: GroupsWaitingListComponent },
       { path: '', component: GroupsActiveListComponent }
+    ]
+  },
+  {
+    path: 'inbound',
+    component: InboundComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: '',
+        component: ToConfirmListComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'inboundToConfirm',
+        component: ToConfirmListComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'inboundReported',
+        component: ReportedListComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'inboundHistory',
+        component: HistoryListComponent,
+        canActivate: [AuthGuard]
+      }
     ]
   },
   { path: '**', redirectTo: 'signin' }

@@ -22,7 +22,7 @@ export class SignInFormComponent implements OnInit {
 
   ngOnInit() {
     if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['home']);
+      this.router.navigate(['dashboard']);
     }
   }
 
@@ -35,7 +35,7 @@ export class SignInFormComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['home']);
+          this.router.navigate(['dashboard']);
         },
         error => {
           console.log(error);

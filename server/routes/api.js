@@ -6,6 +6,7 @@ const userController = require('../controllers').user;
 const PrivilegeController = require('../controllers').privilege;
 const ProductController = require('../controllers').product;
 const subscriptionController = require('../controllers').subscription;
+const inboundController = require('../controllers').inbound;
 
 // const user = new User();
 // var sequelize = require("../models");
@@ -134,7 +135,9 @@ router.post('/product/nameid', (req, res, next) => {
  */
 
 router.post('/subscription/find', (req, res, next) => {
-  subscriptionController.findSubscriptions(req.body.company, function(subscribers) {
+  subscriptionController.findSubscriptions(req.body.company, function(
+    subscribers
+  ) {
     if (subscribers) {
       res.status(201).send(subscribers);
     } else {
@@ -145,7 +148,7 @@ router.post('/subscription/find', (req, res, next) => {
 
 router.post('/subscription/setactive', (req, res, next) => {
   subscriptionController.setActive(req.body, function(result) {
-    if(result) {
+    if (result) {
       res.status(201).send(result);
     } else {
       res.status(409);
@@ -155,7 +158,7 @@ router.post('/subscription/setactive', (req, res, next) => {
 
 router.post('/subscription/setblock', (req, res, next) => {
   subscriptionController.setBlock(req.body, function(result) {
-    if(result) {
+    if (result) {
       res.status(201).send(result);
     } else {
       res.status(409);
@@ -165,7 +168,7 @@ router.post('/subscription/setblock', (req, res, next) => {
 
 router.post('/subscription/approve', (req, res, next) => {
   subscriptionController.approve(req.body, function(result) {
-    if(result) {
+    if (result) {
       res.status(201).send(result);
     } else {
       res.status(409);
@@ -174,7 +177,9 @@ router.post('/subscription/approve', (req, res, next) => {
 });
 
 router.post('/subscription/findTen', (req, res, next) => {
-  subscriptionController.findSubscriptionsTen(req.body.company, function(subscribers) {
+  subscriptionController.findSubscriptionsTen(req.body.company, function(
+    subscribers
+  ) {
     if (subscribers) {
       res.status(201).send(subscribers);
     } else {
@@ -184,7 +189,9 @@ router.post('/subscription/findTen', (req, res, next) => {
 });
 
 router.post('/subscription/findTenBlocked', (req, res, next) => {
-  subscriptionController.findSubscriptionsTenBlocked(req.body.company, function(subscribers) {
+  subscriptionController.findSubscriptionsTenBlocked(req.body.company, function(
+    subscribers
+  ) {
     if (subscribers) {
       res.status(201).send(subscribers);
     } else {
@@ -194,7 +201,9 @@ router.post('/subscription/findTenBlocked', (req, res, next) => {
 });
 
 router.post('/subscription/findTenWaiting', (req, res, next) => {
-  subscriptionController.findSubscriptionsTenWaiting(req.body.company, function(subscribers) {
+  subscriptionController.findSubscriptionsTenWaiting(req.body.company, function(
+    subscribers
+  ) {
     if (subscribers) {
       res.status(201).send(subscribers);
     } else {
@@ -203,14 +212,66 @@ router.post('/subscription/findTenWaiting', (req, res, next) => {
   });
 });
 
+// TODO: API return json for user view deals with its following.
 router.post('/subscription/findfollowing', (req, res, next) => {
-  subscriptionController.findfollowing(req.body.individual, function(companies) {
-    if (companies) {
-      res.status(201).send(companies);
+  subscriptionController.findfollowing(req.body.individual, function(companys) {
+    if (companys) {
+      res.status(201).send(companys);
     } else {
       res.status(409).end();
     }
   });
 });
 
+/**
+ * inbound api post get
+ */
+
+router.post('/inbound/individualFind', (req, res, next) => {
+  inboundController.getRecords(req.body.individual, function(records) {
+    if (records) {
+      res.status(201).send(records);
+    } else {
+      res.status(409).end();
+    }
+  });
+});
+
+
+router.post('/inbound/confirm', (req, res, next) => {
+  inboundController.confirm(req.body.id, function(result) {
+    if (result) {
+      res.status(201).send(result);
+    } else {
+      res.status(409).end();
+    }
+  });
+});
+
+router.post('/inbound/add', (req, res, next) => {
+  dealController.update(req.body.dealId, req.body.quantity, function(result){
+    if(result){
+      inboundController.create(req.body, function(inbound){
+        if(inbound){
+          res.status(201).json(inbound);
+        }else{
+          res.status(409).end();
+        }
+      })
+    }else{
+      res.status(409).end();
+    }
+  });
+});
+
+router.post('/inbound/companyFind', (req, res, next) => {
+  inboundController.getRecordsCompany(req.body.company, function(records) {
+    console.log('here');
+    if (records) {
+      res.status(201).send(records);
+    } else {
+      res.status(409).end();
+    }
+  });
+});
 module.exports = router;

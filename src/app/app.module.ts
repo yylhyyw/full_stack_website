@@ -21,6 +21,11 @@ import { GroupsComponent } from './groups/groups.component';
 import { GroupsActiveListComponent } from './groups/groups-active-list/groups-active-list.component';
 import { GroupsBlockedListComponent } from './groups/groups-blocked-list/groups-blocked-list.component';
 import { GroupsWaitingListComponent } from './groups/groups-waiting-list/groups-waiting-list.component';
+import { InboundComponent } from './inbound/inbound.component';
+import { ToConfirmListComponent } from './inbound/to-confirm-list/to-confirm-list.component';
+import { ReportedListComponent } from './inbound/reported-list/reported-list.component';
+import { HistoryListComponent } from './inbound/history-list/history-list.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -40,6 +45,11 @@ import { GroupsWaitingListComponent } from './groups/groups-waiting-list/groups-
     GroupsActiveListComponent,
     GroupsBlockedListComponent,
     GroupsWaitingListComponent,
+    InboundComponent,
+    ToConfirmListComponent,
+    ReportedListComponent,
+    HistoryListComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

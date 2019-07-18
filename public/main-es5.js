@@ -41,7 +41,29 @@ module.exports = "<!--The content below is only a placeholder and can be replace
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "//TODO: add css to the following tables\n<table class=\"table\">\n    <thead>\n      <tr>\n        <th scope=\"col\" style=\"width:9%\">#</th>\n        <th scope=\"col\" style=\"width:80%\">Followers</th>\n        <th scope=\"col\" style=\"width:11%\">Actions</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <th scope=\"row\">1</th>\n        <td>Mark</td>\n        <td><button class=\"btn btn-primary btn-sm\">Edit</button></td>\n      </tr>\n      <tr>\n        <th scope=\"row\">2</th>\n        <td>Jacob</td>\n        <td><button class=\"btn btn-primary btn-sm\">Edit</button></td>\n      </tr>\n      <tr>\n        <th scope=\"row\">3</th>\n        <td>Larry</td>\n        <td><button class=\"btn btn-primary btn-sm\">Edit</button></td>\n      </tr>\n    </tbody>\n  </table>\n"
+module.exports = "//TODO: add css to the following tables\n// TODO: modify the css between edit and approve\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width:9%\">#</th>\n      <th scope=\"col\" style=\"width:56%\">Followers</th>\n      <th scope=\"col\" style=\"width:15%\">status</th>\n      <th scope=\"col\" style=\"width:20%\">Actions</th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let follower of followersList\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + follower.id).slice(-4) }}</th>\n        <td>\n          {{ follower.individual }}\n        </td>\n        <td>{{ statusLevel[follower.status] }}</td>\n        <td>\n          <div>\n            <button class=\"btn btn-primary btn-sm\">Edit</button>\n            <button class=\"btn btn-primary btn-sm\" *ngIf=\"!follower.status\">Approve</button>\n          </div>\n        </td>\n      </tr>\n    </ng-container>\n\n    <!-- <tr>\n        <th scope=\"row\">1</th>\n        <td>Mark</td>\n        <td>Active</td>\n        <td><button class=\"btn btn-primary btn-sm\">Edit</button></td>\n      </tr>\n      <tr>\n        <th scope=\"row\">2</th>\n        <td>Jacob</td>\n        <td>Ask to follow</td>\n        <td><button class=\"btn btn-primary btn-sm\">Edit</button>\n        <button class=\"btn btn-primary btn-sm\">Accept</button></td>\n      </tr>\n      <tr>\n        <th scope=\"row\">3</th>\n        <td>Larry</td>\n        <td>Blocked</td>\n        <td><button class=\"btn btn-primary btn-sm\">Edit</button></td>\n      </tr> -->\n  </tbody>\n</table>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/groups/groups-blocked-list/groups-blocked-list.component.html":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/groups/groups-blocked-list/groups-blocked-list.component.html ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "//TODO: add css to the following tables\n// TODO: modify the css between edit and approve\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width:9%\">#</th>\n      <th scope=\"col\" style=\"width:56%\">Followers</th>\n      <th scope=\"col\" style=\"width:15%\">status</th>\n      <th scope=\"col\" style=\"width:20%\">Actions</th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let follower of followersList\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + follower.id).slice(-4) }}</th>\n        <td>\n          {{ follower.individual }}\n        </td>\n        <td>{{ statusLevel[follower.status] }}</td>\n        <td>\n          <div>\n            <button class=\"btn btn-primary btn-sm\">Edit</button>\n            <button class=\"btn btn-primary btn-sm\">Reactive</button>\n          </div>\n        </td>\n      </tr>\n    </ng-container>\n\n    <!-- <tr>\n        <th scope=\"row\">1</th>\n        <td>Mark</td>\n        <td>Active</td>\n        <td><button class=\"btn btn-primary btn-sm\">Edit</button></td>\n      </tr>\n      <tr>\n        <th scope=\"row\">2</th>\n        <td>Jacob</td>\n        <td>Ask to follow</td>\n        <td><button class=\"btn btn-primary btn-sm\">Edit</button>\n        <button class=\"btn btn-primary btn-sm\">Accept</button></td>\n      </tr>\n      <tr>\n        <th scope=\"row\">3</th>\n        <td>Larry</td>\n        <td>Blocked</td>\n        <td><button class=\"btn btn-primary btn-sm\">Edit</button></td>\n      </tr> -->\n  </tbody>\n</table>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/groups/groups-waiting-list/groups-waiting-list.component.html":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/groups/groups-waiting-list/groups-waiting-list.component.html ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "//TODO: add css to the following tables\n// TODO: modify the css between edit and approve\n<table class=\"table\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width:9%\">#</th>\n      <th scope=\"col\" style=\"width:56%\">Followers</th>\n      <th scope=\"col\" style=\"width:15%\">status</th>\n      <th scope=\"col\" style=\"width:20%\">Actions</th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let follower of followersList\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + follower.id).slice(-4) }}</th>\n        <td>\n          {{ follower.individual }}\n        </td>\n        <td>{{ statusLevel[follower.status] }}</td>\n        <td>\n          <div>\n            <button class=\"btn btn-primary btn-sm\">Edit</button>\n            <button class=\"btn btn-primary btn-sm\">Accepts</button>\n          </div>\n        </td>\n      </tr>\n    </ng-container>\n\n    <!-- <tr>\n        <th scope=\"row\">1</th>\n        <td>Mark</td>\n        <td>Active</td>\n        <td><button class=\"btn btn-primary btn-sm\">Edit</button></td>\n      </tr>\n      <tr>\n        <th scope=\"row\">2</th>\n        <td>Jacob</td>\n        <td>Ask to follow</td>\n        <td><button class=\"btn btn-primary btn-sm\">Edit</button>\n        <button class=\"btn btn-primary btn-sm\">Accept</button></td>\n      </tr>\n      <tr>\n        <th scope=\"row\">3</th>\n        <td>Larry</td>\n        <td>Blocked</td>\n        <td><button class=\"btn btn-primary btn-sm\">Edit</button></td>\n      </tr> -->\n  </tbody>\n</table>\n"
 
 /***/ }),
 
@@ -52,7 +74,7 @@ module.exports = "//TODO: add css to the following tables\n<table class=\"table\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n    //TODO: redirect the nav item to correct area\n  <ul class=\"nav nav-tabs\" id=\"dealTabs\" role=\"tablist\">\n    <li class=\"nav-item\">\n\n      <a\n        class=\"nav-link active\"\n        id=\"active-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"active\"\n        role=\"tab\"\n        aria-controls=\"active\"\n        aria-selected=\"true\"\n        >Active Followers</a\n      >\n    </li>\n    <li class=\"nav-item\">\n        <a\n          class=\"nav-link active\"\n          id=\"active-tab\"\n          data-toggle=\"tab\"\n          routerLink=\"active\"\n          role=\"tab\"\n          aria-controls=\"active\"\n          aria-selected=\"true\"\n          >Active Groups</a\n        >\n      </li>\n      <li class=\"nav-item\">\n          <a\n            class=\"nav-link active\"\n            id=\"active-tab\"\n            data-toggle=\"tab\"\n            routerLink=\"active\"\n            role=\"tab\"\n            aria-controls=\"active\"\n            aria-selected=\"true\"\n            >Blocked Followers</a\n          >\n        </li>\n  </ul>\n  <div>\n    <form class=\"form-inline float-left\">\n      <input\n        class=\"form-control mr-sm-2\"\n        type=\"search\"\n        placeholder=\"Search\"\n        aria-label=\"Search\"\n      />\n    </form>\n    <div class=\"float-right\">\n      //TODO: set sumbit button to create products add SCSS to search and create\n      button\n      <button\n        type=\"button\"\n        class=\"btn btn-outline-success btn-block\"\n        data-toggle=\"modal\"\n        data-target=\"#createForm\"\n        data-whatever=\"@mdo\"\n      >\n        Invite\n      </button>\n    </div>\n  </div>\n  <div class=\"tab-content\" id=\"dealLists\">\n    <router-outlet></router-outlet>\n  </div>\n  <div\n    class=\"modal fade\"\n    id=\"createForm\"\n    tabindex=\"-1\"\n    role=\"dialog\"\n    aria-labelledby=\"createFrom\"\n    aria-hidden=\"true\"\n  >\n    <div class=\"modal-dialog\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"createFrom\">Product Create Form</h5>\n          <button\n            type=\"button\"\n            class=\"close\"\n            data-dismiss=\"modal\"\n            aria-label=\"Close\"\n          >\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form>\n            <div class=\"form-group\">\n              <label for=\"recipient-name\" class=\"col-form-label\"\n                >Recipient:</label\n              >\n              <input type=\"text\" class=\"form-control\" id=\"recipient-name\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"message-text\" class=\"col-form-label\">Message:</label>\n              <textarea class=\"form-control\" id=\"message-text\"></textarea>\n            </div>\n          </form>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">\n            Close\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\">Send message</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n    //TODO: redirect the nav item to correct area\n  <ul class=\"nav nav-tabs\" id=\"dealTabs\" role=\"tablist\">\n    <li class=\"nav-item\">\n\n      <a\n        class=\"nav-link active\"\n        id=\"active-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"group_active\"\n        role=\"tab\"\n        aria-controls=\"active\"\n        aria-selected=\"true\"\n        >Active Followers</a\n      >\n    </li>\n    <!-- <li class=\"nav-item\">\n        <a\n          class=\"nav-link active\"\n          id=\"active-tab\"\n          data-toggle=\"tab\"\n          routerLink=\"active\"\n          role=\"tab\"\n          aria-controls=\"active\"\n          aria-selected=\"true\"\n          >Active Groups</a\n        >\n      </li> -->\n      <li class=\"nav-item\">\n          <a\n            class=\"nav-link active\"\n            id=\"active-tab\"\n            data-toggle=\"tab\"\n            routerLink=\"group_blocked\"\n            role=\"tab\"\n            aria-controls=\"active\"\n            aria-selected=\"true\"\n            >Blocked Followers</a\n          >\n        </li>\n        <li class=\"nav-item\">\n            <a\n              class=\"nav-link active\"\n              id=\"active-tab\"\n              data-toggle=\"tab\"\n              routerLink=\"group_waiting\"\n              role=\"tab\"\n              aria-controls=\"active\"\n              aria-selected=\"true\"\n              >Ask to Follow</a\n            >\n          </li>\n  </ul>\n  <div>\n    <form class=\"form-inline float-left\">\n      <input\n        class=\"form-control mr-sm-2\"\n        type=\"search\"\n        placeholder=\"Search\"\n        aria-label=\"Search\"\n      />\n    </form>\n    <div class=\"float-right\">\n      //TODO: set sumbit button to create products add SCSS to search and create\n      button\n      <button\n        type=\"button\"\n        class=\"btn btn-outline-success btn-block\"\n        data-toggle=\"modal\"\n        data-target=\"#createForm\"\n        data-whatever=\"@mdo\"\n      >\n        Invite\n      </button>\n    </div>\n  </div>\n  <div class=\"tab-content\" id=\"dealLists\">\n    <router-outlet></router-outlet>\n  </div>\n  <div\n    class=\"modal fade\"\n    id=\"createForm\"\n    tabindex=\"-1\"\n    role=\"dialog\"\n    aria-labelledby=\"createFrom\"\n    aria-hidden=\"true\"\n  >\n    <div class=\"modal-dialog\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"createFrom\">Product Create Form</h5>\n          <button\n            type=\"button\"\n            class=\"close\"\n            data-dismiss=\"modal\"\n            aria-label=\"Close\"\n          >\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form>\n            <div class=\"form-group\">\n              <label for=\"recipient-name\" class=\"col-form-label\"\n                >Recipient:</label\n              >\n              <input type=\"text\" class=\"form-control\" id=\"recipient-name\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"message-text\" class=\"col-form-label\">Message:</label>\n              <textarea class=\"form-control\" id=\"message-text\"></textarea>\n            </div>\n          </form>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">\n            Close\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\">Send message</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -63,7 +85,7 @@ module.exports = "<div class=\"container\">\n    //TODO: redirect the nav item t
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table class=\"table\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width: 9%\">#</th>\n      <th scope=\"col\" style=\"width: 60%\">Deals</th>\n      <th scope=\"col\" style=\"width: 10%\">Price</th>\n      <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n      <th scope=\"col\" style=\"width: 9%\"></th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let activeDeal of activeDealList\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + activeDeal.dealId).slice(-4) }}</th>\n        <td>\n          <div>\n            {{ activeDeal.title }}\n            <br />\n            <br />\n            {{ activeDeal.description }}\n            <br />\n            <br />\n            <div *ngFor=\"let link of activeDeal.deallinks\">\n              <div *ngIf=\"link.linkName\">Link Label: {{ link.linkName }}</div>\n              <a href=\"\" (click)=\"goToLink(link.link)\">{{ link.link }}</a>\n              <br />\n            </div>\n            <!-- </ng-container> -->\n          </div>\n        </td>\n        <td>{{ activeDeal.price }}</td>\n        <td>{{ activeDeal.quantity }}</td>\n        <td><button class=\"btn btn-primary btn-sm\">Take</button></td>\n      </tr>\n    </ng-container>\n  </tbody>\n</table>\n"
+module.exports = "<div *ngIf=\"privilege\">\n  <table class=\"table\">\n    <thead>\n      <tr>\n        <th scope=\"col\" style=\"width: 9%\">#</th>\n        <th scope=\"col\" style=\"width: 60%\">Deals</th>\n        <th scope=\"col\" style=\"width: 10%\">Price</th>\n        <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n        <th scope=\"col\" style=\"width: 9%\"></th>\n      </tr>\n    </thead>\n    <tbody>\n      <ng-container *ngFor=\"let deal of dealList\">\n        <tr>\n          <th scopr=\"row\">{{ ('000' + deal.id).slice(-4) }}</th>\n          <td>\n            <div>\n              {{ deal.product_name }}\n              <br />\n              {{ deal.note }}\n              <!-- </ng-container> -->\n            </div>\n          </td>\n          <td>{{ deal.price }}</td>\n          <td>{{ deal.quantity }}</td>\n          <td><button class=\"btn btn-primary btn-sm\">Take</button></td>\n        </tr>\n      </ng-container>\n    </tbody>\n  </table>\n</div>\n\n<div *ngIf=\"!privilege\" class=\"pt-5\">\n  <ng-container *ngFor=\"let following of followingList\">\n    <hr />\n    {{ following.company }}\n    <!-- <table class=\"table\">\n      <thead>\n        <tr>\n          <th scope=\"col\" style=\"width: 9%\">#</th>\n          <th scope=\"col\" style=\"width: 60%\">Deals</th>\n          <th scope=\"col\" style=\"width: 10%\">Price</th>\n          <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n          <th scope=\"col\" style=\"width: 9%\">Action</th>\n        </tr>\n      </thead>\n      <tbody>\n        <ng-container *ngFor=\"let deal of dealList\">\n          <tr>\n            <th scopr=\"row\">{{ ('000' + deal.id).slice(-4) }}</th>\n            <td>\n              <div>\n                {{ deal.product_name }}\n                <br />\n                {{ deal.note }}\n              </div>\n            </td>\n            <td>{{ deal.price }}</td>\n            <td>{{ deal.quantity }}</td>\n            <td><button class=\"btn btn-primary btn-sm\">Take</button></td>\n          </tr>\n        </ng-container>\n      </tbody>\n    </table> -->\n  </ng-container>\n</div>\n"
 
 /***/ }),
 
@@ -107,7 +129,7 @@ module.exports = "<h6>Favorite Deals</h6>\n//TODO add drafts deals logic\n<table
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <ul class=\"nav nav-tabs\" id=\"dealTabs\" role=\"tablist\">\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link active\"\n        id=\"active-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"active\"\n        role=\"tab\"\n        aria-controls=\"active\"\n        aria-selected=\"true\"\n        >Active Deals</a\n      >\n    </li>\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link\"\n        id=\"expired-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"expired\"\n        role=\"tab\"\n        aria-controls=\"expired\"\n        aria-selected=\"false\"\n        >Expired Deals</a\n      >\n    </li>\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link\"\n        id=\"favorite-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"favorite\"\n        role=\"tab\"\n        aria-controls=\"favorite\"\n        aria-selected=\"false\"\n        >Favorite Deals</a\n      >\n    </li>\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link\"\n        id=\"drafts-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"drafts\"\n        role=\"tab\"\n        aria-controls=\"drafts\"\n        aria-selected=\"false\"\n        >Drafts Deals</a\n      >\n    </li>\n  </ul>\n  <div>\n    <form class=\"form-inline float-left\">\n      <input\n        class=\"form-control mr-sm-2\"\n        type=\"search\"\n        placeholder=\"Search\"\n        aria-label=\"Search\"\n      />\n    </form>\n    <div class=\"float-right\">\n      //TODO: add SCSS to search and create button\n      <button\n        type=\"button\"\n        class=\"btn btn-outline-success btn-block\"\n        data-toggle=\"modal\"\n        data-target=\"#createForm\"\n        data-whatever=\"@mdo\"\n      >\n        Create\n      </button>\n    </div>\n  </div>\n  <div class=\"tab-content\" id=\"dealLists\">\n    <router-outlet></router-outlet>\n  </div>\n  <div\n    class=\"modal fade\"\n    id=\"createForm\"\n    tabindex=\"-1\"\n    role=\"dialog\"\n    aria-labelledby=\"createFrom\"\n    aria-hidden=\"true\"\n  >\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"createFrom\">Deal Create Form</h5>\n          <button\n            type=\"button\"\n            class=\"close\"\n            data-dismiss=\"modal\"\n            aria-label=\"Close\"\n          >\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form>\n            <div class=\"form-group\">\n              <label for=\"deal-product\" class=\"col-form-label\">Product:</label>\n              <select class=\"selectpicker  form-control\" data-live-search=\"true\">\n                <!-- <option data-tokens=\"china\">China</option>\n                <option data-tokens=\"malayasia\">Malayasia</option>\n                <option data-tokens=\"singapore\">Singapore</option> -->\n                <option *ngFor=\"let nameid of productList\" data-tokens={{nameid.id}}>{{nameid.name}}</option>\n              </select>\n              {{refreshSelect()}}\n            </div>\n            <div class=\"form-group\">\n              <label for=\"deal-price\" class=\"col-form-label\">Price:</label>\n              <input type=\"text\" class=\"form-control\" id=\"deal-price\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"deal-quantity\" class=\"col-form-label\"\n                >Quantity:</label\n              >\n              <input type=\"text\" class=\"form-control\" id=\"deal-quantity\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"deal-expires\" class=\"col-form-label\"\n                >Expires At:</label\n              >\n              <div class=\"row\">\n                <div class=\"col-md-3\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"month\"\n                    required\n                  >\n                    <option value=\"\">January</option>\n                    <option>January</option>\n                    <option>February</option>\n                    <option>March</option>\n                    <option>April</option>\n                    <option>May</option>\n                    <option>June</option>\n                    <option>July</option>\n                    <option>August</option>\n                    <option>September</option>\n                    <option>October</option>\n                    <option>November</option>\n                    <option>December</option>\n                  </select>\n                </div>\n                <div class=\"col-md-2\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"days\"\n                    required\n                  >\n                    <option value=\"\">1</option>\n                    <option>1</option>\n                    <option>2</option>\n                    <option>3</option>\n                    <option>4</option>\n                    <option>5</option>\n                    <option>6</option>\n                    <option>7</option>\n                    <option>8</option>\n                    <option>9</option>\n                    <option>10</option>\n                    <option>11</option>\n                    <option>12</option>\n                    <option>13</option>\n                    <option>14</option>\n                    <option>15</option>\n                    <option>16</option>\n                    <option>17</option>\n                    <option>18</option>\n                    <option>19</option>\n                    <option>20</option>\n                    <option>21</option>\n                    <option>22</option>\n                    <option>23</option>\n                    <option>24</option>\n                    <option>25</option>\n                    <option>26</option>\n                    <option>27</option>\n                    <option>28</option>\n                    <option>29</option>\n                    <option>30</option>\n                    <option>31</option>\n                  </select>\n                </div>\n                <div class=\"col-md-2\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"years\"\n                    required\n                  >\n                    <option value=\"\">2014</option>\n                    <option>2014</option>\n                    <option>2015</option>\n                    <option>2016</option>\n                    <option>2017</option>\n                    <option>2018</option>\n                    <option>2019</option>\n                    <option>2020</option>\n                    <option>2021</option>\n                    <option>2022</option>\n                    <option>2023</option>\n                    <option>2024</option>\n                  </select>\n                </div>\n                <div class=\"col-md-2\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"hours\"\n                    required\n                  >\n                    <option value=\"\">00</option>\n                    <option>00</option>\n                    <option>01</option>\n                    <option>02</option>\n                    <option>03</option>\n                    <option>04</option>\n                    <option>05</option>\n                    <option>06</option>\n                    <option>07</option>\n                    <option>08</option>\n                    <option>09</option>\n                    <option>10</option>\n                    <option>11</option>\n                    <option>12</option>\n                    <option>13</option>\n                    <option>14</option>\n                    <option>15</option>\n                    <option>16</option>\n                    <option>17</option>\n                    <option>19</option>\n                    <option>20</option>\n                    <option>21</option>\n                    <option>22</option>\n                    <option>23</option>\n                  </select>\n                </div>\n                <div class=\"col-md-2\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"minutes\"\n                    required\n                  >\n                    <option value=\"\">00</option>\n                    <option>00</option>\n                    <option>01</option>\n                    <option>02</option>\n                    <option>03</option>\n                    <option>04</option>\n                    <option>05</option>\n                    <option>06</option>\n                    <option>07</option>\n                    <option>08</option>\n                    <option>09</option>\n                    <option>10</option>\n                    <option>11</option>\n                    <option>12</option>\n                    <option>13</option>\n                    <option>14</option>\n                    <option>15</option>\n                    <option>16</option>\n                    <option>17</option>\n                    <option>19</option>\n                    <option>20</option>\n                    <option>21</option>\n                    <option>22</option>\n                    <option>23</option>\n                    <option>24</option>\n                    <option>25</option>\n                    <option>26</option>\n                    <option>27</option>\n                    <option>28</option>\n                    <option>29</option>\n                    <option>30</option>\n                    <option>31</option>\n                    <option>32</option>\n                    <option>33</option>\n                    <option>34</option>\n                    <option>35</option>\n                    <option>36</option>\n                    <option>37</option>\n                    <option>38</option>\n                    <option>39</option>\n                    <option>40</option>\n                    <option>41</option>\n                    <option>42</option>\n                    <option>43</option>\n                    <option>44</option>\n                    <option>45</option>\n                    <option>46</option>\n                    <option>47</option>\n                    <option>48</option>\n                    <option>49</option>\n                    <option>50</option>\n                    <option>51</option>\n                    <option>52</option>\n                    <option>53</option>\n                    <option>54</option>\n                    <option>55</option>\n                    <option>56</option>\n                    <option>57</option>\n                    <option>58</option>\n                    <option>59</option>\n                  </select>\n                </div>\n              </div>\n              By default, expires in 3 days.\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-Note\" class=\"col-form-label\">Note:</label>\n              <textarea\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-note\"\n                cols=\"30\"\n                rows=\"5\"\n              ></textarea>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"deal-bonus\" class=\"col-form-label\">Bonus:</label>\n              <input type=\"text\" class=\"form-control\" id=\"deal-bonus\" />\n              Give bonus for inbound items to self storages.\n            </div>\n            <div class=\"form-check\">\n              <input\n                class=\"form-check-input\"\n                type=\"checkbox\"\n                value=\"\"\n                id=\"deal-service-tag\"\n              />\n              <label class=\"form-check-label\" for=\"deal-service-tag\">\n                Service Tag\n              </label>\n            </div>\n            Require service tags when members comfirm inbound items.\n            <hr />\n            <div class=\"form-check form-check-inline\">\n              <input\n                class=\"form-check-input\"\n                type=\"radio\"\n                name=\"public\"\n                id=\"publicRadio\"\n                value=\"public\"\n              />\n              <label class=\"form-check-label\" for=\"publicRadio\">Public</label>\n            </div>\n            <div class=\"form-check form-check-inline\">\n              <input\n                class=\"form-check-input\"\n                type=\"radio\"\n                name=\"public\"\n                id=\"privateRadio\"\n                value=\"private\"\n              />\n              <label class=\"form-check-label\" for=\"PrivateRadio\">Private</label>\n            </div>\n            <hr />\n            Every member can see public offers. Only selected users can see\n            private offers.\n            <br />\n            <br />\n            <div class=\"form-check\">\n              <input\n                class=\"form-check-input\"\n                type=\"checkbox\"\n                value=\"\"\n                id=\"notify\"\n              />\n              <label class=\"form-check-label\" for=\"notify\">\n                Notify everyone who can see the offer\n              </label>\n            </div>\n          </form>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">\n            Close\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\">Add</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<!-- {{ deal | json }}\n{{ selectProduct }}\n{{month}} -->\n<div class=\"container\">\n  <ul class=\"nav nav-tabs\" id=\"dealTabs\" role=\"tablist\">\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link active\"\n        id=\"active-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"active\"\n        role=\"tab\"\n        aria-controls=\"active\"\n        aria-selected=\"true\"\n        >Active Deals</a\n      >\n    </li>\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link\"\n        id=\"expired-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"expired\"\n        role=\"tab\"\n        aria-controls=\"expired\"\n        aria-selected=\"false\"\n        >Expired Deals</a\n      >\n    </li>\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link\"\n        id=\"favorite-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"favorite\"\n        role=\"tab\"\n        aria-controls=\"favorite\"\n        aria-selected=\"false\"\n        >Favorite Deals</a\n      >\n    </li>\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link\"\n        id=\"drafts-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"drafts\"\n        role=\"tab\"\n        aria-controls=\"drafts\"\n        aria-selected=\"false\"\n        *ngIf=\"privilege\"\n        >Drafts Deals</a\n      >\n    </li>\n  </ul>\n  <div>\n    <form class=\"form-inline float-left\">\n      <input\n        class=\"form-control mr-sm-2\"\n        type=\"search\"\n        placeholder=\"Search\"\n        aria-label=\"Search\"\n      />\n    </form>\n    <div class=\"float-right\">\n      //TODO: add SCSS to search and create button\n      <button\n        type=\"button\"\n        class=\"btn btn-outline-success btn-block\"\n        data-toggle=\"modal\"\n        data-target=\"#createForm\"\n        data-whatever=\"@mdo\"\n        *ngIf=\"privilege\"\n      >\n        Create\n      </button>\n    </div>\n  </div>\n  <div class=\"tab-content\" id=\"dealLists\">\n    <router-outlet></router-outlet>\n  </div>\n  <div\n    class=\"modal fade\"\n    id=\"createForm\"\n    tabindex=\"-1\"\n    role=\"dialog\"\n    aria-labelledby=\"createFrom\"\n    aria-hidden=\"true\"\n  >\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"createFrom\">Deal Create Form</h5>\n          <button\n            type=\"button\"\n            class=\"close\"\n            data-dismiss=\"modal\"\n            aria-label=\"Close\"\n          >\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form>\n            <div class=\"form-group\">\n              <label for=\"deal-product\" class=\"col-form-label\">Product:</label>\n              <select\n                class=\"selectpicker form-control\"\n                data-live-search=\"true\"\n                name=\"product\"\n                [(ngModel)]=\"selectProduct\"\n                (ngModelChange)=\"setProductNameId()\"\n              >\n                <option\n                  *ngFor=\"let nameid of productList\"\n                  name=\"productsId\"\n                  [ngValue]=\"nameid\"\n                >\n                  {{ nameid.name }}\n                </option>\n              </select>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"deal-price\" class=\"col-form-label\">Price:</label>\n              <input type=\"text\" class=\"form-control\" id=\"deal-price\" name=\"price\" [(ngModel)]=\"deal.price\"/>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"deal-quantity\" class=\"col-form-label\"\n                >Quantity:</label\n              >\n              <input type=\"number\" class=\"form-control\" id=\"deal-quantity\" name=\"quantity\" [(ngModel)]=\"deal.quantity\"/>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"deal-expires\" class=\"col-form-label\"\n                >Expires At:</label\n              >\n              <div class=\"row\">\n                <div class=\"col-md-3\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"month\"\n                    name=\"month\"\n                    [(ngModel)]=\"month\"\n                    required\n                  >\n                    <option>January</option>\n                    <option>February</option>\n                    <option>March</option>\n                    <option>April</option>\n                    <option>May</option>\n                    <option>June</option>\n                    <option>July</option>\n                    <option>August</option>\n                    <option>September</option>\n                    <option>October</option>\n                    <option>November</option>\n                    <option>December</option>\n                  </select>\n                </div>\n                <div class=\"col-md-2\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"days\"\n                    name=\"days\"\n                    [(ngModel)]=\"days\"\n                    required\n                  >\n                    <option value=\"\">1</option>\n                    <option>1</option>\n                    <option>2</option>\n                    <option>3</option>\n                    <option>4</option>\n                    <option>5</option>\n                    <option>6</option>\n                    <option>7</option>\n                    <option>8</option>\n                    <option>9</option>\n                    <option>10</option>\n                    <option>11</option>\n                    <option>12</option>\n                    <option>13</option>\n                    <option>14</option>\n                    <option>15</option>\n                    <option>16</option>\n                    <option>17</option>\n                    <option>18</option>\n                    <option>19</option>\n                    <option>20</option>\n                    <option>21</option>\n                    <option>22</option>\n                    <option>23</option>\n                    <option>24</option>\n                    <option>25</option>\n                    <option>26</option>\n                    <option>27</option>\n                    <option>28</option>\n                    <option>29</option>\n                    <option>30</option>\n                    <option>31</option>\n                  </select>\n                </div>\n                <div class=\"col-md-2\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"years\"\n                    name=\"year\"\n                    [(ngModel)]=\"year\"\n                    required\n                  >\n                    <option value=\"\">2014</option>\n                    <option>2014</option>\n                    <option>2015</option>\n                    <option>2016</option>\n                    <option>2017</option>\n                    <option>2018</option>\n                    <option>2019</option>\n                    <option>2020</option>\n                    <option>2021</option>\n                    <option>2022</option>\n                    <option>2023</option>\n                    <option>2024</option>\n                  </select>\n                </div>\n                <div class=\"col-md-2\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"hours\"\n                    name=\"hour\"\n                    [(ngModel)]=\"hour\"\n                    required\n                  >\n                    <option value=\"\">00</option>\n                    <option>00</option>\n                    <option>01</option>\n                    <option>02</option>\n                    <option>03</option>\n                    <option>04</option>\n                    <option>05</option>\n                    <option>06</option>\n                    <option>07</option>\n                    <option>08</option>\n                    <option>09</option>\n                    <option>10</option>\n                    <option>11</option>\n                    <option>12</option>\n                    <option>13</option>\n                    <option>14</option>\n                    <option>15</option>\n                    <option>16</option>\n                    <option>17</option>\n                    <option>19</option>\n                    <option>20</option>\n                    <option>21</option>\n                    <option>22</option>\n                    <option>23</option>\n                  </select>\n                </div>\n                <div class=\"col-md-2\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"minutes\"\n                    name=\"minutes\"\n                    [(ngModel)]=\"minutes\"\n                    required\n                  >\n                    <option value=\"\">00</option>\n                    <option>00</option>\n                    <option>01</option>\n                    <option>02</option>\n                    <option>03</option>\n                    <option>04</option>\n                    <option>05</option>\n                    <option>06</option>\n                    <option>07</option>\n                    <option>08</option>\n                    <option>09</option>\n                    <option>10</option>\n                    <option>11</option>\n                    <option>12</option>\n                    <option>13</option>\n                    <option>14</option>\n                    <option>15</option>\n                    <option>16</option>\n                    <option>17</option>\n                    <option>19</option>\n                    <option>20</option>\n                    <option>21</option>\n                    <option>22</option>\n                    <option>23</option>\n                    <option>24</option>\n                    <option>25</option>\n                    <option>26</option>\n                    <option>27</option>\n                    <option>28</option>\n                    <option>29</option>\n                    <option>30</option>\n                    <option>31</option>\n                    <option>32</option>\n                    <option>33</option>\n                    <option>34</option>\n                    <option>35</option>\n                    <option>36</option>\n                    <option>37</option>\n                    <option>38</option>\n                    <option>39</option>\n                    <option>40</option>\n                    <option>41</option>\n                    <option>42</option>\n                    <option>43</option>\n                    <option>44</option>\n                    <option>45</option>\n                    <option>46</option>\n                    <option>47</option>\n                    <option>48</option>\n                    <option>49</option>\n                    <option>50</option>\n                    <option>51</option>\n                    <option>52</option>\n                    <option>53</option>\n                    <option>54</option>\n                    <option>55</option>\n                    <option>56</option>\n                    <option>57</option>\n                    <option>58</option>\n                    <option>59</option>\n                  </select>\n                </div>\n              </div>\n              By default, expires in 3 days.\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-Note\" class=\"col-form-label\">Note:</label>\n              <textarea\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-note\"\n                cols=\"30\"\n                rows=\"5\"\n                name=\"note\"\n                [(ngModel)]=\"deal.note\"\n              ></textarea>\n            </div>\n            <!-- <div class=\"form-group\">\n              <label for=\"deal-bonus\" class=\"col-form-label\">Bonus:</label>\n              <input type=\"text\" class=\"form-control\" id=\"deal-bonus\" name=\"bonus\" [(ngModel)]=\"deal.bonus\"/>\n              Give bonus for inbound items to self storages.\n            </div> -->\n            <div class=\"form-check\">\n              <input\n                class=\"form-check-input\"\n                type=\"checkbox\"\n                value=\"\"\n                id=\"deal-service-tag\"\n                name=\"serviceTag\"\n                [(ngModel)]=\"deal.serviceTag\"\n              />\n              <label class=\"form-check-label\" for=\"deal-service-tag\">\n                Service Tag\n              </label>\n            </div>\n            Require service tags when members comfirm inbound items.\n            <hr />\n            <div class=\"form-check form-check-inline\">\n              <input\n                class=\"form-check-input\"\n                type=\"radio\"\n                name=\"public\"\n                id=\"publicRadio\"\n                value=\"true\"\n                name=\"dealPublic\"\n                [(ngModel)]=\"deal.dealPublic\"\n\n              />\n              <label class=\"form-check-label\" for=\"publicRadio\">Public</label>\n            </div>\n            <div class=\"form-check form-check-inline\">\n              <input\n                class=\"form-check-input\"\n                type=\"radio\"\n                name=\"public\"\n                id=\"privateRadio\"\n                value=\"false\"\n                name=\"dealPriate\"\n                [(ngModel)]=\"deal.dealPublic\"\n              />\n              <label class=\"form-check-label\" for=\"PrivateRadio\">Private</label>\n            </div>\n            <hr />\n            Every member can see public offers. Only selected users can see\n            private offers.\n            <br />\n            <br />\n            <div class=\"form-check\">\n              <input\n                class=\"form-check-input\"\n                type=\"checkbox\"\n                value=\"\"\n                id=\"notify\"\n                name=\"notify\"\n                [(ngModel)]=\"deal.notify\"\n              />\n              <label class=\"form-check-label\" for=\"notify\">\n                Notify everyone who can see the offer\n              </label>\n            </div>\n          </form>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">\n            Close\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\" (click)=\"create()\" data-dismiss=\"modal\">Add</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -129,7 +151,7 @@ module.exports = "//TODO: write two button with appropriate space <br /><br /><b
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "//redirect the nav item to correct area\n<!-- {{ product | json }} -->\n//TODO: form validations\n//TODO: add view all option for product\n//TODO: add notification when add product successfully\n<div class=\"container\">\n  <ul class=\"nav nav-tabs\" id=\"dealTabs\" role=\"tablist\">\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link active\"\n        id=\"active-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"active\"\n        role=\"tab\"\n        aria-controls=\"active\"\n        aria-selected=\"true\"\n        >Active Products</a\n      >\n    </li>\n  </ul>\n  <div>\n    <form class=\"form-inline float-left\">\n      <input\n        class=\"form-control mr-sm-2\"\n        type=\"search\"\n        placeholder=\"Search\"\n        aria-label=\"Search\"\n      />\n    </form>\n    <div class=\"float-right\">\n      //TODO: set sumbit button to create products add SCSS to search and create\n      button\n      <button\n        type=\"button\"\n        class=\"btn btn-outline-success btn-block\"\n        data-toggle=\"modal\"\n        data-target=\"#createForm\"\n        data-whatever=\"@mdo\"\n      >\n        Create\n      </button>\n    </div>\n  </div>\n  <div class=\"tab-content\" id=\"productsLists\">\n    <router-outlet></router-outlet>\n  </div>\n  <div\n    class=\"modal fade\"\n    id=\"createForm\"\n    tabindex=\"-1\"\n    role=\"dialog\"\n    aria-labelledby=\"createFrom\"\n    aria-hidden=\"true\"\n  >\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"createFrom\">Product Create Form</h5>\n          <button\n            type=\"button\"\n            class=\"close\"\n            data-dismiss=\"modal\"\n            aria-label=\"Close\"\n          >\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form>\n            <div class=\"form-group\">\n              <label for=\"product-name\" class=\"col-form-label\">Name:</label>\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-name\"\n                name=\"name\"\n                [(ngModel)]=\"product.name\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-condition\" class=\"col-form-label\"\n                >Condition:</label\n              >\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-condition\"\n                name=\"condition\"\n                [(ngModel)]=\"product.condition\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-price\" class=\"col-form-label\">Price:</label>\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-price\"\n                name=\"msrp\"\n                [(ngModel)]=\"product.msrp\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-asin\" class=\"col-form-label\">ASIN:</label>\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-asin\"\n                name=\"asin\"\n                [(ngModel)]=\"product.asin\"\n              />\n              Each ASIN consists of 10 alphanumerics. Search listings with the\n              same ASINs.\n            </div>\n            <div class=\"row\">\n              <div class=\"form-group col-md-6\">\n                <label for=\"product-upc\" class=\"col-form-label\">UPC:</label>\n                <input\n                  type=\"text\"\n                  class=\"form-control\"\n                  id=\"product-upc\"\n                  name=\"upc\"\n                  [(ngModel)]=\"product.upc\"\n                />\n              </div>\n              <div class=\"form-group col-md-6\">\n                <label for=\"product-weight\" class=\"col-form-label\"\n                  >Weight:</label\n                >\n                <input type=\"text\" class=\"form-control\" id=\"product-weight\" name=\"weight\" [(ngModel)]=\"product.weight\"/>\n              </div>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-Note\" class=\"col-form-label\">Note:</label>\n              <textarea\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-note\"\n                cols=\"30\"\n                rows=\"10\"\n                name=\"note\"\n                [(ngModel)]=\"product.note\"\n              ></textarea>\n            </div>\n          </form>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">\n            Close\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\" (click)=\"create()\" data-dismiss=\"modal\">Add</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "//redirect the nav item to correct area\n<!-- {{ product | json }} -->\n//TODO: form validations\n//TODO: add view all option for product\n//TODO: add notification when add product successfully\n<div class=\"container\">\n  <ul class=\"nav nav-tabs\" id=\"dealTabs\" role=\"tablist\">\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link active\"\n        id=\"active-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"product_active\"\n        role=\"tab\"\n        aria-controls=\"active\"\n        aria-selected=\"true\"\n        >Active Products</a\n      >\n    </li>\n  </ul>\n  <div>\n    <form class=\"form-inline float-left\">\n      <input\n        class=\"form-control mr-sm-2\"\n        type=\"search\"\n        placeholder=\"Search\"\n        aria-label=\"Search\"\n      />\n    </form>\n    <div class=\"float-right\">\n      //TODO: set sumbit button to create products add SCSS to search and create\n      button\n      <button\n        type=\"button\"\n        class=\"btn btn-outline-success btn-block\"\n        data-toggle=\"modal\"\n        data-target=\"#createForm\"\n        data-whatever=\"@mdo\"\n      >\n        Create\n      </button>\n    </div>\n  </div>\n  <div class=\"tab-content\" id=\"productsLists\">\n    <router-outlet></router-outlet>\n  </div>\n  <div\n    class=\"modal fade\"\n    id=\"createForm\"\n    tabindex=\"-1\"\n    role=\"dialog\"\n    aria-labelledby=\"createFrom\"\n    aria-hidden=\"true\"\n  >\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"createFrom\">Product Create Form</h5>\n          <button\n            type=\"button\"\n            class=\"close\"\n            data-dismiss=\"modal\"\n            aria-label=\"Close\"\n          >\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form>\n            <div class=\"form-group\">\n              <label for=\"product-name\" class=\"col-form-label\">Name:</label>\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-name\"\n                name=\"name\"\n                [(ngModel)]=\"product.name\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-condition\" class=\"col-form-label\"\n                >Condition:</label\n              >\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-condition\"\n                name=\"condition\"\n                [(ngModel)]=\"product.condition\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-price\" class=\"col-form-label\">Price:</label>\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-price\"\n                name=\"msrp\"\n                [(ngModel)]=\"product.msrp\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-asin\" class=\"col-form-label\">ASIN:</label>\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-asin\"\n                name=\"asin\"\n                [(ngModel)]=\"product.asin\"\n              />\n              Each ASIN consists of 10 alphanumerics. Search listings with the\n              same ASINs.\n            </div>\n            <div class=\"row\">\n              <div class=\"form-group col-md-6\">\n                <label for=\"product-upc\" class=\"col-form-label\">UPC:</label>\n                <input\n                  type=\"text\"\n                  class=\"form-control\"\n                  id=\"product-upc\"\n                  name=\"upc\"\n                  [(ngModel)]=\"product.upc\"\n                />\n              </div>\n              <div class=\"form-group col-md-6\">\n                <label for=\"product-weight\" class=\"col-form-label\"\n                  >Weight:</label\n                >\n                <input type=\"text\" class=\"form-control\" id=\"product-weight\" name=\"weight\" [(ngModel)]=\"product.weight\"/>\n              </div>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-Note\" class=\"col-form-label\">Note:</label>\n              <textarea\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-note\"\n                cols=\"30\"\n                rows=\"10\"\n                name=\"note\"\n                [(ngModel)]=\"product.note\"\n              ></textarea>\n            </div>\n          </form>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">\n            Close\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\" (click)=\"create()\" data-dismiss=\"modal\">Add</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -191,6 +213,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _products_products_active_list_products_active_list_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./products/products-active-list/products-active-list.component */ "./src/app/products/products-active-list/products-active-list.component.ts");
 /* harmony import */ var _groups_groups_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./groups/groups.component */ "./src/app/groups/groups.component.ts");
 /* harmony import */ var _groups_groups_active_list_groups_active_list_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./groups/groups-active-list/groups-active-list.component */ "./src/app/groups/groups-active-list/groups-active-list.component.ts");
+/* harmony import */ var _groups_groups_blocked_list_groups_blocked_list_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./groups/groups-blocked-list/groups-blocked-list.component */ "./src/app/groups/groups-blocked-list/groups-blocked-list.component.ts");
+/* harmony import */ var _groups_groups_waiting_list_groups_waiting_list_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./groups/groups-waiting-list/groups-waiting-list.component */ "./src/app/groups/groups-waiting-list/groups-waiting-list.component.ts");
+
+
 
 
 
@@ -231,13 +257,21 @@ var routes = [
         path: 'products',
         component: _products_products_component__WEBPACK_IMPORTED_MODULE_11__["ProductsComponent"],
         canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]],
-        children: [{ path: '', component: _products_products_active_list_products_active_list_component__WEBPACK_IMPORTED_MODULE_12__["ProductsActiveListComponent"] }]
+        children: [
+            { path: 'product_active', component: _products_products_active_list_products_active_list_component__WEBPACK_IMPORTED_MODULE_12__["ProductsActiveListComponent"] },
+            { path: '', component: _products_products_active_list_products_active_list_component__WEBPACK_IMPORTED_MODULE_12__["ProductsActiveListComponent"] }
+        ]
     },
     {
         path: 'groups',
         component: _groups_groups_component__WEBPACK_IMPORTED_MODULE_13__["GroupsComponent"],
         canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]],
-        children: [{ path: '', component: _groups_groups_active_list_groups_active_list_component__WEBPACK_IMPORTED_MODULE_14__["GroupsActiveListComponent"] }]
+        children: [
+            { path: 'group_blocked', component: _groups_groups_blocked_list_groups_blocked_list_component__WEBPACK_IMPORTED_MODULE_15__["GroupsBlockedListComponent"] },
+            { path: 'group_active', component: _groups_groups_active_list_groups_active_list_component__WEBPACK_IMPORTED_MODULE_14__["GroupsActiveListComponent"] },
+            { path: 'group_waiting', component: _groups_groups_waiting_list_groups_waiting_list_component__WEBPACK_IMPORTED_MODULE_16__["GroupsWaitingListComponent"] },
+            { path: '', component: _groups_groups_active_list_groups_active_list_component__WEBPACK_IMPORTED_MODULE_14__["GroupsActiveListComponent"] }
+        ]
     },
     { path: '**', redirectTo: 'signin' }
 ];
@@ -330,6 +364,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _products_products_active_list_products_active_list_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./products/products-active-list/products-active-list.component */ "./src/app/products/products-active-list/products-active-list.component.ts");
 /* harmony import */ var _groups_groups_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./groups/groups.component */ "./src/app/groups/groups.component.ts");
 /* harmony import */ var _groups_groups_active_list_groups_active_list_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./groups/groups-active-list/groups-active-list.component */ "./src/app/groups/groups-active-list/groups-active-list.component.ts");
+/* harmony import */ var _groups_groups_blocked_list_groups_blocked_list_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./groups/groups-blocked-list/groups-blocked-list.component */ "./src/app/groups/groups-blocked-list/groups-blocked-list.component.ts");
+/* harmony import */ var _groups_groups_waiting_list_groups_waiting_list_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./groups/groups-waiting-list/groups-waiting-list.component */ "./src/app/groups/groups-waiting-list/groups-waiting-list.component.ts");
+
+
 
 
 
@@ -369,6 +407,8 @@ var AppModule = /** @class */ (function () {
                 _products_products_active_list_products_active_list_component__WEBPACK_IMPORTED_MODULE_17__["ProductsActiveListComponent"],
                 _groups_groups_component__WEBPACK_IMPORTED_MODULE_18__["GroupsComponent"],
                 _groups_groups_active_list_groups_active_list_component__WEBPACK_IMPORTED_MODULE_19__["GroupsActiveListComponent"],
+                _groups_groups_blocked_list_groups_blocked_list_component__WEBPACK_IMPORTED_MODULE_20__["GroupsBlockedListComponent"],
+                _groups_groups_waiting_list_groups_waiting_list_component__WEBPACK_IMPORTED_MODULE_21__["GroupsWaitingListComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -412,22 +452,214 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GroupsActiveListComponent", function() { return GroupsActiveListComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_group_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/group.service */ "./src/app/services/group.service.ts");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+
+
+
 
 
 var GroupsActiveListComponent = /** @class */ (function () {
-    function GroupsActiveListComponent() {
+    function GroupsActiveListComponent(groupService, authenticationService) {
+        this.groupService = groupService;
+        this.authenticationService = authenticationService;
+        this.statusLevel = ['Ask To Follow', 'Active', 'Blocked'];
     }
     GroupsActiveListComponent.prototype.ngOnInit = function () {
+        if (this.authenticationService.currentUserValue) {
+            this.privilege = this.authenticationService.currentUserValue[2];
+            this.user = this.authenticationService.currentUserValue[0];
+        }
+        this.getfollowersListTen();
     };
+    GroupsActiveListComponent.prototype.getfollowersListTen = function () {
+        var _this = this;
+        if (this.privilege !== 'company') {
+            // TODO: error handle
+        }
+        else {
+            this.groupService
+                .tenSubscribers(this.user)
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])())
+                .subscribe(function (data) {
+                _this.followersList = data;
+            });
+        }
+    };
+    GroupsActiveListComponent.ctorParameters = function () { return [
+        { type: _services_group_service__WEBPACK_IMPORTED_MODULE_2__["GroupService"] },
+        { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"] }
+    ]; };
     GroupsActiveListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-groups-active-list',
             template: __webpack_require__(/*! raw-loader!./groups-active-list.component.html */ "./node_modules/raw-loader/index.js!./src/app/groups/groups-active-list/groups-active-list.component.html"),
+            providers: [_services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"], _services_group_service__WEBPACK_IMPORTED_MODULE_2__["GroupService"]],
             styles: [__webpack_require__(/*! ./groups-active-list.component.scss */ "./src/app/groups/groups-active-list/groups-active-list.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_group_service__WEBPACK_IMPORTED_MODULE_2__["GroupService"],
+            _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"]])
     ], GroupsActiveListComponent);
     return GroupsActiveListComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/groups/groups-blocked-list/groups-blocked-list.component.scss":
+/*!*******************************************************************************!*\
+  !*** ./src/app/groups/groups-blocked-list/groups-blocked-list.component.scss ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2dyb3Vwcy9ncm91cHMtYmxvY2tlZC1saXN0L2dyb3Vwcy1ibG9ja2VkLWxpc3QuY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/groups/groups-blocked-list/groups-blocked-list.component.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/groups/groups-blocked-list/groups-blocked-list.component.ts ***!
+  \*****************************************************************************/
+/*! exports provided: GroupsBlockedListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GroupsBlockedListComponent", function() { return GroupsBlockedListComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_group_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/group.service */ "./src/app/services/group.service.ts");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+
+
+
+
+
+var GroupsBlockedListComponent = /** @class */ (function () {
+    function GroupsBlockedListComponent(groupService, authenticationService) {
+        this.groupService = groupService;
+        this.authenticationService = authenticationService;
+        this.statusLevel = ['Ask To Follow', 'Active', 'Blocked'];
+    }
+    GroupsBlockedListComponent.prototype.ngOnInit = function () {
+        if (this.authenticationService.currentUserValue) {
+            this.privilege = this.authenticationService.currentUserValue[2];
+            this.user = this.authenticationService.currentUserValue[0];
+        }
+        this.getfollowersListTenBlocked();
+    };
+    GroupsBlockedListComponent.prototype.getfollowersListTenBlocked = function () {
+        var _this = this;
+        if (this.privilege !== 'company') {
+            // TODO: error handle
+        }
+        else {
+            this.groupService
+                .tenSubscribersBlocked(this.user)
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])())
+                .subscribe(function (data) {
+                _this.followersList = data;
+            });
+        }
+    };
+    GroupsBlockedListComponent.ctorParameters = function () { return [
+        { type: _services_group_service__WEBPACK_IMPORTED_MODULE_2__["GroupService"] },
+        { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"] }
+    ]; };
+    GroupsBlockedListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-groups-blocked-list',
+            template: __webpack_require__(/*! raw-loader!./groups-blocked-list.component.html */ "./node_modules/raw-loader/index.js!./src/app/groups/groups-blocked-list/groups-blocked-list.component.html"),
+            providers: [_services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"], _services_group_service__WEBPACK_IMPORTED_MODULE_2__["GroupService"]],
+            styles: [__webpack_require__(/*! ./groups-blocked-list.component.scss */ "./src/app/groups/groups-blocked-list/groups-blocked-list.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_group_service__WEBPACK_IMPORTED_MODULE_2__["GroupService"],
+            _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"]])
+    ], GroupsBlockedListComponent);
+    return GroupsBlockedListComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/groups/groups-waiting-list/groups-waiting-list.component.scss":
+/*!*******************************************************************************!*\
+  !*** ./src/app/groups/groups-waiting-list/groups-waiting-list.component.scss ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2dyb3Vwcy9ncm91cHMtd2FpdGluZy1saXN0L2dyb3Vwcy13YWl0aW5nLWxpc3QuY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/groups/groups-waiting-list/groups-waiting-list.component.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/groups/groups-waiting-list/groups-waiting-list.component.ts ***!
+  \*****************************************************************************/
+/*! exports provided: GroupsWaitingListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GroupsWaitingListComponent", function() { return GroupsWaitingListComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_group_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/group.service */ "./src/app/services/group.service.ts");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+
+
+
+
+
+var GroupsWaitingListComponent = /** @class */ (function () {
+    function GroupsWaitingListComponent(groupService, authenticationService) {
+        this.groupService = groupService;
+        this.authenticationService = authenticationService;
+        this.statusLevel = ['Ask To Follow', 'Active', 'Blocked'];
+    }
+    GroupsWaitingListComponent.prototype.ngOnInit = function () {
+        if (this.authenticationService.currentUserValue) {
+            this.privilege = this.authenticationService.currentUserValue[2];
+            this.user = this.authenticationService.currentUserValue[0];
+        }
+        this.getfollowersListTenWaiting();
+    };
+    GroupsWaitingListComponent.prototype.getfollowersListTenWaiting = function () {
+        var _this = this;
+        if (this.privilege !== 'company') {
+            // TODO: error handle
+        }
+        else {
+            this.groupService
+                .tenSubscribersWaiting(this.user)
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])())
+                .subscribe(function (data) {
+                _this.followersList = data;
+            });
+        }
+    };
+    GroupsWaitingListComponent.ctorParameters = function () { return [
+        { type: _services_group_service__WEBPACK_IMPORTED_MODULE_2__["GroupService"] },
+        { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"] }
+    ]; };
+    GroupsWaitingListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-groups-waiting-list',
+            template: __webpack_require__(/*! raw-loader!./groups-waiting-list.component.html */ "./node_modules/raw-loader/index.js!./src/app/groups/groups-waiting-list/groups-waiting-list.component.html"),
+            providers: [_services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"], _services_group_service__WEBPACK_IMPORTED_MODULE_2__["GroupService"]],
+            styles: [__webpack_require__(/*! ./groups-waiting-list.component.scss */ "./src/app/groups/groups-waiting-list/groups-waiting-list.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_group_service__WEBPACK_IMPORTED_MODULE_2__["GroupService"],
+            _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"]])
+    ], GroupsWaitingListComponent);
+    return GroupsWaitingListComponent;
 }());
 
 
@@ -552,10 +784,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeActiveDealListComponent", function() { return HomeActiveDealListComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _models_deal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models/deal */ "./src/app/models/deal.ts");
-/* harmony import */ var _services_deal_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/deal.service */ "./src/app/services/deal.service.ts");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _services_deal_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/deal.service */ "./src/app/services/deal.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _services_product_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/product.service */ "./src/app/services/product.service.ts");
+/* harmony import */ var _services_group_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/group.service */ "./src/app/services/group.service.ts");
+
 
 
 
@@ -563,49 +797,50 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var HomeActiveDealListComponent = /** @class */ (function () {
-    function HomeActiveDealListComponent(dealService, authenticationService) {
+    function HomeActiveDealListComponent(dealService, authenticationService, productService, groupService) {
         this.dealService = dealService;
         this.authenticationService = authenticationService;
-        // private activeDeal: Deal;
-        this.activeDealList = [];
+        this.productService = productService;
+        this.groupService = groupService;
     }
     HomeActiveDealListComponent.prototype.ngOnInit = function () {
-        this.getActiveList();
-        console.log(this.authenticationService.currentUserValue.email);
+        if (this.authenticationService.currentUserValue) {
+            this.creator = this.authenticationService.currentUserValue[0];
+            if (this.authenticationService.currentUserValue[2] === 'company') {
+                this.privilege = true;
+                this.getActiveList(this.creator);
+            }
+            else {
+                this.privilege = false;
+            }
+        }
     };
-    HomeActiveDealListComponent.prototype.getActiveList = function () {
+    HomeActiveDealListComponent.prototype.getActiveList = function (creator) {
         var _this = this;
         this.dealService
-            .tenDeals(this.authenticationService.currentUserValue.email)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])())
+            .tenDeals(creator)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])())
             .subscribe(function (data) {
-            _this.dealsParse(data, 0);
+            _this.dealList = data;
         });
     };
-    HomeActiveDealListComponent.prototype.dealsParse = function (deals, dealIndex) {
-        while (!(deals[dealIndex] === undefined)) {
-            var link = JSON.parse(JSON.parse(JSON.stringify(deals[dealIndex])).deal_link);
-            this.activeDealList.push(new _models_deal__WEBPACK_IMPORTED_MODULE_2__["Deal"](JSON.parse(JSON.stringify(deals[dealIndex])).deal_title, link, JSON.parse(JSON.stringify(deals[dealIndex])).deal_warehouse, JSON.parse(JSON.stringify(deals[dealIndex])).deal_price, JSON.parse(JSON.stringify(deals[dealIndex])).deal_quantity, JSON.parse(JSON.stringify(deals[dealIndex])).deal_description, JSON.parse(JSON.stringify(deals[dealIndex])).updateAt, JSON.parse(JSON.stringify(deals[dealIndex])).deal_id, JSON.parse(JSON.stringify(deals[dealIndex])).deal_creator));
-            dealIndex = dealIndex + 1;
-        }
-        console.log(this.activeDealList);
-    };
-    HomeActiveDealListComponent.prototype.goToLink = function (url) {
-        window.open(url, '_blank');
-    };
     HomeActiveDealListComponent.ctorParameters = function () { return [
-        { type: _services_deal_service__WEBPACK_IMPORTED_MODULE_3__["DealService"] },
-        { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"] }
+        { type: _services_deal_service__WEBPACK_IMPORTED_MODULE_2__["DealService"] },
+        { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"] },
+        { type: _services_product_service__WEBPACK_IMPORTED_MODULE_5__["ProductService"] },
+        { type: _services_group_service__WEBPACK_IMPORTED_MODULE_6__["GroupService"] }
     ]; };
     HomeActiveDealListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-home-active-deal-list',
             template: __webpack_require__(/*! raw-loader!./home-active-deal-list.component.html */ "./node_modules/raw-loader/index.js!./src/app/home/home-active-deal-list/home-active-deal-list.component.html"),
-            providers: [_services_deal_service__WEBPACK_IMPORTED_MODULE_3__["DealService"], _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"]],
+            providers: [_services_deal_service__WEBPACK_IMPORTED_MODULE_2__["DealService"], _services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"], _services_product_service__WEBPACK_IMPORTED_MODULE_5__["ProductService"], _services_group_service__WEBPACK_IMPORTED_MODULE_6__["GroupService"]],
             styles: [__webpack_require__(/*! ./home-active-deal-list.component.scss */ "./src/app/home/home-active-deal-list/home-active-deal-list.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_deal_service__WEBPACK_IMPORTED_MODULE_3__["DealService"],
-            _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_deal_service__WEBPACK_IMPORTED_MODULE_2__["DealService"],
+            _services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"],
+            _services_product_service__WEBPACK_IMPORTED_MODULE_5__["ProductService"],
+            _services_group_service__WEBPACK_IMPORTED_MODULE_6__["GroupService"]])
     ], HomeActiveDealListComponent);
     return HomeActiveDealListComponent;
 }());
@@ -772,10 +1007,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _models_deal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../models/deal */ "./src/app/models/deal.ts");
 /* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
 /* harmony import */ var _services_product_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/product.service */ "./src/app/services/product.service.ts");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _services_deal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/deal.service */ "./src/app/services/deal.service.ts");
+
 
 
 
@@ -783,25 +1020,81 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(router, productService, authenticationService) {
-        this.router = router;
+    function HomeComponent(dealService, productService, authenticationService) {
+        this.dealService = dealService;
         this.productService = productService;
         this.authenticationService = authenticationService;
+        this.deal = new _models_deal__WEBPACK_IMPORTED_MODULE_2__["Deal"](0, '', '', 0, '', '', false, false, false, '');
+        this.isCreated = false;
     }
     HomeComponent.prototype.ngOnInit = function () {
-        var _this = this;
         if (this.authenticationService.currentUserValue) {
-            this.currUser = this.authenticationService.currentUserValue[0];
+            this.deal.creator = this.authenticationService.currentUserValue[0];
+            if (this.authenticationService.currentUserValue[2] === 'company') {
+                this.privilege = true;
+                this.getNameId();
+                if (this.productList) {
+                    this.selectProduct = this.productList[0];
+                }
+            }
+            else {
+                this.privilege = false;
+            }
         }
+    };
+    HomeComponent.prototype.getNameId = function () {
+        var _this = this;
         this.productService
-            .productNameId(this.currUser)
+            .productNameId(this.deal.creator)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])())
             .subscribe(function (data) {
             _this.productList = data;
+        }, function (error) {
+            console.log(error);
+        }, function () {
+            setTimeout(function () {
+                $('.selectpicker').selectpicker('refresh');
+            });
+        });
+    };
+    HomeComponent.prototype.setProductNameId = function () {
+        if (this.selectProduct) {
+            this.deal.products = this.selectProduct.id;
+            this.deal.productName = this.selectProduct.name;
+        }
+    };
+    HomeComponent.prototype.create = function () {
+        var _this = this;
+        if (this.month && this.days && this.year && this.hour && this.minutes) {
+            var date = this.year +
+                '-' +
+                this.month +
+                '-' +
+                this.days +
+                ' ' +
+                this.hour +
+                ':' +
+                this.minutes +
+                ':' +
+                '00';
+            this.deal.expiresAt = date;
+            console.log(this.deal);
+        }
+        else {
+            // TODO: need to improve error handle.
+            this.error = 'please fill out all parts';
+            return;
+        }
+        this.dealService
+            .createDeal(this.deal)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])())
+            .subscribe(function (data) {
+            _this.isCreated = true;
+            _this.deal.clear();
         });
     };
     HomeComponent.ctorParameters = function () { return [
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+        { type: _services_deal_service__WEBPACK_IMPORTED_MODULE_6__["DealService"] },
         { type: _services_product_service__WEBPACK_IMPORTED_MODULE_4__["ProductService"] },
         { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"] }
     ]; };
@@ -809,10 +1102,10 @@ var HomeComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-home',
             template: __webpack_require__(/*! raw-loader!./home.component.html */ "./node_modules/raw-loader/index.js!./src/app/home/home.component.html"),
-            providers: [_services_product_service__WEBPACK_IMPORTED_MODULE_4__["ProductService"], _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"]],
+            providers: [_services_product_service__WEBPACK_IMPORTED_MODULE_4__["ProductService"], _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"], _services_deal_service__WEBPACK_IMPORTED_MODULE_6__["DealService"]],
             styles: [__webpack_require__(/*! ./home.component.scss */ "./src/app/home/home.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_deal_service__WEBPACK_IMPORTED_MODULE_6__["DealService"],
             _services_product_service__WEBPACK_IMPORTED_MODULE_4__["ProductService"],
             _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"]])
     ], HomeComponent);
@@ -885,28 +1178,40 @@ var ErrorInterceptor = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Deal", function() { return Deal; });
 var Deal = /** @class */ (function () {
-    function Deal(title, deallinks, warehouse, price, quantity, description, updatedAt, dealId, creator) {
-        if (updatedAt === void 0) { updatedAt = ''; }
-        if (dealId === void 0) { dealId = 0.1; }
-        this.dealId = dealId;
-        this.title = title;
-        this.deallinks = deallinks;
-        this.warehouse = warehouse;
+    function Deal(products, productName, price, quantity, expiresAt, note, serviceTag, dealPublic, notify, creator) {
+        this.products = products;
+        this.productName = productName;
         this.price = price;
         this.quantity = quantity;
-        this.description = description;
-        this.updatedAt = new Date().toLocaleString();
+        this.expiresAt = expiresAt;
+        this.note = note;
+        this.serviceTag = serviceTag;
+        this.dealPublic = dealPublic;
+        this.notify = notify;
         this.creator = creator;
     }
+    Deal.prototype.clear = function () {
+        this.products = null;
+        this.productName = '';
+        this.price = '';
+        this.quantity = null;
+        this.expiresAt = '';
+        this.note = '';
+        this.serviceTag = null;
+        this.dealPublic = null;
+        this.notify = null;
+        this.creator = '';
+    };
     Deal.ctorParameters = function () { return [
-        { type: String },
-        { type: Array },
-        { type: String },
-        { type: Number },
         { type: Number },
         { type: String },
         { type: String },
         { type: Number },
+        { type: String },
+        { type: String },
+        { type: Boolean },
+        { type: Boolean },
+        { type: Boolean },
         { type: String }
     ]; };
     return Deal;
@@ -1311,6 +1616,92 @@ var DealService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/group.service.ts":
+/*!*******************************************!*\
+  !*** ./src/app/services/group.service.ts ***!
+  \*******************************************/
+/*! exports provided: GroupService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GroupService", function() { return GroupService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
+
+
+
+var httpOptions = {
+    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+        'content-Type': 'application/json'
+    })
+};
+var GroupService = /** @class */ (function () {
+    function GroupService(http) {
+        this.http = http;
+        // public subscription = new Subscription(null, null, null);
+        // URL to web api
+        this.tenUrl = 'http://192.168.1.119:8081/api/subscription/findTen';
+        this.allUrl = 'http://192.168.1.119:8081/api/subscription/find';
+        this.setActiveUrl = 'http://192.168.1.119:8081/api/subscription/setactive';
+        this.setBlockUrl = 'http://192.168.1.119:8081/api/subscription/setblock';
+        this.acceptUrl = 'http://192.168.1.119:8081/api/subscription/approve';
+        this.tenBlockedUrl = 'http://192.168.1.119:8081/api/subscription/findTenBlocked';
+        this.tenWaitingUrl = 'http://192.168.1.119:8081/api/subscription/findTenWaiting';
+        this.findfollowingUrl = 'http://192.168.1.119:8081/api/subscription/findfollowing';
+    }
+    GroupService.prototype.tenSubscribers = function (company) {
+        var creatorJSON = '{ "company" : ' + '"' + company + '"' + ' }';
+        // console.log(JSON.parse(creator));
+        return this.http.post(this.tenUrl, JSON.parse(creatorJSON), httpOptions);
+    };
+    GroupService.prototype.allSubscribers = function (company) {
+        var creatorJSON = '{ "company" : ' + '"' + company + '"' + ' }';
+        // console.log(JSON.parse(creator));
+        return this.http.post(this.allUrl, JSON.parse(creatorJSON), httpOptions);
+    };
+    GroupService.prototype.setActive = function (subscription) {
+        return this.http.post(this.setActiveUrl, subscription, httpOptions);
+    };
+    GroupService.prototype.setBlock = function (subscription) {
+        return this.http.post(this.setBlockUrl, subscription, httpOptions);
+    };
+    GroupService.prototype.approve = function (subscription) {
+        return this.http.post(this.acceptUrl, subscription, httpOptions);
+    };
+    GroupService.prototype.tenSubscribersBlocked = function (company) {
+        var creatorJSON = '{ "company" : ' + '"' + company + '"' + ' }';
+        // console.log(JSON.parse(creator));
+        return this.http.post(this.tenBlockedUrl, JSON.parse(creatorJSON), httpOptions);
+    };
+    GroupService.prototype.tenSubscribersWaiting = function (company) {
+        var creatorJSON = '{ "company" : ' + '"' + company + '"' + ' }';
+        // console.log(JSON.parse(creator));
+        return this.http.post(this.tenWaitingUrl, JSON.parse(creatorJSON), httpOptions);
+    };
+    GroupService.prototype.findfollowing = function (individual) {
+        var creatorJSON = '{ "individual" : ' + '"' + individual + '"' + ' }';
+        // console.log(JSON.parse(creator));
+        return this.http.post(this.findfollowingUrl, JSON.parse(creatorJSON), httpOptions);
+    };
+    GroupService.ctorParameters = function () { return [
+        { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+    ]; };
+    GroupService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], GroupService);
+    return GroupService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/product.service.ts":
 /*!*********************************************!*\
   !*** ./src/app/services/product.service.ts ***!
@@ -1334,6 +1725,7 @@ var httpOptions = {
     })
 };
 var ProductService = /** @class */ (function () {
+    // NameUrl = 'http://192.168.1.119:8081/api/product/name';
     function ProductService(http) {
         this.http = http;
         this.createUrl = 'http://192.168.1.119:8081/api/product/add'; // URL to web api

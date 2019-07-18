@@ -1,5 +1,6 @@
 const Deal = require('../models').deals;
 const Product = require('../models').products;
+const Sequelize = require('sequelize');
 //TODO
 module.exports = {
   create: function(body, callback) {
@@ -14,9 +15,9 @@ module.exports = {
       expires_at: body.expiresAt,
       note: body.note,
       service: body.serviceTag,
-      public:body.dealPublic,
-      notify:body.notify,
-      creator:body.creator
+      public: body.dealPublic,
+      notify: body.notify,
+      creator: body.creator
     }).then(function(deal) {
       callback(deal);
     });
@@ -31,9 +32,19 @@ module.exports = {
           creator: creator
         },
         order: [['id', 'DESC']]
-      })
-      .then(function(deals) {
+      }).then(function(deals) {
         callback(deals);
+      });
+    }
+  },
+
+  update: function(id, quantity, callback) {
+    if (id) {
+      Deal.decrement(['quantity'], {
+        by: quantity,
+        where: { id: id }
+      }).then(function(result) {
+        callback(result);
       });
     }
   }

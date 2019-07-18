@@ -4,6 +4,8 @@ const deal= require('./Deal');
 const privilege = require('./privilege');
 const product = require('./product');
 const subscription = require('./subscription');
+const inbound = require('./inbound');
+
 module.exports = {
     group,
     user,
@@ -11,4 +13,5 @@ module.exports = {
     privilege,
     product,
     subscription,
+    inbound,
 };

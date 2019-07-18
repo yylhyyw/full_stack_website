@@ -1,0 +1,31 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" style="width: 9%">#</th>
+      <th scope="col" style="width: 42%">Inbound</th>
+      <th scope="col" style="width: 10%">Price</th>
+      <th scope="col" style="width: 12%">Quantity</th>
+      <th scope="col" style="width: 9">WareHouse</th>
+      <th scope="col" style="width: 9">LastUpdate</th>
+      <th scope="col" style="width: 9%">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let deal of dealList">
+      <tr>
+        <th scopr="row">{{ ('000' + deal.id).slice(-4) }}</th>
+        <td>
+          <div>
+            {{ deal.product_name }}
+            <br />
+            {{ deal.note }}
+            <!-- </ng-container> -->
+          </div>
+        </td>
+        <td>{{ deal.price }}</td>
+        <td>{{ deal.quantity }}</td>
+        <td><button class="btn btn-primary btn-sm">Take</button></td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

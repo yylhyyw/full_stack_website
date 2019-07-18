@@ -1,0 +1,52 @@
+<div class="container">
+  <ul class="nav nav-tabs" id="inboundTabs" role="tablist">
+    <li class="nav-item">
+      <a
+        class="nav-link active"
+        id="active-tab"
+        data-toggle="tab"
+        routerLink="inboundToConfirm"
+        role="tab"
+        aria-controls="active"
+        aria-selected="true"
+        >To Confirm</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        id="expired-tab"
+        data-toggle="tab"
+        routerLink="inboundReported"
+        role="tab"
+        aria-controls="expired"
+        aria-selected="false"
+        >Report</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        id="favorite-tab"
+        data-toggle="tab"
+        routerLink="inboundHistory"
+        role="tab"
+        aria-controls="favorite"
+        aria-selected="false"
+        >Inbound History</a
+      >
+    </li>
+  </ul>
+  <div>
+    <form class="form-inline float-left">
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+    </form>
+  </div>
+  <div class="tab-content" id="inboundLists">
+    <router-outlet></router-outlet>
+  </div>

@@ -23,7 +23,7 @@
           </td>
           <td>{{ deal.price }}</td>
           <td>{{ deal.quantity }}</td>
-          <td><button class="btn btn-primary btn-sm">Take</button></td>
+          <td><button class="btn btn-primary btn-sm">Details</button></td>
         </tr>
       </ng-container>
     </tbody>
@@ -33,8 +33,11 @@
 <div *ngIf="!privilege" class="pt-5">
   <ng-container *ngFor="let following of followingList">
     <hr />
-    {{ following.company }}
-    <!-- <table class="table">
+    <label for="followingOffers" value="following.company" id="#following">{{
+      following.company
+    }}</label>
+
+    <table class="table" id="followingOffers">
       <thead>
         <tr>
           <th scope="col" style="width: 9%">#</th>
@@ -45,7 +48,7 @@
         </tr>
       </thead>
       <tbody>
-        <ng-container *ngFor="let deal of dealList">
+        <ng-container *ngFor="let deal of dealList; index as i">
           <tr>
             <th scopr="row">{{ ('000' + deal.id).slice(-4) }}</th>
             <td>
@@ -57,10 +60,98 @@
             </td>
             <td>{{ deal.price }}</td>
             <td>{{ deal.quantity }}</td>
-            <td><button class="btn btn-primary btn-sm">Take</button></td>
+            <!-- <td><button class="btn btn-primary btn-sm">Take</button></td> -->
+            <td>
+              <button
+                id="{{ i }}"
+                type="button"
+                class="btn btn-outline-success btn-block btn-sm"
+                data-toggle="modal"
+                data-target="#takeForm"
+                data-whatever="@mdo"
+                *ngIf="!privilege"
+                (click)="takeDeal(i)"
+              >
+                Take
+              </button>
+            </td>
+            <div
+              class="modal fade"
+              id="takeForm"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="formTitle">Take an Deal</h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="product" class="col-form-label"
+                          >product:</label
+                        >
+                        <p>{{ inbound.product }}</p>
+                      </div>
+                      <div class="form-group">
+                        <label for="price" class="col-form-label">price:</label>
+                        <p>{{ inbound.price }}</p>
+                      </div>
+                      <div class="form-group">
+                        <label for="quantity" class="col-form-label"
+                          >quantity:</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="quantity"
+                          name="quantity"
+                          [(ngModel)]="inbound.quantity"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="warehouse" class="col-form-label"
+                          >warehouse:</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="warehouse"
+                          name="warehouse"
+                          [(ngModel)]="inbound.warehouse"
+                        />
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button type="button" class="btn btn-primary" (click)="createInbound()" >
+                      Take
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </tr>
         </ng-container>
       </tbody>
-    </table> -->
+    </table>
   </ng-container>
 </div>

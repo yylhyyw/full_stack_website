@@ -9,11 +9,21 @@ import { ProductService } from '../../services/product.service';
 
 import { GroupService } from '../../services/group.service';
 
+import { Inbound } from '../../models/inbound';
+
+import { InboundService } from '../../services/inbound.service';
+
 @Component({
   selector: 'app-home-active-deal-list',
   templateUrl: './home-active-deal-list.component.html',
   styleUrls: ['./home-active-deal-list.component.scss'],
-  providers: [DealService, AuthenticationService, ProductService, GroupService]
+  providers: [
+    DealService,
+    AuthenticationService,
+    ProductService,
+    GroupService,
+    InboundService
+  ]
 })
 export class HomeActiveDealListComponent implements OnInit {
   // private activeDeal: Deal;
@@ -24,11 +34,18 @@ export class HomeActiveDealListComponent implements OnInit {
 
   public followingList: any;
 
+  public hasNext: any;
+
+  public isCreated = false;
+
+  public inbound = new Inbound('', '', null, '', '', '', null, null, null);
+
   constructor(
     private dealService: DealService,
     private authenticationService: AuthenticationService,
     private productService: ProductService,
-    private groupService: GroupService
+    private groupService: GroupService,
+    private inboundService: InboundService
   ) {}
 
   ngOnInit() {
@@ -39,6 +56,7 @@ export class HomeActiveDealListComponent implements OnInit {
         this.getActiveList(this.creator);
       } else {
         this.privilege = false;
+        this.getfollowing(this.creator);
       }
     }
   }
@@ -52,4 +70,44 @@ export class HomeActiveDealListComponent implements OnInit {
       });
   }
 
+  getfollowing(creator) {
+    this.groupService
+      .findfollowing(creator)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.followingList = data;
+          // console.log(this.followingList);
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          this.getActiveList(this.followingList[0].company);
+        }
+      );
+  }
+
+  takeDeal(productId: any) {
+    if (productId >= 0) {
+      this.inbound.product = this.dealList[productId].product_name;
+      this.inbound.price = this.dealList[productId].price;
+      this.inbound.warehouse = 'NH';
+      this.inbound.company = this.followingList[0].company;
+      this.inbound.individual = this.creator;
+      this.inbound.status = 0;
+      this.inbound.companyStatus = 0;
+      this.inbound.dealId = this.dealList[productId].id;
+    }
+  }
+
+  createInbound() {
+    this.inboundService
+      .create(this.inbound)
+      .pipe(first())
+      .subscribe(data => {
+        this.isCreated = true;
+        this.inbound.clear();
+      });
+  }
 }

@@ -113,6 +113,7 @@ module.exports = {
         where: {
           individual: individual
         }
+        // plain: true
       }).then(function(companies) {
         callback(companies);
       });
