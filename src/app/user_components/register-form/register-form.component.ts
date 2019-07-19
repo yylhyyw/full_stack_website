@@ -43,7 +43,8 @@ export class RegisterFormComponent implements OnInit {
         .pipe(first())
         .subscribe(data => {
           this.isRegistered = true;
-          // console.log(this.returnUrl);
+          this.register.clear();
+          this.confirmedPassword = '';
         });
     }
 

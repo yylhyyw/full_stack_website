@@ -26,6 +26,7 @@ import { ToConfirmListComponent } from './inbound/to-confirm-list/to-confirm-lis
 import { ReportedListComponent } from './inbound/reported-list/reported-list.component';
 import { HistoryListComponent } from './inbound/history-list/history-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LinkifyPipe } from './custom-pipes/linkify.pipe';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ReportedListComponent,
     HistoryListComponent,
     DashboardComponent,
+    LinkifyPipe,
   ],
   imports: [
     BrowserModule,

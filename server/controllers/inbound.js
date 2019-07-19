@@ -6,7 +6,8 @@ module.exports = {
       Inbound.findAll({
         where: {
           individual: creator
-        }
+        },
+        order: [['id', 'DESC']]
       }).then(function(records) {
         callback(records);
       });
@@ -50,7 +51,8 @@ module.exports = {
       Inbound.findAll({
         where: {
           company: company
-        }
+        },
+        order: [['id', 'DESC']]
       }).then(function(records) {
         callback(records);
       });

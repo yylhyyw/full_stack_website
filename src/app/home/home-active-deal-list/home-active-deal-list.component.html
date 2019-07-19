@@ -1,5 +1,5 @@
 <div *ngIf="privilege">
-  <table class="table">
+  <table class="table" id="dealTable">
     <thead>
       <tr>
         <th scope="col" style="width: 9%">#</th>
@@ -14,12 +14,11 @@
         <tr>
           <th scopr="row">{{ ('000' + deal.id).slice(-4) }}</th>
           <td>
-            <div>
-              {{ deal.product_name }}
-              <br />
-              {{ deal.note }}
-              <!-- </ng-container> -->
-            </div>
+            {{ deal.product_name }}
+            <!-- <small>{{ deal.note }}</small> -->
+            <!-- <div [innerHTML]="text">{{ deal.note }}</div> -->
+            <div class="mt-2" style="font-size:smaller" [innerHTML]=" deal.note | linkify "></div>
+            <!-- </ng-container> -->
           </td>
           <td>{{ deal.price }}</td>
           <td>{{ deal.quantity }}</td>
@@ -33,11 +32,11 @@
 <div *ngIf="!privilege" class="pt-5">
   <ng-container *ngFor="let following of followingList">
     <hr />
-    <label for="followingOffers" value="following.company" id="#following">{{
+    <label for="followingOffers" value="following.company" id="#following" style="font-size:20px">Following: {{
       following.company
-    }}</label>
+    }} :</label>
 
-    <table class="table" id="followingOffers">
+    <table class="table" id="dealTable">
       <thead>
         <tr>
           <th scope="col" style="width: 9%">#</th>
@@ -52,11 +51,8 @@
           <tr>
             <th scopr="row">{{ ('000' + deal.id).slice(-4) }}</th>
             <td>
-              <div>
-                {{ deal.product_name }}
-                <br />
-                {{ deal.note }}
-              </div>
+              <span>{{ deal.product_name }}</span>
+              <div class="mt-2" style="font-size:smaller" [innerHTML]=" deal.note | linkify "></div>
             </td>
             <td>{{ deal.price }}</td>
             <td>{{ deal.quantity }}</td>
@@ -142,7 +138,12 @@
                     >
                       Close
                     </button>
-                    <button type="button" class="btn btn-primary" (click)="createInbound()" >
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      (click)="createInbound()"
+                      data-dismiss="modal"
+                    >
                       Take
                     </button>
                   </div>

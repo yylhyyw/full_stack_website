@@ -15,7 +15,7 @@
         >Active Deals</a
       >
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a
         class="nav-link"
         id="expired-tab"
@@ -51,19 +51,20 @@
         *ngIf="privilege"
         >Drafts Deals</a
       >
-    </li>
+    </li> -->
   </ul>
-  <div>
-    <form class="form-inline float-left">
+  <br>
+    <form class="float-left my-2">
       <input
         class="form-control mr-sm-2"
-        type="search"
+        type="text"
         placeholder="Search"
         aria-label="Search"
+        id="searchInput"
+        (keyup)="search()"
       />
     </form>
-    <div class="float-right">
-      //TODO: add SCSS to search and create button
+    <div class="float-right my-2">
       <button
         type="button"
         class="btn btn-outline-success btn-block"
@@ -75,7 +76,7 @@
         Create
       </button>
     </div>
-  </div>
+
   <div class="tab-content" id="dealLists">
     <router-outlet></router-outlet>
   </div>

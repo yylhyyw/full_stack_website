@@ -1,8 +1,3 @@
-//redirect the nav item to correct area
-<!-- {{ product | json }} -->
-//TODO: form validations
-//TODO: add view all option for product
-//TODO: add notification when add product successfully
 <div class="container">
   <ul class="nav nav-tabs" id="dealTabs" role="tablist">
     <li class="nav-item">
@@ -18,18 +13,18 @@
       >
     </li>
   </ul>
-  <div>
-    <form class="form-inline float-left">
+  <br>
+    <form class="float-left my-2">
       <input
-        class="form-control mr-sm-2"
+        class="form-control"
         type="search"
         placeholder="Search"
         aria-label="Search"
+        id="productSearchInput"
+        (keyup)="search()"
       />
     </form>
-    <div class="float-right">
-      //TODO: set sumbit button to create products add SCSS to search and create
-      button
+    <div class="float-right my-2">
       <button
         type="button"
         class="btn btn-outline-success btn-block"
@@ -39,7 +34,6 @@
       >
         Create
       </button>
-    </div>
   </div>
   <div class="tab-content" id="productsLists">
     <router-outlet></router-outlet>

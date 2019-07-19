@@ -13,6 +13,8 @@ import { Inbound } from '../../models/inbound';
 
 import { InboundService } from '../../services/inbound.service';
 
+import { LinkifyPipe } from '../../custom-pipes/linkify.pipe';
+
 @Component({
   selector: 'app-home-active-deal-list',
   templateUrl: './home-active-deal-list.component.html',
@@ -22,8 +24,9 @@ import { InboundService } from '../../services/inbound.service';
     AuthenticationService,
     ProductService,
     GroupService,
-    InboundService
-  ]
+    InboundService,
+    LinkifyPipe
+  ],
 })
 export class HomeActiveDealListComponent implements OnInit {
   // private activeDeal: Deal;
@@ -45,7 +48,8 @@ export class HomeActiveDealListComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private productService: ProductService,
     private groupService: GroupService,
-    private inboundService: InboundService
+    private inboundService: InboundService,
+    private linkify: LinkifyPipe
   ) {}
 
   ngOnInit() {

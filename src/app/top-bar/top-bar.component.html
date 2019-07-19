@@ -2,12 +2,6 @@
   class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm"
 >
   <h5 class="my-0 mr-md-auto font-weight-normal"><a routerLink="/">Demo</a></h5>
-  <h5 class="my-0 font-weight-normal text-danger" *ngIf="company">
-    You Signed In As A Member of Company
-  </h5>
-  <h5 class="my-0 font-weight-normal text-danger" *ngIf="individual">
-    You Signed In As An Individual
-  </h5>
   <nav class="my-2 my-md-0 mr-md-3">
     <a class="p-2 text-dark" routerLink="/signin" *ngIf="!currentUser"
       >Sign in</a
@@ -49,4 +43,12 @@
   <a class="btn btn-outline-primary" *ngIf="currentUser" (click)="logout()"
     >Log out</a
   >
+</div>
+<div id='flush-block' class="container">
+    <div class="alert alert-info" role="alert" *ngIf="company">
+        You Signed In As a Member of Company
+      </div>
+      <div class="alert alert-info" role="alert" *ngIf="individual">
+          You Signed In As an Individual
+        </div>
 </div>

@@ -1,5 +1,4 @@
 <div class="container">
-    //TODO: redirect the nav item to correct area
   <ul class="nav nav-tabs" id="dealTabs" role="tablist">
     <li class="nav-item">
 
@@ -51,18 +50,18 @@
             >
           </li>
   </ul>
-  <div>
-    <form class="form-inline float-left">
+  <br>
+    <form class="form-inline float-left my-2">
       <input
         class="form-control mr-sm-2"
         type="search"
         placeholder="Search"
         aria-label="Search"
+        id="groupSearchInput"
+        (keyup)="search()"
       />
     </form>
-    <div class="float-right">
-      //TODO: set sumbit button to create products add SCSS to search and create
-      button
+    <div class="float-right my-2">
       <button
         type="button"
         class="btn btn-outline-success btn-block"
@@ -73,7 +72,6 @@
         Invite
       </button>
     </div>
-  </div>
   <div class="tab-content" id="dealLists">
     <router-outlet></router-outlet>
   </div>

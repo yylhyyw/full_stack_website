@@ -39,11 +39,14 @@
     </div>
     <div class="form-label-group">
       <input type="password" class="form-control" id="ConfirmedPassword" required autofocus
-        [(ngModel)]="confirmedPassword" name="ConfirmedPassword" #ConfirmedPassword="ngModel" />
+        [(ngModel)]="confirmedPassword" name="confirmedPassword" #ConfirmedPassword="ngModel" [(ngModel)]="confirmedPassword"/>
       <label for="ConfirmedPassword">Confirmed Password</label>
       <small class="form-text text-muted">* Required</small>
     </div>
     <button class="btn btn-lg btn-primary btn-block" [disabled]="!pwdValid()" type="submit">
       Register
     </button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" routerLink="/signin">
+        Back to Sign in
+      </button>
   </form>

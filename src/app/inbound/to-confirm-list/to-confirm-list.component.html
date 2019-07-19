@@ -1,9 +1,9 @@
-// TODO: add css to button
-<table class="table">
+<table class="table" id="inboundTable">
   <thead>
     <tr>
       <th scope="col" style="width: 9%">#</th>
-      <th scope="col" style="width: 42%">Inbound</th>
+      <th scope="col" style="width: 30%">Inbound</th>
+      <th scope="col" style="width: 12%" *ngIf="privilege">From</th>
       <th scope="col" style="width: 10%">Price</th>
       <th scope="col" style="width: 12%">Quantity</th>
       <th scope="col" style="width: 9">WareHouse</th>
@@ -21,13 +21,21 @@
             <!-- </ng-container> -->
           </div>
         </td>
+        <td *ngIf="privilege">{{ record.individual }}</td>
+        <td *ngIf="!privilege">{{ record.individual }}</td>
         <td>{{ record.price }}</td>
         <td>{{ record.quantity }}</td>
         <td>{{ record.warehouse }}</td>
         <td>{{ record.updatedAt }}</td>
-        <td><button class="btn btn-primary btn-sm" *ngIf="!privilege">Take</button>
-          <button class="btn btn-primary btn-sm" *ngIf="privilege">Confirm</button>
-          <button class="btn btn-primary btn-sm">Cancel</button></td>
+        <td>
+          <button class="btn btn-primary btn-sm mb-2" *ngIf="!privilege">
+            Confirm
+          </button>
+          <button class="btn btn-primary btn-sm mb-2" *ngIf="privilege">
+            Confirm
+          </button>
+          <button class="btn btn-primary btn-sm">Cancel</button>
+        </td>
       </tr>
     </ng-container>
   </tbody>

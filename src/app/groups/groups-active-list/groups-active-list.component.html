@@ -1,12 +1,11 @@
-//TODO: add css to the following tables
-// TODO: modify the css between edit and approve
-<table class="table">
+
+<table class="table" id="GroupTable">
   <thead>
     <tr>
       <th scope="col" style="width:9%">#</th>
-      <th scope="col" style="width:56%">Followers</th>
-      <th scope="col" style="width:15%">status</th>
-      <th scope="col" style="width:20%">Actions</th>
+      <th scope="col" style="width:60%">Followers</th>
+      <th scope="col" style="width:20%">status</th>
+      <th scope="col" style="width:11%">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -19,7 +18,7 @@
         <td>{{ statusLevel[follower.status] }}</td>
         <td>
           <div>
-            <button class="btn btn-primary btn-sm">Edit</button>
+            <button class="btn btn-primary btn-sm mb-1">Edit</button>
             <button class="btn btn-primary btn-sm" *ngIf="!follower.status">Approve</button>
           </div>
         </td>
