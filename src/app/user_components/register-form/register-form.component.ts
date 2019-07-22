@@ -26,8 +26,8 @@ export class RegisterFormComponent implements OnInit {
 
   formValid() {
     if (
-      this.register.FirstName &&
-      this.register.LastName &&
+      this.register.username &&
+      this.register.phone &&
       this.register.email &&
       this.register.password &&
       this.pwdValid()

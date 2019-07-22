@@ -47,8 +47,8 @@ router.post('/signin', (req, res, next) => {
 
 router.post('/register', (req, res, next) => {
   let userInput = {
-    first_name: req.body.FirstName,
-    last_name: req.body.LastName,
+    username: req.body.username,
+    phone: req.body.phone,
     email: req.body.email,
     password: req.body.password
   };
@@ -80,6 +80,16 @@ router.post('/deal/active/firstTen', (req, res, next) => {
     }
   });
 });
+
+router.post('/deal/update', (req, res, next) => {
+  dealController.update(req.body, function(deal) {
+    if(deal) {
+      res.status(201).send(deal);
+    } else {
+      res.status(409).end();
+    }
+  })
+})
 
 /**
  * product api
@@ -147,9 +157,9 @@ router.post('/subscription/find', (req, res, next) => {
 });
 
 router.post('/subscription/setactive', (req, res, next) => {
-  subscriptionController.setActive(req.body, function(result) {
-    if (result) {
-      res.status(201).send(result);
+  subscriptionController.setActive(req.body, function(subscription) {
+    if (subscription) {
+      res.status(201).send(subscription);
     } else {
       res.status(409);
     }
@@ -249,11 +259,11 @@ router.post('/inbound/confirm', (req, res, next) => {
 });
 
 router.post('/inbound/add', (req, res, next) => {
-  dealController.update(req.body.dealId, req.body.quantity, function(result){
+  dealController.individualTaken(req.body.dealId, req.body.quantity, function(result){
     if(result){
-      inboundController.create(req.body, function(inbound){
+      inboundController.create(req.body, result, function(inbound){
         if(inbound){
-          res.status(201).json(inbound);
+          res.status(201).send(result);
         }else{
           res.status(409).end();
         }
@@ -266,7 +276,6 @@ router.post('/inbound/add', (req, res, next) => {
 
 router.post('/inbound/companyFind', (req, res, next) => {
   inboundController.getRecordsCompany(req.body.company, function(records) {
-    console.log('here');
     if (records) {
       res.status(201).send(records);
     } else {

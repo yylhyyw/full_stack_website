@@ -1,8 +1,10 @@
 export class Deal {
+  public id: number;
   public products: number;
   public productName: string;
   public price: string;
   public quantity: number;
+  public quantityTaken: number;
   public expiresAt: string;
   public note: string;
   public serviceTag: boolean;

@@ -19,8 +19,8 @@ module.exports = {
     body.password = bcrypt.hashSync(pwd, 10);
 
     User.create({
-      first_name: body.first_name,
-      last_name: body.last_name,
+      username: body.username,
+      phone: body.phone,
       email: body.email,
       password: body.password
     }).then(function(user) {

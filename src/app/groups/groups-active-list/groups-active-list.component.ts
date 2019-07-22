@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { GroupService } from '../../services/group.service';
 import { AuthenticationService } from '../../services/authentication.service';
 import { first } from 'rxjs/operators';
+import { Subscription } from '../../models/subscription';
+
 @Component({
   selector: 'app-groups-active-list',
   templateUrl: './groups-active-list.component.html',
@@ -19,6 +21,10 @@ export class GroupsActiveListComponent implements OnInit {
   public debug: any;
 
   public statusLevel = ['Ask To Follow', 'Active', 'Blocked'];
+
+  public selectId: any;
+
+  public selectSubscription = new Subscription(null, null, null);
 
   constructor(
     private groupService: GroupService,
@@ -46,4 +52,36 @@ export class GroupsActiveListComponent implements OnInit {
     }
   }
 
+  setActive(id: any) {
+    this.selectId = id;
+    this.selectSubscription.individual = this.followersList[
+      this.selectId
+    ].individual;
+    this.selectSubscription.company = this.followersList[this.selectId].company;
+    if (id >= 0) {
+      this.groupService
+        .setActive(this.selectSubscription)
+        .pipe(first())
+        .subscribe(data => {
+          this.followersList[id].status = data.status;
+          console.log(this.followersList[id].status);
+        });
+    }
+  }
+  setBlock(id: any) {
+    this.selectId = id;
+    this.selectSubscription.individual = this.followersList[
+      this.selectId
+    ].individual;
+    this.selectSubscription.company = this.followersList[this.selectId].company;
+    if (id >= 0) {
+      this.groupService
+        .setBlock(this.selectSubscription)
+        .pipe(first())
+        .subscribe(data => {
+          this.followersList[id].status = data.status;
+          console.log(this.followersList[id].status);
+        });
+    }
+  }
 }

@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  NgModule,
+  Output,
+  EventEmitter
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { Deal } from '../models/deal';
 import { AuthenticationService } from '../services/authentication.service';
@@ -15,6 +21,7 @@ declare var $: any;
   providers: [ProductService, AuthenticationService, DealService]
 })
 export class HomeComponent implements OnInit {
+
   public productList: any;
 
   public privilege: any;
@@ -41,7 +48,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private dealService: DealService,
     private productService: ProductService,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService // private homeActiveDealListComponent: HomeActiveDealListComponent
   ) {}
 
   ngOnInit() {
@@ -110,6 +117,10 @@ export class HomeComponent implements OnInit {
       .pipe(first())
       .subscribe(data => {
         this.isCreated = true;
+        window.location.reload();
+        // console.log(data);
+        // this.homeActiveDealListComponent.dealList[data.id] = this.deal;
+        // console.log(this.homeActiveDealListComponent.dealList[''])
         this.deal.clear();
       });
   }

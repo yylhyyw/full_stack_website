@@ -37,6 +37,7 @@ export class ProductsComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.isCreated = true;
+        window.location.reload();
         this.product.clear();
       });
   }

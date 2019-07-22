@@ -26,7 +26,11 @@ module.exports = {
           }
         }
       ).then(function(result) {
-        callback(result);
+        Subscription.findOne({
+          where: { company: body.company, individual: body.individual }
+        }).then(function(result) {
+          callback(result);
+        });
       });
     }
   },
@@ -42,7 +46,11 @@ module.exports = {
           }
         }
       ).then(function(result) {
-        callback(result);
+        Subscription.findOne({
+          where: { company: body.company, individual: body.individual }
+        }).then(function(result) {
+          callback(result);
+        });
       });
     }
   },

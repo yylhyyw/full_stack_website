@@ -1,17 +1,17 @@
 export class Register {
-  public FirstName: string;
-  public LastName: string;
+  public username: string;
+  public phone: string;
   public email: string;
   public password: string;
-  constructor(FirstName = '', LastName = '', email = '', password = '') {
-    this.FirstName = FirstName;
-    this.LastName = LastName;
+  constructor(username = '', phone = '', email = '', password = '') {
+    this.username = username;
+    this.phone = phone;
     this.email = email;
     this.password = password;
   }
   public clear() {
-    this.FirstName = '';
-    this.LastName = '';
+    this.username = '';
+    this.phone = '';
     this.email = '';
     this.password = '';
   }

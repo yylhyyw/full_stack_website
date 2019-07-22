@@ -21,12 +21,15 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false
       },
+      quantityTaken: {
+        type: DataTypes.INTEGER,
+      },
       expires_at: {
         type: DataTypes.STRING,
         allowNull: false
       },
       note: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: true
       },
       service_tag: {

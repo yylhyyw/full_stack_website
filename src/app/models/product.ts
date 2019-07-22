@@ -1,4 +1,5 @@
 export class Product {
+  public id: string;
   public name: string;
   public condition: string;
   public msrp: string;

@@ -16,32 +16,29 @@
       Password and Confirmed Password are not match!
     </div>
     <div class="form-label-group">
-      <input type="text" class="form-control" id="FirstName" required autofocus [(ngModel)]="register.FirstName"
-        name="FirstName" #FirstName="ngModel" />
-      <label for="FirstName">First Name</label>
+      <input type="text" class="form-control" id="username" required autofocus [(ngModel)]="register.username"
+        name="username" required/>
+      <label for="username">Username</label>
     </div>
     <div class="form-label-group">
-      <input type="text" class="form-control" id="LastName" required autofocus [(ngModel)]="register.LastName"
-        name="LastName" />
-      <label for="inputLastName">Last Name</label>
+      <input type="text" class="form-control" id="phone" required autofocus [(ngModel)]="register.phone"
+        name="phone" required/>
+      <label for="phone">phone</label>
     </div>
     <div class="form-label-group">
-      <input type="email" class="form-control" id="email" name="email" required autofocus [(ngModel)]="register.email"
-        ngModel email #email="ngModel" />
+      <input type="email" class="form-control" id="email" name="email" required autofocus [(ngModel)]="register.email" required/>
       <label for="inputEmail">Email</label>
-      <small class="form-text text-muted">* Required</small>
     </div>
     <div class="form-label-group">
       <input type="password" class="form-control" id="password" required autofocus [(ngModel)]="register.password"
-        name="password" #password="ngModel" />
+        name="password" #password="ngModel" required/>
       <label for="password">Password</label>
-      <small class="form-text text-muted">* Required</small>
     </div>
     <div class="form-label-group">
       <input type="password" class="form-control" id="ConfirmedPassword" required autofocus
         [(ngModel)]="confirmedPassword" name="confirmedPassword" #ConfirmedPassword="ngModel" [(ngModel)]="confirmedPassword"/>
       <label for="ConfirmedPassword">Confirmed Password</label>
-      <small class="form-text text-muted">* Required</small>
+      <small class="form-text text-muted">Fields all required</small>
     </div>
     <button class="btn btn-lg btn-primary btn-block" [disabled]="!pwdValid()" type="submit">
       Register

@@ -29,7 +29,7 @@ module.exports = {
     }
   },
 
-  create: function(body, callback) {
+  create: function(body, reuslt, callback) {
     if(body) {
       Inbound.create({
         product: body.product,

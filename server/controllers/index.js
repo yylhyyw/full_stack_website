@@ -1,6 +1,6 @@
 const user = require('./user');
-const group = require('./Group');
-const deal= require('./Deal');
+const group = require('./group');
+const deal= require('./deal');
 const privilege = require('./privilege');
 const product = require('./product');
 const subscription = require('./subscription');

@@ -27,6 +27,7 @@ import { ReportedListComponent } from './inbound/reported-list/reported-list.com
 import { HistoryListComponent } from './inbound/history-list/history-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LinkifyPipe } from './custom-pipes/linkify.pipe';
+import { UserGroupsComponent } from './groups/user-groups/user-groups.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { LinkifyPipe } from './custom-pipes/linkify.pipe';
     HistoryListComponent,
     DashboardComponent,
     LinkifyPipe,
+    UserGroupsComponent,
   ],
   imports: [
     BrowserModule,

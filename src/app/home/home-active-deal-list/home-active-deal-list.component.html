@@ -10,19 +10,118 @@
       </tr>
     </thead>
     <tbody>
-      <ng-container *ngFor="let deal of dealList">
+      <ng-container *ngFor="let deal of dealList; index as i">
         <tr>
           <th scopr="row">{{ ('000' + deal.id).slice(-4) }}</th>
           <td>
             {{ deal.product_name }}
-            <!-- <small>{{ deal.note }}</small> -->
-            <!-- <div [innerHTML]="text">{{ deal.note }}</div> -->
-            <div class="mt-2" style="font-size:smaller" [innerHTML]=" deal.note | linkify "></div>
-            <!-- </ng-container> -->
+            <div
+              class="mt-2"
+              style="font-size:smaller"
+              [innerHTML]="deal.note | linkify"
+            ></div>
           </td>
           <td>{{ deal.price }}</td>
-          <td>{{ deal.quantity }}</td>
-          <td><button class="btn btn-primary btn-sm">Details</button></td>
+          <td>{{ deal.quantity }}/{{ deal.quantity + deal.quantityTaken }}</td>
+          <td><button
+          id="{{ i }}"
+          type="button"
+          class="btn btn-outline-success btn-block btn-sm"
+          data-toggle="modal"
+          data-target="#editForm"
+          data-whatever="@mdo"
+          *ngIf="privilege"
+          (click)="takeDeal(i)"
+        >
+          Edit
+        </button></td>
+        <div
+              class="modal fade"
+              id="editForm"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="formTitle">Take an Deal</h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="product" class="col-form-label"
+                          >Product:</label
+                        >
+                        <p>{{ selectDeal.productName }}</p>
+                      </div>
+                      <div class="form-group">
+                        <label for="price" class="col-form-label">price:</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        id="price"
+                        name="price"
+                        [(ngModel)]="selectDeal.price"
+                        value="selectDeal.price"
+                      />
+                      </div>
+                      <div class="form-group">
+                        <label for="quantity" class="col-form-label"
+                          >left quantity:</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="quantity"
+                          name="quantity"
+                          [(ngModel)]="selectDeal.quantity"
+                          value="selectDeal.quantity"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="warehouse" class="col-form-label"
+                          >warehouse:</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="warehouse"
+                          name="warehouse"
+                          [(ngModel)]="selectWarehouse"
+                        />
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      (click)="updateCompany()"
+                      data-dismiss="modal"
+                    >
+                      Done
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
         </tr>
       </ng-container>
     </tbody>
@@ -30,11 +129,38 @@
 </div>
 
 <div *ngIf="!privilege" class="pt-5">
+  <table *ngIf="noFollowing" class="table" id="dealTable">
+    <thead>
+      <tr>
+        <th scope="col" style="width: 9%">#</th>
+        <th scope="col" style="width: 60%">Deals</th>
+        <th scope="col" style="width: 10%">Price</th>
+        <th scope="col" style="width: 12%">Quantity</th>
+        <th scope="col" style="width: 9%"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scopr="row"></th>
+        <td>
+          No Active Deals......
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <!-- </ng-container> -->
+    </tbody>
+  </table>
   <ng-container *ngFor="let following of followingList">
     <hr />
-    <label for="followingOffers" value="following.company" id="#following" style="font-size:20px">Following: {{
-      following.company
-    }} :</label>
+    <label
+      for="followingOffers"
+      value="following.company"
+      id="#following"
+      style="font-size:20px"
+      >Following: {{ following.company }} :</label
+    >
 
     <table class="table" id="dealTable">
       <thead>
@@ -52,11 +178,14 @@
             <th scopr="row">{{ ('000' + deal.id).slice(-4) }}</th>
             <td>
               <span>{{ deal.product_name }}</span>
-              <div class="mt-2" style="font-size:smaller" [innerHTML]=" deal.note | linkify "></div>
+              <div
+                class="mt-2"
+                style="font-size:smaller"
+                [innerHTML]="deal.note | linkify"
+              ></div>
             </td>
             <td>{{ deal.price }}</td>
-            <td>{{ deal.quantity }}</td>
-            <!-- <td><button class="btn btn-primary btn-sm">Take</button></td> -->
+            <td id="qty{{ i }}">{{ deal.quantity }}</td>
             <td>
               <button
                 id="{{ i }}"
@@ -96,7 +225,7 @@
                     <form>
                       <div class="form-group">
                         <label for="product" class="col-form-label"
-                          >product:</label
+                          >Product:</label
                         >
                         <p>{{ inbound.product }}</p>
                       </div>

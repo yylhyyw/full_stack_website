@@ -14,6 +14,8 @@ const httpOptions = {
 export class DealService {
   createDealUrl = 'http://192.168.1.119:8081/api/createdeal'; // URL to web api
   tenDealsUrl = 'http://192.168.1.119:8081/api/deal/active/firstTen';
+  updateCompanyUrl = 'http://192.168.1.119:8081/api/deal/update';
+  // updatePriceCompanyUrl = 'http://192.168.1.119:8081/api/deal/updatePrice';
   constructor(private http: HttpClient) {}
 
   createDeal(deal: Deal): Observable<Deal> {
@@ -30,4 +32,14 @@ export class DealService {
       httpOptions
     );
   }
+
+  // TODO: update quantity of deal;
+  updateCompany(deal: Deal): Observable<Deal> {
+    return this.http.post<Deal>(this.updateCompanyUrl, deal, httpOptions);
+  }
+
+  // // TODO: update price of deal;
+  // updatePriceCompany(deal: Deal): Observable<Deal>{
+  //   return this.http.post<Deal>(this.updatePriceCompanyUrl, deal, httpOptions);
+  // }
 }

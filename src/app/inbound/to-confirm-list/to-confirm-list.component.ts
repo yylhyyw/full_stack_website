@@ -19,6 +19,7 @@ export class ToConfirmListComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {}
 
+  public noRecord: any;
   ngOnInit() {
     if (this.authenticationService.currentUserValue) {
       this.userEmail = this.authenticationService.currentUserValue[0];
@@ -39,9 +40,19 @@ export class ToConfirmListComponent implements OnInit {
     this.inboundService
       .tenRecords(userEmail)
       .pipe(first())
-      .subscribe(data => {
-        this.recordList = data;
-      });
+      .subscribe(
+        data => {
+          this.recordList = data;
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          if (this.recordList.length < 1) {
+            this.noRecord = true;
+          }
+        }
+      );
   }
 
   getRecordsCompany(userEmail) {

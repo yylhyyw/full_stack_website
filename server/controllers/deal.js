@@ -38,13 +38,37 @@ module.exports = {
     }
   },
 
-  update: function(id, quantity, callback) {
+  individualTaken: function(id, quantity, callback) {
     if (id) {
       Deal.decrement(['quantity'], {
         by: quantity,
         where: { id: id }
       }).then(function(result) {
-        callback(result);
+        Deal.increment(['quantityTaken'], {
+          by: quantity,
+          where: { id: id }
+        }).then(function(result) {
+          Deal.findByPk(id).then(function(product) {
+            callback(product);
+          });
+        });
+      });
+    }
+  },
+
+  update: function(deal, callback) {
+    if (deal) {
+      Deal.update(
+        { quantity: deal.quantity, price: deal.price },
+        {
+          where: {
+            id: deal.id
+          }
+        }
+      ).then(function(result) {
+        Deal.findByPk(deal.id).then(function(product) {
+          callback(product);
+        });
       });
     }
   }

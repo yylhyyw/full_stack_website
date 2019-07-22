@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Deal } from '../../models/deal';
 
 import { DealService } from '../../services/deal.service';
@@ -14,6 +14,7 @@ import { Inbound } from '../../models/inbound';
 import { InboundService } from '../../services/inbound.service';
 
 import { LinkifyPipe } from '../../custom-pipes/linkify.pipe';
+import { thisExpression } from 'babel-types';
 
 @Component({
   selector: 'app-home-active-deal-list',
@@ -26,11 +27,11 @@ import { LinkifyPipe } from '../../custom-pipes/linkify.pipe';
     GroupService,
     InboundService,
     LinkifyPipe
-  ],
+  ]
 })
 export class HomeActiveDealListComponent implements OnInit {
   // private activeDeal: Deal;
-  private dealList: any;
+  public dealList: any;
   private creator: string;
 
   public privilege: any;
@@ -43,6 +44,26 @@ export class HomeActiveDealListComponent implements OnInit {
 
   public inbound = new Inbound('', '', null, '', '', '', null, null, null);
 
+  public selectProductId: any;
+
+  public noFollowing: any;
+
+  public selectDeal = new Deal(
+    null,
+    '',
+    '',
+    null,
+    '',
+    '',
+    false,
+    false,
+    false,
+    ''
+  );
+
+  public selectWarehouse = '';
+
+  public isUpdated: any;
   constructor(
     private dealService: DealService,
     private authenticationService: AuthenticationService,
@@ -87,21 +108,37 @@ export class HomeActiveDealListComponent implements OnInit {
           console.log(error);
         },
         () => {
-          this.getActiveList(this.followingList[0].company);
+          if (this.followingList[0]) {
+            this.getActiveList(this.followingList[0].company);
+          } else {
+            this.noFollowing = true;
+          }
         }
       );
   }
 
   takeDeal(productId: any) {
-    if (productId >= 0) {
-      this.inbound.product = this.dealList[productId].product_name;
-      this.inbound.price = this.dealList[productId].price;
-      this.inbound.warehouse = 'NH';
-      this.inbound.company = this.followingList[0].company;
-      this.inbound.individual = this.creator;
-      this.inbound.status = 0;
-      this.inbound.companyStatus = 0;
-      this.inbound.dealId = this.dealList[productId].id;
+    this.selectProductId = productId;
+    if (!this.privilege) {
+      if (productId >= 0) {
+        this.inbound.product = this.dealList[productId].product_name;
+        this.inbound.price = this.dealList[productId].price;
+        this.inbound.quantity = this.dealList[productId].quantity;
+        this.inbound.warehouse = 'NH';
+        if (this.followingList) {
+          this.inbound.company = this.followingList[0].company;
+        }
+        this.inbound.individual = this.creator;
+        this.inbound.status = 0;
+        this.inbound.companyStatus = 0;
+        this.inbound.dealId = this.dealList[productId].id;
+      }
+    } else {
+      this.selectDeal.id = this.dealList[productId].id;
+      this.selectDeal.productName = this.dealList[productId].product_name;
+      this.selectDeal.quantity = this.dealList[productId].quantity;
+      this.selectDeal.price = this.dealList[productId].price;
+      this.selectWarehouse = 'NH';
     }
   }
 
@@ -110,8 +147,23 @@ export class HomeActiveDealListComponent implements OnInit {
       .create(this.inbound)
       .pipe(first())
       .subscribe(data => {
+        this.dealList[this.selectProductId].quantity = data.quantity;
         this.isCreated = true;
         this.inbound.clear();
+        this.selectProductId = null;
+      });
+  }
+
+  updateCompany() {
+    this.dealService
+      .updateCompany(this.selectDeal)
+      .pipe(first())
+      .subscribe(data => {
+        console.log(this.selectProductId);
+        this.dealList[this.selectProductId].price = data.price;
+        this.dealList[this.selectProductId].quantity = data.quantity;
+        this.dealList[this.selectProductId].quantityTaken = data.quantityTaken;
+        this.isUpdated = true;
       });
   }
 }

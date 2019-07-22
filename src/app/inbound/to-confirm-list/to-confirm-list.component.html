@@ -1,4 +1,4 @@
-<table class="table" id="inboundTable">
+<table class="table" id="inboundTable" *ngIf="!noRecord">
   <thead>
     <tr>
       <th scope="col" style="width: 9%">#</th>
@@ -22,21 +22,53 @@
           </div>
         </td>
         <td *ngIf="privilege">{{ record.individual }}</td>
-        <td *ngIf="!privilege">{{ record.individual }}</td>
+        <!-- <td *ngIf="!privilege">{{ record.individual }}</td> -->
         <td>{{ record.price }}</td>
         <td>{{ record.quantity }}</td>
         <td>{{ record.warehouse }}</td>
         <td>{{ record.updatedAt }}</td>
         <td>
-          <button class="btn btn-primary btn-sm mb-2" *ngIf="!privilege">
+          <!-- <button class="btn btn-primary btn-sm mb-2" *ngIf="!privilege">
             Confirm
-          </button>
-          <button class="btn btn-primary btn-sm mb-2" *ngIf="privilege">
-            Confirm
-          </button>
-          <button class="btn btn-primary btn-sm">Cancel</button>
+          </button> -->
+          <!-- <button class="btn btn-primary btn-sm">Cancel</button> -->
         </td>
       </tr>
     </ng-container>
   </tbody>
 </table>
+
+<table class="table" id="inboundTable" *ngIf="noRecord">
+    <thead>
+      <tr>
+        <th scope="col" style="width: 9%">#</th>
+        <th scope="col" style="width: 30%">Inbound</th>
+        <th scope="col" style="width: 12%" *ngIf="privilege">From</th>
+        <th scope="col" style="width: 10%">Price</th>
+        <th scope="col" style="width: 12%">Quantity</th>
+        <th scope="col" style="width: 9">WareHouse</th>
+        <th scope="col" style="width: 9">LastUpdate</th>
+        <th scope="col" style="width: 9%">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <th scopr="row"></th>
+          <td>
+              No Inbound Record......
+          </td>
+          <td *ngIf="privilege"></td>
+          <!-- <td *ngIf="!privilege">{{ record.individual }}</td> -->
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <!-- <button class="btn btn-primary btn-sm mb-2" *ngIf="!privilege">
+              Confirm
+            </button> -->
+            <!-- <button class="btn btn-primary btn-sm">Cancel</button> -->
+          </td>
+        </tr>
+    </tbody>
+  </table>
