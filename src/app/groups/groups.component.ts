@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-groups',
@@ -6,14 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./groups.component.scss']
 })
 export class GroupsComponent implements OnInit {
-
-  constructor() { }
-
+  public currentPath: any;
+  public isGroupTab: any;
+  constructor(private router: Router) {}
   ngOnInit() {
+    this.currentPath = this.router.url;
+    if (this.currentPath === '/groups/user_groups') {
+      this.isGroupTab = true;
+    } else {
+      this.isGroupTab = false;
+    }
   }
   search() {
     // Declare variables
-    const input = document.getElementById('groupSearchInput') as HTMLInputElement;
+    const input = document.getElementById(
+      'groupSearchInput'
+    ) as HTMLInputElement;
     const filter = input.value.toUpperCase();
     const table = document.getElementById('GroupTable');
     const tr = table.getElementsByTagName('tr');

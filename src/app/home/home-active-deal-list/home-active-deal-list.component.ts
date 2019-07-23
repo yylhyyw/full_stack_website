@@ -85,7 +85,6 @@ export class HomeActiveDealListComponent implements OnInit {
       }
     }
   }
-
   getActiveList(creator) {
     this.dealService
       .tenDeals(creator)

@@ -43,6 +43,9 @@ module.exports = (sequelize, DataTypes) => {
       },
       creator: {
         type: DataTypes.STRING
+      },
+      members: {
+        type: DataTypes.TEXT
       }
     },
     {}

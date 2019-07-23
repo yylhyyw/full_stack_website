@@ -8,6 +8,7 @@ export class Product {
   public weight: string;
   public note: string;
   public creator: string;
+  public link: string;
   constructor(
     name: string,
     condition: string,
@@ -32,12 +33,13 @@ export class Product {
    */
   public clear() {
     this.name = '';
-    this.condition = '';
+    this.condition = 'New';
     this.msrp = '';
     this.asin = '';
     this.upc = '';
     this.weight = '';
     this.note = '';
     this.creator = '';
+    this.link = '';
   }
 }

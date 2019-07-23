@@ -41,7 +41,7 @@ module.exports = "<!--The content below is only a placeholder and can be replace
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class='container m-t-1'><div class='row'>\n    <div class='col-lg-3 col-md-4'>\n    <div class='card'>\n    <div class='card-block'>\n    <h3 class='card-header'>Offers</h3>\n    </div>\n    <ul class='list-group list-group-flush'>\n    <li class='list-group-item'>\n    <a class=\"card-link\" routerLink=\"/home/active\">active offers\n    </a></li>\n    <li class='list-group-item'>\n    <a class=\"card-link\" routerLink=\"/home/expired\">expired offers\n    </a></li>\n    <li class='list-group-item'>\n    <a class=\"card-link\" routerLink=\"/home/drafts\">proposed offers\n    </a></li>\n    </ul>\n    </div>\n    </div>\n    <div class='col-lg-3 col-md-4'>\n    <div class='card'>\n    <div class='card-block'>\n    <h3 class='card-header'>Inbound</h3>\n    </div>\n    <ul class='list-group list-group-flush'>\n    <li class='list-group-item'>\n    <a class=\"card-link\" routerLink=\"/inbound/inboundToConfirm\">inbound items\n    </a></li>\n    <li class='list-group-item'>\n    <a class=\"card-link\" routerLink=\"/inbound/inboundReported\">reported items\n    </a></li>\n    </ul>\n    </div>\n    </div>\n    <!-- <div class='col-lg-3 col-md-4'>\n    <div class='card'>\n    <div class='card-block'>\n    <h4 class='card-header'>Outbound</h4>\n    </div>\n    <ul class='list-group list-group-flush'>\n    <li class='list-group-item'>\n    <a class=\"card-link\" href=\"/shipments\">0 outbound shipments\n    </a></li>\n    </ul>\n    </div>\n    </div> -->\n    <!-- <div class='col-lg-3 col-md-4'>\n    <div class='card'>\n    <div class='card-block'>\n    <h4 class='card-title'>Payments</h4>\n    </div>\n    <ul class='list-group list-group-flush'>\n    <li class='list-group-item'>\n    <a class=\"card-link\" href=\"/payment_requests\">0 payment requests\n    </a></li>\n    </ul>\n    </div>\n    </div> -->\n    </div>\n    </div>\n"
+module.exports = "<div class='container m-t-1'><div class='row'>\n    <div class='col-lg-3 col-md-4'>\n    <div class='card'>\n    <div class='card-block'>\n    <h3 class='card-header'>Offers</h3>\n    </div>\n    <ul class='list-group list-group-flush'>\n    <li class='list-group-item'>\n    <a class=\"card-link\" routerLink=\"/home/active\">active offers\n    </a></li>\n    <li class='list-group-item'>\n    <a class=\"card-link\" routerLink=\"/home/expired\">expired offers\n    </a></li>\n    <li class='list-group-item'>\n    <a class=\"card-link\" routerLink=\"/home/drafts\">proposed offers\n    </a></li>\n    </ul>\n    </div>\n    </div>\n    <div class='col-lg-3 col-md-4'>\n    <div class='card'>\n    <div class='card-block'>\n    <h3 class='card-header'>Inbound</h3>\n    </div>\n    <ul class='list-group list-group-flush'>\n    <li class='list-group-item'>\n    <a class=\"card-link\" routerLink=\"/inbound/inboundToConfirm\">inbound items\n    </a></li>\n    <li class='list-group-item'>\n    <a class=\"card-link\" routerLink=\"/inbound/inboundReported\">reported items\n    </a></li>\n    </ul>\n    </div>\n    </div>\n    <div class='col-lg-3 col-md-4' *ngIf=\"!privilege\">\n      <div class='card'>\n      <div class='card-block'>\n      <h3 class='card-header'>More</h3>\n      </div>\n      <ul class='list-group list-group-flush'>\n      <li class='list-group-item'>\n      <a class=\"card-link\" routerLink=\"/user_join\">Join a Company\n      </a></li>\n      </ul>\n      </div>\n      </div>\n    <!-- <div class='col-lg-3 col-md-4'>\n    <div class='card'>\n    <div class='card-block'>\n    <h4 class='card-header'>Outbound</h4>\n    </div>\n    <ul class='list-group list-group-flush'>\n    <li class='list-group-item'>\n    <a class=\"card-link\" href=\"/shipments\">0 outbound shipments\n    </a></li>\n    </ul>\n    </div>\n    </div> -->\n    <!-- <div class='col-lg-3 col-md-4'>\n    <div class='card'>\n    <div class='card-block'>\n    <h4 class='card-title'>Payments</h4>\n    </div>\n    <ul class='list-group list-group-flush'>\n    <li class='list-group-item'>\n    <a class=\"card-link\" href=\"/payment_requests\">0 payment requests\n    </a></li>\n    </ul>\n    </div>\n    </div> -->\n    </div>\n    </div>\n"
 
 /***/ }),
 
@@ -52,7 +52,7 @@ module.exports = "<div class='container m-t-1'><div class='row'>\n    <div class
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<table class=\"table\" id=\"GroupTable\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width:9%\">#</th>\n      <th scope=\"col\" style=\"width:60%\">Followers</th>\n      <th scope=\"col\" style=\"width:20%\">status</th>\n      <th scope=\"col\" style=\"width:11%\">Actions</th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let follower of followersList\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + follower.id).slice(-4) }}</th>\n        <td>\n          {{ follower.individual }}\n        </td>\n        <td>{{ statusLevel[follower.status] }}</td>\n        <td>\n          <div>\n            <button class=\"btn btn-primary btn-sm mb-1\">Edit</button>\n            <button class=\"btn btn-primary btn-sm\" *ngIf=\"!follower.status\">Approve</button>\n          </div>\n        </td>\n      </tr>\n    </ng-container>\n\n    <!-- <tr>\n        <th scope=\"row\">1</th>\n        <td>Mark</td>\n        <td>Active</td>\n        <td><button class=\"btn btn-primary btn-sm\">Edit</button></td>\n      </tr>\n      <tr>\n        <th scope=\"row\">2</th>\n        <td>Jacob</td>\n        <td>Ask to follow</td>\n        <td><button class=\"btn btn-primary btn-sm\">Edit</button>\n        <button class=\"btn btn-primary btn-sm\">Accept</button></td>\n      </tr>\n      <tr>\n        <th scope=\"row\">3</th>\n        <td>Larry</td>\n        <td>Blocked</td>\n        <td><button class=\"btn btn-primary btn-sm\">Edit</button></td>\n      </tr> -->\n  </tbody>\n</table>\n"
+module.exports = "<table class=\"table\" id=\"GroupTable\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width:9%\">#</th>\n      <th scope=\"col\" style=\"width:60%\">Followers</th>\n      <th scope=\"col\" style=\"width:20%\">status</th>\n      <th scope=\"col\" style=\"width:11%\">Actions</th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let follower of followersList; index as i\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + follower.id).slice(-4) }}</th>\n        <td>\n          {{ follower.individual }}\n        </td>\n        <td>{{ statusLevel[follower.status] }}</td>\n        <td>\n          <div>\n            <button\n              type=\"button\"\n              class=\"btn btn-outline-success btn-block\"\n              data-toggle=\"modal\"\n              data-target=\"#userInformForm\"\n              data-whatever=\"@mdo\"\n            >\n              Edit\n            </button>\n            <button\n            class=\"btn btn-outline-success btn-block\"\n              *ngIf=\"!follower.status\"\n              (click)=\"setActive(i)\"\n            >\n              Approve\n            </button>\n          </div>\n          <div\n            class=\"modal fade\"\n            id=\"userInformForm\"\n            tabindex=\"-1\"\n            role=\"dialog\"\n            aria-labelledby=\"userInformForm\"\n            aria-hidden=\"true\"\n          >\n            <div class=\"modal-dialog\" role=\"document\">\n              <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                  <h5 class=\"modal-title\" id=\"userInformForm\">\n                    User Information\n                  </h5>\n                  <button\n                    type=\"button\"\n                    class=\"close\"\n                    data-dismiss=\"modal\"\n                    aria-label=\"Close\"\n                  >\n                    <span aria-hidden=\"true\">&times;</span>\n                  </button>\n                </div>\n                <div class=\"modal-body\">\n                  <form>\n                    <div class=\"form-group\">\n                      <label for=\"recipient-name\" class=\"col-form-label\"\n                        >Follower:</label\n                      >\n                      {{ follower.individual }}\n                    </div>\n                    <div class=\"form-group\">\n                      <label for=\"recipient-name\" class=\"col-form-label\"\n                        >Status:</label\n                      >\n                      {{ statusLevel[follower.status] }}\n                    </div>\n                    <div class=\"form-group\">\n                      <button\n                        type=\"button\"\n                        class=\"btn btn-primary\"\n                        (click)=\"setBlock(i)\"\n                      >\n                        Block\n                      </button>\n                      <button\n                        type=\"button\"\n                        class=\"btn btn-primary ml-2\"\n                        (click)=\"setActive(i)\"\n                      >\n                        Active\n                      </button>\n                    </div>\n                  </form>\n                </div>\n                <div class=\"modal-footer\">\n                  <button\n                    type=\"button\"\n                    class=\"btn btn-secondary\"\n                    data-dismiss=\"modal\"\n                  >\n                    Close\n                  </button>\n                </div>\n              </div>\n            </div>\n          </div>\n        </td>\n      </tr>\n    </ng-container>\n  </tbody>\n</table>\n"
 
 /***/ }),
 
@@ -85,7 +85,29 @@ module.exports = "//TODO: add css to the following tables\n// TODO: modify the c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <ul class=\"nav nav-tabs\" id=\"dealTabs\" role=\"tablist\">\n    <li class=\"nav-item\">\n\n      <a\n        class=\"nav-link active\"\n        id=\"active-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"group_active\"\n        role=\"tab\"\n        aria-controls=\"active\"\n        aria-selected=\"true\"\n        >Active Followers</a\n      >\n    </li>\n    <!-- <li class=\"nav-item\">\n        <a\n          class=\"nav-link active\"\n          id=\"active-tab\"\n          data-toggle=\"tab\"\n          routerLink=\"active\"\n          role=\"tab\"\n          aria-controls=\"active\"\n          aria-selected=\"true\"\n          >Active Groups</a\n        >\n      </li> -->\n      <li class=\"nav-item\">\n          <a\n            class=\"nav-link active\"\n            id=\"active-tab\"\n            data-toggle=\"tab\"\n            routerLink=\"group_blocked\"\n            role=\"tab\"\n            aria-controls=\"active\"\n            aria-selected=\"true\"\n            >Blocked Followers</a\n          >\n        </li>\n        <li class=\"nav-item\">\n            <a\n              class=\"nav-link active\"\n              id=\"active-tab\"\n              data-toggle=\"tab\"\n              routerLink=\"group_waiting\"\n              role=\"tab\"\n              aria-controls=\"active\"\n              aria-selected=\"true\"\n              >Ask to Follow</a\n            >\n          </li>\n  </ul>\n  <br>\n    <form class=\"form-inline float-left my-2\">\n      <input\n        class=\"form-control mr-sm-2\"\n        type=\"search\"\n        placeholder=\"Search\"\n        aria-label=\"Search\"\n        id=\"groupSearchInput\"\n        (keyup)=\"search()\"\n      />\n    </form>\n    <div class=\"float-right my-2\">\n      <button\n        type=\"button\"\n        class=\"btn btn-outline-success btn-block\"\n        data-toggle=\"modal\"\n        data-target=\"#createForm\"\n        data-whatever=\"@mdo\"\n      >\n        Invite\n      </button>\n    </div>\n  <div class=\"tab-content\" id=\"dealLists\">\n    <router-outlet></router-outlet>\n  </div>\n  <div\n    class=\"modal fade\"\n    id=\"createForm\"\n    tabindex=\"-1\"\n    role=\"dialog\"\n    aria-labelledby=\"createFrom\"\n    aria-hidden=\"true\"\n  >\n    <div class=\"modal-dialog\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"createFrom\">Product Create Form</h5>\n          <button\n            type=\"button\"\n            class=\"close\"\n            data-dismiss=\"modal\"\n            aria-label=\"Close\"\n          >\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form>\n            <div class=\"form-group\">\n              <label for=\"recipient-name\" class=\"col-form-label\"\n                >Recipient:</label\n              >\n              <input type=\"text\" class=\"form-control\" id=\"recipient-name\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"message-text\" class=\"col-form-label\">Message:</label>\n              <textarea class=\"form-control\" id=\"message-text\"></textarea>\n            </div>\n          </form>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">\n            Close\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\">Send message</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<!-- {{router.url}} -->\n<div class=\"container\">\n  <ul class=\"nav nav-tabs\" id=\"dealTabs\" role=\"tablist\">\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link active\"\n        id=\"active-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"group_active\"\n        role=\"tab\"\n        aria-controls=\"active\"\n        aria-selected=\"true\"\n        >All Followers</a\n      >\n    </li>\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link active\"\n        id=\"active-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"user_groups\"\n        role=\"tab\"\n        aria-controls=\"active\"\n        aria-selected=\"true\"\n        >Groups</a\n      >\n    </li>\n    <!-- <li class=\"nav-item\">\n        <a\n          class=\"nav-link active\"\n          id=\"active-tab\"\n          data-toggle=\"tab\"\n          routerLink=\"active\"\n          role=\"tab\"\n          aria-controls=\"active\"\n          aria-selected=\"true\"\n          >Active Groups</a\n        >\n      </li> -->\n    <!-- <li class=\"nav-item\">\n          <a\n            class=\"nav-link active\"\n            id=\"active-tab\"\n            data-toggle=\"tab\"\n            routerLink=\"group_blocked\"\n            role=\"tab\"\n            aria-controls=\"active\"\n            aria-selected=\"true\"\n            >Blocked Followers</a\n          >\n        </li>\n        <li class=\"nav-item\">\n            <a\n              class=\"nav-link active\"\n              id=\"active-tab\"\n              data-toggle=\"tab\"\n              routerLink=\"group_waiting\"\n              role=\"tab\"\n              aria-controls=\"active\"\n              aria-selected=\"true\"\n              >Ask to Follow</a\n            >\n          </li> -->\n  </ul>\n  <br />\n  <form class=\"form-inline float-left my-2\">\n    <input\n      class=\"form-control mr-sm-2\"\n      type=\"search\"\n      placeholder=\"Search\"\n      aria-label=\"Search\"\n      id=\"groupSearchInput\"\n      (keyup)=\"search()\"\n    />\n  </form>\n  <div class=\"float-right my-2\">\n    <button\n      type=\"button\"\n      class=\"btn btn-outline-success btn-block\"\n      data-toggle=\"modal\"\n      data-target=\"#createForm\"\n      data-whatever=\"@mdo\"\n    >\n      Invite\n    </button>\n  </div>\n  <div class=\"tab-content\" id=\"dealLists\">\n    <router-outlet></router-outlet>\n  </div>\n  <div\n    class=\"modal fade\"\n    id=\"createForm\"\n    tabindex=\"-1\"\n    role=\"dialog\"\n    aria-labelledby=\"createFrom\"\n    aria-hidden=\"true\"\n  >\n    <div class=\"modal-dialog\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"createFrom\">Product Create Form</h5>\n          <button\n            type=\"button\"\n            class=\"close\"\n            data-dismiss=\"modal\"\n            aria-label=\"Close\"\n          >\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form>\n            <div class=\"form-group\">\n              <label for=\"recipient-name\" class=\"col-form-label\"\n                >Recipient:</label\n              >\n              <input type=\"text\" class=\"form-control\" id=\"recipient-name\" />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"message-text\" class=\"col-form-label\">Message:</label>\n              <textarea class=\"form-control\" id=\"message-text\"></textarea>\n            </div>\n          </form>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">\n            Close\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\">Send message</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/groups/user-groups/user-groups.component.html":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/groups/user-groups/user-groups.component.html ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"mt-5\">\n  <br />\n  <button\n    type=\"button\"\n    class=\"btn btn-primary\"\n    data-toggle=\"modal\"\n    data-target=\"#groupCreateForm\"\n    data-whatever=\"@mdo\"\n  >\n    Create Group\n  </button>\n  <hr />\n  <div\n    class=\"modal fade\"\n    id=\"groupCreateForm\"\n    tabindex=\"-1\"\n    role=\"dialog\"\n    aria-labelledby=\"createFrom\"\n    aria-hidden=\"true\"\n  >\n    <div class=\"modal-dialog\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"createFrom\">Product Create Form</h5>\n          <button\n            type=\"button\"\n            class=\"close\"\n            data-dismiss=\"modal\"\n            aria-label=\"Close\"\n          >\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form>\n            <div class=\"form-group\">\n              <label for=\"recipient-name\" class=\"col-form-label\">Member:</label>\n              <select\n                class=\"selectpicker\"\n                multiple\n                data-live-search=\"true\"\n                name=\"selectedMember\"\n                [(ngModel)]=\"createGroup.member\"\n              >\n                <option\n                  *ngFor=\"let member of allMembers\"\n                  name=\"member\"\n                >\n                  {{ member.individual }}\n                </option>\n              </select>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"groupName\" class=\"col-form-label\">Group Name:</label>\n              <input\n                class=\"form-control\"\n                type=\"text\"\n                id=\"groupName\"\n                name=\"groupName\"\n                [(ngModel)]=\"createGroup.name\"\n              />\n            </div>\n          </form>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">\n            Close\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\" (click)=\"groupCreate()\">created</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<table class=\"table\" id=\"GroupTable\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width:9%\">#</th>\n      <th scope=\"col\" style=\"width:40%\">Name</th>\n      <th scope=\"col\" style=\"width:40%\">Members</th>\n      <th scope=\"col\" style=\"width:11%\">Actions</th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let group of groupList; index as i\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + group.id).slice(-4) }}</th>\n        <td>\n          {{ group.name }}\n        </td>\n        <td>{{ group.member }}</td>\n        <td>\n          <div>\n            <button\n              class=\"btn btn-primary btn-sm mb-1\"\n              (click)=\"groupDelete(group.id)\"\n            >\n              Delete\n            </button>\n            <!-- <button class=\"btn btn-primary btn-sm\" *ngIf=\"!follower.status\" (click)=\"setActive(i)\">Approve</button> -->\n          </div>\n        </td>\n      </tr>\n    </ng-container>\n  </tbody>\n</table>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/groups/user-join/user-join.component.html":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/groups/user-join/user-join.component.html ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n    <div class=\"alert alert-success\" role=\"alert\" *ngIf=\"isRequested\">\n        Request Successfully!!\n    </div>\n    <div class=\"alert alert-danger\" role=\"alert\" *ngIf=\"isExisted\">\n        You have already following this company!!\n      </div>\n  <h3>Please enter the company's email to send a following request</h3>\n  <hr>\n  <div class=\"float-left\">\n<input type=\"text\" class=\"form-control\" id=\"companyEmail\" name=\"company\" [(ngModel)]=\"company\">\n</div>\n<div class=\"float-left ml-2\">\n    <button class=\"btn btn-primary\" (click)=\"checkRelationship()\">Request</button>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -96,7 +118,7 @@ module.exports = "<div class=\"container\">\n  <ul class=\"nav nav-tabs\" id=\"d
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"privilege\">\n  <table class=\"table\" id=\"dealTable\">\n    <thead>\n      <tr>\n        <th scope=\"col\" style=\"width: 9%\">#</th>\n        <th scope=\"col\" style=\"width: 60%\">Deals</th>\n        <th scope=\"col\" style=\"width: 10%\">Price</th>\n        <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n        <th scope=\"col\" style=\"width: 9%\"></th>\n      </tr>\n    </thead>\n    <tbody>\n      <ng-container *ngFor=\"let deal of dealList\">\n        <tr>\n          <th scopr=\"row\">{{ ('000' + deal.id).slice(-4) }}</th>\n          <td>\n            {{ deal.product_name }}\n            <!-- <small>{{ deal.note }}</small> -->\n            <!-- <div [innerHTML]=\"text\">{{ deal.note }}</div> -->\n            <div class=\"mt-2\" style=\"font-size:smaller\" [innerHTML]=\" deal.note | linkify \"></div>\n            <!-- </ng-container> -->\n          </td>\n          <td>{{ deal.price }}</td>\n          <td>{{ deal.quantity }}</td>\n          <td><button class=\"btn btn-primary btn-sm\">Details</button></td>\n        </tr>\n      </ng-container>\n    </tbody>\n  </table>\n</div>\n\n<div *ngIf=\"!privilege\" class=\"pt-5\">\n  <ng-container *ngFor=\"let following of followingList\">\n    <hr />\n    <label for=\"followingOffers\" value=\"following.company\" id=\"#following\" style=\"font-size:20px\">Following: {{\n      following.company\n    }} :</label>\n\n    <table class=\"table\" id=\"dealTable\">\n      <thead>\n        <tr>\n          <th scope=\"col\" style=\"width: 9%\">#</th>\n          <th scope=\"col\" style=\"width: 60%\">Deals</th>\n          <th scope=\"col\" style=\"width: 10%\">Price</th>\n          <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n          <th scope=\"col\" style=\"width: 9%\">Action</th>\n        </tr>\n      </thead>\n      <tbody>\n        <ng-container *ngFor=\"let deal of dealList; index as i\">\n          <tr>\n            <th scopr=\"row\">{{ ('000' + deal.id).slice(-4) }}</th>\n            <td>\n              <span>{{ deal.product_name }}</span>\n              <div class=\"mt-2\" style=\"font-size:smaller\" [innerHTML]=\" deal.note | linkify \"></div>\n            </td>\n            <td>{{ deal.price }}</td>\n            <td>{{ deal.quantity }}</td>\n            <!-- <td><button class=\"btn btn-primary btn-sm\">Take</button></td> -->\n            <td>\n              <button\n                id=\"{{ i }}\"\n                type=\"button\"\n                class=\"btn btn-outline-success btn-block btn-sm\"\n                data-toggle=\"modal\"\n                data-target=\"#takeForm\"\n                data-whatever=\"@mdo\"\n                *ngIf=\"!privilege\"\n                (click)=\"takeDeal(i)\"\n              >\n                Take\n              </button>\n            </td>\n            <div\n              class=\"modal fade\"\n              id=\"takeForm\"\n              tabindex=\"-1\"\n              role=\"dialog\"\n              aria-labelledby=\"exampleModalLabel\"\n              aria-hidden=\"true\"\n            >\n              <div class=\"modal-dialog\" role=\"document\">\n                <div class=\"modal-content\">\n                  <div class=\"modal-header\">\n                    <h5 class=\"modal-title\" id=\"formTitle\">Take an Deal</h5>\n                    <button\n                      type=\"button\"\n                      class=\"close\"\n                      data-dismiss=\"modal\"\n                      aria-label=\"Close\"\n                    >\n                      <span aria-hidden=\"true\">&times;</span>\n                    </button>\n                  </div>\n                  <div class=\"modal-body\">\n                    <form>\n                      <div class=\"form-group\">\n                        <label for=\"product\" class=\"col-form-label\"\n                          >product:</label\n                        >\n                        <p>{{ inbound.product }}</p>\n                      </div>\n                      <div class=\"form-group\">\n                        <label for=\"price\" class=\"col-form-label\">price:</label>\n                        <p>{{ inbound.price }}</p>\n                      </div>\n                      <div class=\"form-group\">\n                        <label for=\"quantity\" class=\"col-form-label\"\n                          >quantity:</label\n                        >\n                        <input\n                          type=\"text\"\n                          class=\"form-control\"\n                          id=\"quantity\"\n                          name=\"quantity\"\n                          [(ngModel)]=\"inbound.quantity\"\n                        />\n                      </div>\n                      <div class=\"form-group\">\n                        <label for=\"warehouse\" class=\"col-form-label\"\n                          >warehouse:</label\n                        >\n                        <input\n                          type=\"text\"\n                          class=\"form-control\"\n                          id=\"warehouse\"\n                          name=\"warehouse\"\n                          [(ngModel)]=\"inbound.warehouse\"\n                        />\n                      </div>\n                    </form>\n                  </div>\n                  <div class=\"modal-footer\">\n                    <button\n                      type=\"button\"\n                      class=\"btn btn-secondary\"\n                      data-dismiss=\"modal\"\n                    >\n                      Close\n                    </button>\n                    <button\n                      type=\"button\"\n                      class=\"btn btn-primary\"\n                      (click)=\"createInbound()\"\n                      data-dismiss=\"modal\"\n                    >\n                      Take\n                    </button>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </tr>\n        </ng-container>\n      </tbody>\n    </table>\n  </ng-container>\n</div>\n"
+module.exports = "<div *ngIf=\"privilege\">\n  <table class=\"table\" id=\"dealTable\">\n    <thead>\n      <tr>\n        <th scope=\"col\" style=\"width: 9%\">#</th>\n        <th scope=\"col\" style=\"width: 60%\">Deals</th>\n        <th scope=\"col\" style=\"width: 10%\">Price</th>\n        <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n        <th scope=\"col\" style=\"width: 9%\"></th>\n      </tr>\n    </thead>\n    <tbody>\n      <ng-container *ngFor=\"let deal of dealList; index as i\">\n        <tr>\n          <th scopr=\"row\">{{ ('000' + deal.id).slice(-4) }}</th>\n          <td>\n            {{ deal.product_name }}\n            <div\n              class=\"mt-2\"\n              style=\"font-size:smaller\"\n              [innerHTML]=\"deal.note | linkify\"\n            ></div>\n          </td>\n          <td>{{ deal.price }}</td>\n          <td>{{ deal.quantity }}/{{ deal.quantity + deal.quantityTaken }}</td>\n          <td><button\n          id=\"{{ i }}\"\n          type=\"button\"\n          class=\"btn btn-outline-success btn-block btn-sm\"\n          data-toggle=\"modal\"\n          data-target=\"#editForm\"\n          data-whatever=\"@mdo\"\n          *ngIf=\"privilege\"\n          (click)=\"takeDeal(i)\"\n        >\n          Edit\n        </button></td>\n        <div\n              class=\"modal fade\"\n              id=\"editForm\"\n              tabindex=\"-1\"\n              role=\"dialog\"\n              aria-labelledby=\"exampleModalLabel\"\n              aria-hidden=\"true\"\n            >\n              <div class=\"modal-dialog\" role=\"document\">\n                <div class=\"modal-content\">\n                  <div class=\"modal-header\">\n                    <h5 class=\"modal-title\" id=\"formTitle\">Take an Deal</h5>\n                    <button\n                      type=\"button\"\n                      class=\"close\"\n                      data-dismiss=\"modal\"\n                      aria-label=\"Close\"\n                    >\n                      <span aria-hidden=\"true\">&times;</span>\n                    </button>\n                  </div>\n                  <div class=\"modal-body\">\n                    <form>\n                      <div class=\"form-group\">\n                        <label for=\"product\" class=\"col-form-label\"\n                          >Product:</label\n                        >\n                        <p>{{ selectDeal.productName }}</p>\n                      </div>\n                      <div class=\"form-group\">\n                        <label for=\"price\" class=\"col-form-label\">price:</label>\n                        <input\n                        type=\"text\"\n                        class=\"form-control\"\n                        id=\"price\"\n                        name=\"price\"\n                        [(ngModel)]=\"selectDeal.price\"\n                        value=\"selectDeal.price\"\n                      />\n                      </div>\n                      <div class=\"form-group\">\n                        <label for=\"quantity\" class=\"col-form-label\"\n                          >left quantity:</label\n                        >\n                        <input\n                          type=\"text\"\n                          class=\"form-control\"\n                          id=\"quantity\"\n                          name=\"quantity\"\n                          [(ngModel)]=\"selectDeal.quantity\"\n                          value=\"selectDeal.quantity\"\n                        />\n                      </div>\n                      <div class=\"form-group\">\n                        <label for=\"warehouse\" class=\"col-form-label\"\n                          >warehouse:</label\n                        >\n                        <input\n                          type=\"text\"\n                          class=\"form-control\"\n                          id=\"warehouse\"\n                          name=\"warehouse\"\n                          [(ngModel)]=\"selectWarehouse\"\n                        />\n                      </div>\n                    </form>\n                  </div>\n                  <div class=\"modal-footer\">\n                    <button\n                      type=\"button\"\n                      class=\"btn btn-secondary\"\n                      data-dismiss=\"modal\"\n                    >\n                      Close\n                    </button>\n                    <button\n                      type=\"button\"\n                      class=\"btn btn-primary\"\n                      (click)=\"updateCompany()\"\n                      data-dismiss=\"modal\"\n                    >\n                      Done\n                    </button>\n                  </div>\n                </div>\n              </div>\n            </div>\n        </tr>\n      </ng-container>\n    </tbody>\n  </table>\n</div>\n\n<div *ngIf=\"!privilege\" class=\"pt-5\">\n  <table *ngIf=\"noFollowing\" class=\"table\" id=\"dealTable\">\n    <thead>\n      <tr>\n        <th scope=\"col\" style=\"width: 9%\">#</th>\n        <th scope=\"col\" style=\"width: 60%\">Deals</th>\n        <th scope=\"col\" style=\"width: 10%\">Price</th>\n        <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n        <th scope=\"col\" style=\"width: 9%\"></th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <th scopr=\"row\"></th>\n        <td>\n          No Active Deals......\n        </td>\n        <td></td>\n        <td></td>\n        <td></td>\n      </tr>\n      <!-- </ng-container> -->\n    </tbody>\n  </table>\n  <ng-container *ngFor=\"let following of followingList\">\n    <hr />\n    <label\n      for=\"followingOffers\"\n      value=\"following.company\"\n      id=\"#following\"\n      style=\"font-size:20px\"\n      >Following: {{ following.company }} :</label\n    >\n\n    <table class=\"table\" id=\"dealTable\">\n      <thead>\n        <tr>\n          <th scope=\"col\" style=\"width: 9%\">#</th>\n          <th scope=\"col\" style=\"width: 60%\">Deals</th>\n          <th scope=\"col\" style=\"width: 10%\">Price</th>\n          <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n          <th scope=\"col\" style=\"width: 9%\">Action</th>\n        </tr>\n      </thead>\n      <tbody>\n        <ng-container *ngFor=\"let deal of dealList; index as i\">\n          <tr>\n            <th scopr=\"row\">{{ ('000' + deal.id).slice(-4) }}</th>\n            <td>\n              <span>{{ deal.product_name }}</span>\n              <div\n                class=\"mt-2\"\n                style=\"font-size:smaller\"\n                [innerHTML]=\"deal.note | linkify\"\n              ></div>\n            </td>\n            <td>{{ deal.price }}</td>\n            <td id=\"qty{{ i }}\">{{ deal.quantity }}</td>\n            <td>\n              <button\n                id=\"{{ i }}\"\n                type=\"button\"\n                class=\"btn btn-outline-success btn-block btn-sm\"\n                data-toggle=\"modal\"\n                data-target=\"#takeForm\"\n                data-whatever=\"@mdo\"\n                *ngIf=\"!privilege\"\n                (click)=\"takeDeal(i)\"\n              >\n                Take\n              </button>\n            </td>\n            <div\n              class=\"modal fade\"\n              id=\"takeForm\"\n              tabindex=\"-1\"\n              role=\"dialog\"\n              aria-labelledby=\"exampleModalLabel\"\n              aria-hidden=\"true\"\n            >\n              <div class=\"modal-dialog\" role=\"document\">\n                <div class=\"modal-content\">\n                  <div class=\"modal-header\">\n                    <h5 class=\"modal-title\" id=\"formTitle\">Take an Deal</h5>\n                    <button\n                      type=\"button\"\n                      class=\"close\"\n                      data-dismiss=\"modal\"\n                      aria-label=\"Close\"\n                    >\n                      <span aria-hidden=\"true\">&times;</span>\n                    </button>\n                  </div>\n                  <div class=\"modal-body\">\n                    <form>\n                      <div class=\"form-group\">\n                        <label for=\"product\" class=\"col-form-label\"\n                          >Product:</label\n                        >\n                        <p>{{ inbound.product }}</p>\n                      </div>\n                      <div class=\"form-group\">\n                        <label for=\"price\" class=\"col-form-label\">price:</label>\n                        <p>{{ inbound.price }}</p>\n                      </div>\n                      <div class=\"form-group\">\n                        <label for=\"quantity\" class=\"col-form-label\"\n                          >quantity:</label\n                        >\n                        <input\n                          type=\"text\"\n                          class=\"form-control\"\n                          id=\"quantity\"\n                          name=\"quantity\"\n                          [(ngModel)]=\"inbound.quantity\"\n                        />\n                      </div>\n                      <div class=\"form-group\">\n                        <label for=\"warehouse\" class=\"col-form-label\"\n                          >warehouse:</label\n                        >\n                        <input\n                          type=\"text\"\n                          class=\"form-control\"\n                          id=\"warehouse\"\n                          name=\"warehouse\"\n                          [(ngModel)]=\"inbound.warehouse\"\n                        />\n                      </div>\n                    </form>\n                  </div>\n                  <div class=\"modal-footer\">\n                    <button\n                      type=\"button\"\n                      class=\"btn btn-secondary\"\n                      data-dismiss=\"modal\"\n                    >\n                      Close\n                    </button>\n                    <button\n                      type=\"button\"\n                      class=\"btn btn-primary\"\n                      (click)=\"createInbound()\"\n                      data-dismiss=\"modal\"\n                    >\n                      Take\n                    </button>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </tr>\n        </ng-container>\n      </tbody>\n    </table>\n  </ng-container>\n</div>\n"
 
 /***/ }),
 
@@ -140,7 +162,7 @@ module.exports = "<h6>Favorite Deals</h6>\n//TODO add drafts deals logic\n<table
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- {{ deal | json }}\n{{ selectProduct }}\n{{month}} -->\n<div class=\"container\">\n  <ul class=\"nav nav-tabs\" id=\"dealTabs\" role=\"tablist\">\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link active\"\n        id=\"active-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"active\"\n        role=\"tab\"\n        aria-controls=\"active\"\n        aria-selected=\"true\"\n        >Active Deals</a\n      >\n    </li>\n    <!-- <li class=\"nav-item\">\n      <a\n        class=\"nav-link\"\n        id=\"expired-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"expired\"\n        role=\"tab\"\n        aria-controls=\"expired\"\n        aria-selected=\"false\"\n        >Expired Deals</a\n      >\n    </li>\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link\"\n        id=\"favorite-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"favorite\"\n        role=\"tab\"\n        aria-controls=\"favorite\"\n        aria-selected=\"false\"\n        >Favorite Deals</a\n      >\n    </li>\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link\"\n        id=\"drafts-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"drafts\"\n        role=\"tab\"\n        aria-controls=\"drafts\"\n        aria-selected=\"false\"\n        *ngIf=\"privilege\"\n        >Drafts Deals</a\n      >\n    </li> -->\n  </ul>\n  <br>\n    <form class=\"float-left my-2\">\n      <input\n        class=\"form-control mr-sm-2\"\n        type=\"text\"\n        placeholder=\"Search\"\n        aria-label=\"Search\"\n        id=\"searchInput\"\n        (keyup)=\"search()\"\n      />\n    </form>\n    <div class=\"float-right my-2\">\n      <button\n        type=\"button\"\n        class=\"btn btn-outline-success btn-block\"\n        data-toggle=\"modal\"\n        data-target=\"#createForm\"\n        data-whatever=\"@mdo\"\n        *ngIf=\"privilege\"\n      >\n        Create\n      </button>\n    </div>\n\n  <div class=\"tab-content\" id=\"dealLists\">\n    <router-outlet></router-outlet>\n  </div>\n  <div\n    class=\"modal fade\"\n    id=\"createForm\"\n    tabindex=\"-1\"\n    role=\"dialog\"\n    aria-labelledby=\"createFrom\"\n    aria-hidden=\"true\"\n  >\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"createFrom\">Deal Create Form</h5>\n          <button\n            type=\"button\"\n            class=\"close\"\n            data-dismiss=\"modal\"\n            aria-label=\"Close\"\n          >\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form>\n            <div class=\"form-group\">\n              <label for=\"deal-product\" class=\"col-form-label\">Product:</label>\n              <select\n                class=\"selectpicker form-control\"\n                data-live-search=\"true\"\n                name=\"product\"\n                [(ngModel)]=\"selectProduct\"\n                (ngModelChange)=\"setProductNameId()\"\n              >\n                <option\n                  *ngFor=\"let nameid of productList\"\n                  name=\"productsId\"\n                  [ngValue]=\"nameid\"\n                >\n                  {{ nameid.name }}\n                </option>\n              </select>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"deal-price\" class=\"col-form-label\">Price:</label>\n              <input type=\"text\" class=\"form-control\" id=\"deal-price\" name=\"price\" [(ngModel)]=\"deal.price\"/>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"deal-quantity\" class=\"col-form-label\"\n                >Quantity:</label\n              >\n              <input type=\"number\" class=\"form-control\" id=\"deal-quantity\" name=\"quantity\" [(ngModel)]=\"deal.quantity\"/>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"deal-expires\" class=\"col-form-label\"\n                >Expires At:</label\n              >\n              <div class=\"row\">\n                <div class=\"col-md-3\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"month\"\n                    name=\"month\"\n                    [(ngModel)]=\"month\"\n                    required\n                  >\n                    <option>January</option>\n                    <option>February</option>\n                    <option>March</option>\n                    <option>April</option>\n                    <option>May</option>\n                    <option>June</option>\n                    <option>July</option>\n                    <option>August</option>\n                    <option>September</option>\n                    <option>October</option>\n                    <option>November</option>\n                    <option>December</option>\n                  </select>\n                </div>\n                <div class=\"col-md-2\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"days\"\n                    name=\"days\"\n                    [(ngModel)]=\"days\"\n                    required\n                  >\n                    <option value=\"\">1</option>\n                    <option>1</option>\n                    <option>2</option>\n                    <option>3</option>\n                    <option>4</option>\n                    <option>5</option>\n                    <option>6</option>\n                    <option>7</option>\n                    <option>8</option>\n                    <option>9</option>\n                    <option>10</option>\n                    <option>11</option>\n                    <option>12</option>\n                    <option>13</option>\n                    <option>14</option>\n                    <option>15</option>\n                    <option>16</option>\n                    <option>17</option>\n                    <option>18</option>\n                    <option>19</option>\n                    <option>20</option>\n                    <option>21</option>\n                    <option>22</option>\n                    <option>23</option>\n                    <option>24</option>\n                    <option>25</option>\n                    <option>26</option>\n                    <option>27</option>\n                    <option>28</option>\n                    <option>29</option>\n                    <option>30</option>\n                    <option>31</option>\n                  </select>\n                </div>\n                <div class=\"col-md-2\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"years\"\n                    name=\"year\"\n                    [(ngModel)]=\"year\"\n                    required\n                  >\n                    <option value=\"\">2014</option>\n                    <option>2014</option>\n                    <option>2015</option>\n                    <option>2016</option>\n                    <option>2017</option>\n                    <option>2018</option>\n                    <option>2019</option>\n                    <option>2020</option>\n                    <option>2021</option>\n                    <option>2022</option>\n                    <option>2023</option>\n                    <option>2024</option>\n                  </select>\n                </div>\n                <div class=\"col-md-2\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"hours\"\n                    name=\"hour\"\n                    [(ngModel)]=\"hour\"\n                    required\n                  >\n                    <option value=\"\">00</option>\n                    <option>00</option>\n                    <option>01</option>\n                    <option>02</option>\n                    <option>03</option>\n                    <option>04</option>\n                    <option>05</option>\n                    <option>06</option>\n                    <option>07</option>\n                    <option>08</option>\n                    <option>09</option>\n                    <option>10</option>\n                    <option>11</option>\n                    <option>12</option>\n                    <option>13</option>\n                    <option>14</option>\n                    <option>15</option>\n                    <option>16</option>\n                    <option>17</option>\n                    <option>19</option>\n                    <option>20</option>\n                    <option>21</option>\n                    <option>22</option>\n                    <option>23</option>\n                  </select>\n                </div>\n                <div class=\"col-md-2\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"minutes\"\n                    name=\"minutes\"\n                    [(ngModel)]=\"minutes\"\n                    required\n                  >\n                    <option value=\"\">00</option>\n                    <option>00</option>\n                    <option>01</option>\n                    <option>02</option>\n                    <option>03</option>\n                    <option>04</option>\n                    <option>05</option>\n                    <option>06</option>\n                    <option>07</option>\n                    <option>08</option>\n                    <option>09</option>\n                    <option>10</option>\n                    <option>11</option>\n                    <option>12</option>\n                    <option>13</option>\n                    <option>14</option>\n                    <option>15</option>\n                    <option>16</option>\n                    <option>17</option>\n                    <option>19</option>\n                    <option>20</option>\n                    <option>21</option>\n                    <option>22</option>\n                    <option>23</option>\n                    <option>24</option>\n                    <option>25</option>\n                    <option>26</option>\n                    <option>27</option>\n                    <option>28</option>\n                    <option>29</option>\n                    <option>30</option>\n                    <option>31</option>\n                    <option>32</option>\n                    <option>33</option>\n                    <option>34</option>\n                    <option>35</option>\n                    <option>36</option>\n                    <option>37</option>\n                    <option>38</option>\n                    <option>39</option>\n                    <option>40</option>\n                    <option>41</option>\n                    <option>42</option>\n                    <option>43</option>\n                    <option>44</option>\n                    <option>45</option>\n                    <option>46</option>\n                    <option>47</option>\n                    <option>48</option>\n                    <option>49</option>\n                    <option>50</option>\n                    <option>51</option>\n                    <option>52</option>\n                    <option>53</option>\n                    <option>54</option>\n                    <option>55</option>\n                    <option>56</option>\n                    <option>57</option>\n                    <option>58</option>\n                    <option>59</option>\n                  </select>\n                </div>\n              </div>\n              By default, expires in 3 days.\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-Note\" class=\"col-form-label\">Note:</label>\n              <textarea\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-note\"\n                cols=\"30\"\n                rows=\"5\"\n                name=\"note\"\n                [(ngModel)]=\"deal.note\"\n              ></textarea>\n            </div>\n            <!-- <div class=\"form-group\">\n              <label for=\"deal-bonus\" class=\"col-form-label\">Bonus:</label>\n              <input type=\"text\" class=\"form-control\" id=\"deal-bonus\" name=\"bonus\" [(ngModel)]=\"deal.bonus\"/>\n              Give bonus for inbound items to self storages.\n            </div> -->\n            <div class=\"form-check\">\n              <input\n                class=\"form-check-input\"\n                type=\"checkbox\"\n                value=\"\"\n                id=\"deal-service-tag\"\n                name=\"serviceTag\"\n                [(ngModel)]=\"deal.serviceTag\"\n              />\n              <label class=\"form-check-label\" for=\"deal-service-tag\">\n                Service Tag\n              </label>\n            </div>\n            Require service tags when members comfirm inbound items.\n            <hr />\n            <div class=\"form-check form-check-inline\">\n              <input\n                class=\"form-check-input\"\n                type=\"radio\"\n                name=\"public\"\n                id=\"publicRadio\"\n                value=\"true\"\n                name=\"dealPublic\"\n                [(ngModel)]=\"deal.dealPublic\"\n\n              />\n              <label class=\"form-check-label\" for=\"publicRadio\">Public</label>\n            </div>\n            <div class=\"form-check form-check-inline\">\n              <input\n                class=\"form-check-input\"\n                type=\"radio\"\n                name=\"public\"\n                id=\"privateRadio\"\n                value=\"false\"\n                name=\"dealPriate\"\n                [(ngModel)]=\"deal.dealPublic\"\n              />\n              <label class=\"form-check-label\" for=\"PrivateRadio\">Private</label>\n            </div>\n            <hr />\n            Every member can see public offers. Only selected users can see\n            private offers.\n            <br />\n            <br />\n            <div class=\"form-check\">\n              <input\n                class=\"form-check-input\"\n                type=\"checkbox\"\n                value=\"\"\n                id=\"notify\"\n                name=\"notify\"\n                [(ngModel)]=\"deal.notify\"\n              />\n              <label class=\"form-check-label\" for=\"notify\">\n                Notify everyone who can see the offer\n              </label>\n            </div>\n          </form>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">\n            Close\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\" (click)=\"create()\" data-dismiss=\"modal\">Add</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<!-- {{ deal | json }}\n{{ selectProduct }}\n{{month}} -->\n<!-- {{deal | json}} -->\n<div class=\"container\">\n  <ul class=\"nav nav-tabs\" id=\"dealTabs\" role=\"tablist\">\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link active\"\n        id=\"active-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"active\"\n        role=\"tab\"\n        aria-controls=\"active\"\n        aria-selected=\"true\"\n        >Active Deals</a\n      >\n    </li>\n    <!-- <li class=\"nav-item\">\n      <a\n        class=\"nav-link\"\n        id=\"expired-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"expired\"\n        role=\"tab\"\n        aria-controls=\"expired\"\n        aria-selected=\"false\"\n        >Expired Deals</a\n      >\n    </li>\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link\"\n        id=\"favorite-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"favorite\"\n        role=\"tab\"\n        aria-controls=\"favorite\"\n        aria-selected=\"false\"\n        >Favorite Deals</a\n      >\n    </li>\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link\"\n        id=\"drafts-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"drafts\"\n        role=\"tab\"\n        aria-controls=\"drafts\"\n        aria-selected=\"false\"\n        *ngIf=\"privilege\"\n        >Drafts Deals</a\n      >\n    </li> -->\n  </ul>\n  <br />\n  <form class=\"float-left my-2\">\n    <input\n      class=\"form-control mr-sm-2\"\n      type=\"text\"\n      placeholder=\"Search\"\n      aria-label=\"Search\"\n      id=\"searchInput\"\n      (keyup)=\"search()\"\n    />\n  </form>\n  <div class=\"float-right my-2\">\n    <button\n      type=\"button\"\n      class=\"btn btn-outline-success btn-block\"\n      data-toggle=\"modal\"\n      data-target=\"#createForm\"\n      data-whatever=\"@mdo\"\n      *ngIf=\"privilege\"\n    >\n      Create\n    </button>\n  </div>\n\n  <div class=\"tab-content\" id=\"dealLists\">\n    <router-outlet></router-outlet>\n  </div>\n  <div\n    class=\"modal fade\"\n    id=\"createForm\"\n    tabindex=\"-1\"\n    role=\"dialog\"\n    aria-labelledby=\"createFrom\"\n    aria-hidden=\"true\"\n  >\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"createFrom\">Deal Create Form</h5>\n          <button\n            type=\"button\"\n            class=\"close\"\n            data-dismiss=\"modal\"\n            aria-label=\"Close\"\n          >\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form>\n            <div class=\"form-group\">\n              <label for=\"deal-product\" class=\"col-form-label\">Product:</label>\n              <select\n                class=\"selectpicker form-control\"\n                data-live-search=\"true\"\n                name=\"product\"\n                [(ngModel)]=\"selectProduct\"\n                (ngModelChange)=\"setProductNameId()\"\n              >\n                <option\n                  *ngFor=\"let nameid of productList\"\n                  name=\"productsId\"\n                  [ngValue]=\"nameid\"\n                >\n                  {{ nameid.name }}\n                </option>\n              </select>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"deal-price\" class=\"col-form-label\">Price:</label>\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"deal-price\"\n                name=\"price\"\n                [(ngModel)]=\"deal.price\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"deal-quantity\" class=\"col-form-label\"\n                >Quantity:</label\n              >\n              <input\n                type=\"number\"\n                class=\"form-control\"\n                id=\"deal-quantity\"\n                name=\"quantity\"\n                [(ngModel)]=\"deal.quantity\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"deal-expires\" class=\"col-form-label\"\n                >Expires At:</label\n              >\n              <div class=\"row\">\n                <div class=\"col-md-3\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"month\"\n                    name=\"month\"\n                    [(ngModel)]=\"month\"\n                    required\n                  >\n                    <option>January</option>\n                    <option>February</option>\n                    <option>March</option>\n                    <option>April</option>\n                    <option>May</option>\n                    <option>June</option>\n                    <option>July</option>\n                    <option>August</option>\n                    <option>September</option>\n                    <option>October</option>\n                    <option>November</option>\n                    <option>December</option>\n                  </select>\n                </div>\n                <div class=\"col-md-2\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"days\"\n                    name=\"days\"\n                    [(ngModel)]=\"days\"\n                    required\n                  >\n                    <option value=\"\">1</option>\n                    <option>1</option>\n                    <option>2</option>\n                    <option>3</option>\n                    <option>4</option>\n                    <option>5</option>\n                    <option>6</option>\n                    <option>7</option>\n                    <option>8</option>\n                    <option>9</option>\n                    <option>10</option>\n                    <option>11</option>\n                    <option>12</option>\n                    <option>13</option>\n                    <option>14</option>\n                    <option>15</option>\n                    <option>16</option>\n                    <option>17</option>\n                    <option>18</option>\n                    <option>19</option>\n                    <option>20</option>\n                    <option>21</option>\n                    <option>22</option>\n                    <option>23</option>\n                    <option>24</option>\n                    <option>25</option>\n                    <option>26</option>\n                    <option>27</option>\n                    <option>28</option>\n                    <option>29</option>\n                    <option>30</option>\n                    <option>31</option>\n                  </select>\n                </div>\n                <div class=\"col-md-2\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"years\"\n                    name=\"year\"\n                    [(ngModel)]=\"year\"\n                    required\n                  >\n                    <option value=\"\">2014</option>\n                    <option>2014</option>\n                    <option>2015</option>\n                    <option>2016</option>\n                    <option>2017</option>\n                    <option>2018</option>\n                    <option>2019</option>\n                    <option>2020</option>\n                    <option>2021</option>\n                    <option>2022</option>\n                    <option>2023</option>\n                    <option>2024</option>\n                  </select>\n                </div>\n                <div class=\"col-md-2\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"hours\"\n                    name=\"hour\"\n                    [(ngModel)]=\"hour\"\n                    required\n                  >\n                    <option value=\"\">00</option>\n                    <option>00</option>\n                    <option>01</option>\n                    <option>02</option>\n                    <option>03</option>\n                    <option>04</option>\n                    <option>05</option>\n                    <option>06</option>\n                    <option>07</option>\n                    <option>08</option>\n                    <option>09</option>\n                    <option>10</option>\n                    <option>11</option>\n                    <option>12</option>\n                    <option>13</option>\n                    <option>14</option>\n                    <option>15</option>\n                    <option>16</option>\n                    <option>17</option>\n                    <option>19</option>\n                    <option>20</option>\n                    <option>21</option>\n                    <option>22</option>\n                    <option>23</option>\n                  </select>\n                </div>\n                <div class=\"col-md-2\">\n                  <select\n                    class=\"custom-select d-block w-100\"\n                    id=\"minutes\"\n                    name=\"minutes\"\n                    [(ngModel)]=\"minutes\"\n                    required\n                  >\n                    <option value=\"\">00</option>\n                    <option>00</option>\n                    <option>01</option>\n                    <option>02</option>\n                    <option>03</option>\n                    <option>04</option>\n                    <option>05</option>\n                    <option>06</option>\n                    <option>07</option>\n                    <option>08</option>\n                    <option>09</option>\n                    <option>10</option>\n                    <option>11</option>\n                    <option>12</option>\n                    <option>13</option>\n                    <option>14</option>\n                    <option>15</option>\n                    <option>16</option>\n                    <option>17</option>\n                    <option>19</option>\n                    <option>20</option>\n                    <option>21</option>\n                    <option>22</option>\n                    <option>23</option>\n                    <option>24</option>\n                    <option>25</option>\n                    <option>26</option>\n                    <option>27</option>\n                    <option>28</option>\n                    <option>29</option>\n                    <option>30</option>\n                    <option>31</option>\n                    <option>32</option>\n                    <option>33</option>\n                    <option>34</option>\n                    <option>35</option>\n                    <option>36</option>\n                    <option>37</option>\n                    <option>38</option>\n                    <option>39</option>\n                    <option>40</option>\n                    <option>41</option>\n                    <option>42</option>\n                    <option>43</option>\n                    <option>44</option>\n                    <option>45</option>\n                    <option>46</option>\n                    <option>47</option>\n                    <option>48</option>\n                    <option>49</option>\n                    <option>50</option>\n                    <option>51</option>\n                    <option>52</option>\n                    <option>53</option>\n                    <option>54</option>\n                    <option>55</option>\n                    <option>56</option>\n                    <option>57</option>\n                    <option>58</option>\n                    <option>59</option>\n                  </select>\n                </div>\n              </div>\n              By default, expires in 3 days.\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-Note\" class=\"col-form-label\">Note:</label>\n              <textarea\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-note\"\n                cols=\"30\"\n                rows=\"5\"\n                name=\"note\"\n                [(ngModel)]=\"deal.note\"\n              ></textarea>\n            </div>\n            <!-- <div class=\"form-group\">\n              <label for=\"deal-bonus\" class=\"col-form-label\">Bonus:</label>\n              <input type=\"text\" class=\"form-control\" id=\"deal-bonus\" name=\"bonus\" [(ngModel)]=\"deal.bonus\"/>\n              Give bonus for inbound items to self storages.\n            </div> -->\n            <div class=\"form-check\">\n              <input\n                class=\"form-check-input\"\n                type=\"checkbox\"\n                value=\"\"\n                id=\"deal-service-tag\"\n                name=\"serviceTag\"\n                [(ngModel)]=\"deal.serviceTag\"\n              />\n              <label class=\"form-check-label\" for=\"deal-service-tag\">\n                Service Tag\n              </label>\n            </div>\n            Require service tags when members confirm inbound items.\n            <hr />\n            <!-- <div class=\"form-check form-check-inline\">\n              <input\n                class=\"form-check-input\"\n                type=\"radio\"\n                name=\"public\"\n                id=\"publicRadio\"\n                value=\"true\"\n                name=\"dealPublic\"\n                [(ngModel)]=\"deal.dealPublic\"\n              />\n              <label class=\"form-check-label\" for=\"publicRadio\">Public</label>\n            </div>\n            <div class=\"form-check form-check-inline\">\n              <input\n                class=\"form-check-input\"\n                type=\"radio\"\n                name=\"private\"\n                id=\"privateRadio\"\n                value=\"false\"\n                name=\"dealPrivate\"\n                [(ngModel)]=\"deal.dealPublic\"\n              />\n              <label class=\"form-check-label\" for=\"PrivateRadio\">Private</label>\n            </div> -->\n            Make Deal Public Or Private\n            <br>\n            <button\n            type=\"button\"\n            class=\"btn btn-primary mt-1\"\n            (click) = \"makePublic()\"\n          >\n            Public\n          </button>\n          <button\n          type=\"button\"\n          class=\"btn btn-primary mt-1 ml-3\"\n          (click) =\"makePrivate()\"\n        >\n          Private\n        </button>\n        <br>\n            <div class=\"form-group\" *ngIf=\"isPublic\">\n                <label for=\"recipient-name\" class=\"col-form-label\">Member:</label>\n                <select\n                  class=\"selectpicker\"\n                  multiple\n                  data-live-search=\"true\"\n                  name=\"selectedMember\"\n                  [(ngModel)]=\"membersTemp\"\n                >\n                  <option\n                    *ngFor=\"let member of memberList\"\n                    name=\"member\"\n                  >\n                    {{ member.individual }}\n                  </option>\n                </select>\n              </div>\n              <div class=\"form-group\" *ngIf=\"isPrivate\">\n                  <label for=\"recipient-name\" class=\"col-form-label\">Member:</label>\n                  <select\n                    class=\"selectpicker\"\n                    multiple\n                    data-live-search=\"true\"\n                    name=\"selectedMember\"\n                    [(ngModel)]=\"membersTemp\"\n                  >\n                    <option\n                      *ngFor=\"let group of groupList\"\n                      name=\"group\"\n                      value=\"{{group.member}}\"\n                    >\n                      {{ group.name }}\n                    </option>\n                  </select>\n                </div>\n            <hr />\n            Every member can see public offers. Only selected users can see\n            private offers.\n            <br />\n            <br />\n            <div class=\"form-check\">\n              <input\n                class=\"form-check-input\"\n                type=\"checkbox\"\n                value=\"\"\n                id=\"notify\"\n                name=\"notify\"\n                [(ngModel)]=\"deal.notify\"\n              />\n              <label class=\"form-check-label\" for=\"notify\">\n                Notify everyone who can see the offer\n              </label>\n            </div>\n          </form>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">\n            Close\n          </button>\n          <button\n            type=\"button\"\n            class=\"btn btn-primary\"\n            (click)=\"create()\"\n            data-dismiss=\"modal\"\n          >\n            Add\n          </button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -184,7 +206,7 @@ module.exports = "<table class=\"table\">\n  <thead>\n    <tr>\n      <th scope=
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table class=\"table\" id=\"inboundTable\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width: 9%\">#</th>\n      <th scope=\"col\" style=\"width: 30%\">Inbound</th>\n      <th scope=\"col\" style=\"width: 12%\" *ngIf=\"privilege\">From</th>\n      <th scope=\"col\" style=\"width: 10%\">Price</th>\n      <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n      <th scope=\"col\" style=\"width: 9\">WareHouse</th>\n      <th scope=\"col\" style=\"width: 9\">LastUpdate</th>\n      <th scope=\"col\" style=\"width: 9%\">Action</th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let record of recordList\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + record.id).slice(-4) }}</th>\n        <td>\n          <div>\n            {{ record.product }}\n            <!-- </ng-container> -->\n          </div>\n        </td>\n        <td *ngIf=\"privilege\">{{ record.individual }}</td>\n        <td *ngIf=\"!privilege\">{{ record.individual }}</td>\n        <td>{{ record.price }}</td>\n        <td>{{ record.quantity }}</td>\n        <td>{{ record.warehouse }}</td>\n        <td>{{ record.updatedAt }}</td>\n        <td>\n          <button class=\"btn btn-primary btn-sm mb-2\" *ngIf=\"!privilege\">\n            Confirm\n          </button>\n          <button class=\"btn btn-primary btn-sm mb-2\" *ngIf=\"privilege\">\n            Confirm\n          </button>\n          <button class=\"btn btn-primary btn-sm\">Cancel</button>\n        </td>\n      </tr>\n    </ng-container>\n  </tbody>\n</table>\n"
+module.exports = "<table class=\"table\" id=\"inboundTable\" *ngIf=\"!noRecord\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width: 9%\">#</th>\n      <th scope=\"col\" style=\"width: 30%\">Inbound</th>\n      <th scope=\"col\" style=\"width: 12%\" *ngIf=\"privilege\">From</th>\n      <th scope=\"col\" style=\"width: 10%\">Price</th>\n      <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n      <th scope=\"col\" style=\"width: 9\">WareHouse</th>\n      <th scope=\"col\" style=\"width: 9\">LastUpdate</th>\n      <th scope=\"col\" style=\"width: 9%\">Action</th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let record of recordList\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + record.id).slice(-4) }}</th>\n        <td>\n          <div>\n            {{ record.product }}\n            <!-- </ng-container> -->\n          </div>\n        </td>\n        <td *ngIf=\"privilege\">{{ record.individual }}</td>\n        <!-- <td *ngIf=\"!privilege\">{{ record.individual }}</td> -->\n        <td>{{ record.price }}</td>\n        <td>{{ record.quantity }}</td>\n        <td>{{ record.warehouse }}</td>\n        <td>{{ record.updatedAt }}</td>\n        <td>\n          <!-- <button class=\"btn btn-primary btn-sm mb-2\" *ngIf=\"!privilege\">\n            Confirm\n          </button> -->\n          <!-- <button class=\"btn btn-primary btn-sm\">Cancel</button> -->\n        </td>\n      </tr>\n    </ng-container>\n  </tbody>\n</table>\n\n<table class=\"table\" id=\"inboundTable\" *ngIf=\"noRecord\">\n    <thead>\n      <tr>\n        <th scope=\"col\" style=\"width: 9%\">#</th>\n        <th scope=\"col\" style=\"width: 30%\">Inbound</th>\n        <th scope=\"col\" style=\"width: 12%\" *ngIf=\"privilege\">From</th>\n        <th scope=\"col\" style=\"width: 10%\">Price</th>\n        <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n        <th scope=\"col\" style=\"width: 9\">WareHouse</th>\n        <th scope=\"col\" style=\"width: 9\">LastUpdate</th>\n        <th scope=\"col\" style=\"width: 9%\">Action</th>\n      </tr>\n    </thead>\n    <tbody>\n        <tr>\n          <th scopr=\"row\"></th>\n          <td>\n              No Inbound Record......\n          </td>\n          <td *ngIf=\"privilege\"></td>\n          <!-- <td *ngIf=\"!privilege\">{{ record.individual }}</td> -->\n          <td></td>\n          <td></td>\n          <td></td>\n          <td></td>\n          <td>\n            <!-- <button class=\"btn btn-primary btn-sm mb-2\" *ngIf=\"!privilege\">\n              Confirm\n            </button> -->\n            <!-- <button class=\"btn btn-primary btn-sm\">Cancel</button> -->\n          </td>\n        </tr>\n    </tbody>\n  </table>\n"
 
 /***/ }),
 
@@ -195,7 +217,7 @@ module.exports = "<table class=\"table\" id=\"inboundTable\">\n  <thead>\n    <t
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table class=\"table\" id=\"productTable\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width: 9%\">#</th>\n      <th scope=\"col\" style=\"width: 80%\">Products</th>\n      <th scope=\"col\" style=\"width: 11%\">Actions</th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let activeProducts of activeProductsList\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + activeProducts.id).slice(-4) }}</th>\n        <td>\n          {{ activeProducts.name }}\n        </td>\n        <td>\n          <button class=\"btn btn-primary btn-sm mb-1\">Details</button>\n          <button class=\"btn btn-primary btn-sm\">Edit</button>\n        </td>\n      </tr>\n    </ng-container>\n  </tbody>\n</table>\n"
+module.exports = "<table class=\"table\" id=\"productTable\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width: 9%\">#</th>\n      <th scope=\"col\" style=\"width: 80%\">Products</th>\n      <th scope=\"col\" style=\"width: 11%\">Actions</th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let activeProducts of activeProductsList\">\n      <tr>\n        <th scopr=\"row\"><div>{{ ('000' + activeProducts.id).slice(-4) }}\n          <br>\n            <img src=\"{{activeProducts.link}}\" height=\"25\">\n        </div></th>\n        <td>\n          {{ activeProducts.name }}\n        </td>\n        <td>\n          <!-- <button class=\"btn btn-primary btn-sm mb-1\">Details</button> -->\n          <!-- <button class=\"btn btn-primary btn-sm\">Edit</button> -->\n        </td>\n      </tr>\n    </ng-container>\n  </tbody>\n</table>\n"
 
 /***/ }),
 
@@ -206,7 +228,7 @@ module.exports = "<table class=\"table\" id=\"productTable\">\n  <thead>\n    <t
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <ul class=\"nav nav-tabs\" id=\"dealTabs\" role=\"tablist\">\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link active\"\n        id=\"active-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"product_active\"\n        role=\"tab\"\n        aria-controls=\"active\"\n        aria-selected=\"true\"\n        >Active Products</a\n      >\n    </li>\n  </ul>\n  <br>\n    <form class=\"float-left my-2\">\n      <input\n        class=\"form-control\"\n        type=\"search\"\n        placeholder=\"Search\"\n        aria-label=\"Search\"\n        id=\"productSearchInput\"\n        (keyup)=\"search()\"\n      />\n    </form>\n    <div class=\"float-right my-2\">\n      <button\n        type=\"button\"\n        class=\"btn btn-outline-success btn-block\"\n        data-toggle=\"modal\"\n        data-target=\"#createForm\"\n        data-whatever=\"@mdo\"\n      >\n        Create\n      </button>\n  </div>\n  <div class=\"tab-content\" id=\"productsLists\">\n    <router-outlet></router-outlet>\n  </div>\n  <div\n    class=\"modal fade\"\n    id=\"createForm\"\n    tabindex=\"-1\"\n    role=\"dialog\"\n    aria-labelledby=\"createFrom\"\n    aria-hidden=\"true\"\n  >\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"createFrom\">Product Create Form</h5>\n          <button\n            type=\"button\"\n            class=\"close\"\n            data-dismiss=\"modal\"\n            aria-label=\"Close\"\n          >\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form>\n            <div class=\"form-group\">\n              <label for=\"product-name\" class=\"col-form-label\">Name:</label>\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-name\"\n                name=\"name\"\n                [(ngModel)]=\"product.name\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-condition\" class=\"col-form-label\"\n                >Condition:</label\n              >\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-condition\"\n                name=\"condition\"\n                [(ngModel)]=\"product.condition\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-price\" class=\"col-form-label\">Price:</label>\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-price\"\n                name=\"msrp\"\n                [(ngModel)]=\"product.msrp\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-asin\" class=\"col-form-label\">ASIN:</label>\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-asin\"\n                name=\"asin\"\n                [(ngModel)]=\"product.asin\"\n              />\n              Each ASIN consists of 10 alphanumerics. Search listings with the\n              same ASINs.\n            </div>\n            <div class=\"row\">\n              <div class=\"form-group col-md-6\">\n                <label for=\"product-upc\" class=\"col-form-label\">UPC:</label>\n                <input\n                  type=\"text\"\n                  class=\"form-control\"\n                  id=\"product-upc\"\n                  name=\"upc\"\n                  [(ngModel)]=\"product.upc\"\n                />\n              </div>\n              <div class=\"form-group col-md-6\">\n                <label for=\"product-weight\" class=\"col-form-label\"\n                  >Weight:</label\n                >\n                <input type=\"text\" class=\"form-control\" id=\"product-weight\" name=\"weight\" [(ngModel)]=\"product.weight\"/>\n              </div>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-Note\" class=\"col-form-label\">Note:</label>\n              <textarea\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-note\"\n                cols=\"30\"\n                rows=\"10\"\n                name=\"note\"\n                [(ngModel)]=\"product.note\"\n              ></textarea>\n            </div>\n          </form>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">\n            Close\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\" (click)=\"create()\" data-dismiss=\"modal\">Add</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <ul class=\"nav nav-tabs\" id=\"dealTabs\" role=\"tablist\">\n    <li class=\"nav-item\">\n      <a\n        class=\"nav-link active\"\n        id=\"active-tab\"\n        data-toggle=\"tab\"\n        routerLink=\"product_active\"\n        role=\"tab\"\n        aria-controls=\"active\"\n        aria-selected=\"true\"\n        >Active Products</a\n      >\n    </li>\n  </ul>\n  <br>\n    <form class=\"float-left my-2\">\n      <input\n        class=\"form-control\"\n        type=\"search\"\n        placeholder=\"Search\"\n        aria-label=\"Search\"\n        id=\"productSearchInput\"\n        (keyup)=\"search()\"\n      />\n    </form>\n    <div class=\"float-right my-2\">\n      <button\n        type=\"button\"\n        class=\"btn btn-outline-success btn-block\"\n        data-toggle=\"modal\"\n        data-target=\"#createForm\"\n        data-whatever=\"@mdo\"\n      >\n        Create\n      </button>\n  </div>\n  <div class=\"tab-content\" id=\"productsLists\">\n    <router-outlet></router-outlet>\n  </div>\n  <div\n    class=\"modal fade\"\n    id=\"createForm\"\n    tabindex=\"-1\"\n    role=\"dialog\"\n    aria-labelledby=\"createFrom\"\n    aria-hidden=\"true\"\n  >\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"createFrom\">Product Create Form</h5>\n          <button\n            type=\"button\"\n            class=\"close\"\n            data-dismiss=\"modal\"\n            aria-label=\"Close\"\n          >\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form>\n            <div class=\"form-group\">\n              <label for=\"product-name\" class=\"col-form-label\">Name:</label>\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-name\"\n                name=\"name\"\n                [(ngModel)]=\"product.name\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-condition\" class=\"col-form-label\"\n                >Condition:</label\n              >\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-condition\"\n                name=\"condition\"\n                [(ngModel)]=\"product.condition\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-price\" class=\"col-form-label\">Price:</label>\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-price\"\n                name=\"msrp\"\n                [(ngModel)]=\"product.msrp\"\n              />\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-asin\" class=\"col-form-label\">ASIN:</label>\n              <input\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-asin\"\n                name=\"asin\"\n                [(ngModel)]=\"product.asin\"\n              />\n              Each ASIN consists of 10 alphanumerics. Search listings with the\n              same ASINs.\n            </div>\n            <div class=\"row\">\n              <div class=\"form-group col-md-6\">\n                <label for=\"product-upc\" class=\"col-form-label\">UPC:</label>\n                <input\n                  type=\"text\"\n                  class=\"form-control\"\n                  id=\"product-upc\"\n                  name=\"upc\"\n                  [(ngModel)]=\"product.upc\"\n                />\n              </div>\n              <div class=\"form-group col-md-6\">\n                <label for=\"product-weight\" class=\"col-form-label\"\n                  >Weight:</label\n                >\n                <input type=\"text\" class=\"form-control\" id=\"product-weight\" name=\"weight\" [(ngModel)]=\"product.weight\"/>\n              </div>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product-Note\" class=\"col-form-label\">Note:</label>\n              <textarea\n                type=\"text\"\n                class=\"form-control\"\n                id=\"product-note\"\n                cols=\"30\"\n                rows=\"10\"\n                name=\"note\"\n                [(ngModel)]=\"product.note\"\n              ></textarea>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"product_link\" class=\"col-form-label\">Product Image Link</label>\n              <input type=\"text\" class=\"form-control\" id=\"product_link\" name=\"productLink\" [(ngModel)]=\"product.link\" />\n            </div>\n          </form>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">\n            Close\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\" (click)=\"create()\" data-dismiss=\"modal\">Add</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -228,7 +250,7 @@ module.exports = "<div\n  class=\"d-flex flex-column flex-md-row align-items-cen
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div ng-controller=\"registerFromController\">\n  <div class=\"text-center mb-4\">\n    <img class=\"mb-4\" src=\"./assets/bootstrap-solid.svg\" alt=\"\" width=\"72\" height=\"72\" />\n  </div>\n  <form class=\"form-signin\" (ngSubmit)=\"user_register()\" #registerFrom=\"ngForm\">\n    <div class=\"alert alert-primary\" role=\"alert\" *ngIf=\"isRegistered\">\n      You have successfully registered!\n      <br />\n      <a class=\"alert-link\" routerLink=\"/signin\">Click here back to sign in</a>\n      <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n        <span aria-hidden=\"true\">&times;</span>\n      </button>\n    </div>\n    <div class=\"alert alert-danger\" role=\"alert\"\n      *ngIf=\"!pwdValid() && !password.pristine && !ConfirmedPassword.pristine\">\n      Password and Confirmed Password are not match!\n    </div>\n    <div class=\"form-label-group\">\n      <input type=\"text\" class=\"form-control\" id=\"FirstName\" required autofocus [(ngModel)]=\"register.FirstName\"\n        name=\"FirstName\" #FirstName=\"ngModel\" />\n      <label for=\"FirstName\">First Name</label>\n    </div>\n    <div class=\"form-label-group\">\n      <input type=\"text\" class=\"form-control\" id=\"LastName\" required autofocus [(ngModel)]=\"register.LastName\"\n        name=\"LastName\" />\n      <label for=\"inputLastName\">Last Name</label>\n    </div>\n    <div class=\"form-label-group\">\n      <input type=\"email\" class=\"form-control\" id=\"email\" name=\"email\" required autofocus [(ngModel)]=\"register.email\"\n        ngModel email #email=\"ngModel\" />\n      <label for=\"inputEmail\">Email</label>\n      <small class=\"form-text text-muted\">* Required</small>\n    </div>\n    <div class=\"form-label-group\">\n      <input type=\"password\" class=\"form-control\" id=\"password\" required autofocus [(ngModel)]=\"register.password\"\n        name=\"password\" #password=\"ngModel\" />\n      <label for=\"password\">Password</label>\n      <small class=\"form-text text-muted\">* Required</small>\n    </div>\n    <div class=\"form-label-group\">\n      <input type=\"password\" class=\"form-control\" id=\"ConfirmedPassword\" required autofocus\n        [(ngModel)]=\"confirmedPassword\" name=\"confirmedPassword\" #ConfirmedPassword=\"ngModel\" [(ngModel)]=\"confirmedPassword\"/>\n      <label for=\"ConfirmedPassword\">Confirmed Password</label>\n      <small class=\"form-text text-muted\">* Required</small>\n    </div>\n    <button class=\"btn btn-lg btn-primary btn-block\" [disabled]=\"!pwdValid()\" type=\"submit\">\n      Register\n    </button>\n    <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" routerLink=\"/signin\">\n        Back to Sign in\n      </button>\n  </form>\n"
+module.exports = "<div ng-controller=\"registerFromController\">\n  <div class=\"text-center mb-4\">\n    <img class=\"mb-4\" src=\"./assets/bootstrap-solid.svg\" alt=\"\" width=\"72\" height=\"72\" />\n  </div>\n  <form class=\"form-signin\" (ngSubmit)=\"user_register()\" #registerFrom=\"ngForm\">\n    <div class=\"alert alert-primary\" role=\"alert\" *ngIf=\"isRegistered\">\n      You have successfully registered!\n      <br />\n      <a class=\"alert-link\" routerLink=\"/signin\">Click here back to sign in</a>\n      <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n        <span aria-hidden=\"true\">&times;</span>\n      </button>\n    </div>\n    <div class=\"alert alert-danger\" role=\"alert\"\n      *ngIf=\"!pwdValid() && !password.pristine && !ConfirmedPassword.pristine\">\n      Password and Confirmed Password are not match!\n    </div>\n    <div class=\"form-label-group\">\n      <input type=\"text\" class=\"form-control\" id=\"username\" required autofocus [(ngModel)]=\"register.username\"\n        name=\"username\" required/>\n      <label for=\"username\">Username</label>\n    </div>\n    <div class=\"form-label-group\">\n      <input type=\"text\" class=\"form-control\" id=\"phone\" required autofocus [(ngModel)]=\"register.phone\"\n        name=\"phone\" required/>\n      <label for=\"phone\">phone</label>\n    </div>\n    <div class=\"form-label-group\">\n      <input type=\"email\" class=\"form-control\" id=\"email\" name=\"email\" required autofocus [(ngModel)]=\"register.email\" required/>\n      <label for=\"inputEmail\">Email</label>\n    </div>\n    <div class=\"form-label-group\">\n      <input type=\"password\" class=\"form-control\" id=\"password\" required autofocus [(ngModel)]=\"register.password\"\n        name=\"password\" #password=\"ngModel\" required/>\n      <label for=\"password\">Password</label>\n    </div>\n    <div class=\"form-label-group\">\n      <input type=\"password\" class=\"form-control\" id=\"ConfirmedPassword\" required autofocus\n        [(ngModel)]=\"confirmedPassword\" name=\"confirmedPassword\" #ConfirmedPassword=\"ngModel\" [(ngModel)]=\"confirmedPassword\"/>\n      <label for=\"ConfirmedPassword\">Confirmed Password</label>\n      <small class=\"form-text text-muted\">Fields all required</small>\n    </div>\n    <button class=\"btn btn-lg btn-primary btn-block\" [disabled]=\"!pwdValid()\" type=\"submit\">\n      Register\n    </button>\n    <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" routerLink=\"/signin\">\n        Back to Sign in\n      </button>\n  </form>\n"
 
 /***/ }),
 
@@ -275,6 +297,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inbound_reported_list_reported_list_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./inbound/reported-list/reported-list.component */ "./src/app/inbound/reported-list/reported-list.component.ts");
 /* harmony import */ var _inbound_history_list_history_list_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./inbound/history-list/history-list.component */ "./src/app/inbound/history-list/history-list.component.ts");
 /* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var _groups_user_groups_user_groups_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./groups/user-groups/user-groups.component */ "./src/app/groups/user-groups/user-groups.component.ts");
+/* harmony import */ var _groups_user_join_user_join_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./groups/user-join/user-join.component */ "./src/app/groups/user-join/user-join.component.ts");
+
+
 
 
 
@@ -340,9 +366,11 @@ var routes = [
             { path: 'group_blocked', component: _groups_groups_blocked_list_groups_blocked_list_component__WEBPACK_IMPORTED_MODULE_15__["GroupsBlockedListComponent"] },
             { path: 'group_active', component: _groups_groups_active_list_groups_active_list_component__WEBPACK_IMPORTED_MODULE_14__["GroupsActiveListComponent"] },
             { path: 'group_waiting', component: _groups_groups_waiting_list_groups_waiting_list_component__WEBPACK_IMPORTED_MODULE_16__["GroupsWaitingListComponent"] },
+            { path: 'user_groups', component: _groups_user_groups_user_groups_component__WEBPACK_IMPORTED_MODULE_22__["UserGroupsComponent"] },
             { path: '', component: _groups_groups_active_list_groups_active_list_component__WEBPACK_IMPORTED_MODULE_14__["GroupsActiveListComponent"] }
         ]
     },
+    { path: 'user_join', component: _groups_user_join_user_join_component__WEBPACK_IMPORTED_MODULE_23__["UserJoinComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]] },
     {
         path: 'inbound',
         component: _inbound_inbound_component__WEBPACK_IMPORTED_MODULE_17__["InboundComponent"],
@@ -469,6 +497,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inbound_history_list_history_list_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./inbound/history-list/history-list.component */ "./src/app/inbound/history-list/history-list.component.ts");
 /* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
 /* harmony import */ var _custom_pipes_linkify_pipe__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./custom-pipes/linkify.pipe */ "./src/app/custom-pipes/linkify.pipe.ts");
+/* harmony import */ var _groups_user_groups_user_groups_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./groups/user-groups/user-groups.component */ "./src/app/groups/user-groups/user-groups.component.ts");
+/* harmony import */ var _groups_user_join_user_join_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./groups/user-join/user-join.component */ "./src/app/groups/user-join/user-join.component.ts");
+
+
 
 
 
@@ -524,6 +556,8 @@ var AppModule = /** @class */ (function () {
                 _inbound_history_list_history_list_component__WEBPACK_IMPORTED_MODULE_25__["HistoryListComponent"],
                 _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_26__["DashboardComponent"],
                 _custom_pipes_linkify_pipe__WEBPACK_IMPORTED_MODULE_27__["LinkifyPipe"],
+                _groups_user_groups_user_groups_component__WEBPACK_IMPORTED_MODULE_28__["UserGroupsComponent"],
+                _groups_user_join_user_join_component__WEBPACK_IMPORTED_MODULE_29__["UserJoinComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -614,20 +648,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
+
 
 
 var DashboardComponent = /** @class */ (function () {
-    function DashboardComponent() {
+    function DashboardComponent(authenticationService) {
+        this.authenticationService = authenticationService;
     }
     DashboardComponent.prototype.ngOnInit = function () {
+        if (this.authenticationService.currentUserValue) {
+            if (this.authenticationService.currentUserValue[2] === 'company') {
+                this.privilege = true;
+            }
+            else {
+                this.privilege = false;
+            }
+        }
     };
+    DashboardComponent.ctorParameters = function () { return [
+        { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"] }
+    ]; };
     DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-dashboard',
             template: __webpack_require__(/*! raw-loader!./dashboard.component.html */ "./node_modules/raw-loader/index.js!./src/app/dashboard/dashboard.component.html"),
+            providers: [_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"]],
             styles: [__webpack_require__(/*! ./dashboard.component.scss */ "./src/app/dashboard/dashboard.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"]])
     ], DashboardComponent);
     return DashboardComponent;
 }());
@@ -662,6 +711,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_group_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/group.service */ "./src/app/services/group.service.ts");
 /* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/authentication.service */ "./src/app/services/authentication.service.ts");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _models_subscription__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../models/subscription */ "./src/app/models/subscription.ts");
+
 
 
 
@@ -672,6 +723,7 @@ var GroupsActiveListComponent = /** @class */ (function () {
         this.groupService = groupService;
         this.authenticationService = authenticationService;
         this.statusLevel = ['Ask To Follow', 'Active', 'Blocked'];
+        this.selectSubscription = new _models_subscription__WEBPACK_IMPORTED_MODULE_5__["Subscription"](null, null, null);
     }
     GroupsActiveListComponent.prototype.ngOnInit = function () {
         if (this.authenticationService.currentUserValue) {
@@ -691,6 +743,36 @@ var GroupsActiveListComponent = /** @class */ (function () {
                 .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])())
                 .subscribe(function (data) {
                 _this.followersList = data;
+            });
+        }
+    };
+    GroupsActiveListComponent.prototype.setActive = function (id) {
+        var _this = this;
+        this.selectId = id;
+        this.selectSubscription.individual = this.followersList[this.selectId].individual;
+        this.selectSubscription.company = this.followersList[this.selectId].company;
+        if (id >= 0) {
+            this.groupService
+                .setActive(this.selectSubscription)
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])())
+                .subscribe(function (data) {
+                _this.followersList[id].status = data.status;
+                console.log(_this.followersList[id].status);
+            });
+        }
+    };
+    GroupsActiveListComponent.prototype.setBlock = function (id) {
+        var _this = this;
+        this.selectId = id;
+        this.selectSubscription.individual = this.followersList[this.selectId].individual;
+        this.selectSubscription.company = this.followersList[this.selectId].company;
+        if (id >= 0) {
+            this.groupService
+                .setBlock(this.selectSubscription)
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])())
+                .subscribe(function (data) {
+                _this.followersList[id].status = data.status;
+                console.log(_this.followersList[id].status);
             });
         }
     };
@@ -896,12 +978,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GroupsComponent", function() { return GroupsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
 
 
 var GroupsComponent = /** @class */ (function () {
-    function GroupsComponent() {
+    function GroupsComponent(router) {
+        this.router = router;
     }
     GroupsComponent.prototype.ngOnInit = function () {
+        this.currentPath = this.router.url;
+        if (this.currentPath === '/groups/user_groups') {
+            this.isGroupTab = true;
+        }
+        else {
+            this.isGroupTab = false;
+        }
     };
     GroupsComponent.prototype.search = function () {
         // Declare variables
@@ -924,15 +1016,240 @@ var GroupsComponent = /** @class */ (function () {
             }
         }
     };
+    GroupsComponent.ctorParameters = function () { return [
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+    ]; };
     GroupsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-groups',
             template: __webpack_require__(/*! raw-loader!./groups.component.html */ "./node_modules/raw-loader/index.js!./src/app/groups/groups.component.html"),
             styles: [__webpack_require__(/*! ./groups.component.scss */ "./src/app/groups/groups.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], GroupsComponent);
     return GroupsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/groups/user-groups/user-groups.component.scss":
+/*!***************************************************************!*\
+  !*** ./src/app/groups/user-groups/user-groups.component.scss ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2dyb3Vwcy91c2VyLWdyb3Vwcy91c2VyLWdyb3Vwcy5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/groups/user-groups/user-groups.component.ts":
+/*!*************************************************************!*\
+  !*** ./src/app/groups/user-groups/user-groups.component.ts ***!
+  \*************************************************************/
+/*! exports provided: UserGroupsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserGroupsComponent", function() { return UserGroupsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_group_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/group.service */ "./src/app/services/group.service.ts");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _models_group__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../models/group */ "./src/app/models/group.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+
+
+
+
+
+
+var UserGroupsComponent = /** @class */ (function () {
+    function UserGroupsComponent(groupService, authenticationService) {
+        this.groupService = groupService;
+        this.authenticationService = authenticationService;
+        this.selectedGroup = new _models_group__WEBPACK_IMPORTED_MODULE_4__["Group"]('', '', '');
+        this.createGroup = new _models_group__WEBPACK_IMPORTED_MODULE_4__["Group"]('', '', '');
+    }
+    UserGroupsComponent.prototype.ngOnInit = function () {
+        if (this.authenticationService.currentUserValue) {
+            this.currentUser = this.authenticationService.currentUserValue[0];
+            if (this.authenticationService.currentUserValue[2] === 'company') {
+                this.privilege = true;
+                this.groupRetrieve();
+                this.getAll();
+            }
+            else {
+                this.privilege = false;
+                // error handle, should not be there.
+            }
+        }
+    };
+    UserGroupsComponent.prototype.getAll = function () {
+        var _this = this;
+        this.groupService
+            .allSubscribers(this.currentUser)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])())
+            .subscribe(function (data) {
+            _this.allMembers = data;
+        }, function (error) {
+            console.log(error);
+        }, function () {
+            setTimeout(function () {
+                $('.selectpicker').selectpicker('refresh');
+            });
+        });
+    };
+    // retrieve all groups
+    UserGroupsComponent.prototype.groupRetrieve = function () {
+        var _this = this;
+        this.groupService
+            .groupRetrieve(this.currentUser)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])())
+            .subscribe(function (data) {
+            _this.groupList = data;
+        });
+    };
+    // create groups
+    UserGroupsComponent.prototype.groupCreate = function () {
+        var _this = this;
+        if (this.createGroup.name && this.createGroup.member) {
+            this.createGroup.creator = this.currentUser;
+        }
+        this.groupService
+            .groupCreate(this.createGroup)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])())
+            .subscribe(function (data) {
+            _this.isCreated = true;
+            _this.createGroup.clear();
+            _this.ngOnInit();
+        });
+    };
+    // delete groups
+    UserGroupsComponent.prototype.groupDelete = function (id, pageId) {
+        var _this = this;
+        this.groupService
+            .groupDelete(id)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])())
+            .subscribe(function (data) {
+            _this.groupList.pop(pageId);
+            _this.isDeleted = true;
+            _this.ngOnInit();
+        });
+    };
+    UserGroupsComponent.ctorParameters = function () { return [
+        { type: _services_group_service__WEBPACK_IMPORTED_MODULE_2__["GroupService"] },
+        { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"] }
+    ]; };
+    UserGroupsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-user-groups',
+            template: __webpack_require__(/*! raw-loader!./user-groups.component.html */ "./node_modules/raw-loader/index.js!./src/app/groups/user-groups/user-groups.component.html"),
+            providers: [_services_group_service__WEBPACK_IMPORTED_MODULE_2__["GroupService"]],
+            styles: [__webpack_require__(/*! ./user-groups.component.scss */ "./src/app/groups/user-groups/user-groups.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_group_service__WEBPACK_IMPORTED_MODULE_2__["GroupService"],
+            _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"]])
+    ], UserGroupsComponent);
+    return UserGroupsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/groups/user-join/user-join.component.scss":
+/*!***********************************************************!*\
+  !*** ./src/app/groups/user-join/user-join.component.scss ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2dyb3Vwcy91c2VyLWpvaW4vdXNlci1qb2luLmNvbXBvbmVudC5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/groups/user-join/user-join.component.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/groups/user-join/user-join.component.ts ***!
+  \*********************************************************/
+/*! exports provided: UserJoinComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserJoinComponent", function() { return UserJoinComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _services_group_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/group.service */ "./src/app/services/group.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+
+
+
+
+
+var UserJoinComponent = /** @class */ (function () {
+    function UserJoinComponent(authenticationService, groupService) {
+        this.authenticationService = authenticationService;
+        this.groupService = groupService;
+    }
+    UserJoinComponent.prototype.ngOnInit = function () {
+        if (this.authenticationService.currentUserValue) {
+            if (this.authenticationService.currentUserValue[2] === 'company') {
+                this.privilege = true;
+                this.currentUser = this.authenticationService.currentUserValue[0];
+            }
+            else {
+                this.privilege = false;
+                this.currentUser = this.authenticationService.currentUserValue[0];
+            }
+        }
+    };
+    UserJoinComponent.prototype.checkRelationship = function () {
+        var _this = this;
+        this.groupService
+            .checkRelationship(this.currentUser, this.company)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])())
+            .subscribe(function (data) {
+            if (data) {
+                _this.isExisted = true;
+            }
+        }, function (error) {
+            console.log(error);
+        }, function () {
+            if (!_this.isExisted) {
+                _this.request(_this.currentUser, _this.company);
+            }
+        });
+    };
+    UserJoinComponent.prototype.request = function (individual, company) {
+        var _this = this;
+        this.groupService
+            .create(individual, company)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])())
+            .subscribe(function (data) {
+            _this.isRequested = true;
+        });
+    };
+    UserJoinComponent.ctorParameters = function () { return [
+        { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"] },
+        { type: _services_group_service__WEBPACK_IMPORTED_MODULE_3__["GroupService"] }
+    ]; };
+    UserJoinComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-user-join',
+            template: __webpack_require__(/*! raw-loader!./user-join.component.html */ "./node_modules/raw-loader/index.js!./src/app/groups/user-join/user-join.component.html"),
+            providers: [_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"]],
+            styles: [__webpack_require__(/*! ./user-join.component.scss */ "./src/app/groups/user-join/user-join.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"],
+            _services_group_service__WEBPACK_IMPORTED_MODULE_3__["GroupService"]])
+    ], UserJoinComponent);
+    return UserJoinComponent;
 }());
 
 
@@ -1012,14 +1329,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeActiveDealListComponent", function() { return HomeActiveDealListComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_deal_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/deal.service */ "./src/app/services/deal.service.ts");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/authentication.service */ "./src/app/services/authentication.service.ts");
-/* harmony import */ var _services_product_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/product.service */ "./src/app/services/product.service.ts");
-/* harmony import */ var _services_group_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/group.service */ "./src/app/services/group.service.ts");
-/* harmony import */ var _models_inbound__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../models/inbound */ "./src/app/models/inbound.ts");
-/* harmony import */ var _services_inbound_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/inbound.service */ "./src/app/services/inbound.service.ts");
-/* harmony import */ var _custom_pipes_linkify_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../custom-pipes/linkify.pipe */ "./src/app/custom-pipes/linkify.pipe.ts");
+/* harmony import */ var _models_deal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models/deal */ "./src/app/models/deal.ts");
+/* harmony import */ var _services_deal_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/deal.service */ "./src/app/services/deal.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _services_product_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/product.service */ "./src/app/services/product.service.ts");
+/* harmony import */ var _services_group_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/group.service */ "./src/app/services/group.service.ts");
+/* harmony import */ var _models_inbound__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../models/inbound */ "./src/app/models/inbound.ts");
+/* harmony import */ var _services_inbound_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/inbound.service */ "./src/app/services/inbound.service.ts");
+/* harmony import */ var _custom_pipes_linkify_pipe__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../custom-pipes/linkify.pipe */ "./src/app/custom-pipes/linkify.pipe.ts");
+
 
 
 
@@ -1039,7 +1358,9 @@ var HomeActiveDealListComponent = /** @class */ (function () {
         this.inboundService = inboundService;
         this.linkify = linkify;
         this.isCreated = false;
-        this.inbound = new _models_inbound__WEBPACK_IMPORTED_MODULE_7__["Inbound"]('', '', null, '', '', '', null, null, null);
+        this.inbound = new _models_inbound__WEBPACK_IMPORTED_MODULE_8__["Inbound"]('', '', null, '', '', '', null, null, null);
+        this.selectDeal = new _models_deal__WEBPACK_IMPORTED_MODULE_2__["Deal"](null, '', '', null, '', '', false, false, false, '');
+        this.selectWarehouse = '';
     }
     HomeActiveDealListComponent.prototype.ngOnInit = function () {
         if (this.authenticationService.currentUserValue) {
@@ -1058,7 +1379,7 @@ var HomeActiveDealListComponent = /** @class */ (function () {
         var _this = this;
         this.dealService
             .tenDeals(creator)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])())
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])())
             .subscribe(function (data) {
             _this.dealList = data;
         });
@@ -1067,66 +1388,99 @@ var HomeActiveDealListComponent = /** @class */ (function () {
         var _this = this;
         this.groupService
             .findfollowing(creator)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])())
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])())
             .subscribe(function (data) {
             _this.followingList = data;
             // console.log(this.followingList);
         }, function (error) {
             console.log(error);
         }, function () {
-            _this.getActiveList(_this.followingList[0].company);
+            if (_this.followingList[0]) {
+                _this.getActiveList(_this.followingList[0].company);
+            }
+            else {
+                _this.noFollowing = true;
+            }
         });
     };
     HomeActiveDealListComponent.prototype.takeDeal = function (productId) {
-        if (productId >= 0) {
-            this.inbound.product = this.dealList[productId].product_name;
-            this.inbound.price = this.dealList[productId].price;
-            this.inbound.warehouse = 'NH';
-            this.inbound.company = this.followingList[0].company;
-            this.inbound.individual = this.creator;
-            this.inbound.status = 0;
-            this.inbound.companyStatus = 0;
-            this.inbound.dealId = this.dealList[productId].id;
+        this.selectProductId = productId;
+        if (!this.privilege) {
+            if (productId >= 0) {
+                this.inbound.product = this.dealList[productId].product_name;
+                this.inbound.price = this.dealList[productId].price;
+                this.inbound.quantity = this.dealList[productId].quantity;
+                this.inbound.warehouse = 'NH';
+                if (this.followingList) {
+                    this.inbound.company = this.followingList[0].company;
+                }
+                this.inbound.individual = this.creator;
+                this.inbound.status = 0;
+                this.inbound.companyStatus = 0;
+                this.inbound.dealId = this.dealList[productId].id;
+            }
+        }
+        else {
+            this.selectDeal.id = this.dealList[productId].id;
+            this.selectDeal.productName = this.dealList[productId].product_name;
+            this.selectDeal.quantity = this.dealList[productId].quantity;
+            this.selectDeal.price = this.dealList[productId].price;
+            this.selectWarehouse = 'NH';
         }
     };
     HomeActiveDealListComponent.prototype.createInbound = function () {
         var _this = this;
         this.inboundService
             .create(this.inbound)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])())
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])())
             .subscribe(function (data) {
+            _this.dealList[_this.selectProductId].quantity = data.quantity;
             _this.isCreated = true;
             _this.inbound.clear();
+            _this.selectProductId = null;
+        });
+    };
+    HomeActiveDealListComponent.prototype.updateCompany = function () {
+        var _this = this;
+        this.dealService
+            .updateCompany(this.selectDeal)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])())
+            .subscribe(function (data) {
+            console.log(_this.selectProductId);
+            _this.dealList[_this.selectProductId].price = data.price;
+            _this.dealList[_this.selectProductId].quantity = data.quantity;
+            _this.dealList[_this.selectProductId].quantityTaken = data.quantityTaken;
+            _this.isUpdated = true;
         });
     };
     HomeActiveDealListComponent.ctorParameters = function () { return [
-        { type: _services_deal_service__WEBPACK_IMPORTED_MODULE_2__["DealService"] },
-        { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"] },
-        { type: _services_product_service__WEBPACK_IMPORTED_MODULE_5__["ProductService"] },
-        { type: _services_group_service__WEBPACK_IMPORTED_MODULE_6__["GroupService"] },
-        { type: _services_inbound_service__WEBPACK_IMPORTED_MODULE_8__["InboundService"] },
-        { type: _custom_pipes_linkify_pipe__WEBPACK_IMPORTED_MODULE_9__["LinkifyPipe"] }
+        { type: _services_deal_service__WEBPACK_IMPORTED_MODULE_3__["DealService"] },
+        { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"] },
+        { type: _services_product_service__WEBPACK_IMPORTED_MODULE_6__["ProductService"] },
+        { type: _services_group_service__WEBPACK_IMPORTED_MODULE_7__["GroupService"] },
+        { type: _services_inbound_service__WEBPACK_IMPORTED_MODULE_9__["InboundService"] },
+        { type: _custom_pipes_linkify_pipe__WEBPACK_IMPORTED_MODULE_10__["LinkifyPipe"] }
     ]; };
     HomeActiveDealListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-home-active-deal-list',
             template: __webpack_require__(/*! raw-loader!./home-active-deal-list.component.html */ "./node_modules/raw-loader/index.js!./src/app/home/home-active-deal-list/home-active-deal-list.component.html"),
             providers: [
-                _services_deal_service__WEBPACK_IMPORTED_MODULE_2__["DealService"],
-                _services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"],
-                _services_product_service__WEBPACK_IMPORTED_MODULE_5__["ProductService"],
-                _services_group_service__WEBPACK_IMPORTED_MODULE_6__["GroupService"],
-                _services_inbound_service__WEBPACK_IMPORTED_MODULE_8__["InboundService"],
-                _custom_pipes_linkify_pipe__WEBPACK_IMPORTED_MODULE_9__["LinkifyPipe"]
+                _services_deal_service__WEBPACK_IMPORTED_MODULE_3__["DealService"],
+                _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"],
+                _services_product_service__WEBPACK_IMPORTED_MODULE_6__["ProductService"],
+                _services_group_service__WEBPACK_IMPORTED_MODULE_7__["GroupService"],
+                _services_inbound_service__WEBPACK_IMPORTED_MODULE_9__["InboundService"],
+                _custom_pipes_linkify_pipe__WEBPACK_IMPORTED_MODULE_10__["LinkifyPipe"]
             ],
             styles: [__webpack_require__(/*! ./home-active-deal-list.component.scss */ "./src/app/home/home-active-deal-list/home-active-deal-list.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_deal_service__WEBPACK_IMPORTED_MODULE_2__["DealService"],
-            _services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"],
-            _services_product_service__WEBPACK_IMPORTED_MODULE_5__["ProductService"],
-            _services_group_service__WEBPACK_IMPORTED_MODULE_6__["GroupService"],
-            _services_inbound_service__WEBPACK_IMPORTED_MODULE_8__["InboundService"],
-            _custom_pipes_linkify_pipe__WEBPACK_IMPORTED_MODULE_9__["LinkifyPipe"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_deal_service__WEBPACK_IMPORTED_MODULE_3__["DealService"],
+            _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"],
+            _services_product_service__WEBPACK_IMPORTED_MODULE_6__["ProductService"],
+            _services_group_service__WEBPACK_IMPORTED_MODULE_7__["GroupService"],
+            _services_inbound_service__WEBPACK_IMPORTED_MODULE_9__["InboundService"],
+            _custom_pipes_linkify_pipe__WEBPACK_IMPORTED_MODULE_10__["LinkifyPipe"]])
     ], HomeActiveDealListComponent);
     return HomeActiveDealListComponent;
 }());
@@ -1298,6 +1652,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_product_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/product.service */ "./src/app/services/product.service.ts");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _services_deal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/deal.service */ "./src/app/services/deal.service.ts");
+/* harmony import */ var _services_group_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/group.service */ "./src/app/services/group.service.ts");
+
 
 
 
@@ -1306,11 +1662,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(dealService, productService, authenticationService) {
+    function HomeComponent(dealService, productService, groupService, authenticationService // private homeActiveDealListComponent: HomeActiveDealListComponent
+    ) {
         this.dealService = dealService;
         this.productService = productService;
+        this.groupService = groupService;
         this.authenticationService = authenticationService;
-        this.deal = new _models_deal__WEBPACK_IMPORTED_MODULE_2__["Deal"](0, '', '', 0, '', '', false, false, false, '');
+        this.deal = new _models_deal__WEBPACK_IMPORTED_MODULE_2__["Deal"](0, '', '', 0, '', '', true, true, false, '');
         this.isCreated = false;
     }
     HomeComponent.prototype.ngOnInit = function () {
@@ -1364,7 +1722,7 @@ var HomeComponent = /** @class */ (function () {
                 ':' +
                 '00';
             this.deal.expiresAt = date;
-            console.log(this.deal);
+            this.deal.members = this.membersTemp.join();
         }
         else {
             // TODO: need to improve error handle.
@@ -1376,7 +1734,12 @@ var HomeComponent = /** @class */ (function () {
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])())
             .subscribe(function (data) {
             _this.isCreated = true;
+            window.location.reload();
+            // console.log(data);
+            // this.homeActiveDealListComponent.dealList[data.id] = this.deal;
+            // console.log(this.homeActiveDealListComponent.dealList[''])
             _this.deal.clear();
+            // this.ngOnInit();
         });
     };
     HomeComponent.prototype.search = function () {
@@ -1400,21 +1763,62 @@ var HomeComponent = /** @class */ (function () {
             }
         }
     };
+    HomeComponent.prototype.makePublic = function () {
+        var _this = this;
+        this.membersTemp = '';
+        this.isPublic = true;
+        this.isPrivate = false;
+        this.groupService
+            .allSubscribers(this.deal.creator)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])())
+            .subscribe(function (data) {
+            _this.memberList = data;
+        }, function (error) {
+            console.log(error);
+        }, function () {
+            setTimeout(function () {
+                $('.selectpicker').selectpicker('refresh');
+                $('.selectpicker').selectpicker('selectAll');
+            });
+        });
+    };
+    HomeComponent.prototype.makePrivate = function () {
+        var _this = this;
+        this.membersTemp = '';
+        this.isPublic = false;
+        this.isPrivate = true;
+        this.groupService
+            .groupRetrieve(this.deal.creator)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])())
+            .subscribe(function (data) {
+            _this.groupList = data;
+        }, function (error) {
+            console.log(error);
+        }, function () {
+            setTimeout(function () {
+                $('.selectpicker').selectpicker('refresh');
+            });
+        });
+    };
     HomeComponent.ctorParameters = function () { return [
         { type: _services_deal_service__WEBPACK_IMPORTED_MODULE_6__["DealService"] },
         { type: _services_product_service__WEBPACK_IMPORTED_MODULE_4__["ProductService"] },
-        { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"] }
+        { type: _services_group_service__WEBPACK_IMPORTED_MODULE_7__["GroupService"] },
+        { type: _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"] // private homeActiveDealListComponent: HomeActiveDealListComponent
+         }
     ]; };
     HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-home',
             template: __webpack_require__(/*! raw-loader!./home.component.html */ "./node_modules/raw-loader/index.js!./src/app/home/home.component.html"),
-            providers: [_services_product_service__WEBPACK_IMPORTED_MODULE_4__["ProductService"], _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"], _services_deal_service__WEBPACK_IMPORTED_MODULE_6__["DealService"]],
+            providers: [_services_product_service__WEBPACK_IMPORTED_MODULE_4__["ProductService"], _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"], _services_deal_service__WEBPACK_IMPORTED_MODULE_6__["DealService"], _services_group_service__WEBPACK_IMPORTED_MODULE_7__["GroupService"]],
             styles: [__webpack_require__(/*! ./home.component.scss */ "./src/app/home/home.component.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_deal_service__WEBPACK_IMPORTED_MODULE_6__["DealService"],
             _services_product_service__WEBPACK_IMPORTED_MODULE_4__["ProductService"],
-            _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"]])
+            _services_group_service__WEBPACK_IMPORTED_MODULE_7__["GroupService"],
+            _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"] // private homeActiveDealListComponent: HomeActiveDealListComponent
+        ])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -1639,6 +2043,12 @@ var ToConfirmListComponent = /** @class */ (function () {
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])())
             .subscribe(function (data) {
             _this.recordList = data;
+        }, function (error) {
+            console.log(error);
+        }, function () {
+            if (_this.recordList.length < 1) {
+                _this.noRecord = true;
+            }
         });
     };
     ToConfirmListComponent.prototype.getRecordsCompany = function (userEmail) {
@@ -1756,6 +2166,7 @@ var Deal = /** @class */ (function () {
         this.dealPublic = null;
         this.notify = null;
         this.creator = '';
+        this.members = '';
     };
     Deal.ctorParameters = function () { return [
         { type: Number },
@@ -1770,6 +2181,44 @@ var Deal = /** @class */ (function () {
         { type: String }
     ]; };
     return Deal;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/models/group.ts":
+/*!*********************************!*\
+  !*** ./src/app/models/group.ts ***!
+  \*********************************/
+/*! exports provided: Group */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Group", function() { return Group; });
+var Group = /** @class */ (function () {
+    function Group(name, creator, member) {
+        this.id = null;
+        this.name = name;
+        this.creator = creator;
+        this.member = member;
+    }
+    /**
+     * name
+     */
+    Group.prototype.clear = function () {
+        this.id = null;
+        this.name = '';
+        this.creator = '';
+        this.member = '';
+    };
+    Group.ctorParameters = function () { return [
+        { type: String },
+        { type: String },
+        { type: String }
+    ]; };
+    return Group;
 }());
 
 
@@ -1853,13 +2302,14 @@ var Product = /** @class */ (function () {
      */
     Product.prototype.clear = function () {
         this.name = '';
-        this.condition = '';
+        this.condition = 'New';
         this.msrp = '';
         this.asin = '';
         this.upc = '';
         this.weight = '';
         this.note = '';
         this.creator = '';
+        this.link = '';
     };
     Product.ctorParameters = function () { return [
         { type: String },
@@ -1889,19 +2339,19 @@ var Product = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Register", function() { return Register; });
 var Register = /** @class */ (function () {
-    function Register(FirstName, LastName, email, password) {
-        if (FirstName === void 0) { FirstName = ''; }
-        if (LastName === void 0) { LastName = ''; }
+    function Register(username, phone, email, password) {
+        if (username === void 0) { username = ''; }
+        if (phone === void 0) { phone = ''; }
         if (email === void 0) { email = ''; }
         if (password === void 0) { password = ''; }
-        this.FirstName = FirstName;
-        this.LastName = LastName;
+        this.username = username;
+        this.phone = phone;
         this.email = email;
         this.password = password;
     }
     Register.prototype.clear = function () {
-        this.FirstName = '';
-        this.LastName = '';
+        this.username = '';
+        this.phone = '';
         this.email = '';
         this.password = '';
     };
@@ -1912,6 +2362,34 @@ var Register = /** @class */ (function () {
         null
     ]; };
     return Register;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/models/subscription.ts":
+/*!****************************************!*\
+  !*** ./src/app/models/subscription.ts ***!
+  \****************************************/
+/*! exports provided: Subscription */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Subscription", function() { return Subscription; });
+var Subscription = /** @class */ (function () {
+    function Subscription(individual, company, status) {
+        this.company = company;
+        this.individual = individual;
+        this.status = status;
+    }
+    Subscription.ctorParameters = function () { return [
+        { type: String },
+        { type: String },
+        { type: Number }
+    ]; };
+    return Subscription;
 }());
 
 
@@ -2060,7 +2538,7 @@ var ProductsComponent = /** @class */ (function () {
     function ProductsComponent(productService, authenticationSerive) {
         this.productService = productService;
         this.authenticationSerive = authenticationSerive;
-        this.product = new _models_product__WEBPACK_IMPORTED_MODULE_4__["Product"]('', '', '', '', '', '', '', '');
+        this.product = new _models_product__WEBPACK_IMPORTED_MODULE_4__["Product"]('', 'New', '', '', '', '', '', '');
         // public debug: any;
         this.isCreated = false;
     }
@@ -2080,6 +2558,7 @@ var ProductsComponent = /** @class */ (function () {
             .subscribe(function (data) {
             console.log(data);
             _this.isCreated = true;
+            window.location.reload();
             _this.product.clear();
         });
     };
@@ -2222,10 +2701,12 @@ var httpOptions = {
     })
 };
 var DealService = /** @class */ (function () {
+    // updatePriceCompanyUrl = 'http://192.168.1.119:8081/api/deal/updatePrice';
     function DealService(http) {
         this.http = http;
         this.createDealUrl = 'http://192.168.1.119:8081/api/createdeal'; // URL to web api
         this.tenDealsUrl = 'http://192.168.1.119:8081/api/deal/active/firstTen';
+        this.updateCompanyUrl = 'http://192.168.1.119:8081/api/deal/update';
     }
     DealService.prototype.createDeal = function (deal) {
         return this.http.post(this.createDealUrl, deal, httpOptions);
@@ -2234,6 +2715,10 @@ var DealService = /** @class */ (function () {
         var creatorJSON = '{ "creator" : ' + '"' + creator + '"' + ' }';
         // console.log(JSON.parse(creator));
         return this.http.post(this.tenDealsUrl, JSON.parse(creatorJSON), httpOptions);
+    };
+    // TODO: update quantity of deal;
+    DealService.prototype.updateCompany = function (deal) {
+        return this.http.post(this.updateCompanyUrl, deal, httpOptions);
     };
     DealService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
@@ -2284,6 +2769,14 @@ var GroupService = /** @class */ (function () {
         this.tenBlockedUrl = 'http://192.168.1.119:8081/api/subscription/findTenBlocked';
         this.tenWaitingUrl = 'http://192.168.1.119:8081/api/subscription/findTenWaiting';
         this.findfollowingUrl = 'http://192.168.1.119:8081/api/subscription/findfollowing';
+        this.checkRelationshipUrl = 'http://192.168.1.119:8081/api/subscription/check';
+        this.createUrl = 'http://192.168.1.119:8081/api/subscription/create';
+        /**
+         * user-group URL
+         */
+        this.userGroupCreateUrl = 'http://192.168.1.119:8081/api/group/create';
+        this.userGroupDeleteUrl = 'http://192.168.1.119:8081/api/group/delete';
+        this.userGroupRetrieveUrl = 'http://192.168.1.119:8081/api/group/retrieve';
     }
     GroupService.prototype.tenSubscribers = function (company) {
         var creatorJSON = '{ "company" : ' + '"' + company + '"' + ' }';
@@ -2318,6 +2811,48 @@ var GroupService = /** @class */ (function () {
         var creatorJSON = '{ "individual" : ' + '"' + individual + '"' + ' }';
         // console.log(JSON.parse(creator));
         return this.http.post(this.findfollowingUrl, JSON.parse(creatorJSON), httpOptions);
+    };
+    GroupService.prototype.checkRelationship = function (individual, company) {
+        var creatorJSON = '{ "individual" : ' +
+            '"' +
+            individual +
+            '"' +
+            ', ' +
+            '"company" : ' +
+            '"' +
+            company +
+            '"' +
+            ' }';
+        // console.log(creatorJSON);
+        return this.http.post(this.checkRelationshipUrl, JSON.parse(creatorJSON), httpOptions);
+    };
+    GroupService.prototype.create = function (individual, company) {
+        var creatorJSON = '{ "individual" : ' +
+            '"' +
+            individual +
+            '"' +
+            ', ' +
+            '"company" : ' +
+            '"' +
+            company +
+            '"' +
+            ' }';
+        return this.http.post(this.createUrl, JSON.parse(creatorJSON), httpOptions);
+    };
+    /**
+     *
+     * user-group service
+     */
+    GroupService.prototype.groupCreate = function (group) {
+        return this.http.post(this.userGroupCreateUrl, group, httpOptions);
+    };
+    GroupService.prototype.groupDelete = function (id) {
+        var creatorJSON = '{ "id" : ' + '"' + id + '"' + ' }';
+        return this.http.post(this.userGroupDeleteUrl, JSON.parse(creatorJSON), httpOptions);
+    };
+    GroupService.prototype.groupRetrieve = function (creator) {
+        var creatorJSON = '{ "creator" : ' + '"' + creator + '"' + ' }';
+        return this.http.post(this.userGroupRetrieveUrl, JSON.parse(creatorJSON), httpOptions);
     };
     GroupService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
@@ -2633,8 +3168,8 @@ var RegisterFormComponent = /** @class */ (function () {
         this.isRegistered = false;
     }
     RegisterFormComponent.prototype.formValid = function () {
-        if (this.register.FirstName &&
-            this.register.LastName &&
+        if (this.register.username &&
+            this.register.phone &&
             this.register.email &&
             this.register.password &&
             this.pwdValid()) {

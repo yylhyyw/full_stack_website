@@ -28,6 +28,7 @@ import { HistoryListComponent } from './inbound/history-list/history-list.compon
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LinkifyPipe } from './custom-pipes/linkify.pipe';
 import { UserGroupsComponent } from './groups/user-groups/user-groups.component';
+import { UserJoinComponent } from './groups/user-join/user-join.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { UserGroupsComponent } from './groups/user-groups/user-groups.component'
     DashboardComponent,
     LinkifyPipe,
     UserGroupsComponent,
+    UserJoinComponent,
   ],
   imports: [
     BrowserModule,

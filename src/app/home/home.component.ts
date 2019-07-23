@@ -11,6 +11,7 @@ import { AuthenticationService } from '../services/authentication.service';
 import { ProductService } from '../services/product.service';
 import { first } from 'rxjs/operators';
 import { DealService } from '../services/deal.service';
+import { GroupService } from '../services/group.service';
 
 declare var $: any;
 
@@ -18,17 +19,16 @@ declare var $: any;
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [ProductService, AuthenticationService, DealService]
+  providers: [ProductService, AuthenticationService, DealService, GroupService]
 })
 export class HomeComponent implements OnInit {
-
   public productList: any;
 
   public privilege: any;
 
   public dubeg: any;
 
-  public deal = new Deal(0, '', '', 0, '', '', false, false, false, '');
+  public deal = new Deal(0, '', '', 0, '', '', true, true, false, '');
 
   public month: string;
 
@@ -45,9 +45,20 @@ export class HomeComponent implements OnInit {
   public error: string;
 
   public isCreated = false;
+
+  public isPublic: any;
+
+  public isPrivate: any;
+
+  public memberList: any;
+
+  public groupList: any;
+
+  public membersTemp: any;
   constructor(
     private dealService: DealService,
     private productService: ProductService,
+    private groupService: GroupService,
     private authenticationService: AuthenticationService // private homeActiveDealListComponent: HomeActiveDealListComponent
   ) {}
 
@@ -106,7 +117,7 @@ export class HomeComponent implements OnInit {
         ':' +
         '00';
       this.deal.expiresAt = date;
-      console.log(this.deal);
+      this.deal.members = this.membersTemp.join();
     } else {
       // TODO: need to improve error handle.
       this.error = 'please fill out all parts';
@@ -122,6 +133,7 @@ export class HomeComponent implements OnInit {
         // this.homeActiveDealListComponent.dealList[data.id] = this.deal;
         // console.log(this.homeActiveDealListComponent.dealList[''])
         this.deal.clear();
+        // this.ngOnInit();
       });
   }
 
@@ -145,5 +157,50 @@ export class HomeComponent implements OnInit {
         }
       }
     }
+  }
+
+  makePublic() {
+    this.membersTemp = '';
+    this.isPublic = true;
+    this.isPrivate = false;
+    this.groupService
+      .allSubscribers(this.deal.creator)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.memberList = data;
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          setTimeout(() => {
+            $('.selectpicker').selectpicker('refresh');
+            $('.selectpicker').selectpicker('selectAll');
+          });
+        }
+      );
+  }
+
+  makePrivate() {
+    this.membersTemp = '';
+    this.isPublic = false;
+    this.isPrivate = true;
+    this.groupService
+      .groupRetrieve(this.deal.creator)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.groupList = data;
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          setTimeout(() => {
+            $('.selectpicker').selectpicker('refresh');
+          });
+        }
+      );
   }
 }

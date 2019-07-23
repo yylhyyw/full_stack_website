@@ -11,6 +11,7 @@ export class Deal {
   public dealPublic: boolean;
   public notify: boolean;
   public creator: string;
+  public members: string;
   constructor(
     products: number,
     productName: string,
@@ -46,5 +47,6 @@ export class Deal {
     this.dealPublic = null;
     this.notify = null;
     this.creator = '';
+    this.members = '';
   }
 }

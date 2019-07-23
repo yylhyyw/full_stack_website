@@ -126,5 +126,30 @@ module.exports = {
         callback(companies);
       });
     }
+  },
+
+  check: function(body, callback) {
+    if (body) {
+      Subscription.findOne({
+        where: {
+          individual: body.individual,
+          company: body.company
+        }
+      }).then(function(result) {
+        callback(result);
+      });
+    }
+  },
+
+  create: function(body, callback) {
+    if (body) {
+      Subscription.create({
+        individual: body.individual,
+        company: body.company,
+        status: 0
+      }).then(function(result) {
+        callback(result);
+      });
+    }
   }
 };

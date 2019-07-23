@@ -11,7 +11,7 @@ import { first } from 'rxjs/operators';
   providers: [ProductService, AuthenticationService]
 })
 export class ProductsComponent implements OnInit {
-  public product = new Product('', '', '', '', '', '', '', '');
+  public product = new Product('', 'New', '', '', '', '', '', '');
 
   // public debug: any;
 

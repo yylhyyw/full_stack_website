@@ -18,9 +18,9 @@ import { InboundComponent } from './inbound/inbound.component';
 import { ToConfirmListComponent } from './inbound/to-confirm-list/to-confirm-list.component';
 import { ReportedListComponent } from './inbound/reported-list/reported-list.component';
 import { HistoryListComponent } from './inbound/history-list/history-list.component';
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {UserGroupsComponent} from './groups/user-groups/user-groups.component';
-
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserGroupsComponent } from './groups/user-groups/user-groups.component';
+import { UserJoinComponent } from './groups/user-join/user-join.component';
 
 const routes: Routes = [
   {
@@ -65,10 +65,12 @@ const routes: Routes = [
       { path: 'group_blocked', component: GroupsBlockedListComponent },
       { path: 'group_active', component: GroupsActiveListComponent },
       { path: 'group_waiting', component: GroupsWaitingListComponent },
-      { path: 'user_groups', component:  UserGroupsComponent},
+      { path: 'user_groups', component: UserGroupsComponent },
       { path: '', component: GroupsActiveListComponent }
     ]
   },
+
+  { path: 'user_join', component: UserJoinComponent, canActivate: [AuthGuard] },
   {
     path: 'inbound',
     component: InboundComponent,

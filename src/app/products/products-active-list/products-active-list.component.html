@@ -9,7 +9,10 @@
   <tbody>
     <ng-container *ngFor="let activeProducts of activeProductsList">
       <tr>
-        <th scopr="row">{{ ('000' + activeProducts.id).slice(-4) }}</th>
+        <th scopr="row"><div>{{ ('000' + activeProducts.id).slice(-4) }}
+          <br>
+            <img src="{{activeProducts.link}}" height="25">
+        </div></th>
         <td>
           {{ activeProducts.name }}
         </td>

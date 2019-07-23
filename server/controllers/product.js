@@ -10,7 +10,8 @@ module.exports = {
       upc: body.upc,
       weight: body.weight,
       note: body.note,
-      creator: body.creator
+      creator: body.creator,
+      link: body.link
     }).then(function(product) {
       callback(product);
     });

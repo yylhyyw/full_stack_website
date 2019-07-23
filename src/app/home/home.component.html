@@ -1,6 +1,7 @@
 <!-- {{ deal | json }}
 {{ selectProduct }}
 {{month}} -->
+<!-- {{deal | json}} -->
 <div class="container">
   <ul class="nav nav-tabs" id="dealTabs" role="tablist">
     <li class="nav-item">
@@ -53,29 +54,29 @@
       >
     </li> -->
   </ul>
-  <br>
-    <form class="float-left my-2">
-      <input
-        class="form-control mr-sm-2"
-        type="text"
-        placeholder="Search"
-        aria-label="Search"
-        id="searchInput"
-        (keyup)="search()"
-      />
-    </form>
-    <div class="float-right my-2">
-      <button
-        type="button"
-        class="btn btn-outline-success btn-block"
-        data-toggle="modal"
-        data-target="#createForm"
-        data-whatever="@mdo"
-        *ngIf="privilege"
-      >
-        Create
-      </button>
-    </div>
+  <br />
+  <form class="float-left my-2">
+    <input
+      class="form-control mr-sm-2"
+      type="text"
+      placeholder="Search"
+      aria-label="Search"
+      id="searchInput"
+      (keyup)="search()"
+    />
+  </form>
+  <div class="float-right my-2">
+    <button
+      type="button"
+      class="btn btn-outline-success btn-block"
+      data-toggle="modal"
+      data-target="#createForm"
+      data-whatever="@mdo"
+      *ngIf="privilege"
+    >
+      Create
+    </button>
+  </div>
 
   <div class="tab-content" id="dealLists">
     <router-outlet></router-outlet>
@@ -123,13 +124,25 @@
             </div>
             <div class="form-group">
               <label for="deal-price" class="col-form-label">Price:</label>
-              <input type="text" class="form-control" id="deal-price" name="price" [(ngModel)]="deal.price"/>
+              <input
+                type="text"
+                class="form-control"
+                id="deal-price"
+                name="price"
+                [(ngModel)]="deal.price"
+              />
             </div>
             <div class="form-group">
               <label for="deal-quantity" class="col-form-label"
                 >Quantity:</label
               >
-              <input type="number" class="form-control" id="deal-quantity" name="quantity" [(ngModel)]="deal.quantity"/>
+              <input
+                type="number"
+                class="form-control"
+                id="deal-quantity"
+                name="quantity"
+                [(ngModel)]="deal.quantity"
+              />
             </div>
             <div class="form-group">
               <label for="deal-expires" class="col-form-label"
@@ -359,9 +372,9 @@
                 Service Tag
               </label>
             </div>
-            Require service tags when members comfirm inbound items.
+            Require service tags when members confirm inbound items.
             <hr />
-            <div class="form-check form-check-inline">
+            <!-- <div class="form-check form-check-inline">
               <input
                 class="form-check-input"
                 type="radio"
@@ -370,7 +383,6 @@
                 value="true"
                 name="dealPublic"
                 [(ngModel)]="deal.dealPublic"
-
               />
               <label class="form-check-label" for="publicRadio">Public</label>
             </div>
@@ -378,14 +390,66 @@
               <input
                 class="form-check-input"
                 type="radio"
-                name="public"
+                name="private"
                 id="privateRadio"
                 value="false"
-                name="dealPriate"
+                name="dealPrivate"
                 [(ngModel)]="deal.dealPublic"
               />
               <label class="form-check-label" for="PrivateRadio">Private</label>
-            </div>
+            </div> -->
+            Make Deal Public Or Private
+            <br>
+            <button
+            type="button"
+            class="btn btn-primary mt-1"
+            (click) = "makePublic()"
+          >
+            Public
+          </button>
+          <button
+          type="button"
+          class="btn btn-primary mt-1 ml-3"
+          (click) ="makePrivate()"
+        >
+          Private
+        </button>
+        <br>
+            <div class="form-group" *ngIf="isPublic">
+                <label for="recipient-name" class="col-form-label">Member:</label>
+                <select
+                  class="selectpicker"
+                  multiple
+                  data-live-search="true"
+                  name="selectedMember"
+                  [(ngModel)]="membersTemp"
+                >
+                  <option
+                    *ngFor="let member of memberList"
+                    name="member"
+                  >
+                    {{ member.individual }}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group" *ngIf="isPrivate">
+                  <label for="recipient-name" class="col-form-label">Member:</label>
+                  <select
+                    class="selectpicker"
+                    multiple
+                    data-live-search="true"
+                    name="selectedMember"
+                    [(ngModel)]="membersTemp"
+                  >
+                    <option
+                      *ngFor="let group of groupList"
+                      name="group"
+                      value="{{group.member}}"
+                    >
+                      {{ group.name }}
+                    </option>
+                  </select>
+                </div>
             <hr />
             Every member can see public offers. Only selected users can see
             private offers.
@@ -410,7 +474,14 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             Close
           </button>
-          <button type="button" class="btn btn-primary" (click)="create()" data-dismiss="modal">Add</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="create()"
+            data-dismiss="modal"
+          >
+            Add
+          </button>
         </div>
       </div>
     </div>

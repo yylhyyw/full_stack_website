@@ -7,6 +7,7 @@ const PrivilegeController = require('../controllers').privilege;
 const ProductController = require('../controllers').product;
 const subscriptionController = require('../controllers').subscription;
 const inboundController = require('../controllers').inbound;
+const userGroupController = require('../controllers').userGroup;
 
 // const user = new User();
 // var sequelize = require("../models");
@@ -83,13 +84,13 @@ router.post('/deal/active/firstTen', (req, res, next) => {
 
 router.post('/deal/update', (req, res, next) => {
   dealController.update(req.body, function(deal) {
-    if(deal) {
+    if (deal) {
       res.status(201).send(deal);
     } else {
       res.status(409).end();
     }
-  })
-})
+  });
+});
 
 /**
  * product api
@@ -233,6 +234,25 @@ router.post('/subscription/findfollowing', (req, res, next) => {
   });
 });
 
+router.post('/subscription/check', (req, res, next) => {
+  subscriptionController.check(req.body, function(result) {
+    if (result) {
+      res.status(201).send(result);
+    } else {
+      res.status(201).send(null);
+    }
+  });
+});
+
+router.post('/subscription/create', (req, res, next) => {
+  subscriptionController.create(req.body, function(result) {
+    if (result) {
+      res.status(201).send(result);
+    } else {
+      res.status(409).end();
+    }
+  });
+});
 /**
  * inbound api post get
  */
@@ -247,7 +267,6 @@ router.post('/inbound/individualFind', (req, res, next) => {
   });
 });
 
-
 router.post('/inbound/confirm', (req, res, next) => {
   inboundController.confirm(req.body.id, function(result) {
     if (result) {
@@ -259,16 +278,18 @@ router.post('/inbound/confirm', (req, res, next) => {
 });
 
 router.post('/inbound/add', (req, res, next) => {
-  dealController.individualTaken(req.body.dealId, req.body.quantity, function(result){
-    if(result){
-      inboundController.create(req.body, result, function(inbound){
-        if(inbound){
+  dealController.individualTaken(req.body.dealId, req.body.quantity, function(
+    result
+  ) {
+    if (result) {
+      inboundController.create(req.body, result, function(inbound) {
+        if (inbound) {
           res.status(201).send(result);
-        }else{
+        } else {
           res.status(409).end();
         }
-      })
-    }else{
+      });
+    } else {
       res.status(409).end();
     }
   });
@@ -283,4 +304,40 @@ router.post('/inbound/companyFind', (req, res, next) => {
     }
   });
 });
+
+/**
+ * user Group retrieve, create, delete.
+ */
+
+router.post('/group/create', (req, res, next) => {
+  userGroupController.create(req.body, function(result) {
+    if (result) {
+      res.status(201).send(result);
+    } else {
+      res.status(409).end();
+    }
+  });
+});
+
+router.post('/group/retrieve', (req, res, next) => {
+  console.log('got called');
+  userGroupController.retrieve(req.body.creator, function(result) {
+    if (result) {
+      res.status(201).send(result);
+    } else {
+      res.status(409).end();
+    }
+  });
+});
+
+router.post('/group/delete', (req, res, next) => {
+  userGroupController.delete(req.body.id, function(result) {
+    if (result) {
+      res.status(201).json('deleted');
+    } else {
+      res.status(201).send(null);
+    }
+  });
+});
+
 module.exports = router;

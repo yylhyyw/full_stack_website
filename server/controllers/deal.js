@@ -17,7 +17,8 @@ module.exports = {
       service: body.serviceTag,
       public: body.dealPublic,
       notify: body.notify,
-      creator: body.creator
+      creator: body.creator,
+      members: body.members
     }).then(function(deal) {
       callback(deal);
     });

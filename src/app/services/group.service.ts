@@ -5,6 +5,8 @@ import { HttpHeaders } from '@angular/common/http';
 import { Subscription } from '../models/subscription';
 import { Observable } from 'rxjs';
 
+import { Group } from '../models/group';
+
 const httpOptions = {
   headers: new HttpHeaders({
     'content-Type': 'application/json'
@@ -15,7 +17,6 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class GroupService {
-
   // public subscription = new Subscription(null, null, null);
   // URL to web api
   tenUrl = 'http://192.168.1.119:8081/api/subscription/findTen';
@@ -26,6 +27,17 @@ export class GroupService {
   tenBlockedUrl = 'http://192.168.1.119:8081/api/subscription/findTenBlocked';
   tenWaitingUrl = 'http://192.168.1.119:8081/api/subscription/findTenWaiting';
   findfollowingUrl = 'http://192.168.1.119:8081/api/subscription/findfollowing';
+  checkRelationshipUrl = 'http://192.168.1.119:8081/api/subscription/check';
+  createUrl = 'http://192.168.1.119:8081/api/subscription/create';
+
+  /**
+   * user-group URL
+   */
+
+  userGroupCreateUrl = 'http://192.168.1.119:8081/api/group/create';
+  userGroupDeleteUrl = 'http://192.168.1.119:8081/api/group/delete';
+  userGroupRetrieveUrl = 'http://192.168.1.119:8081/api/group/retrieve';
+
   constructor(private http: HttpClient) {}
   tenSubscribers(company: string): Observable<string> {
     const creatorJSON = '{ "company" : ' + '"' + company + '"' + ' }';
@@ -100,6 +112,71 @@ export class GroupService {
     // console.log(JSON.parse(creator));
     return this.http.post<string>(
       this.findfollowingUrl,
+      JSON.parse(creatorJSON),
+      httpOptions
+    );
+  }
+
+  checkRelationship(individual: string, company: string): Observable<string> {
+    const creatorJSON =
+      '{ "individual" : ' +
+      '"' +
+      individual +
+      '"' +
+      ', ' +
+      '"company" : ' +
+      '"' +
+      company +
+      '"' +
+      ' }';
+    // console.log(creatorJSON);
+    return this.http.post<string>(
+      this.checkRelationshipUrl,
+      JSON.parse(creatorJSON),
+      httpOptions
+    );
+  }
+
+  create(individual: string, company: string): Observable<string> {
+    const creatorJSON =
+      '{ "individual" : ' +
+      '"' +
+      individual +
+      '"' +
+      ', ' +
+      '"company" : ' +
+      '"' +
+      company +
+      '"' +
+      ' }';
+    return this.http.post<string>(
+      this.createUrl,
+      JSON.parse(creatorJSON),
+      httpOptions
+    );
+  }
+
+  /**
+   *
+   * user-group service
+   */
+  groupCreate(group: Group): Observable<Group> {
+    return this.http.post<Group>(this.userGroupCreateUrl, group, httpOptions);
+  }
+
+  groupDelete(id: number): Observable<string> {
+    const creatorJSON = '{ "id" : ' + '"' + id + '"' + ' }';
+    return this.http.post<string>(
+      this.userGroupDeleteUrl,
+      JSON.parse(creatorJSON),
+      httpOptions
+    );
+  }
+
+  groupRetrieve(creator: string): Observable<string> {
+    const creatorJSON = '{ "creator" : ' + '"' + creator + '"' + ' }';
+    return this.http.post<string>(
+      this.userGroupRetrieveUrl,
       JSON.parse(creatorJSON),
       httpOptions
     );
