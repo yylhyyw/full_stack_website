@@ -14,6 +14,7 @@ import { Inbound } from '../../models/inbound';
 import { InboundService } from '../../services/inbound.service';
 
 import { LinkifyPipe } from '../../custom-pipes/linkify.pipe';
+
 import { thisExpression } from 'babel-types';
 
 @Component({

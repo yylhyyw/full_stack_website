@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true
       },
       name: {
-        type: DataTypes.STRING
+        type: DataTypes.TEXT
       },
       product_condition: {
         type: DataTypes.STRING,

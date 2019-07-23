@@ -23,50 +23,52 @@
           </td>
           <td>{{ deal.price }}</td>
           <td>{{ deal.quantity }}/{{ deal.quantity + deal.quantityTaken }}</td>
-          <td><button
-          id="{{ i }}"
-          type="button"
-          class="btn btn-outline-success btn-block btn-sm"
-          data-toggle="modal"
-          data-target="#editForm"
-          data-whatever="@mdo"
-          *ngIf="privilege"
-          (click)="takeDeal(i)"
-        >
-          Edit
-        </button></td>
-        <div
-              class="modal fade"
-              id="editForm"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
+          <td>
+            <button
+              id="{{ i }}"
+              type="button"
+              class="btn btn-outline-success btn-block btn-sm"
+              data-toggle="modal"
+              data-target="#editForm"
+              data-whatever="@mdo"
+              *ngIf="privilege"
+              (click)="takeDeal(i)"
             >
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="formTitle">Take an Deal</h5>
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <form>
-                      <div class="form-group">
-                        <label for="product" class="col-form-label"
-                          >Product:</label
-                        >
-                        <p>{{ selectDeal.productName }}</p>
-                      </div>
-                      <div class="form-group">
-                        <label for="price" class="col-form-label">price:</label>
-                        <input
+              Edit
+            </button>
+          </td>
+          <div
+            class="modal fade"
+            id="editForm"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="formTitle">Take an Deal</h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="product" class="col-form-label"
+                        >Product:</label
+                      >
+                      <p>{{ selectDeal.productName }}</p>
+                    </div>
+                    <div class="form-group">
+                      <label for="price" class="col-form-label">price:</label>
+                      <input
                         type="text"
                         class="form-control"
                         id="price"
@@ -74,54 +76,54 @@
                         [(ngModel)]="selectDeal.price"
                         value="selectDeal.price"
                       />
-                      </div>
-                      <div class="form-group">
-                        <label for="quantity" class="col-form-label"
-                          >left quantity:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="quantity"
-                          name="quantity"
-                          [(ngModel)]="selectDeal.quantity"
-                          value="selectDeal.quantity"
-                        />
-                      </div>
-                      <div class="form-group">
-                        <label for="warehouse" class="col-form-label"
-                          >warehouse:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="warehouse"
-                          name="warehouse"
-                          [(ngModel)]="selectWarehouse"
-                        />
-                      </div>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      (click)="updateCompany()"
-                      data-dismiss="modal"
-                    >
-                      Done
-                    </button>
-                  </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="quantity" class="col-form-label"
+                        >left quantity:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="quantity"
+                        name="quantity"
+                        [(ngModel)]="selectDeal.quantity"
+                        value="selectDeal.quantity"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="warehouse" class="col-form-label"
+                        >warehouse:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="warehouse"
+                        name="warehouse"
+                        [(ngModel)]="selectWarehouse"
+                      />
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    (click)="updateCompany()"
+                    data-dismiss="modal"
+                  >
+                    Done
+                  </button>
                 </div>
               </div>
             </div>
+          </div>
         </tr>
       </ng-container>
     </tbody>
