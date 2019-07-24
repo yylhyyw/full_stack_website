@@ -21,6 +21,7 @@ import { HistoryListComponent } from './inbound/history-list/history-list.compon
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserGroupsComponent } from './groups/user-groups/user-groups.component';
 import { UserJoinComponent } from './groups/user-join/user-join.component';
+import { ProposeDealComponent } from './home/propose-deal/propose-deal.component';
 
 const routes: Routes = [
   {
@@ -45,7 +46,8 @@ const routes: Routes = [
       { path: 'active', component: HomeActiveDealListComponent },
       { path: 'expired', component: HomeExpiredDealListComponent },
       { path: 'favorite', component: HomeFavoriteDealListComponent },
-      { path: 'drafts', component: HomeDraftsDealListComponent }
+      { path: 'drafts', component: HomeDraftsDealListComponent },
+      { path: 'propose', component: ProposeDealComponent }
     ]
   },
   {

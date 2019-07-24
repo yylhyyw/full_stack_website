@@ -17,6 +17,9 @@ export class InboundService {
   allUrl = 'http://192.168.1.119:8081/api/inbound/individualFind';
   confirmUrl = 'http://192.168.1.119:8081/api/inbound/findRecords';
   tenCompanyUrl = 'http://192.168.1.119:8081/api/inbound/companyFind';
+  proposeRetrieveUrl = 'http://192.168.1.119:8081/api/inbound/proposeRetrieve';
+  proposeRetrieveCompanyUrl =
+    'http://192.168.1.119:8081/api/inbound/proposeRetrieveCompany';
   // NameUrl = 'http://192.168.1.119:8081/api/product/name';
   constructor(private http: HttpClient) {}
 
@@ -59,5 +62,26 @@ export class InboundService {
 
   create(inbound: Inbound): Observable<Inbound> {
     return this.http.post<Inbound>(this.createUrl, inbound, httpOptions);
+  }
+
+  proposeRetrieve(individual: string): Observable<string> {
+    const creatorJSON = '{ "individual" : ' + '"' + individual + '"' + ' }';
+
+    // console.log(JSON.parse(creator));
+    return this.http.post<string>(
+      this.proposeRetrieveUrl,
+      JSON.parse(creatorJSON),
+      httpOptions
+    );
+  }
+  proposeRetrieveCompany(company: string): Observable<string> {
+    const creatorJSON = '{ "company" : ' + '"' + company + '"' + ' }';
+
+    // console.log(JSON.parse(creator));
+    return this.http.post<string>(
+      this.proposeRetrieveCompanyUrl,
+      JSON.parse(creatorJSON),
+      httpOptions
+    );
   }
 }

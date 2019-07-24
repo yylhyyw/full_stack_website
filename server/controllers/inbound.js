@@ -39,7 +39,9 @@ module.exports = {
         company: body.company,
         individual: body.individual,
         status: 0,
-        companyStatus:body.companyStatus
+        companyStatus:body.companyStatus,
+        propose: body.propose,
+        proposeStatus: body.proposeStatus
       }).then(function(inbound) {
         callback(inbound);
       });
@@ -51,6 +53,34 @@ module.exports = {
       Inbound.findAll({
         where: {
           company: company
+        },
+        order: [['id', 'DESC']]
+      }).then(function(records) {
+        callback(records);
+      });
+    }
+  },
+
+  proposeRetrieve: function(creator, callback) {
+    if (creator) {
+      Inbound.findAll({
+        where: {
+          individual: creator,
+          propose: 1
+        },
+        order: [['id', 'DESC']]
+      }).then(function(records) {
+        callback(records);
+      });
+    }
+  },
+
+  proposeRetrieveCompany: function(creator, callback) {
+    if (creator) {
+      Inbound.findAll({
+        where: {
+          company: creator,
+          propose: 1
         },
         order: [['id', 'DESC']]
       }).then(function(records) {

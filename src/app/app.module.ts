@@ -29,6 +29,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LinkifyPipe } from './custom-pipes/linkify.pipe';
 import { UserGroupsComponent } from './groups/user-groups/user-groups.component';
 import { UserJoinComponent } from './groups/user-join/user-join.component';
+import { ProposeDealComponent } from './home/propose-deal/propose-deal.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { UserJoinComponent } from './groups/user-join/user-join.component';
     LinkifyPipe,
     UserGroupsComponent,
     UserJoinComponent,
+    ProposeDealComponent,
   ],
   imports: [
     BrowserModule,

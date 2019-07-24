@@ -1,39 +1,189 @@
-<h6>Expired Deals</h6>
-//TODO add drafts deals logic
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col" style="width: 9%">#</th>
-      <th scope="col" style="width: 60%">Deals</th>
-      <th scope="col" style="width: 10%">Price</th>
-      <th scope="col" style="width: 12%">Quantity</th>
-      <th scope="col" style="width: 9%"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <ng-container *ngFor="let activeDeal of activeDealList">
+<div *ngIf="privilege">
+  <table class="table" id="dealTable">
+    <thead>
       <tr>
-        <th scopr="row">{{ ('000' + activeDeal.dealId).slice(-4) }}</th>
-        <td>
-          <div>
-            {{ activeDeal.title }}
-            <br />
-            <br />
-            {{ activeDeal.description }}
-            <br />
-            <br />
-            <div *ngFor="let link of activeDeal.deallinks">
-              <div *ngIf="link.linkName">Link Label: {{ link.linkName }}</div>
-              <a href="" (click)="goToLink(link.link)">{{ link.link }}</a>
-              <br />
-            </div>
-            <!-- </ng-container> -->
-          </div>
-        </td>
-        <td>{{ activeDeal.price }}</td>
-        <td>{{ activeDeal.quantity }}</td>
-        <td><button class="btn btn-primary btn-sm">Take</button></td>
+        <th scope="col" style="width: 9%">#</th>
+        <th scope="col" style="width: 60%">Deals</th>
+        <th scope="col" style="width: 10%">Price</th>
+        <th scope="col" style="width: 12%">Quantity</th>
+        <th scope="col" style="width: 9%"></th>
       </tr>
-    </ng-container>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let deal of expiredList; index as i">
+        <tr>
+          <th scopr="row">{{ ('000' + deal.id).slice(-4) }}</th>
+          <td>
+            {{ deal.product_name }}
+            <div
+              class="mt-2"
+              style="font-size:smaller"
+              [innerHTML]="deal.note | linkify"
+            ></div>
+          </td>
+          <td>{{ deal.price }}</td>
+          <td>{{ deal.quantity }}/{{ deal.quantity + deal.quantityTaken }}</td>
+          <td>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="!privilege" class="pt-5">
+  <table *ngIf="noFollowing" class="table" id="dealTable">
+    <thead>
+      <tr>
+        <th scope="col" style="width: 9%">#</th>
+        <th scope="col" style="width: 60%">Deals</th>
+        <th scope="col" style="width: 10%">Price</th>
+        <th scope="col" style="width: 12%">Quantity</th>
+        <th scope="col" style="width: 9%"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scopr="row"></th>
+        <td>
+          No Active Deals......
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <!-- </ng-container> -->
+    </tbody>
+  </table>
+  <ng-container *ngFor="let following of followingList">
+    <hr />
+    <label
+      for="followingOffers"
+      value="following.company"
+      id="#following"
+      style="font-size:20px"
+      >Following: {{ following.company }} :</label
+    >
+
+    <table class="table" id="dealTable">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 9%">#</th>
+          <th scope="col" style="width: 60%">Deals</th>
+          <th scope="col" style="width: 10%">Price</th>
+          <!-- <th scope="col" style="width: 12%">Quantity</th> -->
+          <th scope="col" style="width: 9%">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let deal of expiredList; index as i">
+          <tr>
+            <th scopr="row">{{ ('000' + deal.id).slice(-4) }}</th>
+            <td>
+              <span>{{ deal.product_name }}</span>
+              <div
+                class="mt-2"
+                style="font-size:smaller"
+                [innerHTML]="deal.note | linkify"
+              ></div>
+            </td>
+            <td>{{ deal.price }}</td>
+            <td>
+              <button
+                id="{{ i }}"
+                type="button"
+                class="btn btn-outline-success btn-block btn-sm"
+                data-toggle="modal"
+                data-target="#takeForm"
+                data-whatever="@mdo"
+                *ngIf="!privilege"
+                (click)="takeDeal(i)"
+              >
+                propose
+              </button>
+            </td>
+            <div
+              class="modal fade"
+              id="takeForm"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="formTitle">Propose an Offer</h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="product" class="col-form-label"
+                          >Product:</label
+                        >
+                        <p>{{ inbound.product }}</p>
+                      </div>
+                      <div class="form-group">
+                        <label for="price" class="col-form-label">price:</label>
+                        <p>{{ inbound.price }}</p>
+                      </div>
+                      <div class="form-group">
+                        <label for="quantity" class="col-form-label"
+                          >quantity:</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="quantity"
+                          name="quantity"
+                          [(ngModel)]="inbound.quantity"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="warehouse" class="col-form-label"
+                          >warehouse:</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="warehouse"
+                          name="warehouse"
+                          [(ngModel)]="inbound.warehouse"
+                        />
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      (click)="createPropose()"
+                      data-dismiss="modal"
+                    >
+                      Propose
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </ng-container>
+</div>

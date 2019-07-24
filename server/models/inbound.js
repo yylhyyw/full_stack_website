@@ -11,25 +11,31 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING
       },
       price: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING
       },
       quantity: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING
       },
       warehouse: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING
       },
       company: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING
       },
       individual: {
         type: DataTypes.STRING
       },
-      status:{
-        type: DataTypes.INTEGER,
+      status: {
+        type: DataTypes.INTEGER
       },
       companyStatus: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER
+      },
+      propose: {
+        type: DataTypes.INTEGER
+      },
+      proposeStatus: {
+        type: DataTypes.INTEGER
       }
     },
     {}

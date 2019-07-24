@@ -92,6 +92,15 @@ router.post('/deal/update', (req, res, next) => {
   });
 });
 
+router.post('/deal/expiredDeal', (req, res, next) => {
+  dealController.expiredRetrieve(req.body.creator, function(deals) {
+    if (deals) {
+      res.status(201).send(deals);
+    } else {
+      res.status(409).end();
+    }
+  });
+});
 /**
  * product api
  */
@@ -256,7 +265,25 @@ router.post('/subscription/create', (req, res, next) => {
 /**
  * inbound api post get
  */
+router.post('/inbound/proposeRetrieveCompany', (req, res, next) => {
+  inboundController.proposeRetrieveCompany(req.body.company, function(records) {
+    if(records){
+      res.status(201).send(records);
+    }else{
+      res.status(409).end();
+    }
+  })
+})
 
+ router.post('/inbound/proposeRetrieve', (req, res, next) => {
+  inboundController.proposeRetrieve(req.body.individual, function(records) {
+    if (records) {
+      res.status(201).send(records);
+    } else {
+      res.status(409).end();
+    }
+  });
+});
 router.post('/inbound/individualFind', (req, res, next) => {
   inboundController.getRecords(req.body.individual, function(records) {
     if (records) {

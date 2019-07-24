@@ -6,7 +6,7 @@
   <ul class="nav nav-tabs" id="dealTabs" role="tablist">
     <li class="nav-item">
       <a
-        class="nav-link active"
+        class="nav-link"
         id="active-tab"
         data-toggle="tab"
         routerLink="active"
@@ -16,7 +16,7 @@
         >Active Deals</a
       >
     </li>
-    <!-- <li class="nav-item">
+    <li class="nav-item">
       <a
         class="nav-link"
         id="expired-tab"
@@ -31,6 +31,18 @@
     <li class="nav-item">
       <a
         class="nav-link"
+        id="proposed-tab"
+        data-toggle="tab"
+        routerLink="propose"
+        role="tab"
+        aria-controls="proposed"
+        aria-selected="false"
+        >Proposed Deals</a
+      >
+    </li>
+    <!-- <li class="nav-item">
+      <a
+        class="nav-link"
         id="favorite-tab"
         data-toggle="tab"
         routerLink="favorite"
@@ -39,8 +51,8 @@
         aria-selected="false"
         >Favorite Deals</a
       >
-    </li>
-    <li class="nav-item">
+    </li> -->
+    <!-- <li class="nav-item">
       <a
         class="nav-link"
         id="drafts-tab"
@@ -157,18 +169,18 @@
                     [(ngModel)]="month"
                     required
                   >
-                    <option>January</option>
-                    <option>February</option>
-                    <option>March</option>
-                    <option>April</option>
-                    <option>May</option>
-                    <option>June</option>
-                    <option>July</option>
-                    <option>August</option>
-                    <option>September</option>
-                    <option>October</option>
-                    <option>November</option>
-                    <option>December</option>
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
                   </select>
                 </div>
                 <div class="col-md-2">
@@ -179,16 +191,15 @@
                     [(ngModel)]="days"
                     required
                   >
-                    <option value="">1</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
                     <option>10</option>
                     <option>11</option>
                     <option>12</option>
@@ -399,57 +410,54 @@
               <label class="form-check-label" for="PrivateRadio">Private</label>
             </div> -->
             Make Deal Public Or Private
-            <br>
+            <br />
             <button
-            type="button"
-            class="btn btn-primary mt-1"
-            (click) = "makePublic()"
-          >
-            Public
-          </button>
-          <button
-          type="button"
-          class="btn btn-primary mt-1 ml-3"
-          (click) ="makePrivate()"
-        >
-          Private
-        </button>
-        <br>
+              type="button"
+              class="btn btn-primary mt-1"
+              (click)="makePublic()"
+            >
+              Public
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary mt-1 ml-3"
+              (click)="makePrivate()"
+            >
+              Private
+            </button>
+            <br />
             <div class="form-group" *ngIf="isPublic">
-                <label for="recipient-name" class="col-form-label">Member:</label>
-                <select
-                  class="selectpicker"
-                  multiple
-                  data-live-search="true"
-                  name="selectedMember"
-                  [(ngModel)]="membersTemp"
+              <label for="recipient-name" class="col-form-label">Member:</label>
+              <select
+                class="selectpicker"
+                multiple
+                data-live-search="true"
+                name="selectedMember"
+                [(ngModel)]="membersTemp"
+              >
+                <option *ngFor="let member of memberList" name="member">
+                  {{ member.individual }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group" *ngIf="isPrivate">
+              <label for="recipient-name" class="col-form-label">Member:</label>
+              <select
+                class="selectpicker"
+                multiple
+                data-live-search="true"
+                name="selectedMember"
+                [(ngModel)]="membersTemp"
+              >
+                <option
+                  *ngFor="let group of groupList"
+                  name="group"
+                  value="{{ group.member }}"
                 >
-                  <option
-                    *ngFor="let member of memberList"
-                    name="member"
-                  >
-                    {{ member.individual }}
-                  </option>
-                </select>
-              </div>
-              <div class="form-group" *ngIf="isPrivate">
-                  <label for="recipient-name" class="col-form-label">Member:</label>
-                  <select
-                    class="selectpicker"
-                    multiple
-                    data-live-search="true"
-                    name="selectedMember"
-                    [(ngModel)]="membersTemp"
-                  >
-                    <option
-                      *ngFor="let group of groupList"
-                      name="group"
-                      value="{{group.member}}"
-                    >
-                      {{ group.name }}
-                    </option>
-                  </select>
-                </div>
+                  {{ group.name }}
+                </option>
+              </select>
+            </div>
             <hr />
             Every member can see public offers. Only selected users can see
             private offers.

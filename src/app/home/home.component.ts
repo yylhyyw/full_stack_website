@@ -59,10 +59,18 @@ export class HomeComponent implements OnInit {
     private dealService: DealService,
     private productService: ProductService,
     private groupService: GroupService,
-    private authenticationService: AuthenticationService // private homeActiveDealListComponent: HomeActiveDealListComponent
+    private authenticationService: AuthenticationService,
+    private router: Router // private homeActiveDealListComponent: HomeActiveDealListComponent
   ) {}
 
   ngOnInit() {
+    if (this.router.url === '/home' || this.router.url === '/home/active') {
+      document.getElementById('active-tab').classList.add('active');
+    } else if (this.router.url === '/home/expired') {
+      document.getElementById('expired-tab').classList.add('active');
+    } else if (this.router.url === '/home/propose') {
+      document.getElementById('proposed-tab').classList.add('active');
+    }
     if (this.authenticationService.currentUserValue) {
       this.deal.creator = this.authenticationService.currentUserValue[0];
       if (this.authenticationService.currentUserValue[2] === 'company') {

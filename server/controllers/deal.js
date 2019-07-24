@@ -1,6 +1,7 @@
 const Deal = require('../models').deals;
 const Product = require('../models').products;
 const Sequelize = require('sequelize');
+const Op = Sequelize.Op
 //TODO
 module.exports = {
   create: function(body, callback) {
@@ -30,7 +31,28 @@ module.exports = {
         // include: [{ model: Product }],
         limit: 10,
         where: {
-          creator: creator
+          creator: creator,
+          expires_at: {
+            [Op.gte]: new Date()
+          }
+        },
+        order: [['id', 'DESC']]
+      }).then(function(deals) {
+        callback(deals);
+      });
+    }
+  },
+
+  expiredRetrieve: function(creator = null, callback) {
+    if (creator) {
+      Deal.findAll({
+        // include: [{ model: Product }],
+        limit: 10,
+        where: {
+          creator: creator,
+          expires_at: {
+            [Op.lte]: new Date()
+          }
         },
         order: [['id', 'DESC']]
       }).then(function(deals) {

@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
       },
       expires_at: {
-        type: DataTypes.STRING,
+        type: DataTypes.DATE,
         allowNull: false
       },
       note: {

@@ -11,6 +11,11 @@ export class GroupsComponent implements OnInit {
   public isGroupTab: any;
   constructor(private router: Router) {}
   ngOnInit() {
+    if (this.router.url === '/groups' || this.router.url === '/groups/group_active') {
+      document.getElementById('group-active-tab').classList.add('active');
+    } else if (this.router.url === '/groups/user_groups') {
+      document.getElementById('user-group-tab').classList.add('active');
+    }
     this.currentPath = this.router.url;
     if (this.currentPath === '/groups/user_groups') {
       this.isGroupTab = true;

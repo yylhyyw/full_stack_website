@@ -8,6 +8,8 @@ export class Inbound {
   public status: number;
   public companyStatus: number;
   public dealId: number;
+  public propose: number;
+  public proposeStatus: number;
   constructor(
     product: string,
     price: string,
