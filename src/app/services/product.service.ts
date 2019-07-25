@@ -12,10 +12,10 @@ const httpOptions = {
 };
 @Injectable()
 export class ProductService {
-  createUrl = 'http://192.168.1.119:8081/api/product/add'; // URL to web api
-  tenUrl = 'http://192.168.1.119:8081/api/product/findten';
-  allUrl = 'http://192.168.1.119:8081/api/product/find';
-  NameIdUrl = 'http://192.168.1.119:8081/api/product/NameId';
+  createUrl = 'http://192.168.1.86:8081/api/product/add'; // URL to web api
+  tenUrl = 'http://192.168.1.86:8081/api/product/findten';
+  allUrl = 'http://192.168.1.86:8081/api/product/find';
+  NameIdUrl = 'http://192.168.1.86:8081/api/product/NameId';
   // NameUrl = 'http://192.168.1.119:8081/api/product/name';
   constructor(private http: HttpClient) {}
 

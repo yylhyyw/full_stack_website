@@ -61,7 +61,6 @@ router.post('/register', (req, res, next) => {
     }
   });
 });
-
 router.post('/createdeal', (req, res, next) => {
   dealController.create(req.body, function(deal) {
     if (deal) {
@@ -72,6 +71,15 @@ router.post('/createdeal', (req, res, next) => {
   });
 });
 
+router.post('/deal/individualFind', (req, res, next) => {
+  dealController.individualFind(req.body.creator, req.body.individual, function(result) {
+    if(result){
+      res.status(201).send(result);
+    } else{
+      res.status(409).end();
+    }
+  })
+})
 router.post('/deal/active/firstTen', (req, res, next) => {
   dealController.findTen(req.body.creator, function(deals) {
     if (deals) {
@@ -265,15 +273,36 @@ router.post('/subscription/create', (req, res, next) => {
 /**
  * inbound api post get
  */
-router.post('/inbound/proposeRetrieveCompany', (req, res, next) => {
+router.post('/inbound/createPropose', (req, res, next) => {
+  inboundController.create(req.body, null, function(results){
+    if(results){
+      res.status(201).send(results);
+    }else{
+      res.status(409).end();
+    }
+  });
+});
+
+router.post('/inbound/proposeConfirm', (req, res, next) => {
+  inboundController.proposeConfirm(req.body, function(results) {
+    if(results){
+      res.status(201).send(results);
+    } else {
+      res.status(409).end();
+    }
+  })
+})
+
+
+ router.post('/inbound/proposeRetrieveCompany', (req, res, next) => {
   inboundController.proposeRetrieveCompany(req.body.company, function(records) {
     if(records){
       res.status(201).send(records);
     }else{
       res.status(409).end();
     }
-  })
-})
+  });
+});
 
  router.post('/inbound/proposeRetrieve', (req, res, next) => {
   inboundController.proposeRetrieve(req.body.individual, function(records) {

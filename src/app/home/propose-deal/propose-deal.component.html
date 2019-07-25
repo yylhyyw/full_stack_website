@@ -30,6 +30,9 @@
         <td>
           <div *ngIf="!record.proposeStatus">
             Waiting
+            <div *ngIf="privilege">
+              <button class="btn btn-outline-success btn-block btn-sm" (click)="proposeConfirm(record.id, record.quantity, record.dealId)">Confirm</button>
+            </div>
           </div>
           <div *ngIf="record.proposeStatus">
             Confirmed

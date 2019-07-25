@@ -29,12 +29,11 @@ module.exports = {
     if (creator) {
       Deal.findAll({
         // include: [{ model: Product }],
-        limit: 10,
         where: {
           creator: creator,
           expires_at: {
             [Op.gte]: new Date()
-          }
+          },
         },
         order: [['id', 'DESC']]
       }).then(function(deals) {
@@ -92,6 +91,26 @@ module.exports = {
         Deal.findByPk(deal.id).then(function(product) {
           callback(product);
         });
+      });
+    }
+  },
+
+  individualFind: function(creator = null, individual, callback) {
+    if (creator) {
+      Deal.findAll({
+        // include: [{ model: Product }],
+        where: {
+          creator: creator,
+          expires_at: {
+            [Op.gte]: new Date()
+          },
+          members: {
+            [Op.like]: '%'+individual+'%'
+          }
+        },
+        order: [['id', 'DESC']]
+      }).then(function(deals) {
+        callback(deals);
       });
     }
   }

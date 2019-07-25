@@ -20,6 +20,14 @@
               style="font-size:smaller"
               [innerHTML]="deal.note | linkify"
             ></div>
+            <hr />
+            <div class="float-left">Expires At: {{ deal.expires_at }}</div>
+            <div class="float-right" *ngIf="deal.public">
+              Privilege: Private
+            </div>
+            <div class="float-right" *ngIf="!deal.public">
+              Privilege: Public
+            </div>
           </td>
           <td>{{ deal.price }}</td>
           <td>{{ deal.quantity }}/{{ deal.quantity + deal.quantityTaken }}</td>

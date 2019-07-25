@@ -38,8 +38,10 @@ export class SignInFormComponent implements OnInit {
           this.router.navigate(['dashboard']);
         },
         error => {
-          console.log(error);
           this.error = error;
+        },
+        () => {
+          this.ngOnInit();
         }
       );
   }

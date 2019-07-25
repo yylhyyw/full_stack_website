@@ -55,4 +55,13 @@ export class ProposeDealComponent implements OnInit {
         this.proposeList = data;
       });
   }
+
+  proposeConfirm(id: number, quantity: number, dealId: number) {
+    this.inboundService
+      .proposeConfirm(id, quantity, dealId)
+      .pipe(first())
+      .subscribe(data => {
+        this.ngOnInit();
+      });
+  }
 }

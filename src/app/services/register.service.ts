@@ -12,7 +12,7 @@ const httpOptions = {
 };
 @Injectable()
 export class RegisterService {
-  registerUrl = 'http://192.168.1.119:8081/api/register';  // URL to web api
+  registerUrl = 'http://192.168.1.86:8081/api/register';  // URL to web api
   constructor(private http: HttpClient) { }
 
   userRegister(register: Register): Observable<Register> {

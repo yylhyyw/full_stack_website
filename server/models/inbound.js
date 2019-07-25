@@ -7,6 +7,9 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         autoIncrement: true
       },
+      dealId: {
+        type: DataTypes.INTEGER
+      },
       product: {
         type: DataTypes.STRING
       },

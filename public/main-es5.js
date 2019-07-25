@@ -96,7 +96,7 @@ module.exports = "<!-- {{router.url}} -->\n<div class=\"container\">\n  <ul clas
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"mt-5\">\n  <br />\n  <button\n    type=\"button\"\n    class=\"btn btn-primary\"\n    data-toggle=\"modal\"\n    data-target=\"#groupCreateForm\"\n    data-whatever=\"@mdo\"\n  >\n    Create Group\n  </button>\n  <hr />\n  <div\n    class=\"modal fade\"\n    id=\"groupCreateForm\"\n    tabindex=\"-1\"\n    role=\"dialog\"\n    aria-labelledby=\"createFrom\"\n    aria-hidden=\"true\"\n  >\n    <div class=\"modal-dialog\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"createFrom\">Product Create Form</h5>\n          <button\n            type=\"button\"\n            class=\"close\"\n            data-dismiss=\"modal\"\n            aria-label=\"Close\"\n          >\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form>\n            <div class=\"form-group\">\n              <label for=\"recipient-name\" class=\"col-form-label\">Member:</label>\n              <select\n                class=\"selectpicker\"\n                multiple\n                data-live-search=\"true\"\n                name=\"selectedMember\"\n                [(ngModel)]=\"createGroup.member\"\n              >\n                <option\n                  *ngFor=\"let member of allMembers\"\n                  name=\"member\"\n                >\n                  {{ member.individual }}\n                </option>\n              </select>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"groupName\" class=\"col-form-label\">Group Name:</label>\n              <input\n                class=\"form-control\"\n                type=\"text\"\n                id=\"groupName\"\n                name=\"groupName\"\n                [(ngModel)]=\"createGroup.name\"\n              />\n            </div>\n          </form>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">\n            Close\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\" (click)=\"groupCreate()\">created</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<table class=\"table\" id=\"GroupTable\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width:9%\">#</th>\n      <th scope=\"col\" style=\"width:40%\">Name</th>\n      <th scope=\"col\" style=\"width:40%\">Members</th>\n      <th scope=\"col\" style=\"width:11%\">Actions</th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let group of groupList; index as i\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + group.id).slice(-4) }}</th>\n        <td>\n          {{ group.name }}\n        </td>\n        <td>{{ group.member }}</td>\n        <td>\n          <div>\n            <button\n              class=\"btn btn-primary btn-sm mb-1\"\n              (click)=\"groupDelete(group.id)\"\n            >\n              Delete\n            </button>\n            <!-- <button class=\"btn btn-primary btn-sm\" *ngIf=\"!follower.status\" (click)=\"setActive(i)\">Approve</button> -->\n          </div>\n        </td>\n      </tr>\n    </ng-container>\n  </tbody>\n</table>\n"
+module.exports = "<div class=\"mt-5\">\n  <br />\n  <button\n    type=\"button\"\n    class=\"btn btn-primary\"\n    data-toggle=\"modal\"\n    data-target=\"#groupCreateForm\"\n    data-whatever=\"@mdo\"\n  >\n    Create Group\n  </button>\n  <hr />\n  <div\n    class=\"modal fade\"\n    id=\"groupCreateForm\"\n    tabindex=\"-1\"\n    role=\"dialog\"\n    aria-labelledby=\"createFrom\"\n    aria-hidden=\"true\"\n  >\n    <div class=\"modal-dialog\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\" id=\"createFrom\">Product Create Form</h5>\n          <button\n            type=\"button\"\n            class=\"close\"\n            data-dismiss=\"modal\"\n            aria-label=\"Close\"\n          >\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n        <div class=\"modal-body\">\n          <form>\n            <div class=\"form-group\">\n              <label for=\"recipient-name\" class=\"col-form-label\">Member:</label>\n              <select\n                class=\"selectpicker\"\n                multiple\n                data-live-search=\"true\"\n                name=\"selectedMember\"\n                [(ngModel)]=\"createGroup.member\"\n              >\n                <option\n                  *ngFor=\"let member of allMembers\"\n                  name=\"member\"\n                >\n                  {{ member.individual }}\n                </option>\n              </select>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"groupName\" class=\"col-form-label\">Group Name:</label>\n              <input\n                class=\"form-control\"\n                type=\"text\"\n                id=\"groupName\"\n                name=\"groupName\"\n                [(ngModel)]=\"createGroup.name\"\n              />\n            </div>\n          </form>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">\n            Close\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\" (click)=\"groupCreate()\">created</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<table class=\"table\" id=\"GroupTable\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width:9%\">#</th>\n      <th scope=\"col\" style=\"width:40%\">Name</th>\n      <th scope=\"col\" style=\"width:40%\">Members</th>\n      <th scope=\"col\" style=\"width:11%\">Actions</th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let group of groupList; index as i\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + group.id).slice(-4) }}</th>\n        <td>\n          {{ group.name }}\n        </td>\n        <td>{{ group.member }}</td>\n        <td>\n          <div>\n            <button\n              class=\"btn btn-outline-success btn-block btn-sm mb-1\"\n              (click)=\"groupDelete(group.id)\"\n            >\n              Delete\n            </button>\n            <!-- <button class=\"btn btn-primary btn-sm\" *ngIf=\"!follower.status\" (click)=\"setActive(i)\">Approve</button> -->\n          </div>\n        </td>\n      </tr>\n    </ng-container>\n  </tbody>\n</table>\n"
 
 /***/ }),
 
@@ -173,7 +173,7 @@ module.exports = "<!-- {{ deal | json }}\n{{ selectProduct }}\n{{month}} -->\n<!
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table class=\"table\" id=\"inboundTable\" *ngIf=\"!noRecord\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width: 9%\">#</th>\n      <th scope=\"col\" style=\"width: 30%\">Inbound</th>\n      <th scope=\"col\" style=\"width: 12%\" *ngIf=\"privilege\">From</th>\n      <th scope=\"col\" style=\"width: 10%\">Price</th>\n      <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n      <th scope=\"col\" style=\"width: 9\">WareHouse</th>\n      <th scope=\"col\" style=\"width: 9\">LastUpdate</th>\n      <th scope=\"col\" style=\"width: 9%\">Action</th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let record of proposeList\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + record.id).slice(-4) }}</th>\n        <td>\n          <div>\n            {{ record.product }}\n            <!-- </ng-container> -->\n          </div>\n        </td>\n        <td *ngIf=\"privilege\">{{ record.individual }}</td>\n        <!-- <td *ngIf=\"!privilege\">{{ record.individual }}</td> -->\n        <td>{{ record.price }}</td>\n        <td>{{ record.quantity }}</td>\n        <td>{{ record.warehouse }}</td>\n        <td>{{ record.updatedAt }}</td>\n        <td>\n          <div *ngIf=\"!record.proposeStatus\">\n            Waiting\n          </div>\n          <div *ngIf=\"record.proposeStatus\">\n            Confirmed\n          </div>\n          <!-- <button class=\"btn btn-primary btn-sm mb-2\" *ngIf=\"!privilege\">\n            Confirm\n          </button> -->\n          <!-- <button class=\"btn btn-primary btn-sm\">Cancel</button> -->\n        </td>\n      </tr>\n    </ng-container>\n  </tbody>\n</table>\n\n<table class=\"table\" id=\"inboundTable\" *ngIf=\"noRecord\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width: 9%\">#</th>\n      <th scope=\"col\" style=\"width: 30%\">Inbound</th>\n      <th scope=\"col\" style=\"width: 12%\" *ngIf=\"privilege\">From</th>\n      <th scope=\"col\" style=\"width: 10%\">Price</th>\n      <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n      <th scope=\"col\" style=\"width: 9\">WareHouse</th>\n      <th scope=\"col\" style=\"width: 9\">LastUpdate</th>\n      <th scope=\"col\" style=\"width: 9%\">Action</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th scopr=\"row\"></th>\n      <td>\n        No Inbound Record......\n      </td>\n      <td *ngIf=\"privilege\"></td>\n      <!-- <td *ngIf=\"!privilege\">{{ record.individual }}</td> -->\n      <td></td>\n      <td></td>\n      <td></td>\n      <td></td>\n      <td>\n        <!-- <button class=\"btn btn-primary btn-sm mb-2\" *ngIf=\"!privilege\">\n              Confirm\n            </button> -->\n        <!-- <button class=\"btn btn-primary btn-sm\">Cancel</button> -->\n      </td>\n    </tr>\n  </tbody>\n</table>\n"
+module.exports = "<table class=\"table\" id=\"inboundTable\" *ngIf=\"!noRecord\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width: 9%\">#</th>\n      <th scope=\"col\" style=\"width: 30%\">Inbound</th>\n      <th scope=\"col\" style=\"width: 12%\" *ngIf=\"privilege\">From</th>\n      <th scope=\"col\" style=\"width: 10%\">Price</th>\n      <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n      <th scope=\"col\" style=\"width: 9\">WareHouse</th>\n      <th scope=\"col\" style=\"width: 9\">LastUpdate</th>\n      <th scope=\"col\" style=\"width: 9%\">Action</th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let record of proposeList\">\n      <tr>\n        <th scopr=\"row\">{{ ('000' + record.id).slice(-4) }}</th>\n        <td>\n          <div>\n            {{ record.product }}\n            <!-- </ng-container> -->\n          </div>\n        </td>\n        <td *ngIf=\"privilege\">{{ record.individual }}</td>\n        <!-- <td *ngIf=\"!privilege\">{{ record.individual }}</td> -->\n        <td>{{ record.price }}</td>\n        <td>{{ record.quantity }}</td>\n        <td>{{ record.warehouse }}</td>\n        <td>{{ record.updatedAt }}</td>\n        <td>\n          <div *ngIf=\"!record.proposeStatus\">\n            Waiting\n            <div *ngIf=\"privilege\">\n              <button class=\"btn btn-outline-success btn-block btn-sm\" (click)=\"proposeConfirm(record.id, record.quantity, record.dealId)\">Confirm</button>\n            </div>\n          </div>\n          <div *ngIf=\"record.proposeStatus\">\n            Confirmed\n          </div>\n          <!-- <button class=\"btn btn-primary btn-sm mb-2\" *ngIf=\"!privilege\">\n            Confirm\n          </button> -->\n          <!-- <button class=\"btn btn-primary btn-sm\">Cancel</button> -->\n        </td>\n      </tr>\n    </ng-container>\n  </tbody>\n</table>\n\n<table class=\"table\" id=\"inboundTable\" *ngIf=\"noRecord\">\n  <thead>\n    <tr>\n      <th scope=\"col\" style=\"width: 9%\">#</th>\n      <th scope=\"col\" style=\"width: 30%\">Inbound</th>\n      <th scope=\"col\" style=\"width: 12%\" *ngIf=\"privilege\">From</th>\n      <th scope=\"col\" style=\"width: 10%\">Price</th>\n      <th scope=\"col\" style=\"width: 12%\">Quantity</th>\n      <th scope=\"col\" style=\"width: 9\">WareHouse</th>\n      <th scope=\"col\" style=\"width: 9\">LastUpdate</th>\n      <th scope=\"col\" style=\"width: 9%\">Action</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th scopr=\"row\"></th>\n      <td>\n        No Inbound Record......\n      </td>\n      <td *ngIf=\"privilege\"></td>\n      <!-- <td *ngIf=\"!privilege\">{{ record.individual }}</td> -->\n      <td></td>\n      <td></td>\n      <td></td>\n      <td></td>\n      <td>\n        <!-- <button class=\"btn btn-primary btn-sm mb-2\" *ngIf=\"!privilege\">\n              Confirm\n            </button> -->\n        <!-- <button class=\"btn btn-primary btn-sm\">Cancel</button> -->\n      </td>\n    </tr>\n  </tbody>\n</table>\n"
 
 /***/ }),
 
@@ -1679,7 +1679,7 @@ var HomeExpiredDealListComponent = /** @class */ (function () {
     HomeExpiredDealListComponent.prototype.createPropose = function () {
         var _this = this;
         this.inboundService
-            .create(this.inbound)
+            .createPropose(this.inbound)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])())
             .subscribe(function (data) {
             _this.expiredList[_this.selectProductId].quantity = data.quantity;
@@ -2046,6 +2046,15 @@ var ProposeDealComponent = /** @class */ (function () {
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["first"])())
             .subscribe(function (data) {
             _this.proposeList = data;
+        });
+    };
+    ProposeDealComponent.prototype.proposeConfirm = function (id, quantity, dealId) {
+        var _this = this;
+        this.inboundService
+            .proposeConfirm(id, quantity, dealId)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["first"])())
+            .subscribe(function (data) {
+            _this.ngOnInit();
         });
     };
     ProposeDealComponent.ctorParameters = function () { return [
@@ -2892,7 +2901,7 @@ var AuthenticationService = /** @class */ (function () {
     AuthenticationService.prototype.login = function (user) {
         var _this = this;
         return this.http
-            .post('http://192.168.1.119:8081/api/signin', user, httpOptions)
+            .post('http://192.168.1.86:8081/api/signin', user, httpOptions)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (logInUser) {
             // login successful if there's a jwt token in the response
             if (logInUser) {
@@ -2950,10 +2959,10 @@ var DealService = /** @class */ (function () {
     // updatePriceCompanyUrl = 'http://192.168.1.119:8081/api/deal/updatePrice';
     function DealService(http) {
         this.http = http;
-        this.createDealUrl = 'http://192.168.1.119:8081/api/createdeal'; // URL to web api
-        this.tenDealsUrl = 'http://192.168.1.119:8081/api/deal/active/firstTen';
-        this.updateCompanyUrl = 'http://192.168.1.119:8081/api/deal/update';
-        this.expiredDealUrl = 'http://192.168.1.119:8081/api/deal/expiredDeal';
+        this.createDealUrl = 'http://192.168.1.86:8081/api/createdeal'; // URL to web api
+        this.tenDealsUrl = 'http://192.168.1.86:8081/api/deal/active/firstTen';
+        this.updateCompanyUrl = 'http://192.168.1.86:8081/api/deal/update';
+        this.expiredDealUrl = 'http://192.168.1.86:8081/api/deal/expiredDeal';
     }
     DealService.prototype.createDeal = function (deal) {
         return this.http.post(this.createDealUrl, deal, httpOptions);
@@ -3012,22 +3021,22 @@ var GroupService = /** @class */ (function () {
         this.http = http;
         // public subscription = new Subscription(null, null, null);
         // URL to web api
-        this.tenUrl = 'http://192.168.1.119:8081/api/subscription/findTen';
-        this.allUrl = 'http://192.168.1.119:8081/api/subscription/find';
-        this.setActiveUrl = 'http://192.168.1.119:8081/api/subscription/setactive';
-        this.setBlockUrl = 'http://192.168.1.119:8081/api/subscription/setblock';
-        this.acceptUrl = 'http://192.168.1.119:8081/api/subscription/approve';
-        this.tenBlockedUrl = 'http://192.168.1.119:8081/api/subscription/findTenBlocked';
-        this.tenWaitingUrl = 'http://192.168.1.119:8081/api/subscription/findTenWaiting';
-        this.findfollowingUrl = 'http://192.168.1.119:8081/api/subscription/findfollowing';
-        this.checkRelationshipUrl = 'http://192.168.1.119:8081/api/subscription/check';
-        this.createUrl = 'http://192.168.1.119:8081/api/subscription/create';
+        this.tenUrl = 'http://192.168.1.86:8081/api/subscription/findTen';
+        this.allUrl = 'http://192.168.1.86:8081/api/subscription/find';
+        this.setActiveUrl = 'http://192.168.1.86:8081/api/subscription/setactive';
+        this.setBlockUrl = 'http://192.168.1.86:8081/api/subscription/setblock';
+        this.acceptUrl = 'http://192.168.1.86:8081/api/subscription/approve';
+        this.tenBlockedUrl = 'http://192.168.1.86:8081/api/subscription/findTenBlocked';
+        this.tenWaitingUrl = 'http://192.168.1.86:8081/api/subscription/findTenWaiting';
+        this.findfollowingUrl = 'http://192.168.1.86:8081/api/subscription/findfollowing';
+        this.checkRelationshipUrl = 'http://192.168.1.86:8081/api/subscription/check';
+        this.createUrl = 'http://192.168.1.86:8081/api/subscription/create';
         /**
          * user-group URL
          */
-        this.userGroupCreateUrl = 'http://192.168.1.119:8081/api/group/create';
-        this.userGroupDeleteUrl = 'http://192.168.1.119:8081/api/group/delete';
-        this.userGroupRetrieveUrl = 'http://192.168.1.119:8081/api/group/retrieve';
+        this.userGroupCreateUrl = 'http://192.168.1.86:8081/api/group/create';
+        this.userGroupDeleteUrl = 'http://192.168.1.86:8081/api/group/delete';
+        this.userGroupRetrieveUrl = 'http://192.168.1.86:8081/api/group/retrieve';
     }
     GroupService.prototype.tenSubscribers = function (company) {
         var creatorJSON = '{ "company" : ' + '"' + company + '"' + ' }';
@@ -3147,13 +3156,15 @@ var InboundService = /** @class */ (function () {
     // NameUrl = 'http://192.168.1.119:8081/api/product/name';
     function InboundService(http) {
         this.http = http;
-        this.createUrl = 'http://192.168.1.119:8081/api/inbound/add'; // URL to web api
-        this.tenUrl = 'http://192.168.1.119:8081/api/inbound/individualFind';
-        this.allUrl = 'http://192.168.1.119:8081/api/inbound/individualFind';
-        this.confirmUrl = 'http://192.168.1.119:8081/api/inbound/findRecords';
-        this.tenCompanyUrl = 'http://192.168.1.119:8081/api/inbound/companyFind';
-        this.proposeRetrieveUrl = 'http://192.168.1.119:8081/api/inbound/proposeRetrieve';
-        this.proposeRetrieveCompanyUrl = 'http://192.168.1.119:8081/api/inbound/proposeRetrieveCompany';
+        this.createUrl = 'http://192.168.1.86:8081/api/inbound/add'; // URL to web api
+        this.tenUrl = 'http://192.168.1.86:8081/api/inbound/individualFind';
+        this.allUrl = 'http://192.168.1.86:8081/api/inbound/individualFind';
+        this.confirmUrl = 'http://192.168.1.86:8081/api/inbound/findRecords';
+        this.tenCompanyUrl = 'http://192.168.1.86:8081/api/inbound/companyFind';
+        this.proposeRetrieveUrl = 'http://192.168.1.86:8081/api/inbound/proposeRetrieve';
+        this.proposeRetrieveCompanyUrl = 'http://192.168.1.86:8081/api/inbound/proposeRetrieveCompany';
+        this.createProposeUrl = 'http://192.168.1.86:8081/api/inbound/createPropose';
+        this.proposeConfirmUrl = 'http://192.168.1.86:8081/api/inbound/proposeConfirm';
     }
     InboundService.prototype.tenRecords = function (individual) {
         var creatorJSON = '{ "individual" : ' + '"' + individual + '"' + ' }';
@@ -3185,6 +3196,28 @@ var InboundService = /** @class */ (function () {
         var creatorJSON = '{ "company" : ' + '"' + company + '"' + ' }';
         // console.log(JSON.parse(creator));
         return this.http.post(this.proposeRetrieveCompanyUrl, JSON.parse(creatorJSON), httpOptions);
+    };
+    InboundService.prototype.createPropose = function (inbound) {
+        return this.http.post(this.createProposeUrl, inbound, httpOptions);
+    };
+    InboundService.prototype.proposeConfirm = function (id, quantity, dealId) {
+        var creatorJSON = '{ "id" : ' +
+            '"' +
+            id +
+            '"' +
+            ', ' +
+            '"quantity" : ' +
+            '"' +
+            quantity +
+            '"' +
+            ', ' +
+            '"dealId" : ' +
+            '"' +
+            dealId +
+            '"' +
+            ' }';
+        // console.log(JSON.parse(creator));
+        return this.http.post(this.proposeConfirmUrl, JSON.parse(creatorJSON), httpOptions);
     };
     InboundService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
@@ -3226,10 +3259,10 @@ var ProductService = /** @class */ (function () {
     // NameUrl = 'http://192.168.1.119:8081/api/product/name';
     function ProductService(http) {
         this.http = http;
-        this.createUrl = 'http://192.168.1.119:8081/api/product/add'; // URL to web api
-        this.tenUrl = 'http://192.168.1.119:8081/api/product/findten';
-        this.allUrl = 'http://192.168.1.119:8081/api/product/find';
-        this.NameIdUrl = 'http://192.168.1.119:8081/api/product/NameId';
+        this.createUrl = 'http://192.168.1.86:8081/api/product/add'; // URL to web api
+        this.tenUrl = 'http://192.168.1.86:8081/api/product/findten';
+        this.allUrl = 'http://192.168.1.86:8081/api/product/find';
+        this.NameIdUrl = 'http://192.168.1.86:8081/api/product/NameId';
     }
     ProductService.prototype.createProduct = function (product) {
         return this.http.post(this.createUrl, product, httpOptions);
@@ -3288,7 +3321,7 @@ var httpOptions = {
 var RegisterService = /** @class */ (function () {
     function RegisterService(http) {
         this.http = http;
-        this.registerUrl = 'http://192.168.1.119:8081/api/register'; // URL to web api
+        this.registerUrl = 'http://192.168.1.86:8081/api/register'; // URL to web api
     }
     RegisterService.prototype.userRegister = function (register) {
         return this.http.post(this.registerUrl, register, httpOptions);

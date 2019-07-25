@@ -1,4 +1,5 @@
 const Inbound = require('../models').inbounds;
+const Deal = require('../models').deals;
 
 module.exports = {
   getRecords: function(creator, callback) {
@@ -30,7 +31,7 @@ module.exports = {
   },
 
   create: function(body, reuslt, callback) {
-    if(body) {
+    if (body) {
       Inbound.create({
         product: body.product,
         price: body.price,
@@ -39,9 +40,10 @@ module.exports = {
         company: body.company,
         individual: body.individual,
         status: 0,
-        companyStatus:body.companyStatus,
+        companyStatus: body.companyStatus,
         propose: body.propose,
-        proposeStatus: body.proposeStatus
+        proposeStatus: body.proposeStatus,
+        dealId: body.dealId,
       }).then(function(inbound) {
         callback(inbound);
       });
@@ -88,4 +90,24 @@ module.exports = {
       });
     }
   },
+
+  proposeConfirm: function(body, callback) {
+    if (body.id) {
+      Inbound.update(
+        { proposeStatus: 1 },
+        {
+          where: {
+            id: body.id
+          }
+        }
+      ).then(function(result) {
+        Deal.increment(['quantityTaken'], {
+          by: body.quantity,
+          where: { id: body.dealId }
+        }).then(function(results) {
+          callback(results);
+        });
+      });
+    }
+  }
 };

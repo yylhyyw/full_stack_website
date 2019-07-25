@@ -26,9 +26,7 @@ export class HomeComponent implements OnInit {
 
   public privilege: any;
 
-  public dubeg: any;
-
-  public deal = new Deal(0, '', '', 0, '', '', true, true, false, '');
+  public deal = new Deal(0, '', '', 0, '', '', true, false, false, '');
 
   public month: string;
 
@@ -55,6 +53,8 @@ export class HomeComponent implements OnInit {
   public groupList: any;
 
   public membersTemp: any;
+
+  public today: Date;
   constructor(
     private dealService: DealService,
     private productService: ProductService,
@@ -64,6 +64,19 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.today = new Date();
+    this.today.setDate(this.today.getDate() + 3);
+    console.log(this.today);
+    this.month = (this.today.getMonth() + 1).toString().slice(-2);
+    console.log(this.month);
+    this.days = this.today
+      .getDate()
+      .toString()
+      .slice(-2);
+    console.log(this.days);
+    this.year = this.today.getFullYear().toString();
+    this.hour = this.today.getHours().toString();
+    this.minutes = this.today.getMinutes().toString();
     if (this.router.url === '/home' || this.router.url === '/home/active') {
       document.getElementById('active-tab').classList.add('active');
     } else if (this.router.url === '/home/expired') {
@@ -171,6 +184,7 @@ export class HomeComponent implements OnInit {
     this.membersTemp = '';
     this.isPublic = true;
     this.isPrivate = false;
+    this.deal.dealPublic = true;
     this.groupService
       .allSubscribers(this.deal.creator)
       .pipe(first())
@@ -194,6 +208,7 @@ export class HomeComponent implements OnInit {
     this.membersTemp = '';
     this.isPublic = false;
     this.isPrivate = true;
+    this.deal.dealPublic = false;
     this.groupService
       .groupRetrieve(this.deal.creator)
       .pipe(first())

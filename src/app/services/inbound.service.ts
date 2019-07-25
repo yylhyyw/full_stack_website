@@ -12,14 +12,16 @@ const httpOptions = {
 };
 @Injectable()
 export class InboundService {
-  createUrl = 'http://192.168.1.119:8081/api/inbound/add'; // URL to web api
-  tenUrl = 'http://192.168.1.119:8081/api/inbound/individualFind';
-  allUrl = 'http://192.168.1.119:8081/api/inbound/individualFind';
-  confirmUrl = 'http://192.168.1.119:8081/api/inbound/findRecords';
-  tenCompanyUrl = 'http://192.168.1.119:8081/api/inbound/companyFind';
-  proposeRetrieveUrl = 'http://192.168.1.119:8081/api/inbound/proposeRetrieve';
+  createUrl = 'http://192.168.1.86:8081/api/inbound/add'; // URL to web api
+  tenUrl = 'http://192.168.1.86:8081/api/inbound/individualFind';
+  allUrl = 'http://192.168.1.86:8081/api/inbound/individualFind';
+  confirmUrl = 'http://192.168.1.86:8081/api/inbound/findRecords';
+  tenCompanyUrl = 'http://192.168.1.86:8081/api/inbound/companyFind';
+  proposeRetrieveUrl = 'http://192.168.1.86:8081/api/inbound/proposeRetrieve';
   proposeRetrieveCompanyUrl =
-    'http://192.168.1.119:8081/api/inbound/proposeRetrieveCompany';
+    'http://192.168.1.86:8081/api/inbound/proposeRetrieveCompany';
+  createProposeUrl = 'http://192.168.1.86:8081/api/inbound/createPropose';
+  proposeConfirmUrl = 'http://192.168.1.86:8081/api/inbound/proposeConfirm';
   // NameUrl = 'http://192.168.1.119:8081/api/product/name';
   constructor(private http: HttpClient) {}
 
@@ -80,6 +82,36 @@ export class InboundService {
     // console.log(JSON.parse(creator));
     return this.http.post<string>(
       this.proposeRetrieveCompanyUrl,
+      JSON.parse(creatorJSON),
+      httpOptions
+    );
+  }
+
+  createPropose(inbound: Inbound): Observable<Inbound> {
+    return this.http.post<Inbound>(this.createProposeUrl, inbound, httpOptions);
+  }
+
+  proposeConfirm(id: number, quantity: number, dealId: number): Observable<string> {
+    const creatorJSON =
+      '{ "id" : ' +
+      '"' +
+      id +
+      '"' +
+      ', ' +
+      '"quantity" : ' +
+      '"' +
+      quantity +
+      '"' +
+      ', ' +
+      '"dealId" : ' +
+      '"' +
+      dealId +
+      '"' +
+      ' }';
+
+    // console.log(JSON.parse(creator));
+    return this.http.post<string>(
+      this.proposeConfirmUrl,
       JSON.parse(creatorJSON),
       httpOptions
     );

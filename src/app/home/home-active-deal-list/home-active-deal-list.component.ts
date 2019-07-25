@@ -95,6 +95,15 @@ export class HomeActiveDealListComponent implements OnInit {
       });
   }
 
+  getActiveListIndividual(creator, individual) {
+    this.dealService
+      .individualDeals(creator, individual)
+      .pipe(first())
+      .subscribe(data => {
+        this.dealList = data;
+      });
+  }
+
   getfollowing(creator) {
     this.groupService
       .findfollowing(creator)
@@ -109,7 +118,7 @@ export class HomeActiveDealListComponent implements OnInit {
         },
         () => {
           if (this.followingList[0]) {
-            this.getActiveList(this.followingList[0].company);
+            this.getActiveListIndividual(this.followingList[0].company, this.creator);
           } else {
             this.noFollowing = true;
           }
