@@ -2,7 +2,7 @@
   <table class="table table-responsive w-auto" id="dealTable">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <th scope="col" class="hide">#</th>
         <th scope="col">Deals</th>
         <th scope="col" class="hide">Price</th>
         <th scope="col" class="hide">Quantity</th>
@@ -30,6 +30,7 @@
             <div class="float-right hide text-primary" *ngIf="!deal.public">
               Privilege: Private
             </div>
+            <br>
             <p class="text-danger show">
               Price: {{ deal.price }} Quantity: {{ deal.quantity }}/{{
                 deal.quantity + deal.quantityTaken
