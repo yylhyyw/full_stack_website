@@ -1,18 +1,18 @@
 <div *ngIf="privilege">
-  <table class="table" id="dealTable">
+  <table class="table table-responsive w-auto" id="dealTable">
     <thead>
       <tr>
-        <th scope="col" style="width: 9%">#</th>
-        <th scope="col" style="width: 60%">Deals</th>
-        <th scope="col" style="width: 10%">Price</th>
-        <th scope="col" style="width: 12%">Quantity</th>
-        <th scope="col" style="width: 9%"></th>
+        <th scope="col">#</th>
+        <th scope="col">Deals</th>
+        <th scope="col" class="hide">Price</th>
+        <th scope="col" class="hide">Quantity</th>
+        <th scope="col" class="hide"></th>
       </tr>
     </thead>
     <tbody>
       <ng-container *ngFor="let deal of dealList; index as i">
         <tr>
-          <th scopr="row">{{ ('000' + deal.id).slice(-4) }}</th>
+          <th scopr="row" class="hide">{{ ('000' + deal.id).slice(-4) }}</th>
           <td>
             {{ deal.product_name }}
             <div
@@ -21,17 +21,37 @@
               [innerHTML]="deal.note | linkify"
             ></div>
             <hr />
-            <div class="float-left">Expires At: {{ deal.expires_at }}</div>
-            <div class="float-right" *ngIf="deal.public">
-              Privilege: Private
+            <div class="float-left text-primary">
+              Expires At: {{ deal.expires_at | date: 'medium' }}
             </div>
-            <div class="float-right" *ngIf="!deal.public">
+            <div class="float-right hide text-primary" *ngIf="deal.public">
               Privilege: Public
             </div>
+            <div class="float-right hide text-primary" *ngIf="!deal.public">
+              Privilege: Private
+            </div>
+            <p class="text-danger show">
+              Price: {{ deal.price }} Quantity: {{ deal.quantity }}/{{
+                deal.quantity + deal.quantityTaken
+              }}
+            </p>
+            <button
+              id="{{ i }}"
+              type="button"
+              class="btn btn-outline-success btn-block btn-sm show"
+              data-toggle="modal"
+              data-target="#editForm"
+              *ngIf="privilege"
+              (click)="takeDeal(i)"
+            >
+              Edit
+            </button>
           </td>
-          <td>{{ deal.price }}</td>
-          <td>{{ deal.quantity }}/{{ deal.quantity + deal.quantityTaken }}</td>
-          <td>
+          <td class="hide">{{ deal.price }}</td>
+          <td class="hide">
+            {{ deal.quantity }}/{{ deal.quantity + deal.quantityTaken }}
+          </td>
+          <td class="hide">
             <button
               id="{{ i }}"
               type="button"
@@ -48,7 +68,7 @@
           <div
             class="modal fade"
             id="editForm"
-            tabindex="-1"
+            tabindex="0"
             role="dialog"
             aria-labelledby="exampleModalLabel"
             aria-hidden="true"
@@ -56,7 +76,7 @@
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="formTitle">Take an Deal</h5>
+                  <h5 class="modal-title" id="EditTitle">Edit an Deal</h5>
                   <button
                     type="button"
                     class="close"
@@ -82,7 +102,6 @@
                         id="price"
                         name="price"
                         [(ngModel)]="selectDeal.price"
-                        value="selectDeal.price"
                       />
                     </div>
                     <div class="form-group">
@@ -95,7 +114,6 @@
                         id="quantity"
                         name="quantity"
                         [(ngModel)]="selectDeal.quantity"
-                        value="selectDeal.quantity"
                       />
                     </div>
                     <div class="form-group">
@@ -142,11 +160,11 @@
   <table *ngIf="noFollowing" class="table" id="dealTable">
     <thead>
       <tr>
-        <th scope="col" style="width: 9%">#</th>
-        <th scope="col" style="width: 60%">Deals</th>
-        <th scope="col" style="width: 10%">Price</th>
-        <th scope="col" style="width: 12%">Quantity</th>
-        <th scope="col" style="width: 9%"></th>
+        <th scope="col" class="hide">#</th>
+        <th scope="col">Deals</th>
+        <th scope="col" class="hide">Price</th>
+        <th scope="col" class="hide">Quantity</th>
+        <th scope="col" class="hide"></th>
       </tr>
     </thead>
     <tbody>
@@ -175,17 +193,17 @@
     <table class="table" id="dealTable">
       <thead>
         <tr>
-          <th scope="col" style="width: 9%">#</th>
-          <th scope="col" style="width: 60%">Deals</th>
-          <th scope="col" style="width: 10%">Price</th>
-          <th scope="col" style="width: 12%">Quantity</th>
-          <th scope="col" style="width: 9%">Action</th>
+          <th scope="col" class="hide">#</th>
+          <th scope="col">Deals</th>
+          <th scope="col" class="hide">Price</th>
+          <th scope="col" class="hide">Quantity</th>
+          <th scope="col" class="hide">Action</th>
         </tr>
       </thead>
       <tbody>
         <ng-container *ngFor="let deal of dealList; index as i">
           <tr>
-            <th scopr="row">{{ ('000' + deal.id).slice(-4) }}</th>
+            <th scopr="row" class="hide">{{ ('000' + deal.id).slice(-4) }}</th>
             <td>
               <span>{{ deal.product_name }}</span>
               <div
@@ -193,10 +211,27 @@
                 style="font-size:smaller"
                 [innerHTML]="deal.note | linkify"
               ></div>
+              <p class="text-primary show">Expires At: {{ deal.expires_at | date: 'medium' }}</p>
+              <p class="text-danger show">
+                Price: {{ deal.price }} Quantity: {{ deal.quantity }}
+              </p>
+
+              <button
+              id="{{ i }}"
+              type="button"
+              class="btn btn-outline-success btn-block btn-sm show"
+              data-toggle="modal"
+              data-target="#takeForm"
+              data-whatever="@mdo"
+              *ngIf="!privilege"
+              (click)="takeDeal(i)"
+            >
+              Take
+            </button>
             </td>
-            <td>{{ deal.price }}</td>
-            <td id="qty{{ i }}">{{ deal.quantity }}</td>
-            <td>
+            <td class="hide">{{ deal.price }}</td>
+            <td id="qty{{ i }}" class="hide">{{ deal.quantity }}</td>
+            <td class="hide">
               <button
                 id="{{ i }}"
                 type="button"

@@ -1,21 +1,106 @@
 <table class="table" id="GroupTable">
   <thead>
     <tr>
-      <th scope="col" style="width:9%">#</th>
-      <th scope="col" style="width:60%">Followers</th>
-      <th scope="col" style="width:20%">status</th>
-      <th scope="col" style="width:11%">Actions</th>
+      <th scope="col" class="hide">#</th>
+      <th scope="col">Followers</th>
+      <th scope="col"  class="hide">status</th>
+      <th scope="col"  class="hide">Actions</th>
     </tr>
   </thead>
   <tbody>
     <ng-container *ngFor="let follower of followersList; index as i">
       <tr>
-        <th scopr="row">{{ ('000' + follower.id).slice(-4) }}</th>
+        <th scopr="row"  class="hide">{{ ('000' + follower.id).slice(-4) }}</th>
         <td>
           {{ follower.individual }}
+          <p class="text-danger show">Status: {{ statusLevel[follower.status] }}</p>
+          <div>
+              <button
+                type="button"
+                class="btn btn-outline-success btn-block show"
+                data-toggle="modal"
+                data-target="#userInformForm"
+              >
+                Edit
+              </button>
+              <button
+              class="btn btn-outline-success btn-block"
+                *ngIf="!follower.status"
+                (click)="setActive(i)"
+              >
+                Approve
+              </button>
+              <div
+              class="modal fade"
+              id="userInformForm"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="userInformForm"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="userInformForm">
+                      User Information
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label"
+                          >Follower:</label
+                        >
+                        {{ follower.individual }}
+                      </div>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label"
+                          >Status:</label
+                        >
+                        {{ statusLevel[follower.status] }}
+                      </div>
+                      <div class="form-group">
+                        <button
+                          type="button"
+                          class="btn btn-primary"
+                          (click)="setBlock(i)"
+                        >
+                          Block
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-primary ml-2"
+                          (click)="setActive(i)"
+                        >
+                          Active
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
         </td>
-        <td>{{ statusLevel[follower.status] }}</td>
-        <td>
+        <td  class="hide">{{ statusLevel[follower.status] }}</td>
+        <td  class="hide">
           <div>
             <button
               type="button"

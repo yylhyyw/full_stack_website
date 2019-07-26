@@ -1,0 +1,12 @@
+table {
+  table-layout: fixed;
+  word-wrap: break-word;
+  width: 100%;
+}
+@media screen and (max-width: 1000px) {
+  .hide { display: none; }
+}
+
+@media screen and (min-width: 1000px) {
+  .show {display: none;}
+}

@@ -132,7 +132,7 @@ export class HomeActiveDealListComponent implements OnInit {
       if (productId >= 0) {
         this.inbound.product = this.dealList[productId].product_name;
         this.inbound.price = this.dealList[productId].price;
-        this.inbound.quantity = this.dealList[productId].quantity;
+        this.inbound.quantity = 0;
         this.inbound.warehouse = 'NH';
         if (this.followingList) {
           this.inbound.company = this.followingList[0].company;
@@ -168,7 +168,6 @@ export class HomeActiveDealListComponent implements OnInit {
       .updateCompany(this.selectDeal)
       .pipe(first())
       .subscribe(data => {
-        console.log(this.selectProductId);
         this.dealList[this.selectProductId].price = data.price;
         this.dealList[this.selectProductId].quantity = data.quantity;
         this.dealList[this.selectProductId].quantityTaken = data.quantityTaken;

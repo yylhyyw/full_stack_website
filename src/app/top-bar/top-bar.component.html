@@ -1,49 +1,63 @@
-<div
-  class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm"
->
-  <h5 class="my-0 mr-md-auto font-weight-normal"><a routerLink="/">Demo</a></h5>
-  <nav class="my-2 my-md-0 mr-md-3">
-    <a class="p-2 text-dark" routerLink="/signin" *ngIf="!currentUser"
+<!-- rebuild html and css with responsive behavior
+example:
+https://getbootstrap.com/docs/4.0/components/navbar/#responsive-behaviors -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarTogglerDemo01"
+    aria-controls="navbarTogglerDemo01"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" routerLink="/">Demo</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item"  id="nav-dashboard" >
+        <a class="nav-link" routerLink="/dashboard" *ngIf="currentUser" (click)="ngOnInit()"
+          >Dashboard</a
+        >
+      </li>
+      <li class="nav-item" id="nav-deal">
+        <a class="nav-link" routerLink="/home" *ngIf="currentUser" (click)="ngOnInit()">Deal</a>
+      </li>
+      <li class="nav-item" id="nav-inbound">
+        <a class="nav-link" routerLink="/inbound" *ngIf="currentUser" (click)="ngOnInit()"
+          >Inbound</a
+        >
+      </li>
+
+      <li class="nav-item" id="nav-products">
+        <a class="nav-link" routerLink="/products" *ngIf="company" (click)="ngOnInit()"
+          >Products</a
+        >
+      </li>
+
+      <li class="nav-item" id="nav-groups">
+        <a class="nav-link" routerLink="/groups" *ngIf="company" (click)="ngOnInit()"
+          >Groups</a
+        >
+      </li>
+    </ul>
+    <a class="btn btn-outline-primary mr-3" routerLink="/signin" *ngIf="!currentUser"
       >Sign in</a
     >
+
     <a
-    class="p-2 text-dark"
-    routerLink="/dashboard"
-    *ngIf="currentUser"
-    >DashBoard</a
-  >
-    <a
-      class="p-2 text-dark"
-      routerLink="/home"
-      *ngIf="currentUser"
-      >Deal</a
+      class="btn btn-outline-primary"
+      routerLink="/register"
+      *ngIf="!currentUser"
+      >Register</a
     >
-    <a
-    class="p-2 text-dark"
-    routerLink="/inbound"
-    *ngIf="currentUser"
-    >Inbound</a
-  >
-    <a
-      class="p-2 text-dark"
-      routerLink="/products"
-      *ngIf="company"
-      >Product</a
+    <a class="btn btn-outline-primary" *ngIf="currentUser" (click)="logout()"
+      >Log out</a
     >
-    <a
-      class="p-2 text-dark"
-      routerLink="/groups"
-      *ngIf="company"
-      >Groups</a
-    >
-  </nav>
-  <a class="btn btn-outline-primary" routerLink="/register" *ngIf="!currentUser"
-    >Register</a
-  >
-  <a class="btn btn-outline-primary" *ngIf="currentUser" (click)="logout()"
-    >Log out</a
-  >
-</div>
+  </div>
+</nav>
+
 <div id='flush-block' class="container">
     <div class="alert alert-info" role="alert" *ngIf="company">
         You Signed In As a Member of Company

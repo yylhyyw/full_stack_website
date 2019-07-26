@@ -2,6 +2,7 @@
 {{ selectProduct }}
 {{month}} -->
 <!-- {{deal | json}} -->
+{{selectProduct}}
 <div class="container">
   <ul class="nav nav-tabs" id="dealTabs" role="tablist">
     <li class="nav-item">
@@ -89,8 +90,8 @@
       Create
     </button>
   </div>
-
-  <div class="tab-content" id="dealLists">
+  <br>
+  <div class="tab-content mt-5" id="dealLists">
     <router-outlet></router-outlet>
   </div>
   <div
@@ -116,24 +117,58 @@
         </div>
         <div class="modal-body">
           <form>
-            <div class="form-group">
+            <div class="form-group select-hide">
               <label for="deal-product" class="col-form-label">Product:</label>
+              <br>
+              <p class="text-danger">Products only shows first 88 Words, use id to search for accurate product(like: #17):</p>
+
               <select
-                class="selectpicker form-control"
+                class="selectpicker form-control selectwidthauto"
                 data-live-search="true"
                 name="product"
                 [(ngModel)]="selectProduct"
                 (ngModelChange)="setProductNameId()"
+                style="width: auto;"
               >
+
                 <option
                   *ngFor="let nameid of productList"
                   name="productsId"
                   [ngValue]="nameid"
+                  class="selectOption"
+                  data-width = "auto"
+                  data-mobile = "true"
                 >
-                  {{ nameid.name }}
+                  #{{nameid.id}} {{ nameid.name | slice:0:84}}
                 </option>
               </select>
             </div>
+            <div class="form-group show">
+                <label for="deal-product" class="col-form-label">Product:</label>
+                <br>
+                <p class="text-danger">Products only shows product id on mobile view, use id to search for accurate product(like: #17):</p>
+
+                <select
+                  class="selectpicker form-control selectwidthauto"
+                  data-live-search="true"
+                  name="product"
+                  [(ngModel)]="selectProduct"
+                  (ngModelChange)="setProductNameId()"
+                  style="width: auto;"
+                >
+
+                  <option
+                    *ngFor="let nameid of productList"
+                    name="productsId"
+                    [ngValue]="nameid"
+                    class="selectOption"
+                    data-width = "auto"
+                    data-mobile = "true"
+                  >
+                    #{{nameid.id}}
+                  </option>
+                </select>
+              </div>
             <div class="form-group">
               <label for="deal-price" class="col-form-label">Price:</label>
               <input

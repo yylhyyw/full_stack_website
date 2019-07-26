@@ -1,34 +1,46 @@
 <table class="table" id="inboundTable" *ngIf="!noRecord">
   <thead>
     <tr>
-      <th scope="col" style="width: 9%">#</th>
-      <th scope="col" style="width: 30%">Inbound</th>
-      <th scope="col" style="width: 12%" *ngIf="privilege">From</th>
-      <th scope="col" style="width: 10%">Price</th>
-      <th scope="col" style="width: 12%">Quantity</th>
-      <th scope="col" style="width: 9">WareHouse</th>
-      <th scope="col" style="width: 9">LastUpdate</th>
-      <th scope="col" style="width: 9%">Action</th>
+      <th scope="col" class="hide">#</th>
+      <th scope="col">Inbound</th>
+      <th scope="col" *ngIf="privilege" class="hide">From</th>
+      <th scope="col" class="hide">Price</th>
+      <th scope="col" class="hide">Quantity</th>
+      <th scope="col" class="hide">WareHouse</th>
+      <th scope="col" class="hide">LastUpdate</th>
+      <th scope="col" class="hide">Action</th>
     </tr>
   </thead>
   <tbody>
     <ng-container *ngFor="let record of proposeList">
       <tr>
-        <th scopr="row">{{ ('000' + record.id).slice(-4) }}</th>
+        <th scopr="row" class="hide">{{ ('000' + record.id).slice(-4) }}</th>
         <td>
           <div>
             {{ record.product }}
+            <p class="text-danger show">From: {{record.individual}} Warehouse: {{record.warehouse}}</p>
+            <p class="text-danger show">Price: {{record.price}} Quantity: {{record.quantity}}</p>
+            <p class="text-danger show">Update: {{record.updatedAt | date: 'medium'}}</p>
+            <div *ngIf="!record.proposeStatus" class="show">
+                Action: Waiting
+                <div *ngIf="privilege">
+                  <button class="btn btn-outline-success btn-block btn-sm" (click)="proposeConfirm(record.id, record.quantity, record.dealId)">Confirm</button>
+                </div>
+              </div>
+              <div *ngIf="record.proposeStatus">
+                Action: Confirmed
+              </div>
             <!-- </ng-container> -->
           </div>
         </td>
-        <td *ngIf="privilege">{{ record.individual }}</td>
+        <td *ngIf="privilege" class="hide">{{ record.individual }}</td>
         <!-- <td *ngIf="!privilege">{{ record.individual }}</td> -->
-        <td>{{ record.price }}</td>
-        <td>{{ record.quantity }}</td>
-        <td>{{ record.warehouse }}</td>
-        <td>{{ record.updatedAt }}</td>
-        <td>
-          <div *ngIf="!record.proposeStatus">
+        <td class="hide">{{ record.price }}</td>
+        <td class="hide">{{ record.quantity }}</td>
+        <td class="hide">{{ record.warehouse }}</td>
+        <td class="hide">{{ record.updatedAt | date: 'medium'}}</td>
+        <td class="hide">
+          <div *ngIf="!record.proposeStatus" >
             Waiting
             <div *ngIf="privilege">
               <button class="btn btn-outline-success btn-block btn-sm" (click)="proposeConfirm(record.id, record.quantity, record.dealId)">Confirm</button>

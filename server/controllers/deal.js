@@ -1,7 +1,7 @@
 const Deal = require('../models').deals;
 const Product = require('../models').products;
 const Sequelize = require('sequelize');
-const Op = Sequelize.Op
+const Op = Sequelize.Op;
 //TODO
 module.exports = {
   create: function(body, callback) {
@@ -34,6 +34,9 @@ module.exports = {
           expires_at: {
             [Op.gte]: new Date()
           },
+          quantity: {
+            [Op.gt]: 0
+          }
         },
         order: [['id', 'DESC']]
       }).then(function(deals) {
@@ -49,9 +52,18 @@ module.exports = {
         limit: 10,
         where: {
           creator: creator,
-          expires_at: {
-            [Op.lte]: new Date()
-          }
+          [Op.or]: [
+            {
+              expires_at: {
+                [Op.gte]: new Date()
+              }
+            },
+            {
+              quantity: {
+                [Op.gt]: 0
+              }
+            }
+          ]
         },
         order: [['id', 'DESC']]
       }).then(function(deals) {
@@ -105,7 +117,10 @@ module.exports = {
             [Op.gte]: new Date()
           },
           members: {
-            [Op.like]: '%'+individual+'%'
+            [Op.like]: '%' + individual + '%'
+          },
+          quantity: {
+            [Op.gt]: 0
           }
         },
         order: [['id', 'DESC']]

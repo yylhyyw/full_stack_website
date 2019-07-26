@@ -74,10 +74,8 @@ module.exports = {
   findSubscriptionsTen: function(company, callback) {
     if (company) {
       Subscription.findAll({
-        limit: 10,
         where: {
           company: company,
-          status: { [Op.ne]: 2 }
         }
       }).then(function(subscribers) {
         callback(subscribers);
@@ -119,7 +117,10 @@ module.exports = {
           [Sequelize.fn('DISTINCT', Sequelize.col('company')), 'company']
         ],
         where: {
-          individual: individual
+          individual: individual,
+          status:{
+            [Op.ne]: 2
+          }
         }
         // plain: true
       }).then(function(companies) {

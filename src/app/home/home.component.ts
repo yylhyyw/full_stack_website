@@ -66,14 +66,14 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.today = new Date();
     this.today.setDate(this.today.getDate() + 3);
-    console.log(this.today);
+    // console.log(this.today);
     this.month = (this.today.getMonth() + 1).toString().slice(-2);
-    console.log(this.month);
+    // console.log(this.month);
     this.days = this.today
       .getDate()
       .toString()
       .slice(-2);
-    console.log(this.days);
+    // console.log(this.days);
     this.year = this.today.getFullYear().toString();
     this.hour = this.today.getHours().toString();
     this.minutes = this.today.getMinutes().toString();
@@ -111,7 +111,11 @@ export class HomeComponent implements OnInit {
         },
         () => {
           setTimeout(() => {
+            // $('.selectpicker').addClass('fixedWidth').selectpicker('setStyle');
+            $('.selectpicker').selectpicker('render');
             $('.selectpicker').selectpicker('refresh');
+
+
           });
         }
       );
@@ -121,6 +125,7 @@ export class HomeComponent implements OnInit {
       this.deal.products = this.selectProduct.id;
       this.deal.productName = this.selectProduct.name;
     }
+    document.getElementById('active-tab').classList.add('active');
   }
 
   create() {
