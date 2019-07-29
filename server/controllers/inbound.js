@@ -14,7 +14,20 @@ module.exports = {
       });
     }
   },
-
+  cancelInbound: function(id, callback) {
+    if (id) {
+      Inbound.update(
+        { status: 2 },
+        {
+          where: {
+            id: id
+          }
+        }
+      ).then(function(result) {
+        callback(result);
+      });
+    }
+  },
   confirm: function(id, callback) {
     if (id) {
       Inbound.update(
@@ -44,6 +57,8 @@ module.exports = {
         propose: body.propose,
         proposeStatus: body.proposeStatus,
         dealId: body.dealId,
+        publicWarehouse: body.publicWarehouse,
+        bonus: body.bonus
       }).then(function(inbound) {
         callback(inbound);
       });
@@ -109,5 +124,26 @@ module.exports = {
         });
       });
     }
+  },
+
+  findAwardsUser: function(dealId, callback) {
+    if (dealId) {
+      Inbound.findAll({ where: { dealId: dealId } }).then(function(result) {
+        callback(result);
+      });
+    }
+  },
+
+  updateAwards: function(awardsIds, price, awards, callback) {
+    var inboundIds = awardsIds.split(",");
+    Inbound.update(
+      {
+        price: price,
+        awards: awards
+      },
+      { where: { id: inboundIds } }
+    ).then(function(result) {
+      callback(result);
+    });
   }
 };

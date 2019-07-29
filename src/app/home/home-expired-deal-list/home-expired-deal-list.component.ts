@@ -46,6 +46,7 @@ export class HomeExpiredDealListComponent implements OnInit {
 
   public isProposed: any;
 
+
   constructor(
     private authenticationService: AuthenticationService,
     private dealService: DealService,
@@ -103,8 +104,8 @@ export class HomeExpiredDealListComponent implements OnInit {
       if (productId >= 0) {
         this.inbound.product = this.expiredList[productId].product_name;
         this.inbound.price = this.expiredList[productId].price;
-        this.inbound.quantity = this.expiredList[productId].quantity;
-        this.inbound.warehouse = 'NH';
+        this.inbound.quantity = 0;
+        this.inbound.warehouse = '';
         if (this.followingList) {
           this.inbound.company = this.followingList[0].company;
         }
@@ -119,7 +120,7 @@ export class HomeExpiredDealListComponent implements OnInit {
       this.selectDeal.productName = this.expiredList[productId].product_name;
       this.selectDeal.quantity = this.expiredList[productId].quantity;
       this.selectDeal.price = this.expiredList[productId].price;
-      this.selectWarehouse = 'NH';
+      this.selectWarehouse = '';
     }
   }
 

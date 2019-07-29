@@ -7,7 +7,6 @@ module.exports = {
   create: function(body, callback) {
     let deal_link = JSON.stringify(body.deallinks);
     body.deallinks = deal_link;
-    console.log(body);
     Deal.create({
       products: body.products,
       product_name: body.productName,
@@ -19,7 +18,8 @@ module.exports = {
       public: body.dealPublic,
       notify: body.notify,
       creator: body.creator,
-      members: body.members
+      members: body.members,
+      bonus: body.bonus
     }).then(function(deal) {
       callback(deal);
     });
@@ -55,12 +55,12 @@ module.exports = {
           [Op.or]: [
             {
               expires_at: {
-                [Op.gte]: new Date()
+                [Op.lte]: new Date()
               }
             },
             {
               quantity: {
-                [Op.gt]: 0
+                [Op.lte]: 0
               }
             }
           ]
@@ -71,7 +71,23 @@ module.exports = {
       });
     }
   },
-
+  individualReturn: function(id, quantity, callback) {
+    if(id) {
+      Deal.increment(['quantity'], {
+        by: quantity,
+        where: {id: id}
+      }) .then(function(result) {
+        Deal.decrement(['quantityTaken'], {
+          by: quantity,
+          where: {id: id}
+        }).then(function(result) {
+          Deal.findByPk(id).then(function(product) {
+            callback(product);
+          });
+        });
+      });
+    }
+  },
   individualTaken: function(id, quantity, callback) {
     if (id) {
       Deal.decrement(['quantity'], {

@@ -12,6 +12,7 @@ import { ProductService } from '../services/product.service';
 import { first } from 'rxjs/operators';
 import { DealService } from '../services/deal.service';
 import { GroupService } from '../services/group.service';
+import { Email } from '../models/email';
 
 declare var $: any;
 
@@ -55,6 +56,8 @@ export class HomeComponent implements OnInit {
   public membersTemp: any;
 
   public today: Date;
+
+  public email = new Email();
   constructor(
     private dealService: DealService,
     private productService: ProductService,
@@ -114,8 +117,6 @@ export class HomeComponent implements OnInit {
             // $('.selectpicker').addClass('fixedWidth').selectpicker('setStyle');
             $('.selectpicker').selectpicker('render');
             $('.selectpicker').selectpicker('refresh');
-
-
           });
         }
       );
@@ -152,15 +153,46 @@ export class HomeComponent implements OnInit {
     this.dealService
       .createDeal(this.deal)
       .pipe(first())
-      .subscribe(data => {
-        this.isCreated = true;
-        window.location.reload();
-        // console.log(data);
-        // this.homeActiveDealListComponent.dealList[data.id] = this.deal;
-        // console.log(this.homeActiveDealListComponent.dealList[''])
-        this.deal.clear();
-        // this.ngOnInit();
-      });
+      .subscribe(
+        data => {
+          this.isCreated = true;
+          window.location.reload();
+          // console.log(data);
+          // this.homeActiveDealListComponent.dealList[data.id] = this.deal;
+          // console.log(this.homeActiveDealListComponent.dealList[''])
+          // this.deal.clear();
+          // this.ngOnInit();
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          this.emailNotification(this.deal);
+          this.deal.clear();
+        }
+      );
+  }
+
+  emailNotification(deal) {
+    if (this.deal.notify === true) {
+      this.email.emailList = deal.members;
+      this.email.emailSubject = deal.productName;
+      this.email.emailText = deal.note;
+      this.dealService
+        .emailNotification(this.email)
+        .pipe(first())
+        .subscribe(
+          data => {
+            console.log(data);
+          },
+          error => {
+            console.log(error);
+          },
+          () => {
+            console.log('done');
+          }
+        );
+    }
   }
 
   search() {

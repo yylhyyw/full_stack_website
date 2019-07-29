@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service';
 import { InboundService } from '../../services/inbound.service';
 import { first } from 'rxjs/operators';
+import { Inbound } from '../../models/inbound';
 @Component({
   selector: 'app-to-confirm-list',
   templateUrl: './to-confirm-list.component.html',
@@ -9,11 +10,25 @@ import { first } from 'rxjs/operators';
   providers: [InboundService, AuthenticationService]
 })
 export class ToConfirmListComponent implements OnInit {
+
+  public status = ['Success', 'Unknown Status', 'Canceled'];
   public userEmail: any;
 
   public privilege: any;
 
   public recordList: any;
+
+  public selectInbound = new Inbound(
+    '',
+    '',
+    null,
+    '',
+    '',
+    '',
+    null,
+    null,
+    null
+  );
   constructor(
     private inboundService: InboundService,
     private authenticationService: AuthenticationService
@@ -62,5 +77,15 @@ export class ToConfirmListComponent implements OnInit {
       .subscribe(data => {
         this.recordList = data;
       });
+  }
+
+  cancelInbound(index: number) {
+    this.selectInbound.dealId = this.recordList[index].dealId;
+    this.selectInbound.quantity = this.recordList[index].quantity;
+    this.selectInbound.id = this.recordList[index].id;
+    this.inboundService.cancelInbound(this.selectInbound).pipe(first()).subscribe(data => {
+      console.log(data);
+      this.ngOnInit();
+    });
   }
 }

@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var nodeMailer = require('nodemailer');
 
 const dealController = require('../controllers').deal;
 const userController = require('../controllers').user;
@@ -11,6 +12,32 @@ const userGroupController = require('../controllers').userGroup;
 
 // const user = new User();
 // var sequelize = require("../models");
+
+/**
+ * email sender
+ */
+
+router.post('/send-notification', function(req, res) {
+  let transporter = nodeMailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: 'c0049.ushopmall@gmail.com',
+      pass: 'yiweiabcde12345'
+    }
+  });
+  let mailOptions = {
+    to: req.body.emailList,
+    subject: req.body.emailSubject,
+    text: req.body.emailText
+  };
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }
+    console.log('Message sent');
+  });
+  res.status(301).json('sent');
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -72,14 +99,16 @@ router.post('/createdeal', (req, res, next) => {
 });
 
 router.post('/deal/individualFind', (req, res, next) => {
-  dealController.individualFind(req.body.creator, req.body.individual, function(result) {
-    if(result){
+  dealController.individualFind(req.body.creator, req.body.individual, function(
+    result
+  ) {
+    if (result) {
       res.status(201).send(result);
-    } else{
+    } else {
       res.status(409).end();
     }
-  })
-})
+  });
+});
 router.post('/deal/active/firstTen', (req, res, next) => {
   dealController.findTen(req.body.creator, function(deals) {
     if (deals) {
@@ -274,37 +303,54 @@ router.post('/subscription/create', (req, res, next) => {
  * inbound api post get
  */
 router.post('/inbound/createPropose', (req, res, next) => {
-  inboundController.create(req.body, null, function(results){
-    if(results){
-      res.status(201).send(results);
-    }else{
-      res.status(409).end();
-    }
-  });
-});
-
-router.post('/inbound/proposeConfirm', (req, res, next) => {
-  inboundController.proposeConfirm(req.body, function(results) {
-    if(results){
+  inboundController.create(req.body, null, function(results) {
+    if (results) {
       res.status(201).send(results);
     } else {
       res.status(409).end();
     }
+  });
+});
+
+router.post('/inbound/findAwardsUser', (req, res, next) => {
+  inboundController.findAwardsUser(req.body.dealId, function(result) {
+    if(result) {
+      res.status(201).send(result);
+    } else {
+      res.status(409).end();
+    }
+  })
+});
+router.post('/inbound/proposeConfirm', (req, res, next) => {
+  inboundController.proposeConfirm(req.body, function(results) {
+    if (results) {
+      res.status(201).send(results);
+    } else {
+      res.status(409).end();
+    }
+  });
+});
+router.post('/inbound/updateAwards', (req, res, next) => {
+  console.log(req.body.inboundIds);
+  inboundController.updateAwards(req.body.inboundIds, req.body.price, req.body.awards, function(result) {
+    if(result) {
+      res.status(201).send(result);
+    } else{
+      res.status(409).end();
+    }
   })
 })
-
-
- router.post('/inbound/proposeRetrieveCompany', (req, res, next) => {
+router.post('/inbound/proposeRetrieveCompany', (req, res, next) => {
   inboundController.proposeRetrieveCompany(req.body.company, function(records) {
-    if(records){
+    if (records) {
       res.status(201).send(records);
-    }else{
+    } else {
       res.status(409).end();
     }
   });
 });
 
- router.post('/inbound/proposeRetrieve', (req, res, next) => {
+router.post('/inbound/proposeRetrieve', (req, res, next) => {
   inboundController.proposeRetrieve(req.body.individual, function(records) {
     if (records) {
       res.status(201).send(records);
@@ -333,6 +379,24 @@ router.post('/inbound/confirm', (req, res, next) => {
   });
 });
 
+/**
+ * inbound cancel
+ */
+router.post('/inbound/cancelInbound', (req, res, next) => {
+  dealController.individualReturn(req.body.dealId, req.body.quantity, function(
+    result
+  ) {
+    if (result) {
+      inboundController.cancelInbound(req.body.id, function(results) {
+        if (results) {
+          res.status(201).send(results);
+        } else {
+          res.status(409).end();
+        }
+      });
+    }
+  });
+});
 router.post('/inbound/add', (req, res, next) => {
   dealController.individualTaken(req.body.dealId, req.body.quantity, function(
     result

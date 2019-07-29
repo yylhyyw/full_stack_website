@@ -1,72 +1,86 @@
-<div class='container m-t-1'><div class='row'>
-    <div class='col-lg-3 col-md-4'>
-    <div class='card'>
-    <div class='card-block'>
-    <h3 class='card-header'>Offers</h3>
-    </div>
-    <ul class='list-group list-group-flush'>
-    <li class='list-group-item'>
-    <a class="card-link" routerLink="/home/active">active offers
-    </a></li>
-    <li class='list-group-item'>
-    <a class="card-link" routerLink="/home/expired">expired offers
-    </a></li>
-    <li class='list-group-item'>
-    <a class="card-link" routerLink="/home/propose">proposed offers
-    </a></li>
-    </ul>
-    </div>
-    </div>
-    <div class='col-lg-3 col-md-4'>
-    <div class='card'>
-    <div class='card-block'>
-    <h3 class='card-header'>Inbound</h3>
-    </div>
-    <ul class='list-group list-group-flush'>
-    <li class='list-group-item'>
-    <a class="card-link" routerLink="/inbound/inboundToConfirm">inbound items
-    </a></li>
-    <li class='list-group-item'>
-    <a class="card-link" routerLink="/inbound/inboundReported">reported items
-    </a></li>
-    </ul>
-    </div>
-    </div>
-    <div class='col-lg-3 col-md-4' *ngIf="!privilege">
-      <div class='card'>
-      <div class='card-block'>
-      <h3 class='card-header'>More</h3>
+<!-- Dashboard: -->
+<div class="container m-t-1">
+  <div class="row">
+    <div class="col-lg-3 col-md-4">
+      <div class="card">
+        <div class="card-block">
+          <h3 class="card-header">Offers</h3>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a class="card-link" routerLink="/home/active">active offers </a>
+          </li>
+          <li class="list-group-item">
+            <a class="card-link" routerLink="/home/expired">expired offers </a>
+          </li>
+          <li class="list-group-item">
+            <a class="card-link" routerLink="/home/propose">proposed offers </a>
+          </li>
+        </ul>
       </div>
-      <ul class='list-group list-group-flush'>
-      <li class='list-group-item'>
-      <a class="card-link" routerLink="/user_join">Join a Company
-      </a></li>
-      </ul>
+    </div>
+    <div class="col-lg-3 col-md-4">
+      <div class="card">
+        <div class="card-block">
+          <h3 class="card-header">Inbound</h3>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a class="card-link" routerLink="/inbound/inboundToConfirm"
+              >inbound items
+            </a>
+          </li>
+          <li class="list-group-item">
+            <a class="card-link" routerLink="/inbound/inboundReported"
+              >reported items
+            </a>
+          </li>
+        </ul>
       </div>
+    </div>
+    <!-- this is only for individuals -->
+    <div class="col-lg-3 col-md-4" *ngIf="!privilege">
+      <div class="card">
+        <div class="card-block">
+          <h3 class="card-header">More</h3>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a class="card-link" routerLink="/user_join">Join a Company </a>
+          </li>
+        </ul>
       </div>
-    <!-- <div class='col-lg-3 col-md-4'>
-    <div class='card'>
-    <div class='card-block'>
-    <h4 class='card-header'>Outbound</h4>
     </div>
-    <ul class='list-group list-group-flush'>
-    <li class='list-group-item'>
-    <a class="card-link" href="/shipments">0 outbound shipments
-    </a></li>
-    </ul>
+    <!-- this is only for company member -->
+    <div class="col-lg-3 col-md-4" *ngIf="privilege">
+      <div class="card">
+        <div class="card-block">
+          <h3 class="card-header">Product</h3>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a class="card-link" routerLink="/products">Existing Products </a>
+          </li>
+        </ul>
+      </div>
     </div>
-    </div> -->
-    <!-- <div class='col-lg-3 col-md-4'>
-    <div class='card'>
-    <div class='card-block'>
-    <h4 class='card-title'>Payments</h4>
+    <!-- this is only for company member -->
+    <div class="col-lg-3 col-md-4" *ngIf="privilege">
+      <div class="card">
+        <div class="card-block">
+          <h3 class="card-header">Group</h3>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a class="card-link" routerLink="/groups/group_active"
+              >Active Followers
+            </a>
+          </li>
+          <li class="list-group-item">
+            <a class="card-link" routerLink="/groups/user_groups">Groups </a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <ul class='list-group list-group-flush'>
-    <li class='list-group-item'>
-    <a class="card-link" href="/payment_requests">0 payment requests
-    </a></li>
-    </ul>
-    </div>
-    </div> -->
-    </div>
-    </div>
+  </div>
+</div>

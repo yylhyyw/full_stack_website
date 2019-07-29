@@ -22,9 +22,15 @@ export class InboundService {
     'http://192.168.1.86:8081/api/inbound/proposeRetrieveCompany';
   createProposeUrl = 'http://192.168.1.86:8081/api/inbound/createPropose';
   proposeConfirmUrl = 'http://192.168.1.86:8081/api/inbound/proposeConfirm';
+  cancelInboundUrl = 'http://192.168.1.86:8081/api/inbound/cancelInbound';
+  findAwardsUsersUrl = 'http://192.168.1.86:8081/api/inbound/findAwardsUser';
+  updateAwardsUrl = 'http://192.168.1.86:8081/api/inbound/updateAwards';
   // NameUrl = 'http://192.168.1.119:8081/api/product/name';
   constructor(private http: HttpClient) {}
 
+  cancelInbound(inbound: Inbound): Observable<Inbound> {
+    return this.http.post<Inbound>(this.cancelInboundUrl, inbound, httpOptions);
+  }
   tenRecords(individual: string): Observable<string> {
     const creatorJSON = '{ "individual" : ' + '"' + individual + '"' + ' }';
 
@@ -91,7 +97,11 @@ export class InboundService {
     return this.http.post<Inbound>(this.createProposeUrl, inbound, httpOptions);
   }
 
-  proposeConfirm(id: number, quantity: number, dealId: number): Observable<string> {
+  proposeConfirm(
+    id: number,
+    quantity: number,
+    dealId: number
+  ): Observable<string> {
     const creatorJSON =
       '{ "id" : ' +
       '"' +
@@ -112,6 +122,44 @@ export class InboundService {
     // console.log(JSON.parse(creator));
     return this.http.post<string>(
       this.proposeConfirmUrl,
+      JSON.parse(creatorJSON),
+      httpOptions
+    );
+  }
+  findAwardsUser(dealId: number): Observable<number> {
+    const creatorJSON = '{ "dealId" : ' + '"' + dealId + '"' + ' }';
+
+    return this.http.post<number>(
+      this.findAwardsUsersUrl,
+      JSON.parse(creatorJSON),
+      httpOptions
+    );
+  }
+
+  updateAwards(
+    inboundIds: Array<number>,
+    price: string,
+    awards: number
+  ): Observable<any> {
+    const creatorJSON =
+      '{ "inboundIds" : ' +
+      '"' +
+      inboundIds +
+      '"' +
+      ', ' +
+      '"price" : ' +
+      '"' +
+      price +
+      '"' +
+      ', ' +
+      '"awards" : ' +
+      '"' +
+      awards +
+      '"' +
+      ' }';
+    // console.log(JSON.parse(creatorJSON));
+    return this.http.post<any>(
+      this.updateAwardsUrl,
       JSON.parse(creatorJSON),
       httpOptions
     );

@@ -1,4 +1,7 @@
+import { Identifier } from 'babel-types';
+
 export class Inbound {
+  public id: number;
   public product: string;
   public price: string;
   public quantity: number;
@@ -10,6 +13,8 @@ export class Inbound {
   public dealId: number;
   public propose: number;
   public proposeStatus: number;
+  public publicWarehouse: boolean;
+  public bonus: number;
   constructor(
     product: string,
     price: string,
@@ -33,6 +38,7 @@ export class Inbound {
   }
 
   public clear() {
+    this.id = null;
     this.product = '';
     this.price = '';
     this.quantity = null;
@@ -42,5 +48,7 @@ export class Inbound {
     this.status = null;
     this.companyStatus = null;
     this.dealId = null;
+    this.publicWarehouse = true;
+    this.bonus = 0;
   }
 }

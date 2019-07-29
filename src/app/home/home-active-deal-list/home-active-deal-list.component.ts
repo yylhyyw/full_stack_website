@@ -15,7 +15,7 @@ import { InboundService } from '../../services/inbound.service';
 
 import { LinkifyPipe } from '../../custom-pipes/linkify.pipe';
 
-import { thisExpression } from 'babel-types';
+import { thisExpression, arrayExpression } from 'babel-types';
 
 @Component({
   selector: 'app-home-active-deal-list',
@@ -62,9 +62,22 @@ export class HomeActiveDealListComponent implements OnInit {
     ''
   );
 
-  public selectWarehouse = '';
+  public publicWarehouse = '13 Garabedian Dr, Unit C, Salem NH 03079';
+
+  public privateWarehouse = '';
 
   public isUpdated: any;
+
+  public selfWarehouse = false;
+
+  public isAwards = false;
+
+  public awardsUsers: any;
+
+  public awards = 0;
+
+  public isUpdateAwards: boolean;
+
   constructor(
     private dealService: DealService,
     private authenticationService: AuthenticationService,
@@ -118,7 +131,10 @@ export class HomeActiveDealListComponent implements OnInit {
         },
         () => {
           if (this.followingList[0]) {
-            this.getActiveListIndividual(this.followingList[0].company, this.creator);
+            this.getActiveListIndividual(
+              this.followingList[0].company,
+              this.creator
+            );
           } else {
             this.noFollowing = true;
           }
@@ -133,7 +149,7 @@ export class HomeActiveDealListComponent implements OnInit {
         this.inbound.product = this.dealList[productId].product_name;
         this.inbound.price = this.dealList[productId].price;
         this.inbound.quantity = 0;
-        this.inbound.warehouse = 'NH';
+        this.inbound.warehouse = this.publicWarehouse;
         if (this.followingList) {
           this.inbound.company = this.followingList[0].company;
         }
@@ -141,17 +157,23 @@ export class HomeActiveDealListComponent implements OnInit {
         this.inbound.status = 0;
         this.inbound.companyStatus = 0;
         this.inbound.dealId = this.dealList[productId].id;
+        this.inbound.bonus = this.dealList[productId].bonus;
       }
     } else {
       this.selectDeal.id = this.dealList[productId].id;
       this.selectDeal.productName = this.dealList[productId].product_name;
       this.selectDeal.quantity = this.dealList[productId].quantity;
       this.selectDeal.price = this.dealList[productId].price;
-      this.selectWarehouse = 'NH';
+      // this.selectDeal.warehouse = this.publicWarehouse;
     }
   }
 
   createInbound() {
+    if (this.selfWarehouse) {
+      this.inbound.warehouse = this.privateWarehouse;
+    } else {
+      this.inbound.warehouse = this.publicWarehouse;
+    }
     this.inboundService
       .create(this.inbound)
       .pipe(first())
@@ -164,6 +186,9 @@ export class HomeActiveDealListComponent implements OnInit {
   }
 
   updateCompany() {
+    if (this.awardsUsers) {
+      this.updateAwards();
+    }
     this.dealService
       .updateCompany(this.selectDeal)
       .pipe(first())
@@ -172,6 +197,47 @@ export class HomeActiveDealListComponent implements OnInit {
         this.dealList[this.selectProductId].quantity = data.quantity;
         this.dealList[this.selectProductId].quantityTaken = data.quantityTaken;
         this.isUpdated = true;
+      });
+  }
+  useSelfWarehouse() {
+    this.selfWarehouse = true;
+    this.inbound.publicWarehouse = false;
+  }
+
+  usePublicWarehouse() {
+    this.selfWarehouse = false;
+    this.inbound.publicWarehouse = true;
+  }
+  makeAwards() {
+    this.isAwards = true;
+    this.inboundService
+      .findAwardsUser(this.selectDeal.id)
+      .pipe(first())
+      .subscribe(data => {
+        this.awardsUsers = data;
+      });
+  }
+
+  cancelAwards() {
+    this.isAwards = false;
+    this.awardsUsers = null;
+  }
+
+  updateAwards() {
+    let i = 0;
+    const awardsIds: number[] = new Array();
+    if (this.awardsUsers) {
+      while (this.awardsUsers[i]) {
+        awardsIds.push(this.awardsUsers[i].id);
+        i++;
+      }
+    }
+    // console.log(awardsIds);
+    this.inboundService
+      .updateAwards(awardsIds, this.selectDeal.price, this.awards)
+      .pipe(first())
+      .subscribe(data => {
+        this.isUpdateAwards = true;
       });
   }
 }

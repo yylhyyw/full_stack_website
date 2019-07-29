@@ -2,10 +2,10 @@
   <table class="table" id="dealTable">
     <thead>
       <tr>
-        <th scope="col" class="hide">#</th>
-        <th scope="col">Deals</th>
-        <th scope="col" class="hide">Price</th>
-        <th scope="col" class="hide">Quantity</th>
+        <th scope="col" style="width: 9%" class="hide">#</th>
+        <th scope="col" style="width: 73%" >Deals</th>
+        <th scope="col" style="width: 9%" class="hide">Price</th>
+        <th scope="col" style="width: 9%" class="hide">Quantity</th>
         <!-- <th scope="col" class="hide"></th> -->
       </tr>
     </thead>
@@ -32,15 +32,15 @@
   </table>
 </div>
 
-<div *ngIf="!privilege" class="pt-5">
+<div *ngIf="!privilege">
   <table *ngIf="noFollowing" class="table" id="dealTable">
     <thead>
       <tr>
-        <th scope="col" class="hide">#</th>
-        <th scope="col" >Deals</th>
-        <th scope="col" class="hide">Price</th>
-        <th scope="col" class="hide">Quantity</th>
-        <th scope="col" class="hide"></th>
+        <th scope="col" style="width: 9%" class="hide">#</th>
+        <th scope="col" style="width: 64%" >Deals</th>
+        <th scope="col" style="width: 9%" class="hide">Price</th>
+        <th scope="col" style="width: 9%" class="hide">Quantity</th>
+        <th scope="col" style="width: 9%" class="hide"></th>
       </tr>
     </thead>
     <tbody>
@@ -69,11 +69,11 @@
     <table class="table" id="dealTable">
       <thead>
         <tr>
-          <th scope="col" class="hide">#</th>
-          <th scope="col" >Deals</th>
-          <th scope="col" class="hide">Price</th>
+          <th scope="col" style="width: 9%" class="hide">#</th>
+          <th scope="col" style="width: 73%" >Deals</th>
+          <th scope="col" style="width: 9%" class="hide">Price</th>
           <!-- <th scope="col" style="width: 12%">Quantity</th> -->
-          <th scope="col" class="hide">Action</th>
+          <th scope="col" style="width: 9%" class="hide">Action</th>
         </tr>
       </thead>
       <tbody>

@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 
 import { Deal } from '../models/deal';
+import {Email} from '../models/email';
 import { Observable } from 'rxjs';
 
 const httpOptions = {
@@ -17,6 +18,7 @@ export class DealService {
   updateCompanyUrl = 'http://192.168.1.86:8081/api/deal/update';
   expiredDealUrl = 'http://192.168.1.86:8081/api/deal/expiredDeal';
   individualDealUrl = 'http://192.168.1.86:8081/api/deal/individualFind';
+  sendNotificationUrl = 'http://192.168.1.86:8081/api/send-notification';
   // IndividualDealsUrl = 'http://192.168.1.86:8081/api/deal/active/firstTenIndivivdual';
   // updatePriceCompanyUrl = 'http://192.168.1.119:8081/api/deal/updatePrice';
   constructor(private http: HttpClient) {}
@@ -24,7 +26,9 @@ export class DealService {
   createDeal(deal: Deal): Observable<Deal> {
     return this.http.post<Deal>(this.createDealUrl, deal, httpOptions);
   }
-
+  emailNotification(email: Email): Observable<Email> {
+    return this.http.post<Email>(this.sendNotificationUrl, email, httpOptions);
+  }
   individualDeals(creator: string, individual: string): Observable<string> {
     const creatorJSON =
     '{ "creator" : ' +

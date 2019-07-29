@@ -1,41 +1,72 @@
 <table class="table" id="inboundTable" *ngIf="!noRecord">
   <thead>
     <tr>
-      <th scope="col" class="hide">#</th>
-      <th scope="col">Inbound</th>
-      <th scope="col" *ngIf="privilege" class="hide">From</th>
-      <th scope="col" class="hide">Price</th>
-      <th scope="col" class="hide">Quantity</th>
-      <th scope="col" class="hide">WareHouse</th>
-      <th scope="col" class="hide">LastUpdate</th>
-      <th scope="col" class="hide">Action</th>
+      <th scope="col" style="width: 9%" class="hide">#</th>
+      <th scope="col" style="width: 30%">Inbound</th>
+      <th scope="col" style="width: 12%" *ngIf="privilege" class="hide">
+        From
+      </th>
+      <th scope="col" style="width: 10%" class="hide">Price</th>
+      <th scope="col" style="width: 12%" class="hide">Quantity</th>
+      <th scope="col" style="width: 9%" class="hide">WareHouse</th>
+      <th scope="col" style="width: 9%" class="hide">LastUpdate</th>
+      <th scope="col" style="width: 9%" class="hide">Action</th>
     </tr>
   </thead>
   <tbody>
-    <ng-container *ngFor="let record of recordList">
+    <ng-container *ngFor="let record of recordList; index as i">
       <tr>
         <th scopr="row" class="hide">{{ ('000' + record.id).slice(-4) }}</th>
         <td>
           <div>
             {{ record.product }}
-            <p class="text-primary show">Update: {{record.updatedAt}}</p>
-            <p class="text-danger show" *ngIf="privilege">From: {{record.individual}}</p>
-            <p class="text-danger show" >Price: {{record.price}} Quantity: {{record.quantity}}</p>
-            <p class="text-danger show">Warehouse: {{record.warehouse}}</p>
+            <p class="text-primary show">
+              Update: {{ record.updatedAt | date: 'medium' }}
+            </p>
+            <p class="text-danger show" *ngIf="privilege">
+              From: {{ record.individual }}
+            </p>
+            <div class="text-danger show">
+              Price:{{ record.price }}
+
+          <div *ngIf="!record.publicWarehouse">+ {{ record.bonus }}(bonus)</div>
+          <div *ngIf="record.awards">+ {{ record.awards }}(awards)</div>
+              Quantity: {{ record.quantity }}
+            </div>
+            <p class="text-danger show">Warehouse: {{ record.warehouse }}</p>
+            <p class="text-danger show">Status: {{ status[record.status] }}</p>
             <!-- </ng-container> -->
           </div>
+          <button
+          class="btn btn-outline-success btn-block btn-sm show"
+          (click)="cancelInbound(i)"
+          *ngIf="!record.status && !privilege"
+        >
+          Cancel
+        </button>
         </td>
         <td *ngIf="privilege" class="hide">{{ record.individual }}</td>
         <!-- <td *ngIf="!privilege">{{ record.individual }}</td> -->
-        <td class="hide">{{ record.price }}</td>
+        <td class="hide">
+          {{ record.price }}
+          <div *ngIf="!record.publicWarehouse">+ {{ record.bonus }}(bonus)</div>
+          <div *ngIf="record.awards">+ {{ record.awards }}(awards)</div>
+        </td>
         <td class="hide">{{ record.quantity }}</td>
         <td class="hide">{{ record.warehouse }}</td>
-        <td class="hide">{{ record.updatedAt }}</td>
+        <td class="hide">{{ record.updatedAt | date: 'medium' }}</td>
         <td class="hide">
           <!-- <button class="btn btn-primary btn-sm mb-2" *ngIf="!privilege">
             Confirm
           </button> -->
-          <!-- <button class="btn btn-primary btn-sm">Cancel</button> -->
+          {{ status[record.status] }}
+          <button
+            class="btn btn-outline-success btn-block btn-sm"
+            (click)="cancelInbound(i)"
+            *ngIf="!record.status && !privilege"
+          >
+            Cancel
+          </button>
         </td>
       </tr>
     </ng-container>
@@ -43,36 +74,36 @@
 </table>
 
 <table class="table" id="inboundTable" *ngIf="noRecord">
-    <thead>
-      <tr>
-        <th scope="col" style="width: 9%">#</th>
-        <th scope="col" style="width: 30%">Inbound</th>
-        <th scope="col" style="width: 12%" *ngIf="privilege">From</th>
-        <th scope="col" style="width: 10%">Price</th>
-        <th scope="col" style="width: 12%">Quantity</th>
-        <th scope="col" style="width: 9">WareHouse</th>
-        <th scope="col" style="width: 9">LastUpdate</th>
-        <th scope="col" style="width: 9%">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <th scopr="row"></th>
-          <td>
-              No Inbound Record......
-          </td>
-          <td *ngIf="privilege"></td>
-          <!-- <td *ngIf="!privilege">{{ record.individual }}</td> -->
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>
-            <!-- <button class="btn btn-primary btn-sm mb-2" *ngIf="!privilege">
+  <thead>
+    <tr>
+      <th scope="col" style="width: 9%">#</th>
+      <th scope="col" style="width: 30%">Inbound</th>
+      <th scope="col" style="width: 12%" *ngIf="privilege">From</th>
+      <th scope="col" style="width: 10%">Price</th>
+      <th scope="col" style="width: 12%">Quantity</th>
+      <th scope="col" style="width: 9">WareHouse</th>
+      <th scope="col" style="width: 9">LastUpdate</th>
+      <th scope="col" style="width: 9%">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scopr="row"></th>
+      <td>
+        No Inbound Record......
+      </td>
+      <td *ngIf="privilege"></td>
+      <!-- <td *ngIf="!privilege">{{ record.individual }}</td> -->
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <!-- <button class="btn btn-primary btn-sm mb-2" *ngIf="!privilege">
               Confirm
             </button> -->
-            <!-- <button class="btn btn-primary btn-sm">Cancel</button> -->
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        <!-- <button class="btn btn-primary btn-sm">Cancel</button> -->
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -39,6 +39,15 @@ module.exports = (sequelize, DataTypes) => {
       },
       proposeStatus: {
         type: DataTypes.INTEGER
+      },
+      publicWarehouse: {
+        type: DataTypes.BOOLEAN
+      },
+      bonus: {
+        type: DataTypes.INTEGER
+      },
+      awards: {
+        type: DataTypes.INTEGER
       }
     },
     {}

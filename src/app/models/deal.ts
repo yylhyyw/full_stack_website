@@ -12,6 +12,7 @@ export class Deal {
   public notify: boolean;
   public creator: string;
   public members: string;
+  public bonus: number;
   constructor(
     products: number,
     productName: string,
@@ -48,5 +49,6 @@ export class Deal {
     this.notify = null;
     this.creator = '';
     this.members = '';
+    this.bonus = null;
   }
 }

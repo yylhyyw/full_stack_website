@@ -10,9 +10,11 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class DashboardComponent implements OnInit {
   public privilege: any;
+
   constructor(private authenticationService: AuthenticationService) {}
 
   ngOnInit() {
+    // privilege check
     if (this.authenticationService.currentUserValue) {
       if (this.authenticationService.currentUserValue[2] === 'company') {
         this.privilege = true;

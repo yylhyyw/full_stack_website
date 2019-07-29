@@ -46,6 +46,9 @@ module.exports = (sequelize, DataTypes) => {
       },
       members: {
         type: DataTypes.TEXT
+      },
+      bonus: {
+        type: DataTypes.INTEGER
       }
     },
     {}
