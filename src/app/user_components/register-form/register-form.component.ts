@@ -15,6 +15,7 @@ export class RegisterFormComponent implements OnInit {
   // register = new Register();
   register = new Register();
   confirmedPassword: string;
+  private error = null;
 
   private isRegistered = false;
 
@@ -38,15 +39,23 @@ export class RegisterFormComponent implements OnInit {
   }
 
   user_register() {
-      this.registerService
-        .userRegister(this.register)
-        .pipe(first())
-        .subscribe(data => {
+    this.registerService
+      .userRegister(this.register)
+      .pipe(first())
+      .subscribe(
+        data => {
+          // console.log(data);
           this.isRegistered = true;
           this.register.clear();
           this.confirmedPassword = '';
-        });
-    }
+          this.error = null;
+        },
+        error => {
+          this.error = error;
+        },
+        () => {}
+      );
+  }
 
   ngOnInit() {
     if (this.authenticationService.currentUserValue) {

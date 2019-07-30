@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
 
   public privilege: any;
 
-  public deal = new Deal(0, '', '', 0, '', '', true, false, false, '');
+  public deal = new Deal(0, '', null, 0, '', '', true, false, false, '');
 
   public month: string;
 

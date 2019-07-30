@@ -2,25 +2,186 @@
   <thead>
     <tr>
       <th scope="col" style="width: 9%">#</th>
-      <th scope="col" style="width: 91%">Products</th>
-      <!-- <th scope="col" style="width: 11%">Actions</th> -->
+      <th scope="col" style="width: 80%">Products</th>
+      <th scope="col" style="width: 11%">Actions</th>
     </tr>
   </thead>
   <tbody>
-    <ng-container *ngFor="let activeProducts of activeProductsList">
+    <ng-container *ngFor="let activeProducts of activeProductsList; index as i">
       <tr>
-        <th scopr="row"><div>{{ ('000' + activeProducts.id).slice(-4) }}
-          <br>
-            <img src="{{activeProducts.link}}" height="25">
-        </div></th>
+        <th scopr="row">
+          <div>
+            {{ ('000' + activeProducts.id).slice(-4) }}
+            <br />
+            <img src="{{ activeProducts.link }}" height="25" />
+          </div>
+        </th>
         <td>
           {{ activeProducts.name }}
         </td>
         <!-- <td> -->
-          <!-- <button class="btn btn-primary btn-sm mb-1">Details</button> -->
-          <!-- <button class="btn btn-primary btn-sm">Edit</button> -->
+        <!-- <button class="btn btn-primary btn-sm mb-1">Details</button> -->
+        <button
+          type="button"
+          class="btn btn-outline-success btn-block mt-1"
+          data-toggle="modal"
+          data-target="#productEditForm"
+          data-whatever="@mdo"
+          (click)="editProductSelect(i)"
+        >
+          Edit
+        </button>
         <!-- </td> -->
       </tr>
     </ng-container>
   </tbody>
 </table>
+<div
+  class="modal fade"
+  id="productEditForm"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="productEditForm"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createFrom">Product Edit Form</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form ngNativeValidate>
+          <div class="form-group">
+            <label for="product-name" class="col-form-label">Name:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="product-name"
+              name="name"
+              [(ngModel)]="selectProduct.name"
+            />
+            <small>* Required</small>
+          </div>
+          <div class="form-group">
+            <label for="product-condition" class="col-form-label"
+              >Condition:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="product-condition"
+              name="condition"
+              [(ngModel)]="selectProduct.condition"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <label for="product-price" class="col-form-label">Price:</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                id="product-price"
+                name="msrp"
+                [(ngModel)]="selectProduct.msrp"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="product-asin" class="col-form-label">ASIN:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="product-asin"
+              name="asin"
+              [(ngModel)]="selectProduct.asin"
+            />
+            <small
+              >Each ASIN consists of 10 alphanumerics. Search listings with the
+              same ASINs.</small
+            >
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="product-upc" class="col-form-label">UPC:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="product-upc"
+                name="upc"
+                [(ngModel)]="selectProduct.upc"
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="product-weight" class="col-form-label">Weight:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="product-weight"
+                name="weight"
+                [(ngModel)]="selectProduct.weight"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="product-Note" class="col-form-label">Note:</label>
+            <textarea
+              type="text"
+              class="form-control"
+              id="product-note"
+              cols="30"
+              rows="10"
+              name="note"
+              [(ngModel)]="selectProduct.note"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="product_link" class="col-form-label"
+              >Product Image Link</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="product_link"
+              name="productLink"
+              [(ngModel)]="selectProduct.link"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="update()"
+          data-dismiss="modal"
+        >
+          Update
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="create()"
+          data-dismiss="modal"
+          disabled
+        >
+          Update
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

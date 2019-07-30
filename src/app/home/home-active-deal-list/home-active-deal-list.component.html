@@ -1,11 +1,11 @@
 <div *ngIf="privilege">
-  <table class="table table-responsive w-auto" id="dealTable">
+  <table class="table" id="dealTable">
     <thead>
       <tr>
         <th scope="col" style="width: 9%" class="hide">#</th>
-        <th scope="col" style="width: 64%">Deals</th>
+        <th scope="col" style="width: 60%">Deals</th>
         <th scope="col" style="width: 9%" class="hide">Price</th>
-        <th scope="col" style="width: 9%" class="hide">Quantity</th>
+        <th scope="col" style="width: 13%" class="hide">Qty(left/total)</th>
         <th scope="col" style="width: 9%" class="hide"></th>
       </tr>
     </thead>
@@ -31,11 +31,11 @@
               Privilege: Private
             </div>
             <br />
-            <p class="text-danger show">
-              Price: {{ deal.price }} Quantity: {{ deal.quantity }}/{{
-                deal.quantity + deal.quantityTaken
-              }}
-            </p>
+            <div class="text-danger show">
+              Price: {{ deal.price }} Quantity:
+              <div class="text-primary d-inline-block">{{ deal.quantity }}</div>
+              / {{ deal.quantity + deal.quantityTaken }}
+            </div>
             <button
               id="{{ i }}"
               type="button"
@@ -48,9 +48,12 @@
               Edit
             </button>
           </td>
-          <td class="hide">{{ deal.price }}</td>
+          <td class="hide text-success">${{ deal.price }}</td>
           <td class="hide">
-            {{ deal.quantity }}/{{ deal.quantity + deal.quantityTaken }}
+            <div>
+              <div class="text-primary d-inline-block">{{ deal.quantity }}</div>
+              / {{ deal.quantity + deal.quantityTaken }}
+            </div>
           </td>
           <td class="hide">
             <button
@@ -66,91 +69,6 @@
               Edit
             </button>
           </td>
-          <!-- <div
-            class="modal fade"
-            id="editForm"
-            tabindex="0"
-            role="dialog"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="EditTitle">Edit an Deal</h5>
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <form>
-                    <div class="form-group">
-                      <label for="product" class="col-form-label"
-                        >Product:</label
-                      >
-                      <p>{{ selectDeal.productName }}</p>
-                    </div>
-                    <div class="form-group">
-                      <label for="price" class="col-form-label">price:</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="price"
-                        name="price"
-                        [(ngModel)]="selectDeal.price"
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label for="quantity" class="col-form-label"
-                        >left quantity:</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="quantity"
-                        name="quantity"
-                        [(ngModel)]="selectDeal.quantity"
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label for="warehouse" class="col-form-label"
-                        >warehouse:</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="warehouse"
-                        name="warehouse"
-                        [(ngModel)]="selectWarehouse"
-                      />
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    (click)="updateCompany()"
-                    data-dismiss="modal"
-                  >
-                    Done
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div> -->
         </tr>
       </ng-container>
     </tbody>
@@ -178,7 +96,6 @@
         <td></td>
         <td></td>
       </tr>
-      <!-- </ng-container> -->
     </tbody>
   </table>
   <ng-container *ngFor="let following of followingList">
@@ -232,7 +149,7 @@
                 Take
               </button>
             </td>
-            <td class="hide">{{ deal.price }}</td>
+            <td class="hide text-success">${{ deal.price }}</td>
             <td id="qty{{ i }}" class="hide">{{ deal.quantity }}</td>
             <td class="hide">
               <button
@@ -248,92 +165,13 @@
                 Take
               </button>
             </td>
-            <!-- <div
-              class="modal fade"
-              id="takeForm"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="formTitle">Take an Deal</h5>
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <form>
-                      <div class="form-group">
-                        <label for="product" class="col-form-label"
-                          >Product:</label
-                        >
-                        <p>{{ inbound.product }}</p>
-                      </div>
-                      <div class="form-group">
-                        <label for="price" class="col-form-label">price:</label>
-                        <p>{{ inbound.price }}</p>
-                      </div>
-                      <div class="form-group">
-                        <label for="quantity" class="col-form-label"
-                          >quantity:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="quantity"
-                          name="quantity"
-                          [(ngModel)]="inbound.quantity"
-                        />
-                      </div>
-                      <div class="form-group">
-                        <label for="warehouse" class="col-form-label"
-                          >warehouse:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="warehouse"
-                          name="warehouse"
-                          [(ngModel)]="inbound.warehouse"
-                        />
-                      </div>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      (click)="createInbound()"
-                      data-dismiss="modal"
-                    >
-                      Take
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div> -->
           </tr>
         </ng-container>
       </tbody>
     </table>
   </ng-container>
 </div>
-<div
+<!-- <div
   class="modal fade"
   id="editForm"
   tabindex="0"
@@ -369,25 +207,44 @@
               name="price"
               [(ngModel)]="selectDeal.price"
             />
-            <button class="btn btn-primary btn-sm mt-1" (click)="makeAwards()">Awards</button>
-            <button class="btn btn-primary btn-sm mt-1 ml-1" (click)="cancelAwards()">No Awards</button>
-            <hr>
+            <button class="btn btn-primary btn-sm mt-1" (click)="makeAwards()">
+              Awards
+            </button>
+            <button
+              class="btn btn-primary btn-sm mt-1 ml-1"
+              (click)="cancelAwards()"
+            >
+              No Awards
+            </button>
+            <hr />
             <div *ngIf="isAwards">
-            <p>Existed Inbound: </p>
-            <ng-container *ngFor="let awardsUser of awardsUsers">
-              Inbound ID: <input readonly type="text" value="{{awardsUser.id}}" class="form-control">
-              From: <input readonly type="text" value="{{awardsUser.individual}}" class="form-control">
-            </ng-container>
-
-            <label for="awards" class="col-form-label">Awards:</label>
-            <input
-            type="number"
-            class="form-control"
-            id="awards"
-            name="awards"
-            [(ngModel)]="awards" />
-            <hr>
-          </div>
+              <p>Existed Inbound:</p>
+              <ng-container *ngFor="let awardsUser of awardsUsers">
+                Inbound ID:
+                <input
+                  readonly
+                  type="text"
+                  value="{{ awardsUser.id }}"
+                  class="form-control"
+                />
+                From:
+                <input
+                  readonly
+                  type="text"
+                  value="{{ awardsUser.individual }}"
+                  class="form-control"
+                />
+              </ng-container>
+              <label for="awards" class="col-form-label">Awards:</label>
+              <input
+                type="number"
+                class="form-control"
+                id="awards"
+                name="awards"
+                [(ngModel)]="awards"
+              />
+              <hr />
+            </div>
           </div>
           <div class="form-group">
             <label for="quantity" class="col-form-label">left quantity:</label>
@@ -399,16 +256,6 @@
               [(ngModel)]="selectDeal.quantity"
             />
           </div>
-          <!-- <div class="form-group">
-            <label for="warehouse" class="col-form-label">warehouse:</label>
-            <input
-              type="text"
-              class="form-control"
-              id="warehouse"
-              name="warehouse"
-              [(ngModel)]="selectWarehouse"
-            />
-          </div> -->
         </form>
       </div>
       <div class="modal-footer">
@@ -426,13 +273,12 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <div
   class="modal fade"
   id="takeForm"
   tabindex="-1"
   role="dialog"
-  aria-labelledby="exampleModalLabel"
   aria-hidden="true"
 >
   <div class="modal-dialog" role="document">
@@ -470,8 +316,10 @@
           </div>
           <div class="form-group">
             <label class="col-form-label">Warehouse:</label>
-            <br>
-            <label for="warehouse" class="col-form-label">Public Warehouse:</label>
+            <br />
+            <label for="warehouse" class="col-form-label"
+              >Public Warehouse:</label
+            >
             <input
               type="text"
               class="form-control"
@@ -480,18 +328,30 @@
               [(ngModel)]="inbound.warehouse"
               readonly
             />
-            <button class="btn btn-primary btn-sm mt-1" (click)="useSelfWarehouse()">Use self warehouse</button>
+            <button
+              class="btn btn-primary btn-sm mt-1"
+              (click)="useSelfWarehouse()"
+            >
+              Use self warehouse
+            </button>
             <div *ngIf="selfWarehouse">
-            <label for="selfWarehouse" class="col-form-label">Self Warehouse:</label>
-            <input
-              type="text"
-              class="form-control"
-              id="selfWarehouse"
-              name="selfWarehouse"
-              [(ngModel)]="privateWarehouse"
-            />
-            <button class="btn btn-primary btn-sm mt-1" (click)="usePublicWarehouse()">Cancel</button>
-          </div>
+              <label for="selfWarehouse" class="col-form-label"
+                >Self Warehouse:</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="selfWarehouse"
+                name="selfWarehouse"
+                [(ngModel)]="privateWarehouse"
+              />
+              <button
+                class="btn btn-primary btn-sm mt-1"
+                (click)="usePublicWarehouse()"
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         </form>
       </div>

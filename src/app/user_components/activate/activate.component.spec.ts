@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GroupsBlockedListComponent } from './groups-blocked-list.component';
+import { ActivateComponent } from './activate.component';
 
-describe('GroupsBlockedListComponent', () => {
-  let component: GroupsBlockedListComponent;
-  let fixture: ComponentFixture<GroupsBlockedListComponent>;
+describe('ActivateComponent', () => {
+  let component: ActivateComponent;
+  let fixture: ComponentFixture<ActivateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GroupsBlockedListComponent ]
+      declarations: [ ActivateComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GroupsBlockedListComponent);
+    fixture = TestBed.createComponent(ActivateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

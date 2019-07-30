@@ -60,7 +60,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
+          <form ngNativeValidate>
             <div class="form-group">
               <label for="product-name" class="col-form-label">Name:</label>
               <input
@@ -70,6 +70,7 @@
                 name="name"
                 [(ngModel)]="product.name"
               />
+              <small>* Required</small>
             </div>
             <div class="form-group">
               <label for="product-condition" class="col-form-label"
@@ -81,17 +82,20 @@
                 id="product-condition"
                 name="condition"
                 [(ngModel)]="product.condition"
+                readonly
               />
             </div>
             <div class="form-group">
               <label for="product-price" class="col-form-label">Price:</label>
-              <input
-                type="text"
-                class="form-control"
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input type="text" class="form-control"
                 id="product-price"
                 name="msrp"
-                [(ngModel)]="product.msrp"
-              />
+                [(ngModel)]="product.msrp">
+              </div>
             </div>
             <div class="form-group">
               <label for="product-asin" class="col-form-label">ASIN:</label>
@@ -102,8 +106,8 @@
                 name="asin"
                 [(ngModel)]="product.asin"
               />
-              Each ASIN consists of 10 alphanumerics. Search listings with the
-              same ASINs.
+              <small>Each ASIN consists of 10 alphanumerics. Search listings with the
+                same ASINs.</small>
             </div>
             <div class="row">
               <div class="form-group col-md-6">
@@ -145,7 +149,8 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             Close
           </button>
-          <button type="button" class="btn btn-primary" (click)="create()" data-dismiss="modal">Add</button>
+          <button type="button" class="btn btn-primary" (click)="create()" data-dismiss="modal" *ngIf="product.name">Add</button>
+          <button type="button" class="btn btn-primary" (click)="create()" data-dismiss="modal" *ngIf="!product.name" disabled>Add</button>
         </div>
       </div>
     </div>

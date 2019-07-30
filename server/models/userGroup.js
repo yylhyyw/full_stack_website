@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING
       },
       member: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.TEXT,
         allowNull: false
       },
     },

@@ -90,7 +90,7 @@
       Create
     </button>
   </div>
-  <br>
+  <br />
   <div class="tab-content mt-5" id="dealLists">
     <router-outlet></router-outlet>
   </div>
@@ -119,8 +119,11 @@
           <form>
             <div class="form-group select-hide">
               <label for="deal-product" class="col-form-label">Product:</label>
-              <br>
-              <p class="text-danger">Products only shows first 88 Words, use id to search for accurate product(like: #17):</p>
+              <br />
+              <p class="text-danger">
+                Products only shows first 88 Words, use id to search for
+                accurate product(like: #17):
+              </p>
 
               <select
                 class="selectpicker form-control selectwidthauto"
@@ -130,54 +133,60 @@
                 (ngModelChange)="setProductNameId()"
                 style="width: auto;"
               >
-
                 <option
                   *ngFor="let nameid of productList"
                   name="productsId"
                   [ngValue]="nameid"
                   class="selectOption"
-                  data-width = "auto"
-                  data-mobile = "true"
+                  data-width="auto"
+                  data-mobile="true"
                 >
-                  #{{nameid.id}} {{ nameid.name | slice:0:84}}
+                  #{{ nameid.id }} {{ nameid.name | slice: 0:84 }}
                 </option>
               </select>
             </div>
             <div class="form-group show">
-                <label for="deal-product" class="col-form-label">Product:</label>
-                <br>
-                <p class="text-danger">Products only shows product id on mobile view, use id to search for accurate product(like: #17):</p>
+              <label for="deal-product" class="col-form-label">Product:</label>
+              <br />
+              <p class="text-danger">
+                Products only shows product id on mobile view, use id to search
+                for accurate product(like: #17):
+              </p>
 
-                <select
-                  class="selectpicker form-control selectwidthauto"
-                  data-live-search="true"
-                  name="product"
-                  [(ngModel)]="selectProduct"
-                  (ngModelChange)="setProductNameId()"
-                  style="width: auto;"
+              <select
+                class="selectpicker form-control selectwidthauto"
+                data-live-search="true"
+                name="product"
+                [(ngModel)]="selectProduct"
+                (ngModelChange)="setProductNameId()"
+                style="width: auto;"
+              >
+                <option
+                  *ngFor="let nameid of productList"
+                  name="productsId"
+                  [ngValue]="nameid"
+                  class="selectOption"
+                  data-width="auto"
+                  data-mobile="true"
                 >
-
-                  <option
-                    *ngFor="let nameid of productList"
-                    name="productsId"
-                    [ngValue]="nameid"
-                    class="selectOption"
-                    data-width = "auto"
-                    data-mobile = "true"
-                  >
-                    #{{nameid.id}}
-                  </option>
-                </select>
-              </div>
+                  #{{ nameid.id }}
+                </option>
+              </select>
+            </div>
             <div class="form-group">
               <label for="deal-price" class="col-form-label">Price:</label>
-              <input
-                type="text"
-                class="form-control"
-                id="deal-price"
-                name="price"
-                [(ngModel)]="deal.price"
-              />
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="deal-price"
+                  name="price"
+                  [(ngModel)]="deal.price"
+                />
+              </div>
             </div>
             <div class="form-group">
               <label for="deal-quantity" class="col-form-label"
@@ -405,8 +414,20 @@
             </div>
             <div class="form-group">
               <label for="deal-bonus" class="col-form-label">Bonus:</label>
-              <input type="text" class="form-control" id="deal-bonus" name="bonus" [(ngModel)]="deal.bonus"/>
-              Give bonus for inbound items to self storages.
+
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="deal-bonus"
+                  name="bonus"
+                  [(ngModel)]="deal.bonus"
+                />
+              </div>
+              <small>Give bonus for inbound items to self storages.</small>
             </div>
             <div class="form-check">
               <input
@@ -423,30 +444,6 @@
             </div>
             Require service tags when members confirm inbound items.
             <hr />
-            <!-- <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="public"
-                id="publicRadio"
-                value="true"
-                name="dealPublic"
-                [(ngModel)]="deal.dealPublic"
-              />
-              <label class="form-check-label" for="publicRadio">Public</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="private"
-                id="privateRadio"
-                value="false"
-                name="dealPrivate"
-                [(ngModel)]="deal.dealPublic"
-              />
-              <label class="form-check-label" for="PrivateRadio">Private</label>
-            </div> -->
             Make Deal Public Or Private
             <br />
             <button

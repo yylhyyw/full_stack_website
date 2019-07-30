@@ -34,6 +34,8 @@ export class UserGroupsComponent implements OnInit {
 
   public allMembers: any;
 
+  public isEditing = false ;
+
   constructor(
     private groupService: GroupService,
     private authenticationService: AuthenticationService
@@ -106,5 +108,10 @@ export class UserGroupsComponent implements OnInit {
         this.isDeleted = true;
         this.ngOnInit();
       });
+  }
+
+  groupEdit(id) {
+    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+    this.isEditing = true;
   }
 }

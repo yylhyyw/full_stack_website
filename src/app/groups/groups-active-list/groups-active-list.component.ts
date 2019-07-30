@@ -17,13 +17,11 @@ export class GroupsActiveListComponent implements OnInit {
   public user: string;
 
   public followersList: any;
-
-  public debug: any;
-
+  // status mapping from 0,1,2 to specific meaning
   public statusLevel = ['Ask To Follow', 'Active', 'Blocked'];
-
+  // used to make sure which one is selected
   public selectId: any;
-
+  // used to pass data to API
   public selectSubscription = new Subscription(null, null, null);
 
   constructor(
@@ -32,6 +30,7 @@ export class GroupsActiveListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // privilege check
     if (this.authenticationService.currentUserValue) {
       this.privilege = this.authenticationService.currentUserValue[2];
       this.user = this.authenticationService.currentUserValue[0];
@@ -52,36 +51,27 @@ export class GroupsActiveListComponent implements OnInit {
     }
   }
 
-  setActive(id: any) {
-    this.selectId = id;
-    this.selectSubscription.individual = this.followersList[
-      this.selectId
-    ].individual;
-    this.selectSubscription.company = this.followersList[this.selectId].company;
-    if (id >= 0) {
-      this.groupService
-        .setActive(this.selectSubscription)
-        .pipe(first())
-        .subscribe(data => {
-          this.followersList[id].status = data.status;
-          console.log(this.followersList[id].status);
-        });
-    }
+  setActive() {
+    this.groupService
+      .setActive(this.selectSubscription)
+      .pipe(first())
+      .subscribe(data => {
+        this.ngOnInit();
+      });
   }
-  setBlock(id: any) {
-    this.selectId = id;
-    this.selectSubscription.individual = this.followersList[
-      this.selectId
-    ].individual;
+  setBlock() {
+    this.groupService
+      .setBlock(this.selectSubscription)
+      .pipe(first())
+      .subscribe(data => {
+        this.ngOnInit();
+      });
+  }
+
+  subSelect(i: any) {
+    this.selectId = i;
+    this.selectSubscription.individual = this.followersList[i].individual;
+    this.selectSubscription.status = this.followersList[i].status;
     this.selectSubscription.company = this.followersList[this.selectId].company;
-    if (id >= 0) {
-      this.groupService
-        .setBlock(this.selectSubscription)
-        .pipe(first())
-        .subscribe(data => {
-          this.followersList[id].status = data.status;
-          console.log(this.followersList[id].status);
-        });
-    }
   }
 }

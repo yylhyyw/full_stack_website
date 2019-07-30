@@ -16,11 +16,16 @@ export class ProductService {
   tenUrl = 'http://192.168.1.86:8081/api/product/findten';
   allUrl = 'http://192.168.1.86:8081/api/product/find';
   NameIdUrl = 'http://192.168.1.86:8081/api/product/NameId';
+  updateUrl = 'http://192.168.1.86:8081/api/product/update';
   // NameUrl = 'http://192.168.1.119:8081/api/product/name';
   constructor(private http: HttpClient) {}
 
   createProduct(product: Product): Observable<Product> {
     return this.http.post<Product>(this.createUrl, product, httpOptions);
+  }
+
+  updateProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(this.updateUrl, product, httpOptions);
   }
 
   tenProduct(creator: string): Observable<string> {

@@ -16,6 +16,24 @@ module.exports = {
       callback(product);
     });
   },
+  update: function(body, callback) {
+    Product.update(
+      {
+        name: body.name,
+        product_condition: body.condition,
+        msrp: body.msrp,
+        asin: body.asin,
+        upc: body.upc,
+        weight: body.weight,
+        note: body.note,
+        creator: body.creator,
+        link: body.link
+      },
+      { where: { id: body.id } }
+    ).then(function(product) {
+      callback(product);
+    });
+  },
 
   findTen: function(creator = null, callback) {
     if (creator) {
@@ -43,8 +61,8 @@ module.exports = {
     }
   },
 
-  findNameId: function(creator=null, callback) {
-    if(creator) {
+  findNameId: function(creator = null, callback) {
+    if (creator) {
       Product.findAll({
         attributes: ['id', 'name'],
         where: {
@@ -68,6 +86,4 @@ module.exports = {
       });
     }
   }
-
-
 };

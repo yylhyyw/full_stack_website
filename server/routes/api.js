@@ -16,7 +16,17 @@ const userGroupController = require('../controllers').userGroup;
 /**
  * email sender
  */
-
+router.get('/register', function(req, res) {
+  console.log(req.param('username'));
+  userController.activate(req.param('username'), function(result) {
+    if (result) {
+      res.send(
+        '<h1>activated!</h1>' +
+          '<h1><a href="/signin">Click here back to sign in</a></h1>'
+      );
+    }
+  });
+});
 router.post('/send-notification', function(req, res) {
   let transporter = nodeMailer.createTransport({
     service: 'Gmail',
@@ -80,9 +90,31 @@ router.post('/register', (req, res, next) => {
     email: req.body.email,
     password: req.body.password
   };
-  userController.create(userInput, function(user) {
-    if (user) {
+  userController.create(userInput, function(error, user) {
+    if (!error) {
+      // console.log(user);
+      let transporter = nodeMailer.createTransport({
+        service: 'Gmail',
+        auth: {
+          user: 'c0049.ushopmall@gmail.com',
+          pass: 'yiweiabcde12345'
+        }
+      });
+
+      let mailOptions = {
+        to: user.email,
+        subject: 'Click here to activate',
+        text: 'http://192.168.1.86:8081/api/register?username=' + user.username
+      };
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          return console.log(error);
+        }
+        console.log('Register Message sent');
+      });
       res.status(201).json(user.email);
+    } else if (error) {
+      res.status(401).send(user);
     } else {
       res.status(409).end();
     }
@@ -151,6 +183,16 @@ router.post('/product/add', (req, res, next) => {
     }
   });
 });
+router.post('/product/update', (req, res, next) => {
+  ProductController.update(req.body, function(product) {
+    if (product) {
+      res.status(201).json(product.name);
+    } else {
+      res.status(409).end();
+    }
+  });
+});
+
 
 // product browsing api first ten:
 router.post('/product/findten', (req, res, next) => {
@@ -314,12 +356,12 @@ router.post('/inbound/createPropose', (req, res, next) => {
 
 router.post('/inbound/findAwardsUser', (req, res, next) => {
   inboundController.findAwardsUser(req.body.dealId, function(result) {
-    if(result) {
+    if (result) {
       res.status(201).send(result);
     } else {
       res.status(409).end();
     }
-  })
+  });
 });
 router.post('/inbound/proposeConfirm', (req, res, next) => {
   inboundController.proposeConfirm(req.body, function(results) {
@@ -332,14 +374,19 @@ router.post('/inbound/proposeConfirm', (req, res, next) => {
 });
 router.post('/inbound/updateAwards', (req, res, next) => {
   console.log(req.body.inboundIds);
-  inboundController.updateAwards(req.body.inboundIds, req.body.price, req.body.awards, function(result) {
-    if(result) {
-      res.status(201).send(result);
-    } else{
-      res.status(409).end();
+  inboundController.updateAwards(
+    req.body.inboundIds,
+    req.body.price,
+    req.body.awards,
+    function(result) {
+      if (result) {
+        res.status(201).send(result);
+      } else {
+        res.status(409).end();
+      }
     }
-  })
-})
+  );
+});
 router.post('/inbound/proposeRetrieveCompany', (req, res, next) => {
   inboundController.proposeRetrieveCompany(req.body.company, function(records) {
     if (records) {
@@ -430,7 +477,9 @@ router.post('/inbound/companyFind', (req, res, next) => {
  */
 
 router.post('/group/create', (req, res, next) => {
-  userGroupController.create(req.body, function(result) {
+  const members = req.body.member.toString();
+  userGroupController.create(req.body, members, function(result) {
+    console.log(req.member);
     if (result) {
       res.status(201).send(result);
     } else {

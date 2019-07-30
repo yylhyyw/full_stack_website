@@ -30,7 +30,7 @@ export class HomeExpiredDealListComponent implements OnInit {
   public selectDeal = new Deal(
     null,
     '',
-    '',
+    null,
     null,
     '',
     '',

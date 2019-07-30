@@ -12,8 +12,6 @@ import { ProductsComponent } from './products/products.component';
 import { ProductsActiveListComponent } from './products/products-active-list/products-active-list.component';
 import { GroupsComponent } from './groups/groups.component';
 import { GroupsActiveListComponent } from './groups/groups-active-list/groups-active-list.component';
-import { GroupsBlockedListComponent } from './groups/groups-blocked-list/groups-blocked-list.component';
-import { GroupsWaitingListComponent } from './groups/groups-waiting-list/groups-waiting-list.component';
 import { InboundComponent } from './inbound/inbound.component';
 import { ToConfirmListComponent } from './inbound/to-confirm-list/to-confirm-list.component';
 import { ReportedListComponent } from './inbound/reported-list/reported-list.component';
@@ -22,12 +20,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserGroupsComponent } from './groups/user-groups/user-groups.component';
 import { UserJoinComponent } from './groups/user-join/user-join.component';
 import { ProposeDealComponent } from './home/propose-deal/propose-deal.component';
+import {ActivateComponent} from './user_components/activate/activate.component';
 
 const routes: Routes = [
   {
     path: 'dashboard',
     canActivate: [AuthGuard],
     component: DashboardComponent
+  },
+  {
+    path: 'activate',
+    component: ActivateComponent
   },
   {
     path: 'register',
@@ -64,9 +67,7 @@ const routes: Routes = [
     component: GroupsComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: 'group_blocked', component: GroupsBlockedListComponent },
       { path: 'group_active', component: GroupsActiveListComponent },
-      { path: 'group_waiting', component: GroupsWaitingListComponent },
       { path: 'user_groups', component: UserGroupsComponent },
       { path: '', component: GroupsActiveListComponent }
     ]

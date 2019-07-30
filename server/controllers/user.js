@@ -1,5 +1,6 @@
 const User = require('../models').users;
 const bcrypt = require('bcrypt');
+const Sequelize = require('sequelize');
 
 module.exports = {
   find: function(email = null, callback) {
@@ -14,6 +15,33 @@ module.exports = {
     }
   },
 
+  findActivated: function(email = null, callback) {
+    if (email) {
+      User.findOne({
+        where: {
+          email: email,
+          status: 1
+        }
+      }).then(function(user) {
+        callback(user);
+      });
+    }
+  },
+
+  activate: function(username, callback) {
+    User.update(
+      {
+        status: true
+      },
+      {
+        where: {
+          username: username
+        }
+      }
+    ).then(function(result) {
+      callback(result);
+    });
+  },
   create: function(body, callback) {
     let pwd = body.password;
     body.password = bcrypt.hashSync(pwd, 10);
@@ -22,10 +50,15 @@ module.exports = {
       username: body.username,
       phone: body.phone,
       email: body.email,
-      password: body.password
-    }).then(function(user) {
-      callback(user);
-    });
+      password: body.password,
+      status: false
+    })
+      .then(function(user) {
+        callback(null, user);
+      })
+      .catch(function(err) {
+        callback('error', err);
+      });
   },
 
   sign_in: function(email, password, callback) {

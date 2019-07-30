@@ -3,6 +3,7 @@ import { User } from '../models/user';
 import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
 
+declare var $: any;
 @Component({
   selector: 'app-top-bar',
   templateUrl: './top-bar.component.html',

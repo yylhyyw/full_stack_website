@@ -2,7 +2,7 @@ export class Product {
   public id: string;
   public name: string;
   public condition: string;
-  public msrp: string;
+  public msrp: number;
   public asin: string;
   public upc: string;
   public weight: string;
@@ -12,7 +12,7 @@ export class Product {
   constructor(
     name: string,
     condition: string,
-    msrp: string,
+    msrp: number,
     asin: string,
     upc: string,
     weight: string,
@@ -34,7 +34,7 @@ export class Product {
   public clear() {
     this.name = '';
     this.condition = 'New';
-    this.msrp = '';
+    this.msrp = null;
     this.asin = '';
     this.upc = '';
     this.weight = '';

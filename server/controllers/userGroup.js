@@ -2,12 +2,12 @@ const userGroup = require('../models').userGroups;
 
 module.exports = {
 
-  create: function(body, callback) {
+  create: function(body, members, callback) {
     if (body) {
       userGroup.create({
         name: body.name,
         creator: body.creator,
-        member: body.member,
+        member: members,
       }).then(function(result) {
         callback(result);
       });

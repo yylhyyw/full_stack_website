@@ -2,7 +2,7 @@ export class Deal {
   public id: number;
   public products: number;
   public productName: string;
-  public price: string;
+  public price: number;
   public quantity: number;
   public quantityTaken: number;
   public expiresAt: string;
@@ -16,7 +16,7 @@ export class Deal {
   constructor(
     products: number,
     productName: string,
-    price: string,
+    price: number,
     quantity: number,
     expiresAt: string,
     note: string,
@@ -40,7 +40,7 @@ export class Deal {
   public clear() {
     this.products = null;
     this.productName = '';
-    this.price = '';
+    this.price = null;
     this.quantity = null;
     this.expiresAt = '';
     this.note = '';

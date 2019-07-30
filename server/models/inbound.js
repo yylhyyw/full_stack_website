@@ -14,10 +14,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING
       },
       price: {
-        type: DataTypes.STRING
+        type: DataTypes.DECIMAL(10,2)
       },
       quantity: {
-        type: DataTypes.STRING
+        type: DataTypes.INTEGER
       },
       warehouse: {
         type: DataTypes.STRING

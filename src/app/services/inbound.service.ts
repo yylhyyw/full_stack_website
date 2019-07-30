@@ -138,7 +138,7 @@ export class InboundService {
 
   updateAwards(
     inboundIds: Array<number>,
-    price: string,
+    price: number,
     awards: number
   ): Observable<any> {
     const creatorJSON =

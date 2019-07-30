@@ -19,8 +19,6 @@ import { ProductsComponent } from './products/products.component';
 import { ProductsActiveListComponent } from './products/products-active-list/products-active-list.component';
 import { GroupsComponent } from './groups/groups.component';
 import { GroupsActiveListComponent } from './groups/groups-active-list/groups-active-list.component';
-import { GroupsBlockedListComponent } from './groups/groups-blocked-list/groups-blocked-list.component';
-import { GroupsWaitingListComponent } from './groups/groups-waiting-list/groups-waiting-list.component';
 import { InboundComponent } from './inbound/inbound.component';
 import { ToConfirmListComponent } from './inbound/to-confirm-list/to-confirm-list.component';
 import { ReportedListComponent } from './inbound/reported-list/reported-list.component';
@@ -30,7 +28,7 @@ import { LinkifyPipe } from './custom-pipes/linkify.pipe';
 import { UserGroupsComponent } from './groups/user-groups/user-groups.component';
 import { UserJoinComponent } from './groups/user-join/user-join.component';
 import { ProposeDealComponent } from './home/propose-deal/propose-deal.component';
-
+import { ActivateComponent } from './user_components/activate/activate.component';
 
 @NgModule({
   declarations: [
@@ -47,8 +45,6 @@ import { ProposeDealComponent } from './home/propose-deal/propose-deal.component
     ProductsActiveListComponent,
     GroupsComponent,
     GroupsActiveListComponent,
-    GroupsBlockedListComponent,
-    GroupsWaitingListComponent,
     InboundComponent,
     ToConfirmListComponent,
     ReportedListComponent,
@@ -58,16 +54,12 @@ import { ProposeDealComponent } from './home/propose-deal/propose-deal.component
     UserGroupsComponent,
     UserJoinComponent,
     ProposeDealComponent,
+    ActivateComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

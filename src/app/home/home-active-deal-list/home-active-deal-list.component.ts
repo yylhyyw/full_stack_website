@@ -52,7 +52,7 @@ export class HomeActiveDealListComponent implements OnInit {
   public selectDeal = new Deal(
     null,
     '',
-    '',
+    null,
     null,
     '',
     '',

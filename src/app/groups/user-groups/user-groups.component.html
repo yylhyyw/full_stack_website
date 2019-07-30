@@ -85,16 +85,24 @@
         <th scopr="row" class="hide">{{ ('000' + group.id).slice(-4) }}</th>
         <td>
           {{ group.name }}
-          <p class="text-primary show">Members: {{group.member}}</p>
+          <p class="text-primary show">Members: {{ group.member }}</p>
           <button
-          class="btn btn-outline-success btn-block btn-sm mb-1 show"
-          (click)="groupDelete(group.id)"
-        >
-          Delete
-        </button>
+            class="btn btn-outline-success btn-block btn-sm mb-1 show"
+            (click)="groupDelete(group.id)"
+          >
+            Delete
+          </button>
         </td>
-        <td class="hide">{{ group.member }}</td>
         <td class="hide">
+          {{group.member}}
+        </td>
+        <td class="hide">
+            <button
+            class="btn btn-outline-success btn-block btn-sm mb-1"
+            (click)="groupEdit(group.id)"
+          >
+            Edit
+          </button>
           <div>
             <button
               class="btn btn-outline-success btn-block btn-sm mb-1"
