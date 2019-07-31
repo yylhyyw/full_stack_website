@@ -17,6 +17,7 @@ import { LinkifyPipe } from '../../custom-pipes/linkify.pipe';
 
 import { thisExpression, arrayExpression } from 'babel-types';
 
+declare var $: any;
 @Component({
   selector: 'app-home-active-deal-list',
   templateUrl: './home-active-deal-list.component.html',
@@ -77,6 +78,26 @@ export class HomeActiveDealListComponent implements OnInit {
   public awards = 0;
 
   public isUpdateAwards: boolean;
+
+  public month: any;
+
+  public days: any;
+
+  public year: any;
+
+  public hour: any;
+
+  public minutes: any;
+
+  public isPublic: any;
+
+  public isPrivate: any;
+
+  public memberList: any;
+
+  public groupList: any;
+
+  public membersTemp: any;
 
   constructor(
     private dealService: DealService,
@@ -143,7 +164,6 @@ export class HomeActiveDealListComponent implements OnInit {
   }
 
   takeDeal(productId: any) {
-    this.selectProductId = productId;
     if (!this.privilege) {
       if (productId >= 0) {
         this.inbound.product = this.dealList[productId].product_name;
@@ -164,6 +184,17 @@ export class HomeActiveDealListComponent implements OnInit {
       this.selectDeal.productName = this.dealList[productId].product_name;
       this.selectDeal.quantity = this.dealList[productId].quantity;
       this.selectDeal.price = this.dealList[productId].price;
+      const currentTime = new Date(this.dealList[productId].expires_at);
+      this.month = (currentTime.getMonth() + 1).toString();
+      this.days = currentTime.getDate().toString();
+      this.year = currentTime.getFullYear().toString();
+      this.hour = currentTime.getHours().toString();
+      this.minutes = currentTime.getMinutes().toString();
+      this.selectDeal.note = this.dealList[productId].note;
+      this.selectDeal.bonus = this.dealList[productId].bonus;
+      this.selectDeal.serviceTag = this.dealList[productId].service_tag;
+      this.selectDeal.notify = this.dealList[productId].notify;
+      this.selectDeal.creator = this.dealList[productId].creator;
       // this.selectDeal.warehouse = this.publicWarehouse;
     }
   }
@@ -178,7 +209,7 @@ export class HomeActiveDealListComponent implements OnInit {
       .create(this.inbound)
       .pipe(first())
       .subscribe(data => {
-        this.dealList[this.selectProductId].quantity = data.quantity;
+        this.ngOnInit();
         this.isCreated = true;
         this.inbound.clear();
         this.selectProductId = null;
@@ -187,16 +218,15 @@ export class HomeActiveDealListComponent implements OnInit {
 
   updateCompany() {
     if (this.awardsUsers) {
-      this.updateAwards();
+      this.update();
     }
     this.dealService
       .updateCompany(this.selectDeal)
       .pipe(first())
       .subscribe(data => {
-        this.dealList[this.selectProductId].price = data.price;
-        this.dealList[this.selectProductId].quantity = data.quantity;
-        this.dealList[this.selectProductId].quantityTaken = data.quantityTaken;
-        this.isUpdated = true;
+        this.ngOnInit();
+        this.awards = 0;
+        this.selectDeal.clear();
       });
   }
   useSelfWarehouse() {
@@ -223,7 +253,7 @@ export class HomeActiveDealListComponent implements OnInit {
     this.awardsUsers = null;
   }
 
-  updateAwards() {
+  update() {
     let i = 0;
     const awardsIds: number[] = new Array();
     if (this.awardsUsers) {
@@ -236,8 +266,61 @@ export class HomeActiveDealListComponent implements OnInit {
     this.inboundService
       .updateAwards(awardsIds, this.selectDeal.price, this.awards)
       .pipe(first())
-      .subscribe(data => {
-        this.isUpdateAwards = true;
-      });
+      .subscribe(
+        data => {
+          this.isUpdateAwards = true;
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          this.awardsUsers = null;
+        }
+      );
+  }
+  makePublic() {
+    this.membersTemp = '';
+    this.isPublic = true;
+    this.isPrivate = false;
+    this.selectDeal.dealPublic = true;
+    this.groupService
+      .allSubscribers(this.selectDeal.creator)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.memberList = data;
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          setTimeout(() => {
+            $('.selectpicker').selectpicker('refresh');
+            $('.selectpicker').selectpicker('selectAll');
+          });
+        }
+      );
+  }
+  makePrivate() {
+    this.membersTemp = '';
+    this.isPublic = false;
+    this.isPrivate = true;
+    this.selectDeal.dealPublic = false;
+    this.groupService
+      .groupRetrieve(this.selectDeal.creator)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.groupList = data;
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          setTimeout(() => {
+            $('.selectpicker').selectpicker('refresh');
+          });
+        }
+      );
   }
 }

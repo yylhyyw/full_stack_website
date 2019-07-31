@@ -12,19 +12,19 @@ const httpOptions = {
 };
 @Injectable()
 export class InboundService {
-  createUrl = 'http://192.168.1.86:8081/api/inbound/add'; // URL to web api
-  tenUrl = 'http://192.168.1.86:8081/api/inbound/individualFind';
-  allUrl = 'http://192.168.1.86:8081/api/inbound/individualFind';
-  confirmUrl = 'http://192.168.1.86:8081/api/inbound/findRecords';
-  tenCompanyUrl = 'http://192.168.1.86:8081/api/inbound/companyFind';
-  proposeRetrieveUrl = 'http://192.168.1.86:8081/api/inbound/proposeRetrieve';
+  createUrl = 'http://192.168.1.90:8081/api/inbound/add'; // URL to web api
+  tenUrl = 'http://192.168.1.90:8081/api/inbound/individualFind';
+  allUrl = 'http://192.168.1.90:8081/api/inbound/individualFind';
+  confirmUrl = 'http://192.168.1.90:8081/api/inbound/findRecords';
+  tenCompanyUrl = 'http://192.168.1.90:8081/api/inbound/companyFind';
+  proposeRetrieveUrl = 'http://192.168.1.90:8081/api/inbound/proposeRetrieve';
   proposeRetrieveCompanyUrl =
-    'http://192.168.1.86:8081/api/inbound/proposeRetrieveCompany';
-  createProposeUrl = 'http://192.168.1.86:8081/api/inbound/createPropose';
-  proposeConfirmUrl = 'http://192.168.1.86:8081/api/inbound/proposeConfirm';
-  cancelInboundUrl = 'http://192.168.1.86:8081/api/inbound/cancelInbound';
-  findAwardsUsersUrl = 'http://192.168.1.86:8081/api/inbound/findAwardsUser';
-  updateAwardsUrl = 'http://192.168.1.86:8081/api/inbound/updateAwards';
+    'http://192.168.1.90:8081/api/inbound/proposeRetrieveCompany';
+  createProposeUrl = 'http://192.168.1.90:8081/api/inbound/createPropose';
+  proposeConfirmUrl = 'http://192.168.1.90:8081/api/inbound/proposeConfirm';
+  cancelInboundUrl = 'http://192.168.1.90:8081/api/inbound/cancelInbound';
+  findAwardsUsersUrl = 'http://192.168.1.90:8081/api/inbound/findAwardsUser';
+  updateAwardsUrl = 'http://192.168.1.90:8081/api/inbound/updateAwards';
   // NameUrl = 'http://192.168.1.119:8081/api/product/name';
   constructor(private http: HttpClient) {}
 

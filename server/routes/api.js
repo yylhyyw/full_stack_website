@@ -63,7 +63,7 @@ router.post('/signin', (req, res, next) => {
   const returnValue = [];
   userController.sign_in(req.body.email, req.body.password, function(result) {
     if (result) {
-      returnValue[0] = result.email;
+      returnValue[0] = result.username;
       returnValue[1] = 'secret';
       //user is existed check privilege
       PrivilegeController.find(result.id, function(result) {

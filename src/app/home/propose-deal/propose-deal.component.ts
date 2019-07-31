@@ -17,6 +17,17 @@ export class ProposeDealComponent implements OnInit {
   public privilege: any;
   public currentUser: any;
   public proposeList: any;
+  public selectInbound = new Inbound(
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  );
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -63,5 +74,12 @@ export class ProposeDealComponent implements OnInit {
       .subscribe(data => {
         this.ngOnInit();
       });
+  }
+  select(i) {
+    // if (i >= 0) {
+      this.selectInbound.product = this.proposeList[i].product;
+      this.selectInbound.price = this.proposeList[i].price;
+      this.selectInbound.quantity = this.proposeList[i].quantity;
+    // }
   }
 }

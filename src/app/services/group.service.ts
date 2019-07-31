@@ -19,24 +19,24 @@ const httpOptions = {
 export class GroupService {
   // public subscription = new Subscription(null, null, null);
   // URL to web api
-  tenUrl = 'http://192.168.1.86:8081/api/subscription/findTen';
-  allUrl = 'http://192.168.1.86:8081/api/subscription/find';
-  setActiveUrl = 'http://192.168.1.86:8081/api/subscription/setactive';
-  setBlockUrl = 'http://192.168.1.86:8081/api/subscription/setblock';
-  acceptUrl = 'http://192.168.1.86:8081/api/subscription/approve';
-  tenBlockedUrl = 'http://192.168.1.86:8081/api/subscription/findTenBlocked';
-  tenWaitingUrl = 'http://192.168.1.86:8081/api/subscription/findTenWaiting';
-  findfollowingUrl = 'http://192.168.1.86:8081/api/subscription/findfollowing';
-  checkRelationshipUrl = 'http://192.168.1.86:8081/api/subscription/check';
-  createUrl = 'http://192.168.1.86:8081/api/subscription/create';
+  tenUrl = 'http://192.168.1.90:8081/api/subscription/findTen';
+  allUrl = 'http://192.168.1.90:8081/api/subscription/find';
+  setActiveUrl = 'http://192.168.1.90:8081/api/subscription/setactive';
+  setBlockUrl = 'http://192.168.1.90:8081/api/subscription/setblock';
+  acceptUrl = 'http://192.168.1.90:8081/api/subscription/approve';
+  tenBlockedUrl = 'http://192.168.1.90:8081/api/subscription/findTenBlocked';
+  tenWaitingUrl = 'http://192.168.1.90:8081/api/subscription/findTenWaiting';
+  findfollowingUrl = 'http://192.168.1.90:8081/api/subscription/findfollowing';
+  checkRelationshipUrl = 'http://192.168.1.90:8081/api/subscription/check';
+  createUrl = 'http://192.168.1.90:8081/api/subscription/create';
 
   /**
    * user-group URL
    */
 
-  userGroupCreateUrl = 'http://192.168.1.86:8081/api/group/create';
-  userGroupDeleteUrl = 'http://192.168.1.86:8081/api/group/delete';
-  userGroupRetrieveUrl = 'http://192.168.1.86:8081/api/group/retrieve';
+  userGroupCreateUrl = 'http://192.168.1.90:8081/api/group/create';
+  userGroupDeleteUrl = 'http://192.168.1.90:8081/api/group/delete';
+  userGroupRetrieveUrl = 'http://192.168.1.90:8081/api/group/retrieve';
 
   constructor(private http: HttpClient) {}
   tenSubscribers(company: string): Observable<string> {

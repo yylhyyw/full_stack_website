@@ -13,12 +13,12 @@ const httpOptions = {
 };
 @Injectable()
 export class DealService {
-  createDealUrl = 'http://192.168.1.86:8081/api/createdeal'; // URL to web api
-  tenDealsUrl = 'http://192.168.1.86:8081/api/deal/active/firstTen';
-  updateCompanyUrl = 'http://192.168.1.86:8081/api/deal/update';
-  expiredDealUrl = 'http://192.168.1.86:8081/api/deal/expiredDeal';
-  individualDealUrl = 'http://192.168.1.86:8081/api/deal/individualFind';
-  sendNotificationUrl = 'http://192.168.1.86:8081/api/send-notification';
+  createDealUrl = 'http://192.168.1.90:8081/api/createdeal'; // URL to web api
+  tenDealsUrl = 'http://192.168.1.90:8081/api/deal/active/firstTen';
+  updateCompanyUrl = 'http://192.168.1.90:8081/api/deal/update';
+  expiredDealUrl = 'http://192.168.1.90:8081/api/deal/expiredDeal';
+  individualDealUrl = 'http://192.168.1.90:8081/api/deal/individualFind';
+  sendNotificationUrl = 'http://192.168.1.90:8081/api/send-notification';
   // IndividualDealsUrl = 'http://192.168.1.86:8081/api/deal/active/firstTenIndivivdual';
   // updatePriceCompanyUrl = 'http://192.168.1.119:8081/api/deal/updatePrice';
   constructor(private http: HttpClient) {}

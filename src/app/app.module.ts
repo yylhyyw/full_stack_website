@@ -29,6 +29,7 @@ import { UserGroupsComponent } from './groups/user-groups/user-groups.component'
 import { UserJoinComponent } from './groups/user-join/user-join.component';
 import { ProposeDealComponent } from './home/propose-deal/propose-deal.component';
 import { ActivateComponent } from './user_components/activate/activate.component';
+import { StorageComponent } from './storage/storage.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ActivateComponent } from './user_components/activate/activate.component
     UserGroupsComponent,
     UserJoinComponent,
     ProposeDealComponent,
-    ActivateComponent
+    ActivateComponent,
+    StorageComponent
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [

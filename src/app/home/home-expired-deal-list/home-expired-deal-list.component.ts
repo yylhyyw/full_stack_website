@@ -129,7 +129,6 @@ export class HomeExpiredDealListComponent implements OnInit {
       .createPropose(this.inbound)
       .pipe(first())
       .subscribe(data => {
-        this.expiredList[this.selectProductId].quantity = data.quantity;
         this.isProposed = true;
         this.inbound.clear();
         this.selectProductId = null;
