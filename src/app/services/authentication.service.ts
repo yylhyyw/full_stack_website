@@ -32,7 +32,7 @@ export class AuthenticationService {
 
   login(user: User) {
     return this.http
-      .post<User>('http://localhost:3000/api/signin', user, httpOptions)
+      .post<User>('http://192.168.1.90:8081/api/signin', user, httpOptions)
       .pipe(
         map(logInUser => {
           // login successful if there's a jwt token in the response

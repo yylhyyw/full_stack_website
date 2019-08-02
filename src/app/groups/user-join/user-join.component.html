@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="alert alert-success" role="alert" *ngIf="isRequested">
+        Request Successfully!!
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="isExisted">
+        You have already following this company!!
+      </div>
+  <h3>Please enter the company's username to send a following request</h3>
+  <hr>
+  <div class="float-left">
+<input type="text" class="form-control" id="companyEmail" name="company" [(ngModel)]="company">
+</div>
+<div class="float-left ml-2">
+    <button class="btn btn-primary" (click)="checkRelationship()">Request</button>
+    </div>
+</div>

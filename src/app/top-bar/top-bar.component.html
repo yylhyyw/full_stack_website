@@ -1,27 +1,70 @@
-<!-- <nav class="navbar navbar-dark bg-dark"><a class="navbar-brand" href="/">EasyBiz</a>
-  <div class="collapse navbar-collapse" id="navbarsExample01">
-  <li class="nav-item active">
-      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-    </li>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbar"
+    aria-controls="navbar"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar">
+    <a class="navbar-brand" routerLink="/">Demo</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item"  id="nav-dashboard" >
+        <a class="nav-link" routerLink="/dashboard" *ngIf="currentUser" (click)="ngOnInit()"
+          >Dashboard</a
+        >
+      </li>
+      <li class="nav-item" id="nav-deal">
+        <a class="nav-link" routerLink="/home" *ngIf="currentUser" (click)="ngOnInit()">Deal</a>
+      </li>
+      <li class="nav-item" id="nav-inbound">
+        <a class="nav-link" routerLink="/inbound" *ngIf="currentUser" (click)="ngOnInit()"
+          >Inbound</a
+        >
+      </li>
+
+      <li class="nav-item" id="nav-products">
+        <a class="nav-link" routerLink="/products" *ngIf="company" (click)="ngOnInit()"
+          >Products</a
+        >
+      </li>
+
+      <li class="nav-item" id="nav-groups">
+        <a class="nav-link" routerLink="/groups" *ngIf="company" (click)="ngOnInit()"
+          >Groups</a
+        >
+      </li>
+    </ul>
+
+    <a
+      class="btn btn-outline-primary"
+      routerLink="/register"
+      *ngIf="!currentUser"
+      >Register</a
+    >
+    <a class="btn btn-outline-primary" *ngIf="currentUser" (click)="logout()"
+      >Log out</a
+    >
   </div>
-<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-</nav> -->
+</nav>
 
-
-<nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">EasyBiz</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarsExample02">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/register">Register<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" routerLink="/signin">SignIn<span class="sr-only">(current)</span></a>
-          </li>
-      </ul>
-    </div>
-  </nav>
+<div id='flush-block' class="container">
+    <div class="alert alert-info" role="alert" *ngIf="company">
+        You Signed In As a Member of Company
+      </div>
+      <div class="alert alert-info" role="alert" *ngIf="individual">
+          You Signed In As an Individual
+        </div>
+</div>
+<div id='storage-block' class="container">
+  <div class="alert alert-danger" role="alert" *ngIf="company">
+      click <a routerLink="/storage">here</a> to go to storage setting
+  </div>
+    <div class="alert alert-danger" role="alert" *ngIf="individual">
+        click <a routerLink="/storage">here</a> to go to storage setting
+      </div>
+</div>

@@ -1,0 +1,251 @@
+<div *ngIf="privilege">
+  <table class="table" id="dealTable">
+    <thead>
+      <tr>
+        <th scope="col" style="width: 9%" class="hide">#</th>
+        <th scope="col" style="width: 73%" >Deals</th>
+        <th scope="col" style="width: 9%" class="hide">Price</th>
+        <th scope="col" style="width: 9%" class="hide">Quantity</th>
+        <!-- <th scope="col" class="hide"></th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let deal of expiredList; index as i">
+        <tr>
+          <th scopr="row" class="hide">{{ ('000' + deal.id).slice(-4) }}</th>
+          <td>
+            {{ deal.product_name }}
+            <div
+              class="mt-2"
+              style="font-size:smaller"
+              [innerHTML]="deal.note | linkify"
+            ></div>
+            <p class="text-danger show">Price: {{deal.price}} Quantity: {{ deal.quantity }}/{{ deal.quantity + deal.quantityTaken }}</p>
+          </td>
+          <td class="hide text-success">${{ deal.price }}</td>
+          <td class="hide">{{ deal.quantity }}/{{ deal.quantity + deal.quantityTaken }}</td>
+          <!-- <td class="hide"> -->
+          <!-- </td> -->
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="!privilege">
+  <table *ngIf="noFollowing" class="table" id="dealTable">
+    <thead>
+      <tr>
+        <th scope="col" style="width: 9%" class="hide">#</th>
+        <th scope="col" style="width: 64%" >Deals</th>
+        <th scope="col" style="width: 9%" class="hide">Price</th>
+        <th scope="col" style="width: 9%" class="hide">Quantity</th>
+        <th scope="col" style="width: 9%" class="hide"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scopr="row"></th>
+        <td>
+          No Active Deals......
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <!-- </ng-container> -->
+    </tbody>
+  </table>
+  <ng-container *ngFor="let following of followingList">
+    <hr />
+    <label
+      for="followingOffers"
+      value="following.company"
+      id="#following"
+      style="font-size:20px"
+      >Following: {{ following.company }} :</label
+    >
+
+    <table class="table" id="dealTable">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 9%" class="hide">#</th>
+          <th scope="col" style="width: 73%" >Deals</th>
+          <th scope="col" style="width: 9%" class="hide">Price</th>
+          <!-- <th scope="col" style="width: 12%">Quantity</th> -->
+          <th scope="col" style="width: 9%" class="hide">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let deal of expiredList; index as i">
+          <tr>
+            <th scopr="row" class="hide">{{ ('000' + deal.id).slice(-4) }}</th>
+            <td>
+              <span>{{ deal.product_name }}</span>
+              <div
+                class="mt-2"
+                style="font-size:smaller"
+                [innerHTML]="deal.note | linkify"
+              ></div>
+              <p class="show text-danger">Price: {{deal.price}}</p>
+              <button
+              id="{{ i }}"
+              type="button"
+              class="btn btn-outline-success btn-block btn-sm show"
+              data-toggle="modal"
+              data-target="#takeForm"
+              data-whatever="@mdo"
+              *ngIf="!privilege"
+              (click)="takeDeal(i)"
+            >
+              propose
+            </button>
+            </td>
+            <td class="hide text-success">${{ deal.price }}</td>
+            <td class="hide">
+              <button
+                id="{{ i }}"
+                type="button"
+                class="btn btn-outline-success btn-block btn-sm"
+                data-toggle="modal"
+                data-target="#takeForm"
+                data-whatever="@mdo"
+                *ngIf="!privilege"
+                (click)="takeDeal(i)"
+              >
+                propose
+              </button>
+            </td>
+            <div
+              class="modal fade"
+              id="takeForm"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="formTitle">Propose an Offer</h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="product" class="col-form-label"
+                          >Product:</label
+                        >
+                        <p>{{ inbound.product }}</p>
+                      </div>
+                      <div class="form-group">
+                        <label for="price" class="col-form-label">price:</label>
+                        <p>{{ inbound.price }}</p>
+                      </div>
+                      <div class="form-group">
+                        <label for="quantity" class="col-form-label"
+                          >quantity:</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="quantity"
+                          name="quantity"
+                          [(ngModel)]="inbound.quantity"
+                        />
+                      </div>
+                      <div class="form-group">
+                          <label class="col-form-label">Warehouse:</label>
+                          <br />
+                          <label for="warehouse" class="col-form-label"
+                            >Public Warehouse:</label
+                          >
+                          <select
+                              class="selectpicker form-control selectwidthauto"
+                              data-live-search="true"
+                              name="product"
+                              [(ngModel)]="selectPublicWarehouse"
+                              style="width: auto;"
+                            >
+                            <option value="">select one below</option>
+                              <option
+                                *ngFor="let address of publicWarehouse"
+                                name="address"
+                                class="selectOption"
+                                data-width="auto"
+                                data-mobile="true"
+                              >
+                                {{ address.address }}
+                              </option>
+                            </select>
+                          <button
+                            class="btn btn-primary btn-sm mt-1"
+                            (click)="useSelfWarehouse()"
+                          >
+                            Use self warehouse
+                          </button>
+                          <div *ngIf="selfWarehouse">
+                            <label for="selfWarehouse" class="col-form-label"
+                              >Self Warehouse:</label
+                            >
+                            <select
+                            class="selectpicker form-control selectwidthauto"
+                            data-live-search="true"
+                            name="address"
+                            [(ngModel)]="selectPrivateWarehouse"
+                            style="width: auto;"
+                          >
+                          <option value="">select one below</option>
+                            <option
+                              *ngFor="let address of privateWarehouse"
+                              name="address"
+                              class="selectOption"
+                              data-width="auto"
+                              data-mobile="true"
+                            >
+                              {{ address.address }}
+                            </option>
+                          </select>
+                            <button
+                              class="btn btn-primary btn-sm mt-1"
+                              (click)="usePublicWarehouse()"
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      (click)="createPropose()"
+                      data-dismiss="modal"
+                    >
+                      Propose
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </ng-container>
+</div>

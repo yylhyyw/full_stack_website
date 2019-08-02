@@ -1,0 +1,749 @@
+<div *ngIf="privilege">
+  <table class="table" id="dealTable">
+    <thead>
+      <tr>
+        <th scope="col" style="width: 9%" class="hide">#</th>
+        <th scope="col" style="width: 60%">Deals</th>
+        <th scope="col" style="width: 9%" class="hide">Price</th>
+        <th scope="col" style="width: 13%" class="hide">Qty(left/total)</th>
+        <th scope="col" style="width: 9%" class="hide"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let deal of dealList; index as i">
+        <tr>
+          <th scopr="row" class="hide">{{ ('000' + deal.id).slice(-4) }}</th>
+          <td>
+            {{ deal.product_name }}
+            <div
+              class="mt-2"
+              style="font-size:smaller"
+              [innerHTML]="deal.note | linkify"
+            ></div>
+            <hr />
+            <div class="float-left text-primary">
+              Expires At: {{ deal.expires_at | date: 'medium' }}
+            </div>
+            <div class="float-right hide text-primary" *ngIf="deal.public">
+              Privilege: Public
+            </div>
+            <div class="float-right hide text-primary" *ngIf="!deal.public">
+              Privilege: Private
+            </div>
+            <br />
+            <div class="text-danger show">
+              Price: {{ deal.price }} Quantity:
+              <div class="text-primary d-inline-block">{{ deal.quantity }}</div>
+              / {{ deal.quantity + deal.quantityTaken }}
+            </div>
+            <button
+              id="{{ i }}"
+              type="button"
+              class="btn btn-outline-success btn-block btn-sm show"
+              data-toggle="modal"
+              data-target="#editForm"
+              *ngIf="privilege"
+              (click)="takeDeal(i)"
+            >
+              Edit
+            </button>
+          </td>
+          <td class="hide text-success">${{ deal.price }}</td>
+          <td class="hide">
+            <div>
+              <div class="text-primary d-inline-block">{{ deal.quantity }}</div>
+              / {{ deal.quantity + deal.quantityTaken }}
+            </div>
+          </td>
+          <td class="hide">
+            <button
+              id="{{ i }}"
+              type="button"
+              class="btn btn-outline-success btn-block btn-sm"
+              data-toggle="modal"
+              data-target="#editForm"
+              data-whatever="@mdo"
+              *ngIf="privilege"
+              (click)="takeDeal(i)"
+            >
+              Edit
+            </button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="!privilege">
+  <table *ngIf="noFollowing" class="table" id="dealTable">
+    <thead>
+      <tr>
+        <th scope="col" style="width: 9%" class="hide">#</th>
+        <th scope="col" style="width: 64%">Deals</th>
+        <th scope="col" style="width: 9%" class="hide">Price</th>
+        <th scope="col" style="width: 9%" class="hide">Quantity</th>
+        <th scope="col" style="width: 9%" class="hide"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scopr="row"></th>
+        <td>
+          No Active Deals......
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-container *ngFor="let following of followingList">
+    <hr />
+    <label
+      for="followingOffers"
+      value="following.company"
+      id="#following"
+      style="font-size:20px"
+      >Following: {{ following.company }} :</label
+    >
+
+    <table class="table" id="dealTable">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 9%" class="hide">#</th>
+          <th scope="col" style="width: 64%">Deals</th>
+          <th scope="col" style="width: 9%" class="hide">Price</th>
+          <th scope="col" style="width: 9%" class="hide">Quantity</th>
+          <th scope="col" style="width: 9%" class="hide">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let deal of dealList; index as i">
+          <tr>
+            <th scopr="row" class="hide">{{ ('000' + deal.id).slice(-4) }}</th>
+            <td>
+              <span>{{ deal.product_name }}</span>
+              <div
+                class="mt-2"
+                style="font-size:smaller"
+                [innerHTML]="deal.note | linkify"
+              ></div>
+              <p class="text-primary show">
+                Expires At: {{ deal.expires_at | date: 'medium' }}
+              </p>
+              <p class="text-danger show">
+                Price: {{ deal.price }} Quantity: {{ deal.quantity }}
+              </p>
+
+              <button
+                id="{{ i }}"
+                type="button"
+                class="btn btn-outline-success btn-block btn-sm show"
+                data-toggle="modal"
+                data-target="#takeForm"
+                data-whatever="@mdo"
+                *ngIf="!privilege"
+                (click)="takeDeal(i)"
+              >
+                Take
+              </button>
+            </td>
+            <td class="hide text-success">${{ deal.price }}</td>
+            <td id="qty{{ i }}" class="hide">{{ deal.quantity }}</td>
+            <td class="hide">
+              <button
+                id="{{ i }}"
+                type="button"
+                class="btn btn-outline-success btn-block btn-sm"
+                data-toggle="modal"
+                data-target="#takeForm"
+                data-whatever="@mdo"
+                *ngIf="!privilege"
+                (click)="takeDeal(i)"
+              >
+                Take
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </ng-container>
+</div>
+<div
+  class="modal fade"
+  id="takeForm"
+  tabindex="-1"
+  role="dialog"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="formTitle">Take an Deal</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="product" class="col-form-label">Product:</label>
+            <input
+              type="text"
+              class="form-control"
+              value="{{ inbound.product }}"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <label for="price" class="col-form-label">price:</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                value="{{ inbound.price }}"
+                readonly
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="quantity" class="col-form-label">quantity:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="quantity"
+              name="quantity"
+              [(ngModel)]="inbound.quantity"
+            />
+          </div>
+          <div class="form-group">
+            <label class="col-form-label">Warehouse:</label>
+            <br />
+            <label for="warehouse" class="col-form-label"
+              >Public Warehouse:</label
+            >
+            <select
+              class="selectpicker form-control selectwidthauto"
+              data-live-search="true"
+              name="product"
+              [(ngModel)]="selectPublicWarehouse"
+              style="width: auto;"
+            >
+              <option value="">select one below</option>
+              <option
+                *ngFor="let address of publicWarehouse"
+                name="address"
+                class="selectOption"
+                data-width="auto"
+                data-mobile="true"
+              >
+                {{ address.address }}
+              </option>
+            </select>
+            <button
+              class="btn btn-primary btn-sm mt-1"
+              (click)="useSelfWarehouse()"
+            >
+              Use self warehouse
+            </button>
+            <div *ngIf="selfWarehouse">
+              <label for="selfWarehouse" class="col-form-label"
+                >Self Warehouse:</label
+              >
+
+              <select
+                class="selectpicker form-control selectwidthauto"
+                data-live-search="true"
+                name="address"
+                [(ngModel)]="selectPrivateWarehouse"
+                style="width: auto;"
+              >
+                <option value="">select one below</option>
+                <option
+                  *ngFor="let address of privateWarehouse"
+                  name="address"
+                  class="selectOption"
+                  data-width="auto"
+                  data-mobile="true"
+                >
+                  {{ address.address }}
+                </option>
+              </select>
+              <button
+                class="btn btn-primary btn-sm mt-1"
+                (click)="usePublicWarehouse()"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="createInbound()"
+          data-dismiss="modal"
+        >
+          Take
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="editForm"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="editForm"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editForm">Deal edit Form</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group select-hide">
+            <label for="deal-product" class="col-form-label">Product:</label>
+            <br />
+            <p class="text-danger">
+              Products only shows first 88 Words, use id to search for accurate
+              product(like: #17):
+            </p>
+            <input
+              type="text"
+              class="form-control"
+              name="productName"
+              value="{{ selectDeal.productName }}"
+              readonly
+            />
+          </div>
+          <div class="form-group show">
+            <label for="deal-product" class="col-form-label">Product:</label>
+            <br />
+            <p class="text-danger">
+              Products only shows product id on mobile view, use id to search
+              for accurate product(like: #17):
+            </p>
+            <input
+              type="text"
+              class="form-control"
+              name="productName"
+              value="{{ selectDeal.productName }}"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <label for="deal-price" class="col-form-label">Price:</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                id="deal-price"
+                name="price"
+                [(ngModel)]="selectDeal.price"
+              />
+            </div>
+            <button class="btn btn-primary btn-sm mt-1" (click)="makeAwards()">
+              Awards
+            </button>
+            <button
+              class="btn btn-primary btn-sm mt-1 ml-1"
+              (click)="cancelAwards()"
+            >
+              No Awards
+            </button>
+            <hr />
+            <div *ngIf="isAwards">
+              <p>Existed Inbound:</p>
+              <ng-container *ngFor="let awardsUser of awardsUsersUnique">
+                Username:
+                <input
+                  readonly
+                  type="text"
+                  value="{{awardsUser}}"
+                  class="form-control"
+                />
+                amount:
+                <input
+                  readonly
+                  type="text"
+                  value="{{ awardsUsersUniqueQty[awardsUser] }}"
+                  class="form-control"
+                />
+              </ng-container>
+              <label for="awards" class="col-form-label">Awards:</label>
+              <input
+                type="number"
+                class="form-control"
+                id="awards"
+                name="awards"
+                [(ngModel)]="awards"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="deal-quantity" class="col-form-label">Quantity:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="deal-quantity"
+              name="quantity"
+              [(ngModel)]="selectDeal.quantity"
+            />
+          </div>
+          <div class="form-group">
+            <label for="deal-expires" class="col-form-label">Expires At:</label>
+            <div class="row">
+              <div class="col-md-3">
+                <select
+                  class="custom-select d-block w-100"
+                  id="month"
+                  name="month"
+                  [(ngModel)]="month"
+                  required
+                >
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                </select>
+                <p class="text-center">Month</p>
+              </div>
+              <div class="col-md-2">
+                <select
+                  class="custom-select d-block w-100"
+                  id="days"
+                  name="days"
+                  [(ngModel)]="days"
+                  required
+                >
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                  <option>13</option>
+                  <option>14</option>
+                  <option>15</option>
+                  <option>16</option>
+                  <option>17</option>
+                  <option>18</option>
+                  <option>19</option>
+                  <option>20</option>
+                  <option>21</option>
+                  <option>22</option>
+                  <option>23</option>
+                  <option>24</option>
+                  <option>25</option>
+                  <option>26</option>
+                  <option>27</option>
+                  <option>28</option>
+                  <option>29</option>
+                  <option>30</option>
+                  <option>31</option>
+                </select>
+                <p class="text-center">Days</p>
+              </div>
+              <div class="col-md-2">
+                <select
+                  class="custom-select d-block w-100"
+                  id="years"
+                  name="year"
+                  [(ngModel)]="year"
+                  required
+                >
+                  <option value="">2014</option>
+                  <option>2014</option>
+                  <option>2015</option>
+                  <option>2016</option>
+                  <option>2017</option>
+                  <option>2018</option>
+                  <option>2019</option>
+                  <option>2020</option>
+                  <option>2021</option>
+                  <option>2022</option>
+                  <option>2023</option>
+                  <option>2024</option>
+                </select>
+                <p class="text-center">Year</p>
+              </div>
+              <div class="col-md-2">
+                <select
+                  class="custom-select d-block w-100"
+                  id="hours"
+                  name="hour"
+                  [(ngModel)]="hour"
+                  required
+                >
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                  <option>13</option>
+                  <option>14</option>
+                  <option>15</option>
+                  <option>16</option>
+                  <option>17</option>
+                  <option>19</option>
+                  <option>20</option>
+                  <option>21</option>
+                  <option>22</option>
+                  <option>23</option>
+                </select>
+                <p class="text-center">Hour</p>
+              </div>
+              <div class="col-md-2">
+                <select
+                  class="custom-select d-block w-100"
+                  id="minutes"
+                  name="minutes"
+                  [(ngModel)]="minutes"
+                  required
+                >
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                  <option>13</option>
+                  <option>14</option>
+                  <option>15</option>
+                  <option>16</option>
+                  <option>17</option>
+                  <option>19</option>
+                  <option>20</option>
+                  <option>21</option>
+                  <option>22</option>
+                  <option>23</option>
+                  <option>24</option>
+                  <option>25</option>
+                  <option>26</option>
+                  <option>27</option>
+                  <option>28</option>
+                  <option>29</option>
+                  <option>30</option>
+                  <option>31</option>
+                  <option>32</option>
+                  <option>33</option>
+                  <option>34</option>
+                  <option>35</option>
+                  <option>36</option>
+                  <option>37</option>
+                  <option>38</option>
+                  <option>39</option>
+                  <option>40</option>
+                  <option>41</option>
+                  <option>42</option>
+                  <option>43</option>
+                  <option>44</option>
+                  <option>45</option>
+                  <option>46</option>
+                  <option>47</option>
+                  <option>48</option>
+                  <option>49</option>
+                  <option>50</option>
+                  <option>51</option>
+                  <option>52</option>
+                  <option>53</option>
+                  <option>54</option>
+                  <option>55</option>
+                  <option>56</option>
+                  <option>57</option>
+                  <option>58</option>
+                  <option>59</option>
+                </select>
+                <p class="text-center">Minutes</p>
+              </div>
+            </div>
+            By default, expires in 3 days.
+          </div>
+          <div class="form-group">
+            <label for="product-Note" class="col-form-label">Note:</label>
+            <textarea
+              type="text"
+              class="form-control"
+              id="product-note"
+              cols="30"
+              rows="5"
+              name="note"
+              [(ngModel)]="selectDeal.note"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="deal-bonus" class="col-form-label">Bonus:</label>
+
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                id="deal-bonus"
+                name="bonus"
+                [(ngModel)]="selectDeal.bonus"
+              />
+            </div>
+            <small>Give bonus for inbound items to self storages.</small>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="deal-service-tag"
+              name="serviceTag"
+              [(ngModel)]="selectDeal.serviceTag"
+            />
+            <label class="form-check-label" for="deal-service-tag">
+              Service Tag
+            </label>
+          </div>
+          Require service tags when members confirm inbound items.
+          <hr />
+          Make Deal Public Or Private
+          <br />
+          <button
+            type="button"
+            class="btn btn-primary mt-1"
+            (click)="makePublic()"
+          >
+            Public
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary mt-1 ml-3"
+            (click)="makePrivate()"
+          >
+            Private
+          </button>
+          <br />
+          <div class="form-group" *ngIf="isPublic">
+            <label for="recipient-name" class="col-form-label">Member:</label>
+            <select
+              class="selectpicker"
+              multiple
+              data-live-search="true"
+              name="selectedMember"
+              [(ngModel)]="membersTemp"
+            >
+              <option *ngFor="let member of memberList" name="member">
+                {{ member.individual }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group" *ngIf="isPrivate">
+            <label for="recipient-name" class="col-form-label">Member:</label>
+            <select
+              class="selectpicker"
+              multiple
+              data-live-search="true"
+              name="selectedMember"
+              [(ngModel)]="membersTemp"
+            >
+              <option
+                *ngFor="let group of groupList"
+                name="group"
+                value="{{ group.member }}"
+              >
+                {{ group.name }}
+              </option>
+            </select>
+          </div>
+          <hr />
+          Every member can see public offers. Only selected users can see
+          private offers.
+          <br />
+          <br />
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="notify"
+              name="notify"
+              [(ngModel)]="selectDeal.notify"
+            />
+            <label class="form-check-label" for="notify">
+              Notify everyone who can see the offer
+            </label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="updateCompany()"
+          data-dismiss="modal"
+        >
+          Update
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

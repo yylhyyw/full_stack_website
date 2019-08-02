@@ -1,0 +1,200 @@
+<table class="table" id="inboundTable" *ngIf="!noRecord">
+  <thead>
+    <tr>
+      <th scope="col" class="hide">#</th>
+      <th scope="col">Inbound</th>
+      <th scope="col" *ngIf="privilege" class="hide">From</th>
+      <th scope="col" class="hide">Price</th>
+      <th scope="col" class="hide">Quantity</th>
+      <th scope="col" class="hide">WareHouse</th>
+      <th scope="col" class="hide">LastUpdate</th>
+      <th scope="col" class="hide">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let record of proposeList; index as i">
+      <tr>
+        <th scopr="row" class="hide">{{ ('000' + record.id).slice(-4) }}</th>
+        <td>
+          <div>
+            {{ record.product }}
+            <p class="text-danger show">From: {{record.individual}} Warehouse: {{record.warehouse}}</p>
+            <p class="text-danger show">Price: {{record.price}} Quantity: {{record.quantity}}</p>
+            <p class="text-danger show">Update: {{record.updatedAt | date: 'medium'}}</p>
+            <div *ngIf="!record.proposeStatus" class="show">
+                Action: Waiting
+                <div *ngIf="privilege">
+                    <button
+                    id="{{ i }}"
+                    type="button"
+                    class="btn btn-outline-success btn-block btn-sm"
+                    data-toggle="modal"
+                    data-target="#proposeConfirmForm"
+                    *ngIf="privilege"
+                    (click)="select(i)"
+                  >
+                    Confirm
+                  </button>
+                </div>
+              </div>
+              <div *ngIf="record.proposeStatus">
+                Action: Confirmed
+              </div>
+            <!-- </ng-container> -->
+          </div>
+        </td>
+        <td *ngIf="privilege" class="hide">{{ record.individual }}</td>
+        <!-- <td *ngIf="!privilege">{{ record.individual }}</td> -->
+        <td class="hide text-success">${{ record.price }}</td>
+        <td class="hide">{{ record.quantity }}</td>
+        <td class="hide">{{ record.warehouse }}</td>
+        <td class="hide">{{ record.updatedAt | date: 'medium'}}</td>
+        <td class="hide">
+          <div *ngIf="!record.proposeStatus" >
+            Waiting
+            <div *ngIf="privilege">
+                <button
+                id="{{ i }}"
+                type="button"
+                class="btn btn-outline-success btn-block btn-sm"
+                data-toggle="modal"
+                data-target="#proposeConfirmForm"
+                *ngIf="privilege"
+                (click)="select(i)"
+              >
+                Confirm
+              </button>
+              <!-- <button class="btn btn-outline-success btn-block btn-sm" (click)="proposeConfirm(record.id, record.quantity, record.dealId)">Confirm</button> -->
+            </div>
+          </div>
+          <div *ngIf="record.proposeStatus">
+            Confirmed
+          </div>
+          <!-- <button class="btn btn-primary btn-sm mb-2" *ngIf="!privilege">
+            Confirm
+          </button> -->
+          <!-- <button class="btn btn-primary btn-sm">Cancel</button> -->
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+
+<table class="table" id="inboundTable" *ngIf="noRecord">
+  <thead>
+    <tr>
+      <th scope="col" style="width: 9%">#</th>
+      <th scope="col" style="width: 30%">Inbound</th>
+      <th scope="col" style="width: 12%" *ngIf="privilege">From</th>
+      <th scope="col" style="width: 10%">Price</th>
+      <th scope="col" style="width: 12%">Quantity</th>
+      <th scope="col" style="width: 9">WareHouse</th>
+      <th scope="col" style="width: 9">LastUpdate</th>
+      <th scope="col" style="width: 9%">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scopr="row"></th>
+      <td>
+        No Inbound Record......
+      </td>
+      <td *ngIf="privilege"></td>
+      <!-- <td *ngIf="!privilege">{{ record.individual }}</td> -->
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <!-- <button class="btn btn-primary btn-sm mb-2" *ngIf="!privilege">
+              Confirm
+            </button> -->
+        <!-- <button class="btn btn-primary btn-sm">Cancel</button> -->
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div
+class="modal fade"
+id="proposeConfirmForm"
+tabindex="-1"
+role="dialog"
+aria-hidden="true"
+>
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="formTitle">Confirm a Propose</h5>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="product" class="col-form-label"
+            >Product:</label
+          >
+          <input type="text" class="form-control" value="{{selectInbound.product}}" readonly>
+        </div>
+        <div class="form-group">
+          <label for="price" class="col-form-label">price:</label>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+              </div>
+              <input type="number" class="form-control" name="price" value="{{selectInbound.price}}" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="quantity" class="col-form-label"
+            >quantity:</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="quantity"
+            name="quantity"
+            [(ngModel)] = "selectInbound.quantity"
+          />
+        </div>
+        <div class="form-group">
+          <label for="warehouse" class="col-form-label"
+            >warehouse:</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="warehouse"
+            name="warehouse"
+            [(ngModel)]="selectInbound.warehouse"
+            readonly
+          />
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        data-dismiss="modal"
+      >
+        Close
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="proposeConfirm()"
+        data-dismiss="modal"
+      >
+        Confirm
+      </button>
+    </div>
+  </div>
+</div>
+</div>

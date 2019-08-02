@@ -1,9 +1,21 @@
 const user = require('./user');
-const group = require('./Group');
-const users_groups_mapping = require('./Users_groups_mapping');
+const group = require('./group');
+const deal= require('./deal');
+const privilege = require('./privilege');
+const product = require('./product');
+const subscription = require('./subscription');
+const inbound = require('./inbound');
+const userGroup = require('./userGroup');
+const storage = require('./storage');
 
 module.exports = {
     group,
     user,
-    users_groups_mapping,
+    deal,
+    privilege,
+    product,
+    subscription,
+    inbound,
+    userGroup,
+    storage,
 };

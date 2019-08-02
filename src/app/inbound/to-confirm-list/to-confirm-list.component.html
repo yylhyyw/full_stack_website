@@ -1,0 +1,201 @@
+<table class="table" id="inboundTable" *ngIf="!noRecord">
+  <thead>
+    <tr>
+      <th scope="col" style="width: 9%" class="hide">#</th>
+      <th scope="col" style="width: 30%">Inbound</th>
+      <th scope="col" style="width: 12%" *ngIf="privilege" class="hide">
+        From
+      </th>
+      <th scope="col" style="width: 10%" class="hide">Price</th>
+      <th scope="col" style="width: 12%" class="hide">Quantity</th>
+      <th scope="col" style="width: 9%" class="hide">Location</th>
+      <th scope="col" style="width: 9%" class="hide">Updated</th>
+      <th scope="col" style="width: 9%" class="hide">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let record of recordList; index as i">
+      <tr>
+        <th scopr="row" class="hide">{{ ('000' + record.id).slice(-4) }}</th>
+        <td>
+          <div>
+            {{ record.product }}
+            <p class="text-primary show">
+              Update: {{ record.updatedAt | date: 'medium' }}
+            </p>
+            <p class="text-danger show" *ngIf="privilege">
+              From: {{ record.individual }}
+            </p>
+            <div class="text-danger show">
+              Price:{{ record.price }}
+
+          <div *ngIf="!record.publicWarehouse">+ {{ record.bonus }}(bonus)</div>
+          <div *ngIf="record.awards">+ {{ record.awards }}(awards)</div>
+              Quantity: {{ record.quantity }}
+            </div>
+            <p class="text-danger show">Warehouse: {{ record.warehouse }}</p>
+            <p class="text-danger show">Status: {{ status[record.status] }}</p>
+            <!-- </ng-container> -->
+          </div>
+          <button
+          id="{{ i }}"
+          type="button"
+          class="btn btn-outline-success btn-block btn-sm show"
+          data-toggle="modal"
+          data-target="#proposeEditForm"
+          *ngIf="!record.status && !privilege"
+          (click)="select(i)"
+        >
+          Edit
+        </button>
+        </td>
+        <td *ngIf="privilege" class="hide">{{ record.individual }}</td>
+        <!-- <td *ngIf="!privilege">{{ record.individual }}</td> -->
+        <td class="hide text-success">
+          ${{ record.price }}
+          <div *ngIf="!record.publicWarehouse">+ {{ record.bonus }}(bonus)</div>
+          <div *ngIf="record.awards">+ {{ record.awards }}(awards)</div>
+        </td>
+        <td class="hide">{{ record.quantity }}</td>
+        <td class="hide">{{ record.warehouse }}</td>
+        <td class="hide">{{ record.updatedAt | date: 'medium' }}</td>
+        <td class="hide">
+          {{ status[record.status] }}
+          <button
+          id="{{ i }}"
+          type="button"
+          class="btn btn-outline-success btn-block btn-sm"
+          data-toggle="modal"
+          data-target="#proposeEditForm"
+          *ngIf="!record.status && !privilege"
+          (click)="select(i)"
+        >
+          Edit
+        </button>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+
+<table class="table" id="inboundTable" *ngIf="noRecord">
+  <thead>
+    <tr>
+      <th scope="col" style="width: 9%">#</th>
+      <th scope="col" style="width: 30%">Inbound</th>
+      <th scope="col" style="width: 12%" *ngIf="privilege">From</th>
+      <th scope="col" style="width: 10%">Price</th>
+      <th scope="col" style="width: 12%">Quantity</th>
+      <th scope="col" style="width: 9">WareHouse</th>
+      <th scope="col" style="width: 9">LastUpdate</th>
+      <th scope="col" style="width: 9%">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scopr="row"></th>
+      <td>
+        No Inbound Record......
+      </td>
+      <td *ngIf="privilege"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div
+class="modal fade"
+id="proposeEditForm"
+tabindex="-1"
+role="dialog"
+aria-hidden="true"
+>
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="formTitle">Edit a Propose</h5>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="product" class="col-form-label"
+            >Product:</label
+          >
+          <input type="text" class="form-control" value="{{selectInbound.product}}" readonly>
+        </div>
+        <div class="form-group">
+          <label for="price" class="col-form-label">price:</label>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+              </div>
+              <input type="number" class="form-control" name="price" value="{{selectInbound.price}}" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="quantity" class="col-form-label"
+            >quantity:</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="quantity"
+            name="quantity"
+            [(ngModel)] = "selectInbound.quantity"
+          />
+        </div>
+        <div class="form-group">
+          <label for="warehouse" class="col-form-label"
+            >warehouse:</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="warehouse"
+            name="warehouse"
+            value="{{selectInbound.warehouse}}"
+            readonly
+          />
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        data-dismiss="modal"
+      >
+        Close
+      </button>
+      <button
+      type="button"
+      class="btn btn-primary"
+      (click)="cancelInbound()"
+      data-dismiss="modal"
+    >
+      Cancel All
+    </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="updateInboundQty()"
+        data-dismiss="modal"
+      >
+        Confirm
+      </button>
+    </div>
+  </div>
+</div>
+</div>

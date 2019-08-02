@@ -1,0 +1,87 @@
+<!-- {{router.url}} -->
+<div class="container">
+  <ul class="nav nav-tabs" id="dealTabs" role="tablist">
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        id="group-active-tab"
+        data-toggle="tab"
+        routerLink="group_active"
+        role="tab"
+        aria-controls="active"
+        aria-selected="true"
+        >All Followers</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        id="user-group-tab"
+        data-toggle="tab"
+        routerLink="user_groups"
+        role="tab"
+        aria-controls="active"
+        aria-selected="true"
+        >Groups</a
+      >
+    </li>
+  </ul>
+  <br />
+  <form class="form-inline float-left my-2">
+    <input
+      class="form-control mr-sm-2"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+      id="groupSearchInput"
+      (keyup)="search()"
+    />
+  </form>
+  <div class="tab-content" id="dealLists">
+    <router-outlet></router-outlet>
+  </div>
+  <div
+    class="modal fade"
+    id="createForm"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="createFrom"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="createFrom">Product Create Form</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label"
+                >Recipient:</label
+              >
+              <input type="text" class="form-control" id="recipient-name" />
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Message:</label>
+              <textarea class="form-control" id="message-text"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="btn btn-primary">Send message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

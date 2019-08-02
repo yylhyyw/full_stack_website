@@ -1,0 +1,28 @@
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.container {
+  max-width: 1100px;
+}
+
+.pricing-header {
+  max-width: 700px;
+}
+
+.card-deck .card {
+  min-width: 220px;
+}
+
+@media screen and (max-width: 996px) {
+  .select-hide { display: none; }
+}
+
+@media screen and (min-width: 1000px) {
+  .show {display: none;}
+}
