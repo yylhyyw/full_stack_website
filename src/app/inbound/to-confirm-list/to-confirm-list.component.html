@@ -1,3 +1,4 @@
+<h4>Proposed Inbound is under Proposed Deal tag</h4>
 <table class="table" id="inboundTable" *ngIf="!noRecord">
   <thead>
     <tr>
@@ -60,7 +61,6 @@
         <td class="hide">{{ record.warehouse }}</td>
         <td class="hide">{{ record.updatedAt | date: 'medium' }}</td>
         <td class="hide">
-          {{ status[record.status] }}
           <button
           id="{{ i }}"
           type="button"
@@ -179,14 +179,6 @@ aria-hidden="true"
       >
         Close
       </button>
-      <button
-      type="button"
-      class="btn btn-primary"
-      (click)="cancelInbound()"
-      data-dismiss="modal"
-    >
-      Cancel All
-    </button>
       <button
         type="button"
         class="btn btn-primary"

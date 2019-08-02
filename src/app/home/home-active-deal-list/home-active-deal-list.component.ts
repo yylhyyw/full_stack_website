@@ -245,6 +245,8 @@ export class HomeActiveDealListComponent implements OnInit {
           this.inbound.clear();
           this.selectPrivateWarehouse = null;
           this.selectPublicWarehouse = null;
+          this.inbound.publicWarehouse = true;
+          this.selfWarehouse = false;
         }
       );
   }
@@ -388,7 +390,6 @@ export class HomeActiveDealListComponent implements OnInit {
   }
 
   Storage(dealCreator) {
-    console.log(dealCreator);
     this.storageService
       .retrieve(dealCreator)
       .pipe(first())
@@ -409,7 +410,6 @@ export class HomeActiveDealListComponent implements OnInit {
   }
 
   privateStorage(creator) {
-    console.log(creator);
     this.storageService
       .retrieve(creator)
       .pipe(first())

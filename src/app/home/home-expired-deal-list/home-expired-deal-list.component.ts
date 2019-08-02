@@ -169,6 +169,8 @@ export class HomeExpiredDealListComponent implements OnInit {
           this.inbound.clear();
           this.selectPrivateWarehouse = null;
           this.selectPublicWarehouse = null;
+          this.selfWarehouse = false;
+          this.inbound.publicWarehouse = true;
         }
       );
   }

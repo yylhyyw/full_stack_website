@@ -49,7 +49,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT
       },
       bonus: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        defaultValue: 0
       }
     },
     {}

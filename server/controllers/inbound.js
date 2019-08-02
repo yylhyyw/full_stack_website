@@ -1,12 +1,17 @@
 const Inbound = require('../models').inbounds;
 const Deal = require('../models').deals;
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 module.exports = {
   getRecords: function(creator, callback) {
     if (creator) {
       Inbound.findAll({
         where: {
-          individual: creator
+          individual: creator,
+          quantity: {
+            [Op.gt]: 0
+          }
         },
         order: [['id', 'DESC']]
       }).then(function(records) {
@@ -82,7 +87,8 @@ module.exports = {
     if (company) {
       Inbound.findAll({
         where: {
-          company: company
+          company: company,
+          propose: false
         },
         order: [['id', 'DESC']]
       }).then(function(records) {
