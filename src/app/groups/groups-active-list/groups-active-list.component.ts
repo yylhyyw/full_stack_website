@@ -51,6 +51,17 @@ export class GroupsActiveListComponent implements OnInit {
     }
   }
 
+  approve(i) {
+    this.selectSubscription.individual = this.followersList[i].individual;
+    this.selectSubscription.status = this.followersList[i].status;
+    this.selectSubscription.company = this.followersList[i].company;
+    this.groupService
+      .setActive(this.selectSubscription)
+      .pipe(first())
+      .subscribe(data => {
+        this.ngOnInit();
+      });
+  }
   setActive() {
     this.groupService
       .setActive(this.selectSubscription)

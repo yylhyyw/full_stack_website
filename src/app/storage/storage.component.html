@@ -1,1 +1,91 @@
-<p>storage works!</p>
+<div class="container">
+  <ul class="nav nav-tabs" id="dealTabs" role="tablist">
+    <li class="nav-item">
+      <a
+        class="nav-link active"
+        id="active-tab"
+        data-toggle="tab"
+        routerLink="active"
+        role="tab"
+        aria-controls="active"
+        aria-selected="true"
+        >Back</a
+      >
+    </li>
+  </ul>
+  <br />
+  <div class="float-right my-2">
+    <button
+      type="button"
+      class="btn btn-outline-success btn-block"
+      data-toggle="modal"
+      data-target="#addressCreateFrom"
+      data-whatever="@mdo"
+    >
+      Create
+    </button>
+  </div>
+  <br />
+  <table class="table" id="addressTable">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 9%" class="hide">#</th>
+          <th scope="col" style="width: 91%">Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let address of addressList; index as i">
+          <tr>
+            <th scopr="row" class="hide">{{ ('000' + address.id).slice(-4) }}</th>
+            <td>
+              {{ address.address }}
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  <div
+    class="modal fade"
+    id="addressCreateFrom"
+    tabindex="-1"
+    role="dialog"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Address Create Form</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="address">Address:</label>
+              <input type="text" class="form-control" id="address" name="address" [(ngModel)]="addressAdd"/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                  Close
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-dismiss="modal"
+                  (click) = "create()"
+                >
+                  Add
+                </button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

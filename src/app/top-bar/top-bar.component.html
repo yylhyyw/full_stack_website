@@ -39,9 +39,6 @@
         >
       </li>
     </ul>
-    <!-- <a class="btn btn-outline-primary mr-3" routerLink="/signin" *ngIf="!currentUser"
-      >Sign in</a
-    > -->
 
     <a
       class="btn btn-outline-primary"
@@ -62,4 +59,12 @@
       <div class="alert alert-info" role="alert" *ngIf="individual">
           You Signed In As an Individual
         </div>
+</div>
+<div id='storage-block' class="container">
+  <div class="alert alert-danger" role="alert" *ngIf="company">
+      click <a routerLink="/storage">here</a> to go to storage setting
+  </div>
+    <div class="alert alert-danger" role="alert" *ngIf="individual">
+        click <a routerLink="/storage">here</a> to go to storage setting
+      </div>
 </div>

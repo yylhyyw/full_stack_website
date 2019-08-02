@@ -67,19 +67,34 @@ export class ProposeDealComponent implements OnInit {
       });
   }
 
-  proposeConfirm(id: number, quantity: number, dealId: number) {
+  proposeConfirm() {
     this.inboundService
-      .proposeConfirm(id, quantity, dealId)
+      .proposeConfirm(
+        this.selectInbound.id,
+        this.selectInbound.quantity,
+        this.selectInbound.dealId
+      )
       .pipe(first())
-      .subscribe(data => {
-        this.ngOnInit();
-      });
+      .subscribe(
+        data => {
+          this.ngOnInit();
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          this.selectInbound.clear();
+        }
+      );
   }
   select(i) {
     // if (i >= 0) {
-      this.selectInbound.product = this.proposeList[i].product;
-      this.selectInbound.price = this.proposeList[i].price;
-      this.selectInbound.quantity = this.proposeList[i].quantity;
+    this.selectInbound.product = this.proposeList[i].product;
+    this.selectInbound.price = this.proposeList[i].price;
+    this.selectInbound.quantity = this.proposeList[i].quantity;
+    this.selectInbound.id = this.proposeList[i].id;
+    this.selectInbound.dealId = this.proposeList[i].dealId;
+    this.selectInbound.warehouse = this.proposeList[i].warehouse;
     // }
   }
 }

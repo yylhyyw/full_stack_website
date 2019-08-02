@@ -62,7 +62,7 @@ module.exports = {
   },
 
   sign_in: function(email, password, callback) {
-    this.find(email, function(result) {
+    this.findActivated(email, function(result) {
       if (result) {
         if (bcrypt.compareSync(password, result.password)) {
           callback(result);

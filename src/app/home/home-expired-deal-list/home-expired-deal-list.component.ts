@@ -6,11 +6,20 @@ import { first } from 'rxjs/operators';
 import { Inbound } from '../../models/inbound';
 import { Deal } from '../../models/deal';
 import { InboundService } from '../../services/inbound.service';
+import { StorageService } from '../../services/storage.service';
+
+declare var $: any;
 @Component({
   selector: 'app-home-expired-deal-list',
   templateUrl: './home-expired-deal-list.component.html',
   styleUrls: ['./home-expired-deal-list.component.scss'],
-  providers: [AuthenticationService, DealService, GroupService, InboundService]
+  providers: [
+    AuthenticationService,
+    DealService,
+    GroupService,
+    InboundService,
+    StorageService
+  ]
 })
 export class HomeExpiredDealListComponent implements OnInit {
   public expiredDealList: any;
@@ -46,12 +55,24 @@ export class HomeExpiredDealListComponent implements OnInit {
 
   public isProposed: any;
 
+  public publicWarehouse: any;
+
+  public privateWarehouse: any;
+
+  public selfWarehouse: any;
+
+  public dealCreator: any;
+
+  public selectPrivateWarehouse: any;
+
+  public selectPublicWarehouse: any;
 
   constructor(
     private authenticationService: AuthenticationService,
     private dealService: DealService,
     private groupService: GroupService,
-    private inboundService: InboundService
+    private inboundService: InboundService,
+    private storageService: StorageService
   ) {}
 
   ngOnInit() {
@@ -101,6 +122,8 @@ export class HomeExpiredDealListComponent implements OnInit {
   takeDeal(productId: any) {
     this.selectProductId = productId;
     if (!this.privilege) {
+      this.dealCreator = this.expiredList[productId].creator;
+      this.Storage(this.dealCreator);
       if (productId >= 0) {
         this.inbound.product = this.expiredList[productId].product_name;
         this.inbound.price = this.expiredList[productId].price;
@@ -125,13 +148,80 @@ export class HomeExpiredDealListComponent implements OnInit {
   }
 
   createPropose() {
+    if (this.selfWarehouse) {
+      this.inbound.warehouse = this.selectPrivateWarehouse;
+    } else {
+      this.inbound.warehouse = this.selectPublicWarehouse;
+    }
     this.inboundService
       .createPropose(this.inbound)
       .pipe(first())
-      .subscribe(data => {
-        this.isProposed = true;
-        this.inbound.clear();
-        this.selectProductId = null;
-      });
+      .subscribe(
+        data => {
+          this.isProposed = true;
+          this.inbound.clear();
+          this.selectProductId = null;
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          this.inbound.clear();
+          this.selectPrivateWarehouse = null;
+          this.selectPublicWarehouse = null;
+        }
+      );
+  }
+
+  useSelfWarehouse() {
+    this.selfWarehouse = true;
+    this.inbound.publicWarehouse = false;
+    this.privateStorage(this.currentUser);
+  }
+
+  usePublicWarehouse() {
+    this.selfWarehouse = false;
+    this.inbound.publicWarehouse = true;
+  }
+
+  Storage(dealCreator) {
+    console.log(dealCreator);
+    this.storageService
+      .retrieve(dealCreator)
+      .pipe(first())
+      .subscribe(
+        data => {
+          console.log(data);
+          this.publicWarehouse = data;
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          setTimeout(() => {
+            $('.selectpicker').selectpicker('refresh');
+          });
+        }
+      );
+  }
+
+  privateStorage(creator) {
+    console.log(creator);
+    this.storageService
+      .retrieve(creator)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.privateWarehouse = data;
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          setTimeout(() => {
+            $('.selectpicker').selectpicker('refresh');
+          });
+        }
+      );
   }
 }

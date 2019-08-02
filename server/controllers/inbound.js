@@ -65,6 +65,19 @@ module.exports = {
     }
   },
 
+  updateInboundQty: function(body, callback) {
+    if (body) {
+      Inbound.update(
+        {
+          quantity: body.quantity
+        },
+        { where: { id: body.id } }
+      ).then(function(result) {
+        callback(result);
+      });
+    }
+  },
+
   getRecordsCompany: function(company, callback) {
     if (company) {
       Inbound.findAll({
@@ -109,7 +122,7 @@ module.exports = {
   proposeConfirm: function(body, callback) {
     if (body.id) {
       Inbound.update(
-        { proposeStatus: 1 },
+        { proposeStatus: true, quantity: body.quantity },
         {
           where: {
             id: body.id
@@ -128,14 +141,14 @@ module.exports = {
 
   findAwardsUser: function(dealId, callback) {
     if (dealId) {
-      Inbound.findAll({ where: { dealId: dealId } }).then(function(result) {
+      Inbound.findAll({ where: { dealId: dealId }}, ).then(function(result) {
         callback(result);
       });
     }
   },
 
   updateAwards: function(awardsIds, price, awards, callback) {
-    var inboundIds = awardsIds.split(",");
+    var inboundIds = awardsIds.split(',');
     Inbound.update(
       {
         price: price,

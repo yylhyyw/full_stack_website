@@ -15,9 +15,14 @@ import { InboundService } from '../../services/inbound.service';
 
 import { LinkifyPipe } from '../../custom-pipes/linkify.pipe';
 
+import { KeysPipe } from '../../custom-pipes/keys.pipe';
+
 import { thisExpression, arrayExpression } from 'babel-types';
 
+import { StorageService } from '../../services/storage.service';
+
 declare var $: any;
+
 @Component({
   selector: 'app-home-active-deal-list',
   templateUrl: './home-active-deal-list.component.html',
@@ -28,7 +33,9 @@ declare var $: any;
     ProductService,
     GroupService,
     InboundService,
-    LinkifyPipe
+    LinkifyPipe,
+    StorageService,
+    KeysPipe
   ]
 })
 export class HomeActiveDealListComponent implements OnInit {
@@ -63,9 +70,9 @@ export class HomeActiveDealListComponent implements OnInit {
     ''
   );
 
-  public publicWarehouse = '13 Garabedian Dr, Unit C, Salem NH 03079';
+  public publicWarehouse: any;
 
-  public privateWarehouse = '';
+  public privateWarehouse: any;
 
   public isUpdated: any;
 
@@ -99,13 +106,25 @@ export class HomeActiveDealListComponent implements OnInit {
 
   public membersTemp: any;
 
+  public dealCreator: any;
+
+  public selectPrivateWarehouse: any;
+
+  public selectPublicWarehouse: any;
+
+  public awardsUsersUnique = new Array();
+
+  public awardsUsersUniqueQty = new Array();
+
   constructor(
     private dealService: DealService,
     private authenticationService: AuthenticationService,
     private productService: ProductService,
     private groupService: GroupService,
     private inboundService: InboundService,
-    private linkify: LinkifyPipe
+    private linkify: LinkifyPipe,
+    private keys: KeysPipe,
+    private storageService: StorageService
   ) {}
 
   ngOnInit() {
@@ -165,6 +184,8 @@ export class HomeActiveDealListComponent implements OnInit {
 
   takeDeal(productId: any) {
     if (!this.privilege) {
+      this.dealCreator = this.dealList[productId].creator;
+      this.Storage(this.dealCreator);
       if (productId >= 0) {
         this.inbound.product = this.dealList[productId].product_name;
         this.inbound.price = this.dealList[productId].price;
@@ -195,31 +216,56 @@ export class HomeActiveDealListComponent implements OnInit {
       this.selectDeal.serviceTag = this.dealList[productId].service_tag;
       this.selectDeal.notify = this.dealList[productId].notify;
       this.selectDeal.creator = this.dealList[productId].creator;
+      this.selectDeal.members = this.dealList[productId].members;
+      this.selectDeal.dealPublic = this.dealList[productId].public;
       // this.selectDeal.warehouse = this.publicWarehouse;
     }
   }
 
   createInbound() {
     if (this.selfWarehouse) {
-      this.inbound.warehouse = this.privateWarehouse;
+      this.inbound.warehouse = this.selectPrivateWarehouse;
     } else {
-      this.inbound.warehouse = this.publicWarehouse;
+      this.inbound.warehouse = this.selectPublicWarehouse;
     }
     this.inboundService
       .create(this.inbound)
       .pipe(first())
-      .subscribe(data => {
-        this.ngOnInit();
-        this.isCreated = true;
-        this.inbound.clear();
-        this.selectProductId = null;
-      });
+      .subscribe(
+        data => {
+          this.ngOnInit();
+          this.isCreated = true;
+          this.inbound.clear();
+          this.selectProductId = null;
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          this.inbound.clear();
+          this.selectPrivateWarehouse = null;
+          this.selectPublicWarehouse = null;
+        }
+      );
   }
 
   updateCompany() {
     if (this.awardsUsers) {
       this.update();
     }
+    const date =
+      this.year +
+      '-' +
+      this.month +
+      '-' +
+      this.days +
+      ' ' +
+      this.hour +
+      ':' +
+      this.minutes +
+      ':' +
+      '00';
+    this.selectDeal.expiresAt = date;
     this.dealService
       .updateCompany(this.selectDeal)
       .pipe(first())
@@ -232,6 +278,7 @@ export class HomeActiveDealListComponent implements OnInit {
   useSelfWarehouse() {
     this.selfWarehouse = true;
     this.inbound.publicWarehouse = false;
+    this.privateStorage(this.creator);
   }
 
   usePublicWarehouse() {
@@ -244,7 +291,23 @@ export class HomeActiveDealListComponent implements OnInit {
       .findAwardsUser(this.selectDeal.id)
       .pipe(first())
       .subscribe(data => {
+        // console.log(data);
         this.awardsUsers = data;
+        while (this.awardsUsers.length >= 1) {
+          let currentAwardsUser = this.awardsUsers.pop();
+          if (currentAwardsUser !== undefined) {
+            if (
+              !this.awardsUsersUnique.includes(currentAwardsUser.individual)
+            ) {
+              this.awardsUsersUnique.push(currentAwardsUser.individual);
+              this.awardsUsersUniqueQty[currentAwardsUser.individual] =
+                currentAwardsUser.quantity;
+            } else {
+              this.awardsUsersUniqueQty[currentAwardsUser.individual] +=
+                currentAwardsUser.quantity;
+            }
+          }
+        }
       });
   }
 
@@ -312,6 +375,47 @@ export class HomeActiveDealListComponent implements OnInit {
       .subscribe(
         data => {
           this.groupList = data;
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          setTimeout(() => {
+            $('.selectpicker').selectpicker('refresh');
+          });
+        }
+      );
+  }
+
+  Storage(dealCreator) {
+    console.log(dealCreator);
+    this.storageService
+      .retrieve(dealCreator)
+      .pipe(first())
+      .subscribe(
+        data => {
+          console.log(data);
+          this.publicWarehouse = data;
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          setTimeout(() => {
+            $('.selectpicker').selectpicker('refresh');
+          });
+        }
+      );
+  }
+
+  privateStorage(creator) {
+    console.log(creator);
+    this.storageService
+      .retrieve(creator)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.privateWarehouse = data;
         },
         error => {
           console.log(error);

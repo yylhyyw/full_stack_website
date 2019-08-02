@@ -22,7 +22,7 @@
             ></div>
             <p class="text-danger show">Price: {{deal.price}} Quantity: {{ deal.quantity }}/{{ deal.quantity + deal.quantityTaken }}</p>
           </td>
-          <td class="hide">{{ deal.price }}</td>
+          <td class="hide text-success">${{ deal.price }}</td>
           <td class="hide">{{ deal.quantity }}/{{ deal.quantity + deal.quantityTaken }}</td>
           <!-- <td class="hide"> -->
           <!-- </td> -->
@@ -101,7 +101,7 @@
               propose
             </button>
             </td>
-            <td class="hide">{{ deal.price }}</td>
+            <td class="hide text-success">${{ deal.price }}</td>
             <td class="hide">
               <button
                 id="{{ i }}"
@@ -162,17 +162,65 @@
                         />
                       </div>
                       <div class="form-group">
-                        <label for="warehouse" class="col-form-label"
-                          >warehouse:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="warehouse"
-                          name="warehouse"
-                          [(ngModel)]="inbound.warehouse"
-                        />
-                      </div>
+                          <label class="col-form-label">Warehouse:</label>
+                          <br />
+                          <label for="warehouse" class="col-form-label"
+                            >Public Warehouse:</label
+                          >
+                          <select
+                              class="selectpicker form-control selectwidthauto"
+                              data-live-search="true"
+                              name="product"
+                              [(ngModel)]="selectPublicWarehouse"
+                              style="width: auto;"
+                            >
+                            <option value="">select one below</option>
+                              <option
+                                *ngFor="let address of publicWarehouse"
+                                name="address"
+                                class="selectOption"
+                                data-width="auto"
+                                data-mobile="true"
+                              >
+                                {{ address.address }}
+                              </option>
+                            </select>
+                          <button
+                            class="btn btn-primary btn-sm mt-1"
+                            (click)="useSelfWarehouse()"
+                          >
+                            Use self warehouse
+                          </button>
+                          <div *ngIf="selfWarehouse">
+                            <label for="selfWarehouse" class="col-form-label"
+                              >Self Warehouse:</label
+                            >
+                            <select
+                            class="selectpicker form-control selectwidthauto"
+                            data-live-search="true"
+                            name="address"
+                            [(ngModel)]="selectPrivateWarehouse"
+                            style="width: auto;"
+                          >
+                          <option value="">select one below</option>
+                            <option
+                              *ngFor="let address of privateWarehouse"
+                              name="address"
+                              class="selectOption"
+                              data-width="auto"
+                              data-mobile="true"
+                            >
+                              {{ address.address }}
+                            </option>
+                          </select>
+                            <button
+                              class="btn btn-primary btn-sm mt-1"
+                              (click)="usePublicWarehouse()"
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        </div>
                     </form>
                   </div>
                   <div class="modal-footer">

@@ -72,14 +72,14 @@ module.exports = {
     }
   },
   individualReturn: function(id, quantity, callback) {
-    if(id) {
+    if (id) {
       Deal.increment(['quantity'], {
         by: quantity,
-        where: {id: id}
-      }) .then(function(result) {
+        where: { id: id }
+      }).then(function(result) {
         Deal.decrement(['quantityTaken'], {
           by: quantity,
-          where: {id: id}
+          where: { id: id }
         }).then(function(result) {
           Deal.findByPk(id).then(function(product) {
             callback(product);
@@ -105,11 +105,34 @@ module.exports = {
       });
     }
   },
-
+  giveBackQty: function(body, callback) {
+    if (body) {
+      Deal.decrement(['quantityTaken'], {
+        by: body.quantity,
+        where: { id: body.dealId }
+      }).then(function(res) {
+        Deal.increment(['quantity'], {
+          by: body.quantity,
+          where: { id: body.dealId }
+        }).then(function(result) {
+          callback(result);
+        });
+      });
+    }
+  },
   update: function(deal, callback) {
     if (deal) {
       Deal.update(
-        { quantity: deal.quantity, price: deal.price },
+        {
+          quantity: deal.quantity,
+          price: deal.price,
+          expires_at: deal.expiresAt,
+          note: deal.note,
+          service_tag: deal.serviceTag,
+          public: deal.dealPublic,
+          notify: deal.notify,
+          members: deal.members
+        },
         {
           where: {
             id: deal.id

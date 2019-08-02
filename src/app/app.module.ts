@@ -30,6 +30,7 @@ import { UserJoinComponent } from './groups/user-join/user-join.component';
 import { ProposeDealComponent } from './home/propose-deal/propose-deal.component';
 import { ActivateComponent } from './user_components/activate/activate.component';
 import { StorageComponent } from './storage/storage.component';
+import { KeysPipe } from './custom-pipes/keys.pipe';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { StorageComponent } from './storage/storage.component';
     UserJoinComponent,
     ProposeDealComponent,
     ActivateComponent,
-    StorageComponent
+    StorageComponent,
+    KeysPipe
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [

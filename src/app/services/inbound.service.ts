@@ -25,6 +25,8 @@ export class InboundService {
   cancelInboundUrl = 'http://192.168.1.90:8081/api/inbound/cancelInbound';
   findAwardsUsersUrl = 'http://192.168.1.90:8081/api/inbound/findAwardsUser';
   updateAwardsUrl = 'http://192.168.1.90:8081/api/inbound/updateAwards';
+  updateInboundQtyUrl = 'http://192.168.1.90:8081/api/inbound/updateInboundQty';
+
   // NameUrl = 'http://192.168.1.119:8081/api/product/name';
   constructor(private http: HttpClient) {}
 
@@ -160,6 +162,34 @@ export class InboundService {
     // console.log(JSON.parse(creatorJSON));
     return this.http.post<any>(
       this.updateAwardsUrl,
+      JSON.parse(creatorJSON),
+      httpOptions
+    );
+  }
+
+  updateInboundQty(
+    dealId: number,
+    id: number,
+    quantity: number
+  ): Observable<any> {
+    const creatorJSON =
+      '{ "dealId" : ' +
+      '"' +
+      dealId +
+      '"' +
+      ', ' +
+      '"id" : ' +
+      '"' +
+      id +
+      '"' +
+      ', ' +
+      '"quantity" : ' +
+      '"' +
+      quantity +
+      '"' +
+      ' }';
+    return this.http.post<any>(
+      this.updateInboundQtyUrl,
       JSON.parse(creatorJSON),
       httpOptions
     );

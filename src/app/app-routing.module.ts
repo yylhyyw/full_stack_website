@@ -20,9 +20,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserGroupsComponent } from './groups/user-groups/user-groups.component';
 import { UserJoinComponent } from './groups/user-join/user-join.component';
 import { ProposeDealComponent } from './home/propose-deal/propose-deal.component';
-import {ActivateComponent} from './user_components/activate/activate.component';
+import { ActivateComponent } from './user_components/activate/activate.component';
+import { StorageComponent } from './storage/storage.component';
 
 const routes: Routes = [
+  { path: 'storage', canActivate: [AuthGuard], component: StorageComponent },
   {
     path: 'dashboard',
     canActivate: [AuthGuard],

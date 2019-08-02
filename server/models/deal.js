@@ -19,10 +19,11 @@ module.exports = (sequelize, DataTypes) => {
       },
       quantity: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: 0
       },
       quantityTaken: {
         type: DataTypes.INTEGER,
+        defaultValue: 0
       },
       expires_at: {
         type: DataTypes.DATE,

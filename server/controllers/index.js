@@ -6,6 +6,7 @@ const product = require('./product');
 const subscription = require('./subscription');
 const inbound = require('./inbound');
 const userGroup = require('./userGroup');
+const storage = require('./storage');
 
 module.exports = {
     group,
@@ -16,4 +17,5 @@ module.exports = {
     subscription,
     inbound,
     userGroup,
+    storage,
 };

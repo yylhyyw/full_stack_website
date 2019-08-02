@@ -34,7 +34,13 @@ export class UserGroupsComponent implements OnInit {
 
   public allMembers: any;
 
-  public isEditing = false ;
+  public isEditing = false;
+
+  public selectGroupMember: string;
+
+  public groupNotInclude: any;
+
+  public selectId: any;
 
   constructor(
     private groupService: GroupService,
@@ -111,7 +117,58 @@ export class UserGroupsComponent implements OnInit {
   }
 
   groupEdit(id) {
-    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
     this.isEditing = true;
+  }
+
+  selectGroup(i) {
+    this.selectGroupMember = this.groupList[i].member;
+    this.selectId = this.groupList[i].id;
+  }
+
+  checkExisted(member) {
+    if (member && this.selectGroupMember) {
+      if (this.selectGroupMember.includes(member)) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  }
+  groupMemberAdd(i) {
+    const memberAdd = this.allMembers[i].individual;
+    const currentMemberArray = this.selectGroupMember.split(',');
+    currentMemberArray.push(memberAdd);
+    const currentMemberString = currentMemberArray.toString();
+    this.groupService
+      .updateGroup(this.selectId, currentMemberString)
+      .pipe(first())
+      .subscribe(
+        data => {},
+        error => {
+          console.log(error);
+        },
+        () => {
+          this.ngOnInit();
+        }
+      );
+  }
+
+  groupMemberDelete(i) {
+    const memberAdd = this.allMembers[i].individual;
+    const currentMemberArray = this.selectGroupMember.split(',');
+    currentMemberArray.splice(i, 1);
+    const currentMemberString = currentMemberArray.toString();
+    this.groupService
+      .updateGroup(this.selectId, currentMemberString)
+      .pipe(first())
+      .subscribe(
+        data => {},
+        error => {
+          console.log(error);
+        },
+        () => {
+          this.ngOnInit();
+        }
+      );
   }
 }

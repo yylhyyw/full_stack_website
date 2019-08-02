@@ -37,8 +37,28 @@ export class GroupService {
   userGroupCreateUrl = 'http://192.168.1.90:8081/api/group/create';
   userGroupDeleteUrl = 'http://192.168.1.90:8081/api/group/delete';
   userGroupRetrieveUrl = 'http://192.168.1.90:8081/api/group/retrieve';
+  updateGroupUrl = 'http://192.168.1.90:8081/api/group/update';
 
   constructor(private http: HttpClient) {}
+
+  updateGroup(groupId: number, groupMember: string): Observable<any> {
+    const creatorJSON =
+      '{ "groupId" : ' +
+      '"' +
+      groupId +
+      '"' +
+      ', ' +
+      '"groupMember" : ' +
+      '"' +
+      groupMember +
+      '"' +
+      ' }';
+    return this.http.post<any>(
+      this.updateGroupUrl,
+      JSON.parse(creatorJSON),
+      httpOptions
+    );
+  }
   tenSubscribers(company: string): Observable<string> {
     const creatorJSON = '{ "company" : ' + '"' + company + '"' + ' }';
 
@@ -60,7 +80,6 @@ export class GroupService {
       httpOptions
     );
   }
-
   setActive(subscription: Subscription): Observable<Subscription> {
     return this.http.post<Subscription>(
       this.setActiveUrl,
